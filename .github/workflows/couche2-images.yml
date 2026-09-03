@@ -2,28 +2,37 @@ name: Couche 2 — lecture des emballages
 
 # Declenchement MANUEL uniquement. Ce workflow appelle une API payante et lit
 # des images sur un hote externe : il ne doit pas partir sur un push.
+#
+# Secret requis dans le depot : STUDY_API_KEY
+# (Settings -> Secrets and variables -> Actions)
 on:
   workflow_dispatch:
     inputs:
+      etape:
+        description: "preflight = 1 seul appel ; lot = lecture complete"
+        required: true
+        default: "preflight"
+        type: choice
+        options: ["preflight", "lot"]
       max_produits:
-        description: "Nombre maximum de produits a lire (commencer petit)"
+        description: "Nombre maximum de produits a lire (etape lot)"
         required: true
         default: "20"
       modele:
-        description: "Modele de vision"
-        required: true
-        default: "claude-haiku-4-5"
+        description: "Modele (vide = celui de config/lecture_image.yaml)"
+        required: false
+        default: ""
       taille_image:
         description: "Resolution demandee a Open Food Facts"
         required: true
         default: "full"
         type: choice
-        options: ["full", "400"]
+        options: ["full", "800", "400"]
 
 jobs:
   lecture:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
 
@@ -34,34 +43,47 @@ jobs:
       - name: Dependances
         run: |
           pip install -r requirements.txt
-          pip install anthropic
+          pip install openai
 
       - name: Espace disque
         run: df -h /
 
       # Le runner GitHub n'a pas les restrictions reseau de l'environnement de
-      # developpement : il joint le dump, et surtout images.openfoodfacts.org.
+      # developpement : il joint le dump Open Food Facts, images.openfoodfacts.org
+      # et la passerelle du modele.
       - name: Couche 1 — dump, perimetre, assertions
         run: make couche1
 
-      - name: Couche 2 — lecture des emballages
+      # Un seul appel. Verifie que la passerelle relaie bien l'image jusqu'au
+      # modele : sans cette preuve, un lot complet produirait des lectures
+      # inventees a partir du seul texte de la consigne.
+      - name: Preflight
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          STUDY_API_KEY: ${{ secrets.STUDY_API_KEY }}
         run: |
-          if [ -z "$ANTHROPIC_API_KEY" ]; then
-            echo "::error::secret ANTHROPIC_API_KEY absent du depot."
+          if [ -z "$STUDY_API_KEY" ]; then
+            echo "::error::secret STUDY_API_KEY absent du depot."
             exit 1
           fi
-          python3 src/couche2_lecture_image.py \
-            --executer \
-            --modele "${{ inputs.modele }}" \
+          python3 src/couche2_lecture_image.py --preflight \
+            --taille "${{ inputs.taille_image }}" \
+            ${{ inputs.modele && format('--modele {0}', inputs.modele) || '' }}
+
+      - name: Lecture du lot
+        if: inputs.etape == 'lot'
+        env:
+          STUDY_API_KEY: ${{ secrets.STUDY_API_KEY }}
+        run: |
+          python3 src/couche2_lecture_image.py --executer \
             --max "${{ inputs.max_produits }}" \
-            --taille "${{ inputs.taille_image }}"
+            --taille "${{ inputs.taille_image }}" \
+            ${{ inputs.modele && format('--modele {0}', inputs.modele) || '' }}
 
       # Le taux d'erreur ne peut etre calcule que si un humain a rempli
       # donnees_humaines/double_codage.csv. Sans lui, la lecture reste
       # descriptive : on le dit, on n'echoue pas le job pour autant.
       - name: Taux d'erreur contre le double codage humain
+        if: inputs.etape == 'lot'
         continue-on-error: true
         run: python3 src/couche2_validation.py
 

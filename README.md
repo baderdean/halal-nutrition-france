@@ -52,11 +52,40 @@ make couche1
 | `src/etape1_assertions.py` | assertions bloquantes, avant toute sortie |
 | `src/etape1_analyse.py` | comptages D0-D7 et comparaisons C1-C4 -> CSV |
 | `src/etape1_rapport.py` | assemblage du rapport, aucun chiffre en dur |
+| `config/lecture_image.yaml` | fournisseur de vision : URL, modele, tarifs |
+| `src/couche2_lecture_image.py` | lecture des emballages. Rien sans `--preflight` ni `--executer` |
+| `src/couche2_validation.py` | taux d'erreur contre le double codage humain |
+| `donnees_humaines/` | fichiers d'entree saisis a la main, jamais generes |
 | `sorties/` | CSV, `chiffres_cles.json`, rapport. Versionnes |
 
 `make amorce` est la seule etape qui ne fait pas partie du pipeline : elle sert
 a construire `config/perimetre.yaml` a la main. La relancer ne change aucun
 resultat.
+
+## Couche 2 — lecture des emballages
+
+Le certificateur et l'estampille halal sont imprimes sur le pack ; le tag Open
+Food Facts ne les renseigne que pour une minorite de produits. La lecture se
+fait par un modele de vision, dans l'Action GitHub
+`.github/workflows/couche2-images.yml` — declenchement manuel, jamais sur push,
+puisqu'elle appelle une API payante.
+
+Prerequis : le secret `STUDY_API_KEY` dans Settings -> Secrets and variables ->
+Actions. Fournisseur et modele dans `config/lecture_image.yaml`.
+
+Enchainement impose :
+
+1. `etape: preflight` — un seul appel. Verifie que la passerelle relaie bien
+   l'image jusqu'au modele. Une passerelle qui l'ignore repond quand meme, a
+   partir du seul texte de la consigne, et rien dans la sortie ne le signale.
+2. `etape: lot`, `max_produits: 20` — donne le cout reel par produit et le taux
+   de lisibilite selon la resolution demandee.
+3. Lot complet, une fois ces deux inconnues levees.
+
+La lecture reste **descriptive** tant que `src/couche2_validation.py` n'a pas
+publie son taux d'erreur contre un double codage humain en aveugle d'au moins
+200 produits. Au-dela de 10 % d'erreur, la variable est declassee et le
+pipeline le dit au lieu de continuer.
 
 ## Ce que la couche 1 conclut
 

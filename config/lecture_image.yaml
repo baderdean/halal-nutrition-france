@@ -1,0 +1,31 @@
+# Fournisseur de lecture d'image. API compatible OpenAI.
+#
+# Valeurs par defaut : passerelle OpenCode Zen, modele MiniMax M3.
+# La cle est lue dans STUDY_API_KEY (secret du depot, injecte par l Action).
+# M3 est nativement multimodal (entree image et video) ; la passerelle Zen est
+# compatible OpenAI sur /v1/chat/completions.
+#
+# CE QUI EST VERIFIE : le modele M3 accepte des images en entree, et Zen expose
+# une API compatible OpenAI a cette URL avec ce nom de modele.
+# CE QUI NE L'EST PAS : que la passerelle Zen relaie effectivement les blocs
+# `image_url` jusqu'au modele. Zen est d'abord une passerelle de modeles de
+# code. Les pages de documentation d'opencode.ai et de minimax.io sont
+# injoignables depuis l'environnement de developpement de ce depot.
+#
+# => `python3 src/couche2_lecture_image.py --preflight` tranche la question en
+#    un seul appel. Le lancer AVANT tout lot.
+
+base_url: https://opencode.ai/zen/v1
+variable_env_cle: STUDY_API_KEY
+modele: minimax-m3
+
+# Tarifs annonces par les agregateurs, en dollars par million de tokens.
+# Servent a chiffrer un run, pas a facturer. A corriger si la facture diverge.
+tarif_entree_par_million: 0.30
+tarif_sortie_par_million: 1.20
+
+# Parametres specifiques MiniMax pour la resolution d'analyse. Non garantis a
+# travers la passerelle : envoyes seulement si --params-minimax est passe.
+params_minimax:
+  detail: high
+  max_long_side_pixel: 2016

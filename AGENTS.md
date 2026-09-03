@@ -73,6 +73,11 @@ rapport. Ecart hors tolerance = arret, pas d'avertissement.
   (`donnees_humaines/double_codage.csv`), jamais une sortie generee.
 - Priorite : ce passage sur les images sert d'abord a mesurer le taux de faux
   negatifs du tag halal. Le certificateur est un sous-produit du meme passage.
+- Aucun lot de lecture ne part sans un preflight reussi. Une passerelle qui
+  ignore silencieusement le bloc image repond quand meme, a partir du seul
+  texte de la consigne : la sortie serait entierement inventee et rien dans le
+  CSV ne le signalerait. Le preflight verifie le compte de tokens d'entree,
+  qui est la seule preuve que l'image a bien ete analysee.
 
 ## Distinction obligatoire dans toute sortie
 
