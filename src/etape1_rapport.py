@@ -44,6 +44,8 @@ def main() -> int:
     d6, d7 = lire("d6_additifs.csv"), lire("d7_nova.csv")
     c1, c2 = lire("c1_comparaison_sel.csv"), lire("c2_nutriscore_par_strate.csv")
     c3 = lire("c3_transformation_par_strate.csv")
+    img = lire("d8_couverture_image.csv")
+    img_halal = img[img.bras == "halal"].iloc[0].to_dict()
 
     v, ns, ce, se = k["volumetrie"], k["nutriscore"], k["certificateurs"], k["sel_ensemble"]
     tr = k["transformation"]
@@ -79,12 +81,16 @@ def main() -> int:
 
     verdicts_cert = {
         "inexploitable_couverture":
-            f"**Question abandonnee, pour couverture et non pour separabilite.** "
-            f"Seuls {ce['n_produits_halal_avec_certificateur']} produits halal sur "
-            f"{v['n_halal']} portent un tag de certificateur, soit "
-            f"{ce['pct_halal_avec_certificateur']} %. Une variable renseignee sur "
-            "7 % des cas ne permet aucune comparaison, separable ou non. "
-            "L'effet certificateur est retire du plan de la couche 4.",
+            f"**Inexploitable EN L'ETAT DU TAG, pour couverture et non pour "
+            f"separabilite.** Seuls {ce['n_produits_halal_avec_certificateur']} "
+            f"produits halal sur {v['n_halal']} portent un tag de certificateur, "
+            f"soit {ce['pct_halal_avec_certificateur']} %. Une variable renseignee "
+            "sur moins de 7 % des cas ne permet aucune comparaison, separable ou "
+            "non. La separabilite elle-meme reste INCONNUE : les produits tagues "
+            "ne sont pas un echantillon representatif, ce sont ceux dont un "
+            "contributeur a pris la peine de saisir le certificateur. "
+            "La question n'est donc pas close, elle est renvoyee a la lecture "
+            "d'image de la couche 2 (section 4bis).",
         "inseparable_de_la_marque":
             "**Certificateur et marque ne sont pas separables.** Les "
             "certificateurs presents ne couvrent qu'une ou deux marques chacun. "
@@ -223,10 +229,58 @@ def main() -> int:
       "controle de viande halal en sont l'exemple. Le comptage ci-dessus est "
       "donc une borne HAUTE du nombre d'organismes distincts.")
     A("")
-    A("`[INFERENCE]` Consequence pour la couche 4 : le facteur certificateur "
-      "est retire du modele. Il ne sera pas inclus en esperant que le modele "
-      "demele. L'annexe methodologique doit porter cette question dans la "
-      "liste des questions abandonnees, avec ce chiffre de couverture.")
+    A("`[INFERENCE]` Consequence immediate pour la couche 4 : en l'etat du tag, "
+      "le facteur certificateur ne peut pas entrer dans le modele. Il n'y sera "
+      "pas inclus en esperant que le modele demele. Sa reintroduction est "
+      "conditionnee au resultat de la section suivante.")
+    A("")
+    A("### 4bis. Voie de recuperation : lecture du certificateur sur l'image")
+    A("")
+    A("`[FAIT]` Le certificateur est imprime sur l'emballage. La couverture "
+      "photo du bras halal ne limite pas cette voie :")
+    A("")
+    A(md(img))
+    A("")
+    A(f"`[FAIT]` {img_halal['pct_au_moins_une']} % des produits halal ont au "
+      "moins une photo. Le facteur limitant est le renseignement du tag, pas "
+      "la disponibilite de l'image.")
+    A("")
+    A("`[HYPOTHESE]` Un modele de vision de petite taille peut lire le logo du "
+      "certificateur sur ces photos. Trois conditions non verifiees a ce jour, "
+      "toutes verifiables en couche 2 :")
+    A("")
+    A("1. **Resolution.** Les URL de l'export pointent des images en 400 px sur "
+      "le grand cote. Un logo de certificateur y occupe quelques dizaines de "
+      "pixels. Une taille superieure semble accessible en changeant le suffixe "
+      "de l'URL ; non verifie, l'hote images est injoignable depuis "
+      "l'environnement d'execution de ce depot.")
+    A("2. **Presence du logo sur la face photographiee.** Une part inconnue des "
+      "certifications n'apparait ni sur la face ni sur la photo ingredients.")
+    A("3. **Taux d'erreur mesure.** Il doit l'etre contre un echantillon recode "
+      "a la main en aveugle, par un humain, au meme standard que le parseur du "
+      "pourcentage de viande.")
+    A("")
+    A("`[INFERENCE]` L'erreur de lecture ne sera pas aleatoire, elle sera "
+      "**correlee a la marque** : une marque, un design d'emballage, le meme "
+      "logo au meme endroit sur toute la gamme. Un logo mal lu l'est alors sur "
+      "l'integralite des references de cette marque d'un seul coup. Injectee "
+      "telle quelle dans le modele mixte de la couche 4, cette erreur produit "
+      "un effet certificateur qui n'est qu'un effet marque mal mesure — "
+      "exactement le confondant que le modele est cense demeler. Une erreur "
+      "aleatoire dilue un effet ; celle-ci en fabrique un.")
+    A("")
+    A("`[INFERENCE]` La parade est celle que les specs imposent deja pour le "
+      "statut halal : verifier **par marque et par design d'emballage**, pas "
+      f"par produit. Les {k['sous_etiquetage']['n_marques_examinees']} marques "
+      "de la section 5 couvrent l'essentiel du bras halal. Le modele de vision "
+      "ne tranche pas le certificateur reference par reference : il lit le "
+      "design de reference de chaque marque, valide a la main une fois, puis "
+      "sert a reperer les produits dont l'emballage s'ecarte de ce design.")
+    A("")
+    A("`[INFERENCE]` Priorite : ce passage sur les images doit d'abord servir a "
+      "mesurer le taux de faux negatifs du tag halal (section 5), qui commande "
+      "l'amplitude de tous les ecarts de la section 6. Le certificateur est un "
+      "sous-produit du meme passage, pas sa justification.")
     A("")
     A("---")
     A("")

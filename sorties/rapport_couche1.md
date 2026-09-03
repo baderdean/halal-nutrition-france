@@ -1,6 +1,6 @@
 # Etude halal / non halal — rapport de couche 1
 
-Genere le 2026-09-03 par `src/etape1_rapport.py`, revision `inconnue`. Tous les chiffres sont derives des CSV de `sorties/`, aucun n'est saisi a la main.
+Genere le 2026-09-03 par `src/etape1_rapport.py`, revision `c47bff1`. Tous les chiffres sont derives des CSV de `sorties/`, aucun n'est saisi a la main.
 
 **Ce rapport ne conclut pas sur la qualite nutritionnelle des produits halal.** Il repond a une question de faisabilite : les donnees permettent-elles l'etude, et sur quelles variables. L'ecart chiffre presente en section 6 est brut, non ajuste, non apparie. Il n'est pas un resultat publiable en l'etat, et la section 7 dit pourquoi.
 
@@ -113,24 +113,47 @@ Le perimetre est bati sur les categories reellement observees dans le dump, pas 
 | en:societe-francaise-de-controle-de-viande-halal-grande-mosquee-de-paris |           44 |           7 |
 | en:halal-food-council-of-europe                                          |           28 |           8 |
 | fr:societe-francaise-de-controle-de-viande-halal-grande-mosquee-de-paris |            6 |           2 |
-| fr:tracabilite-100-halal                                                 |            3 |           1 |
 | fr:halal-certification-germany                                           |            3 |           3 |
+| fr:tracabilite-100-halal                                                 |            3 |           1 |
 | en:societe-francaise-de-controle-de-viande-halal                         |            2 |           2 |
-| fr:controle-mosquee-de-paris-halal                                       |            1 |           1 |
-| fr:id-halal                                                              |            1 |           1 |
-| en:tracabilite100halal                                                   |            1 |           1 |
-| fr:controle-grande-mosquee-de-lyon-halal                                 |            1 |           1 |
 | fr:organisme-de-controle-independant-avs-halal                           |            1 |           1 |
 | fr:halal-food-concil-of-europe                                           |            1 |           1 |
 | fr:controle-certification-avs-halal                                      |            1 |           1 |
 | en:label-certification-halal                                             |            1 |           1 |
 | fr:halal-mosquee-courcouronnes                                           |            1 |           1 |
+| fr:controle-mosquee-de-paris-halal                                       |            1 |           1 |
+| fr:id-halal                                                              |            1 |           1 |
+| en:tracabilite100halal                                                   |            1 |           1 |
+| fr:controle-grande-mosquee-de-lyon-halal                                 |            1 |           1 |
 
-`[FAIT]` **Question abandonnee, pour couverture et non pour separabilite.** Seuls 165 produits halal sur 2387 portent un tag de certificateur, soit 6.9 %. Une variable renseignee sur 7 % des cas ne permet aucune comparaison, separable ou non. L'effet certificateur est retire du plan de la couche 4.
+`[FAIT]` **Inexploitable EN L'ETAT DU TAG, pour couverture et non pour separabilite.** Seuls 165 produits halal sur 2387 portent un tag de certificateur, soit 6.9 %. Une variable renseignee sur moins de 7 % des cas ne permet aucune comparaison, separable ou non. La separabilite elle-meme reste INCONNUE : les produits tagues ne sont pas un echantillon representatif, ce sont ceux dont un contributeur a pris la peine de saisir le certificateur. La question n'est donc pas close, elle est renvoyee a la lecture d'image de la couche 2 (section 4bis).
 
 `[FAIT]` Plusieurs tags designent le meme organisme sous des orthographes differentes — les variantes `fr:` et `en:` de la Societe francaise de controle de viande halal en sont l'exemple. Le comptage ci-dessus est donc une borne HAUTE du nombre d'organismes distincts.
 
-`[INFERENCE]` Consequence pour la couche 4 : le facteur certificateur est retire du modele. Il ne sera pas inclus en esperant que le modele demele. L'annexe methodologique doit porter cette question dans la liste des questions abandonnees, avec ce chiffre de couverture.
+`[INFERENCE]` Consequence immediate pour la couche 4 : en l'etat du tag, le facteur certificateur ne peut pas entrer dans le modele. Il n'y sera pas inclus en esperant que le modele demele. Sa reintroduction est conditionnee au resultat de la section suivante.
+
+### 4bis. Voie de recuperation : lecture du certificateur sur l'image
+
+`[FAIT]` Le certificateur est imprime sur l'emballage. La couverture photo du bras halal ne limite pas cette voie :
+
+| bras   |     n |   pct_photo_face |   pct_photo_ingredients |   pct_au_moins_une |
+|:-------|------:|-----------------:|------------------------:|-------------------:|
+| halal  |  2387 |             98.3 |                    56.9 |               99.7 |
+| temoin | 89027 |             94.2 |                    57   |               96.3 |
+
+`[FAIT]` 99.7 % des produits halal ont au moins une photo. Le facteur limitant est le renseignement du tag, pas la disponibilite de l'image.
+
+`[HYPOTHESE]` Un modele de vision de petite taille peut lire le logo du certificateur sur ces photos. Trois conditions non verifiees a ce jour, toutes verifiables en couche 2 :
+
+1. **Resolution.** Les URL de l'export pointent des images en 400 px sur le grand cote. Un logo de certificateur y occupe quelques dizaines de pixels. Une taille superieure semble accessible en changeant le suffixe de l'URL ; non verifie, l'hote images est injoignable depuis l'environnement d'execution de ce depot.
+2. **Presence du logo sur la face photographiee.** Une part inconnue des certifications n'apparait ni sur la face ni sur la photo ingredients.
+3. **Taux d'erreur mesure.** Il doit l'etre contre un echantillon recode a la main en aveugle, par un humain, au meme standard que le parseur du pourcentage de viande.
+
+`[INFERENCE]` L'erreur de lecture ne sera pas aleatoire, elle sera **correlee a la marque** : une marque, un design d'emballage, le meme logo au meme endroit sur toute la gamme. Un logo mal lu l'est alors sur l'integralite des references de cette marque d'un seul coup. Injectee telle quelle dans le modele mixte de la couche 4, cette erreur produit un effet certificateur qui n'est qu'un effet marque mal mesure — exactement le confondant que le modele est cense demeler. Une erreur aleatoire dilue un effet ; celle-ci en fabrique un.
+
+`[INFERENCE]` La parade est celle que les specs imposent deja pour le statut halal : verifier **par marque et par design d'emballage**, pas par produit. Les 42 marques de la section 5 couvrent l'essentiel du bras halal. Le modele de vision ne tranche pas le certificateur reference par reference : il lit le design de reference de chaque marque, valide a la main une fois, puis sert a reperer les produits dont l'emballage s'ecarte de ce design.
+
+`[INFERENCE]` Priorite : ce passage sur les images doit d'abord servir a mesurer le taux de faux negatifs du tag halal (section 5), qui commande l'amplitude de tous les ecarts de la section 6. Le certificateur est un sous-produit du meme passage, pas sa justification.
 
 ---
 
@@ -144,8 +167,8 @@ Le perimetre est bati sur les categories reellement observees dans le dump, pas 
 | fleury-michon    | Fleury Michon              |         1116 |         75 |         6.7 |
 | lidl             | Lidl, L’étal Du Vollailler |          459 |          8 |         1.7 |
 | socopa           | socopa                     |          265 |          7 |         2.6 |
-| isla-delice      | Isla Délice                |          192 |        190 |        99   |
 | sans-marque      | sans marque                |          192 |          9 |         4.7 |
+| isla-delice      | Isla Délice                |          192 |        190 |        99   |
 | reghalal         | Reghalal                   |          147 |        129 |        87.8 |
 | aia              | AIA                        |           93 |         21 |        22.6 |
 | oriental-viandes | Oriental Viandes           |           91 |         85 |        93.4 |
@@ -156,15 +179,15 @@ Le perimetre est bati sur les categories reellement observees dans le dump, pas 
 | id-halal         | ID-Halal                   |           38 |         38 |       100   |
 | royal-halal      | Royal HALAL                |           30 |         30 |       100   |
 | suntat           | suntat                     |           25 |         25 |       100   |
-| halal            | Halal                      |           24 |         23 |        95.8 |
 | al-jadid         | Al Jadid                   |           24 |         22 |        91.7 |
+| halal            | Halal                      |           24 |         23 |        95.8 |
 | wassila          | Wassila                    |           22 |         22 |       100   |
 | doux             | Doux                       |           19 |          5 |        26.3 |
 | hunkar           | Hunkar                     |           17 |         14 |        82.4 |
 | volibon          | Volibon                    |           15 |         15 |       100   |
 | medina-halal     | MEDINA HALAL               |           15 |         15 |       100   |
-| dounia-halal     | Dounia Halal               |           14 |         14 |       100   |
-| kenza-halal      | Kenza Halal                |           14 |         14 |       100   |
+| mahdia           | Mahdia                     |           14 |         14 |       100   |
+| yayla            | Yayla                      |           14 |          8 |        57.1 |
 
 `[FAIT]` Parmi ces 42 marques, 29 ont au moins 80 % de leur gamme carnee taguee halal, soit 916 produits. Parmi eux, 39 ne portent pas le tag alors que la marque est manifestement specialisee.
 
@@ -182,7 +205,7 @@ Deux variables seulement, comme prevu par les specs : sel pour 100 g et Nutri-Sc
 |:------------------------|----------:|-----------:|-------------------:|---------------:|---------------:|--------------------:|----------------:|----------------:|----------------:|-----------:|------------:|:--------------------|
 | autres_carnes           |       358 |      15798 |               1.8  |           1.21 |           2.52 |                1.3  |            0.4  |            1.9  |            0.5  |      0.4   |        0.7  | True                |
 | charcuterie_cuite       |       343 |      13208 |               2.4  |           1.9  |           3    |                1.9  |            1.7  |            2.5  |            0.5  |      0.5   |        0.6  | True                |
-| panes                   |       290 |       3020 |               1.27 |           1    |           1.5  |                1    |            0.73 |            1.29 |            0.27 |      0.24  |        0.3  | True                |
+| panes                   |       290 |       3020 |               1.27 |           1    |           1.5  |                1    |            0.73 |            1.29 |            0.27 |      0.245 |        0.3  | True                |
 | saucisses               |       240 |       5778 |               2.2  |           1.83 |           2.57 |                1.9  |            1.7  |            2.2  |            0.3  |      0.165 |        0.3  | True                |
 | charcuterie_seche       |       235 |       6031 |               3.6  |           2.6  |           4.4  |                4.3  |            3.4  |            4.8  |           -0.7  |     -0.8   |       -0.5  | True                |
 | decoupes                |       208 |       7939 |               1.3  |           0.56 |           1.8  |                0.25 |            0.13 |            1.21 |            1.05 |      0.94  |        1.25 | True                |

@@ -51,6 +51,20 @@
     "n_note_halal": 1010,
     "n_note_temoin": 32487
   },
+  "couverture_image": {
+    "halal": {
+      "n": 2387,
+      "pct_photo_face": 98.3,
+      "pct_photo_ingredients": 56.9,
+      "pct_au_moins_une": 99.7
+    },
+    "temoin": {
+      "n": 89027,
+      "pct_photo_face": 94.2,
+      "pct_photo_ingredients": 57.0,
+      "pct_au_moins_une": 96.3
+    }
+  },
   "sel_ensemble": {
     "sous_categorie": "_ensemble_",
     "n_halal": 1960,

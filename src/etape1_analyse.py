@@ -43,7 +43,8 @@ def vue(con) -> None:
         "labels_tags", "additives_tags", "additives_n", "nova_group",
         "nutriscore_grade", "nutriscore_score", "sous_categorie", "bras",
         "tag_halal", "tags_halal_bruts", "fiber_100g", "sodium_100g",
-        "completeness", "image_url",
+        "completeness", "image_url", "image_ingredients_url",
+        "image_nutrition_url",
     ]
     con.execute(f"""
         CREATE VIEW p AS
@@ -289,6 +290,30 @@ def main() -> int:
         "pct_temoin": float(d7.loc[d7.nova == 4, "pct_temoin"].sum()),
         "n_note_halal": int(d7.halal.sum()), "n_note_temoin": int(d7.temoin.sum()),
     }
+
+    # ---------------------------------------------------------------- D8
+    titre("D8 — couverture photo (voie de recuperation du certificateur)")
+    print("Le certificateur est imprime sur l'emballage. Si la photo existe,")
+    print("la question du certificateur n'est pas close par la seule absence")
+    print("de tag : elle est renvoyee a la lecture d'image, couche 2.\n")
+    d8 = con.execute("""
+        SELECT bras, count(*) AS n,
+               round(100.0 * sum(CASE WHEN image_url IS NOT NULL
+                                      THEN 1 ELSE 0 END) / count(*), 1)
+                   AS pct_photo_face,
+               round(100.0 * sum(CASE WHEN image_ingredients_url IS NOT NULL
+                                      THEN 1 ELSE 0 END) / count(*), 1)
+                   AS pct_photo_ingredients,
+               round(100.0 * sum(CASE WHEN image_url IS NOT NULL
+                                       OR image_ingredients_url IS NOT NULL
+                                       OR image_nutrition_url IS NOT NULL
+                                      THEN 1 ELSE 0 END) / count(*), 1)
+                   AS pct_au_moins_une
+        FROM p GROUP BY 1 ORDER BY 1
+    """).df()
+    print(d8.to_string(index=False))
+    ecrire(d8, "d8_couverture_image.csv")
+    cles["couverture_image"] = d8.set_index("bras").to_dict(orient="index")
 
     # ------------------------------------------------------- comparaison C1
     titre("C1 — comparaison brute du sel pour 100 g, halal vs temoin")
