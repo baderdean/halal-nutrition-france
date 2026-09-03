@@ -1,0 +1,98 @@
+# Perimetre FIGE de l'etude — couche 1.
+#
+# Construit a partir des categories REELLEMENT OBSERVEES dans le dump
+# (src/etape1_amorce.py), pas des graines de config/graines.yaml.
+# Toute modification passe par une issue. Interdit d'ajuster une requete.
+#
+# Date de figeage : 2026-09-03. Dump : voir config/source.yaml.
+
+pays: en:france
+
+# Un produit entre dans le perimetre si categories_tags croise `racines`.
+# Racines choisies pour couvrir les familles carnees observees ; les tags
+# purement d'espece (en:chickens, en:beef...) ne sont PAS des racines, ils
+# apparaissent aussi sur des produits non carnes.
+racines:
+  - en:meats-and-their-products
+  - en:meats
+  - en:prepared-meats
+  - en:meat-preparations
+  - en:poultries
+  - en:chicken-and-its-products
+  - en:turkey-and-its-products
+  - en:beef-and-its-products
+  - en:pork-and-its-products
+  - en:offals
+  - en:sausages
+  - en:cured-sausages
+  - en:hams
+  - fr:charcuteries-cuites
+  - fr:charcuteries-diverses
+  - en:breaded-products
+  - en:meals-with-meat
+  - en:poultry-meals
+
+# Ejecte meme si une racine est presente. Les specs excluent explicitement
+# tout bras vegetarien ou substitut vegetal.
+exclusions_categories:
+  - en:meat-alternatives
+exclusions_labels:
+  - en:vegan
+  - en:vegetarian
+
+# Sous-categories : affectation ORDONNEE, premier match gagnant, un produit
+# et un seul par sous-categorie. Necessaire pour la regle des 30 et pour
+# l'assertion « somme des bras = total du perimetre ».
+sous_categories:
+  - nom: panes
+    libelle: "Produits panes (nuggets, cordons bleus, escalopes panees)"
+    tags: [en:breaded-products, en:nuggets, en:cordons-bleus, en:breaded-chicken,
+           en:breaded-turkey, en:poultry-nuggets, en:chicken-nuggets,
+           en:turkey-nuggets, en:turkey-cordons-bleus, en:meat-patties]
+  - nom: charcuterie_seche
+    libelle: "Charcuterie seche (saucissons, salami, chorizo, viandes sechees)"
+    tags: [en:cured-sausages, en:dry-sausages, en:salami, en:chorizo,
+           en:mortadella, en:turkey-salami, en:bresaola, en:pastrami,
+           en:dried-meats, en:beef-jerkies]
+  - nom: saucisses
+    libelle: "Saucisses fraiches et merguez"
+    tags: [en:sausages, en:french-sausages, en:poultry-sausages,
+           en:chicken-sausages, fr:merguez, en:merguez]
+  - nom: rillettes_pates_mousses
+    libelle: "Rillettes, pates, terrines, mousses et tartinables carnes"
+    tags: [en:rillettes, en:poultry-rillettes, en:white-meat-rillettes,
+           en:chicken-rillettes, en:potted-meats, en:terrines, en:pates,
+           en:savory-mousses, en:duck-mousse, fr:mousses-de-foies,
+           fr:mousses-de-foies-de-volailles, en:salted-spreads,
+           en:foies-gras-from-ducks]
+  - nom: charcuterie_cuite
+    libelle: "Charcuterie cuite en tranches (jambons, blancs de volaille cuits)"
+    tags: [fr:charcuteries-cuites, en:poultry-hams, en:hams, en:white-hams,
+           en:cooked-chicken-breast-slices, en:cooked-turkey-breast-slices,
+           fr:charcuteries-diverses, fr:bacons-de-dindes]
+  - nom: viande_hachee
+    libelle: "Viande hachee et steaks haches"
+    tags: [en:ground-meat-preparations, en:ground-steaks, en:ground-beef-steaks,
+           en:ground-beef-preparations, en:frozen-ground-meat-preparations,
+           en:frozen-ground-beef-preparations, en:frozen-ground-steaks,
+           en:frozen-ground-beef-steaks, en:minced-beef-steak-with-20-fat]
+  - nom: plats_cuisines
+    libelle: "Plats cuisines et sandwichs a base de viande"
+    tags: [en:meals-with-meat, en:poultry-meals, en:meals-with-chicken,
+           en:beef-dishes, en:microwave-meals, en:poultry-sandwiches,
+           en:chicken-sandwiches, en:chicken-nems, en:meals]
+  - nom: decoupes
+    libelle: "Decoupes et preparations non transformees (blancs, cuisses, steaks)"
+    tags: [en:chicken-breasts, en:chicken-thighs, en:chicken-wings,
+           en:turkey-cutlets, en:turkey-breasts, en:turkey-thighs, en:steaks,
+           en:beef-steaks, en:cooked-chicken, en:cooked-poultries,
+           en:frozen-steaks, en:frozen-meats, en:chicken-preparations,
+           en:turkey-preparations, en:beef-preparations,
+           fr:aiguillettes-de-poulet, fr:allumettes-de-volaille,
+           fr:lamelles-de-kebab]
+  - nom: autres_carnes
+    libelle: "Autres produits carnes : categorie OFF ne descendant pas sous l'espece"
+    tags: []          # bucket residuel, capte tout le reste du perimetre
+
+# Traitement.
+tag_traitement: en:halal

@@ -1,0 +1,31 @@
+# Source de donnees figee pour la couche 1.
+#
+# Les specs prevoyaient le dump Parquet publie sur HuggingFace
+# (openfoodfacts/product-database, food.parquet). Cet hote est refuse par la
+# politique de sortie reseau de l'environnement d'execution (CONNECT 403 sur
+# huggingface.co). L'export plat officiel Open Food Facts, publie par la meme
+# organisation sous les memes licences, est utilise a la place. La deviation
+# est documentee dans sorties/rapport_couche1.md, section Ecarts aux specs.
+
+nom: open-food-facts-export-plat
+url: https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/en.openfoodfacts.org.products.csv.gz
+fichier_local: en.products.csv.gz
+format: csv-tabule-gzip
+separateur: "\t"
+
+# Renseigne par src/etape0_source.py au telechargement.
+date_dump: "2026-09-03T11:55:24Z"        # LastModified S3 de l'objet
+taille_octets: 1275171186
+sha256: f72687ee8bc6522054fe69dbfda6b91902c16af1ec2e043cde27bc6c29ad8176  # calcule et verifie par le pipeline
+
+licence:
+  base: Open Database License (ODbL) v1.0
+  contenus: Database Contents License (DbCL) v1.0
+  attribution: "Open Food Facts contributors"
+
+# Differences connues avec le dump Parquet, a garder en tete :
+#  - pas de struct `nutriscore` versionne : une seule colonne
+#    `nutriscore_grade`, sans indication de version d'algorithme dans l'export.
+#  - pas de colonne `images` structuree : seulement des URL d'images
+#    principales (image_url, image_ingredients_url, image_nutrition_url).
+#  - les tags sont des chaines separees par des virgules, pas des listes.

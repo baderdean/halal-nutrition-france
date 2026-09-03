@@ -1,0 +1,34 @@
+# Effectifs de reference, figes depuis un run valide.
+# Regenere par : python3 src/etape1_assertions.py --figer
+# Un ecart hors tolerance arrete le pipeline (AGENTS.md).
+# La tolerance couvre la derive quotidienne du dump OFF, pas un
+# changement de perimetre ou de code.
+effectifs:
+  autres_carnes:
+    halal: 436
+    temoin: 22291
+  charcuterie_cuite:
+    halal: 379
+    temoin: 15183
+  charcuterie_seche:
+    halal: 260
+    temoin: 6935
+  decoupes:
+    halal: 391
+    temoin: 13885
+  panes:
+    halal: 338
+    temoin: 3406
+  plats_cuisines:
+    halal: 164
+    temoin: 12253
+  rillettes_pates_mousses:
+    halal: 41
+    temoin: 6677
+  saucisses:
+    halal: 259
+    temoin: 6950
+  viande_hachee:
+    halal: 119
+    temoin: 1447
+tolerance_relative: 0.15

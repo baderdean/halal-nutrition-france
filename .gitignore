@@ -1,0 +1,8 @@
+data/
+*.parquet
+*.csv.gz
+__pycache__/
+.venv/
+
+# Les sorties de la couche 1 sont versionnees (specs : rapport et CSV versionnes).
+!sorties/*.csv

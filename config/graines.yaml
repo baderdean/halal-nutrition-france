@@ -1,0 +1,23 @@
+# Graines de recherche. Elles AMORCENT la decouverte du perimetre, elles ne
+# le definissent pas. Le perimetre figé vit dans perimetre.yaml et est bati
+# sur les categories reellement observees (voir src/etape1_amorce.py).
+graines_categories:
+  - en:meats
+  - en:meats-and-their-products
+  - en:meat-based-products
+  - en:prepared-meats
+  - en:poultry
+  - en:chicken
+  - en:beef
+  - en:veal
+  - en:lamb-meat
+  - en:turkey
+  - en:sausages
+  - en:merguez
+  - en:nuggets
+  - en:cordons-bleus
+  - en:hams
+  - en:meals
+  - en:meat-preparations
+  - en:frozen-meats
+  - en:offals
