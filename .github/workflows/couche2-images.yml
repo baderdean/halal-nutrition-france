@@ -1,0 +1,76 @@
+name: Couche 2 — lecture des emballages
+
+# Declenchement MANUEL uniquement. Ce workflow appelle une API payante et lit
+# des images sur un hote externe : il ne doit pas partir sur un push.
+on:
+  workflow_dispatch:
+    inputs:
+      max_produits:
+        description: "Nombre maximum de produits a lire (commencer petit)"
+        required: true
+        default: "20"
+      modele:
+        description: "Modele de vision"
+        required: true
+        default: "claude-haiku-4-5"
+      taille_image:
+        description: "Resolution demandee a Open Food Facts"
+        required: true
+        default: "full"
+        type: choice
+        options: ["full", "400"]
+
+jobs:
+  lecture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Dependances
+        run: |
+          pip install -r requirements.txt
+          pip install anthropic
+
+      - name: Espace disque
+        run: df -h /
+
+      # Le runner GitHub n'a pas les restrictions reseau de l'environnement de
+      # developpement : il joint le dump, et surtout images.openfoodfacts.org.
+      - name: Couche 1 — dump, perimetre, assertions
+        run: make couche1
+
+      - name: Couche 2 — lecture des emballages
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::error::secret ANTHROPIC_API_KEY absent du depot."
+            exit 1
+          fi
+          python3 src/couche2_lecture_image.py \
+            --executer \
+            --modele "${{ inputs.modele }}" \
+            --max "${{ inputs.max_produits }}" \
+            --taille "${{ inputs.taille_image }}"
+
+      # Le taux d'erreur ne peut etre calcule que si un humain a rempli
+      # donnees_humaines/double_codage.csv. Sans lui, la lecture reste
+      # descriptive : on le dit, on n'echoue pas le job pour autant.
+      - name: Taux d'erreur contre le double codage humain
+        continue-on-error: true
+        run: python3 src/couche2_validation.py
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: couche2-lecture-images
+          path: |
+            sorties/couche2_lecture_image.csv
+            sorties/couche2_taux_erreur.csv
+            sorties/double_codage_a_remplir.csv
+          if-no-files-found: warn

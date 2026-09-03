@@ -59,6 +59,21 @@ rapport. Ecart hors tolerance = arret, pas d'avertissement.
   comptees et exclues des seules statistiques nutritionnelles, jamais du
   denombrement du perimetre, et le compte figure au rapport.
 
+## Lecture d'image (couche 2)
+
+- La lecture machine d'un emballage n'est PAS une variable d'analyse. Elle le
+  devient quand `src/couche2_validation.py` a publie son taux d'erreur contre
+  un double codage humain en aveugle d'au moins 200 produits. Au-dela de 10 %
+  d'erreur, la variable est declassee en descriptive et le pipeline le dit.
+- L'echantillon de lecture est tire PAR MARQUE, pas par produit. Une marque
+  partage un design d'emballage : l'erreur de lecture est correlee a la marque,
+  et injectee telle quelle dans le modele de la couche 4 elle fabriquerait un
+  effet certificateur qui n'est qu'un effet marque mal mesure.
+- Le double codage humain est un fichier d'entree du depot
+  (`donnees_humaines/double_codage.csv`), jamais une sortie generee.
+- Priorite : ce passage sur les images sert d'abord a mesurer le taux de faux
+  negatifs du tag halal. Le certificateur est un sous-produit du meme passage.
+
 ## Distinction obligatoire dans toute sortie
 
 Fait mesure / inference / hypothese non testee. Un chiffre sans statut est un
