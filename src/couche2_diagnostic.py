@@ -35,7 +35,9 @@ def sonde(url: str, cle: str | None = None, methode: str = "GET",
         req.add_header("Content-Type", "application/json")
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
-            return f"HTTP {r.status}  ({len(r.read(400))} octets lus)"
+            taille = r.headers.get("Content-Length", "?")
+            ctype = r.headers.get("Content-Type", "?")
+            return f"HTTP {r.status}  {ctype}  {taille} octets"
     except urllib.error.HTTPError as e:
         extrait = e.read(300).decode("utf-8", "replace").replace("\n", " ")
         return f"HTTP {e.code}  {extrait[:200]}"
@@ -45,12 +47,18 @@ def sonde(url: str, cle: str | None = None, methode: str = "GET",
 
 def main() -> int:
     conf = charger("lecture_image.yaml")
-    cle = os.environ.get(conf["variable_env_cle"], "")
+    brut = os.environ.get(conf["variable_env_cle"], "")
+    cle = brut.strip()
 
     titre("DIAGNOSTIC — cle")
     print(f"  variable      : {conf['variable_env_cle']}")
     print(f"  presente      : {bool(cle)}")
-    print(f"  longueur      : {len(cle)}")
+    print(f"  longueur brute: {len(brut)}")
+    print(f"  longueur nette: {len(cle)}")
+    if cle != brut:
+        print("  BLANCS PARASITES en debut ou fin. httpx refuse un en-tete")
+        print("  Authorization qui en contient, et l'echec remonte en erreur")
+        print("  de connexion. A corriger a la source du secret.")
     print(f"  prefixe       : {cle[:4] + '...' if cle else '(vide)'}")
 
     titre("DIAGNOSTIC — hotes candidats pour la passerelle")

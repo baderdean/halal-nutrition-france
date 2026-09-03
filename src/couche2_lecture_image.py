@@ -86,9 +86,19 @@ def client_et_conf(args):
     conf = charger("lecture_image.yaml")
     if args.modele:
         conf["modele"] = args.modele
-    cle = os.environ.get(conf["variable_env_cle"])
+    brut = os.environ.get(conf["variable_env_cle"], "")
+    # Un secret colle dans l'interface GitHub garde l'espace ou le saut de
+    # ligne final. httpx refuse alors l'en-tete Authorization et l'erreur
+    # remonte en APIConnectionError, qui ne ressemble en rien a un probleme
+    # de cle. On nettoie, et on le signale : la source doit etre corrigee.
+    cle = brut.strip()
     if not cle:
         echec(f"{conf['variable_env_cle']} absente de l'environnement.")
+    if cle != brut:
+        print(f"  [avertissement] {conf['variable_env_cle']} contient des "
+              f"blancs en debut ou fin ({len(brut)} signes contre {len(cle)}). "
+              "Nettoye ici, mais a corriger a la source : "
+              "Settings -> Secrets and variables -> Actions.")
     return OpenAI(api_key=cle, base_url=conf["base_url"], timeout=120.0), conf
 
 
@@ -204,10 +214,18 @@ def preflight(client, conf, df, args) -> int:
     print(f"    {'cout de cet appel':<22} "
           f"${cout(conf, r['tokens_entree'], r['tokens_sortie']):.5f}")
     if r["erreur"]:
+        e = r["erreur"].lower()
         print(f"\n  ECHEC : {r['erreur']}")
-        print("\n  Si l'erreur porte sur le type de contenu `image_url`, la")
-        print("  passerelle ne relaie pas les images. Il faut alors changer de")
-        print("  fournisseur dans config/lecture_image.yaml, pas contourner.")
+        if "illegal header" in e or "401" in e or "auth" in e:
+            print("\n  Probleme de cle, pas de passerelle ni d'image. Verifie")
+            print("  le secret : valeur exacte, sans espace ni saut de ligne.")
+        elif "image_url" in e or "content" in e or "modality" in e:
+            print("\n  La passerelle ne relaie pas les images jusqu'au modele.")
+            print("  Changer de fournisseur dans config/lecture_image.yaml,")
+            print("  pas contourner.")
+        else:
+            print("\n  Lance `python3 src/couche2_diagnostic.py` pour separer")
+            print("  un probleme de reseau d'un probleme d'API.")
         return 1
     if r["tokens_entree"] < 200:
         print("\n  AVERTISSEMENT : moins de 200 tokens en entree. Une image")
