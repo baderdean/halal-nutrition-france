@@ -18,10 +18,12 @@ on:
         description: "Nombre maximum de produits a lire (etape lot)"
         required: true
         default: "20"
-      modele:
-        description: "Modele (vide = celui de config/lecture_image.yaml)"
+      fournisseur:
+        description: "Forcer un fournisseur (vide = ordre de la config)"
         required: false
         default: ""
+        type: choice
+        options: ["", "opencode-zen", "cloudflare-workers-ai"]
       taille_image:
         description: "Resolution demandee a Open Food Facts"
         required: true
@@ -63,29 +65,35 @@ jobs:
       - name: Diagnostic reseau et API
         env:
           STUDY_API_KEY: ${{ secrets.STUDY_API_KEY }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
         run: python3 src/couche2_diagnostic.py
 
       - name: Preflight
         env:
           STUDY_API_KEY: ${{ secrets.STUDY_API_KEY }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
         run: |
-          if [ -z "$STUDY_API_KEY" ]; then
-            echo "::error::secret STUDY_API_KEY absent du depot."
+          if [ -z "$STUDY_API_KEY" ] && [ -z "$CF_API_TOKEN" ]; then
+            echo "::error::aucune cle. Renseigner le secret STUDY_API_KEY ou le secret CF_API_TOKEN avec la variable CF_ACCOUNT_ID."
             exit 1
           fi
           python3 src/couche2_lecture_image.py --preflight \
             --taille "${{ inputs.taille_image }}" \
-            ${{ inputs.modele && format('--modele {0}', inputs.modele) || '' }}
+            ${{ inputs.fournisseur && format('--fournisseur {0}', inputs.fournisseur) || '' }}
 
       - name: Lecture du lot
         if: inputs.etape == 'lot'
         env:
           STUDY_API_KEY: ${{ secrets.STUDY_API_KEY }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
         run: |
           python3 src/couche2_lecture_image.py --executer \
             --max "${{ inputs.max_produits }}" \
             --taille "${{ inputs.taille_image }}" \
-            ${{ inputs.modele && format('--modele {0}', inputs.modele) || '' }}
+            ${{ inputs.fournisseur && format('--fournisseur {0}', inputs.fournisseur) || '' }}
 
       # Le taux d'erreur ne peut etre calcule que si un humain a rempli
       # donnees_humaines/double_codage.csv. Sans lui, la lecture reste

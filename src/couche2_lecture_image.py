@@ -13,39 +13,40 @@ machine, dont le taux d'erreur doit etre mesure par src/couche2_validation.py
 contre un double codage humain en aveugle. Tant que ce taux n'existe pas, la
 lecture est descriptive et n'entre dans aucun modele (AGENTS.md).
 
-Fournisseur : API compatible OpenAI, configuree dans config/lecture_image.yaml.
-Par defaut la passerelle OpenCode Zen et le modele MiniMax M3.
+Fournisseurs : API compatible OpenAI, listes DANS L'ORDRE dans
+config/lecture_image.yaml. Le premier qui passe l'appel de verification
+emporte tout le lot ; on ne panache pas deux fournisseurs dans un meme jeu de
+lectures, leurs taux d'erreur different.
 
 Le script appelle une API payante. Il ne fait rien sans --preflight ou
 --executer.
 
 Usage :
   python3 src/couche2_lecture_image.py                 # estimation, 0 appel
-  python3 src/couche2_lecture_image.py --preflight     # 1 appel, go/no-go
+  python3 src/couche2_lecture_image.py --preflight     # go/no-go, 1 appel
   python3 src/couche2_lecture_image.py --executer --max 20
 """
 
 from __future__ import annotations
 
 import argparse
+import base64
 import concurrent.futures as cf
 import json
 import os
 import re
 import sys
 import time
+import urllib.request
 
 from openai import OpenAI
 
 from commun import PERIMETRE, SORTIES, charger, connexion, echec, titre
 
 # L'export plat pointe des images en 400 px sur le grand cote. Un logo de
-# certificateur y occupe quelques dizaines de pixels ; le module de vision de
-# M3 accepte jusqu'a 2016 px. OFF sert d'autres tailles au meme chemin.
-# NON VERIFIE : l'hote images etait injoignable depuis l'environnement de
-# developpement. La colonne `taille_demandee` du CSV permet de comparer les
-# taux de lecture entre les deux et de trancher sur donnees.
-TAILLES = {"full": ".full.jpg", "800": ".800.jpg", "400": ".400.jpg"}
+# certificateur y occupe quelques dizaines de pixels. Le .full.jpg existe et
+# repond en HTTP 200 (verifie sur le runner) ; le .800.jpg n'existe pas.
+TAILLES = {"full": ".full.jpg", "400": ".400.jpg"}
 
 CHAMPS = ["estampille_halal", "certificateur_texte", "certificateur_logo",
           "confiance", "lisibilite"]
@@ -82,38 +83,81 @@ plausible mais fausse. Une erreur ici se propage a toute la gamme d'une marque,
 parce que toutes ses references partagent le meme emballage."""
 
 
-def client_et_conf(args):
-    conf = charger("lecture_image.yaml")
-    if args.modele:
-        conf["modele"] = args.modele
-    brut = os.environ.get(conf["variable_env_cle"], "")
-    # Un secret colle dans l'interface GitHub garde l'espace ou le saut de
-    # ligne final. httpx refuse alors l'en-tete Authorization et l'erreur
-    # remonte en APIConnectionError, qui ne ressemble en rien a un probleme
-    # de cle. On nettoie, et on le signale : la source doit etre corrigee.
-    cle = brut.strip()
-    if not cle:
-        echec(f"{conf['variable_env_cle']} absente de l'environnement.")
-    if cle != brut:
-        print(f"  [avertissement] {conf['variable_env_cle']} contient des "
-              f"blancs en debut ou fin ({len(brut)} signes contre {len(cle)}). "
-              "Nettoye ici, mais a corriger a la source : "
-              "Settings -> Secrets and variables -> Actions.")
-    return OpenAI(api_key=cle, base_url=conf["base_url"], timeout=120.0), conf
+# --------------------------------------------------------------- fournisseurs
+
+def fournisseurs(conf, filtre=None):
+    """Fournisseurs configures, resolus contre l'environnement.
+
+    Un fournisseur dont la cle manque est ecarte AVEC SON MOTIF, pas en
+    silence : une variable d'environnement oubliee ne doit pas ressembler a un
+    fournisseur qui ne fonctionne pas.
+    """
+    out = []
+    for brut_f in conf["fournisseurs"]:
+        f = dict(brut_f)
+        if filtre and f["nom"] != filtre:
+            continue
+        brut = os.environ.get(f["env_cle"], "")
+        # Un secret colle dans l'interface GitHub garde l'espace ou le saut de
+        # ligne final. httpx refuse alors l'en-tete Authorization, et l'echec
+        # remonte en APIConnectionError, qui ne ressemble en rien a un probleme
+        # de cle. On nettoie, et on le signale : la source doit etre corrigee.
+        f["cle"] = brut.strip()
+        f["blancs"] = len(brut) - len(f["cle"])
+        f["indisponible"] = ""
+        if not f["cle"]:
+            f["indisponible"] = f"{f['env_cle']} absente de l'environnement"
+        if "env_compte" in f:
+            compte = os.environ.get(f["env_compte"], "").strip()
+            if not compte:
+                f["indisponible"] = (f"{f['env_compte']} absente de "
+                                     "l'environnement")
+            else:
+                f["base_url"] = f["base_url"].replace(
+                    "{" + f["env_compte"] + "}", compte)
+        out.append(f)
+    if not out:
+        echec(f"aucun fournisseur {filtre!r} dans config/lecture_image.yaml.")
+    return out
 
 
-def message(url: str, conf: dict, params_minimax: bool) -> list:
-    img = {"type": "image_url", "image_url": {"url": url}}
+def client_pour(f):
+    return OpenAI(api_key=f["cle"], base_url=f["base_url"], timeout=180.0)
+
+
+def cout(f, entree: int, sortie: int) -> float:
+    return (entree * (f.get("tarif_entree_par_million") or 0.0)
+            + sortie * (f.get("tarif_sortie_par_million") or 0.0)) / 1e6
+
+
+# ------------------------------------------------------------------- appel
+
+def contenu_image(url: str, f: dict, conf: dict, params_minimax: bool) -> dict:
+    """Bloc image du message.
+
+    `url` laisse le fournisseur aller chercher l'image lui-meme. `base64` la
+    telecharge ici : une dependance de moins, et le runner joint
+    images.openfoodfacts.org.
+    """
+    if f.get("image") == "base64":
+        req = urllib.request.Request(
+            url, headers={"User-Agent": "halal-nutrition-france/couche2"})
+        with urllib.request.urlopen(req, timeout=60) as r:
+            octets = r.read()
+            mime = r.headers.get("Content-Type", "image/jpeg").split(";")[0]
+        return {"type": "image_url",
+                "image_url": {"url": f"data:{mime};base64,"
+                                     f"{base64.b64encode(octets).decode('ascii')}"}}
+    bloc = {"type": "image_url", "image_url": {"url": url}}
     if params_minimax:
-        img["image_url"].update(conf.get("params_minimax", {}))
-    return [{"role": "user", "content": [img, {"type": "text",
-                                               "text": CONSIGNE}]}]
+        bloc["image_url"].update(conf.get("params_minimax", {}))
+    return bloc
 
 
 def extraire_json(texte: str) -> dict:
-    """Parse defensif. Le mode JSON strict n'est pas garanti par la passerelle."""
-    t = texte.strip()
-    t = re.sub(r"^```(?:json)?|```$", "", t, flags=re.MULTILINE).strip()
+    """Parse defensif : le mode JSON strict n'est garanti par aucune passerelle."""
+    t = re.sub(r"^```(?:json)?|```$", "", texte.strip(),
+               flags=re.MULTILINE).strip()
     try:
         return json.loads(t)
     except json.JSONDecodeError:
@@ -126,22 +170,120 @@ def extraire_json(texte: str) -> dict:
     raise ValueError(f"reponse non parsable : {texte[:200]}")
 
 
-def appeler(client, conf, url, params_minimax, json_mode=True):
-    kw = {"model": conf["modele"], "max_tokens": 512,
-          "messages": message(url, conf, params_minimax)}
+def appeler(client, f, conf, url, params_minimax, json_mode=True):
+    kw = {"model": f["modele"], "max_tokens": 512,
+          "messages": [{"role": "user", "content": [
+              contenu_image(url, f, conf, params_minimax),
+              {"type": "text", "text": CONSIGNE}]}]}
     if json_mode:
         kw["response_format"] = {"type": "json_object"}
     try:
         return client.chat.completions.create(**kw)
     except Exception as e:  # noqa: BLE001
-        # response_format n'est pas garanti sur cette passerelle : une seule
-        # nouvelle tentative sans lui, puis on laisse remonter.
+        # response_format n'est garanti par aucune de ces passerelles : une
+        # seule nouvelle tentative sans lui, puis on laisse remonter.
         if json_mode and any(m in str(e).lower() for m in
                              ("response_format", "unsupported", "invalid",
-                              "unrecognized")):
-            return appeler(client, conf, url, params_minimax, json_mode=False)
+                              "unrecognized", "not supported")):
+            return appeler(client, f, conf, url, params_minimax,
+                           json_mode=False)
         raise
 
+
+def lire_une(client, f, conf, ligne, taille, params_minimax) -> dict:
+    url = ligne.image_url
+    if taille != "400":
+        url = url.replace(".400.jpg", TAILLES[taille])
+    base = {c: "" for c in CHAMPS}
+    base.update({"erreur": "", "tokens_entree": 0, "tokens_sortie": 0})
+    try:
+        r = appeler(client, f, conf, url, params_minimax)
+        lu = extraire_json(r.choices[0].message.content or "")
+        base.update({c: str(lu.get(c, "")) for c in CHAMPS})
+        if r.usage:
+            base["tokens_entree"] = r.usage.prompt_tokens or 0
+            base["tokens_sortie"] = r.usage.completion_tokens or 0
+    except Exception as e:  # noqa: BLE001 - l'echec est une donnee, pas un arret
+        # APIConnectionError se resume a "Connection error." et masque la cause
+        # httpx : sans elle on ne distingue pas le DNS, le TLS, un refus de
+        # connexion et un en-tete mal forme.
+        cause = getattr(e, "__cause__", None)
+        detail = f" | cause: {type(cause).__name__}: {cause}" if cause else ""
+        base["erreur"] = f"{type(e).__name__}: {e}{detail}"[:400]
+    base.update({"code": ligne.code, "marque_tag": ligne.marque_tag,
+                 "brands": ligne.brands, "bras": ligne.bras,
+                 "tag_halal": ligne.tag_halal,
+                 "sous_categorie": ligne.sous_categorie,
+                 "url_lue": url, "taille_demandee": taille,
+                 "fournisseur": f["nom"], "modele": f["modele"]})
+    return base
+
+
+def diagnostiquer(erreur: str) -> str:
+    e = erreur.lower()
+    if "illegal header" in e:
+        return ("En-tete Authorization mal forme : la cle contient un blanc. "
+                "Corriger la valeur du secret.")
+    if "credit" in e or "balance" in e or "quota" in e or "402" in e:
+        return ("Compte sans credit. La cle est valide, le fournisseur refuse "
+                "de servir. Approvisionner, ou passer au fournisseur suivant.")
+    if "auth" in e or "401" in e or "403" in e:
+        return "Cle refusee. Verifier sa valeur et ses droits."
+    if "image" in e or "modality" in e or "content" in e or "vision" in e:
+        return ("Le fournisseur ne relaie pas l'image jusqu'au modele. "
+                "En changer dans config/lecture_image.yaml, pas contourner.")
+    return "Lancer src/couche2_diagnostic.py pour separer reseau et API."
+
+
+# --------------------------------------------------------------- preflight
+
+def preflight(conf, df, args, verbeux=True):
+    """Un appel par fournisseur, dans l'ordre, jusqu'au premier qui passe.
+
+    Tranche la question qui conditionne tout le reste : le fournisseur relaie-
+    t-il l'image jusqu'au modele ? Une passerelle qui l'ignore repond quand
+    meme, a partir du seul texte de la consigne, et rien dans le CSV ne le
+    signalerait.
+    """
+    ligne = next(df[df.bras == "halal"].itertuples())
+    for f in fournisseurs(conf, args.fournisseur):
+        if verbeux:
+            titre(f"PREFLIGHT — {f['nom']} / {f['modele']}")
+            print(f"  base_url : {f['base_url']}")
+        if f["indisponible"]:
+            print(f"  ECARTE : {f['indisponible']}")
+            continue
+        if f["blancs"]:
+            print(f"  [avertissement] {f['env_cle']} contient {f['blancs']} "
+                  "blanc(s) en debut ou fin. Nettoye ici, a corriger a la "
+                  "source : Settings -> Secrets and variables -> Actions.")
+        r = lire_une(client_pour(f), f, conf, ligne, args.taille,
+                     args.params_minimax)
+        if verbeux:
+            print(f"  produit : {ligne.code}  {ligne.brands}")
+            print(f"  url     : {r['url_lue']}")
+            for c in CHAMPS:
+                print(f"    {c:<22} {r[c]!r}")
+            print(f"    {'tokens entree':<22} {r['tokens_entree']}")
+            print(f"    {'cout de cet appel':<22} "
+                  f"${cout(f, r['tokens_entree'], r['tokens_sortie']):.5f}")
+        if r["erreur"]:
+            print(f"\n  ECHEC : {r['erreur']}")
+            print(f"  -> {diagnostiquer(r['erreur'])}")
+            continue
+        # Une image analysee coute des centaines de tokens. Sous ce seuil,
+        # le fournisseur a repondu sans la regarder : la sortie serait inventee.
+        if r["tokens_entree"] and r["tokens_entree"] < 200:
+            print(f"\n  REFUS : {r['tokens_entree']} tokens d'entree seulement.")
+            print("  Le fournisseur a repondu sans analyser l'image. Le lot")
+            print("  produirait des lectures inventees.")
+            continue
+        print(f"\n  {f['nom']} valide. Image relayee et facturee.")
+        return f
+    return None
+
+
+# ------------------------------------------------------------------- cibles
 
 def cibles(con, limite, par_marque):
     """Echantillon a lire, tire PAR MARQUE et par bras, pas par produit.
@@ -165,124 +307,53 @@ def cibles(con, limite, par_marque):
     return df.head(limite) if limite else df
 
 
-def lire_une(client, conf, ligne, taille, params_minimax) -> dict:
-    url = ligne.image_url
-    if taille != "400":
-        url = url.replace(".400.jpg", TAILLES[taille])
-    base = {c: "" for c in CHAMPS}
-    base.update({"erreur": "", "tokens_entree": 0, "tokens_sortie": 0})
-    try:
-        r = appeler(client, conf, url, params_minimax)
-        lu = extraire_json(r.choices[0].message.content or "")
-        base.update({c: str(lu.get(c, "")) for c in CHAMPS})
-        if r.usage:
-            base["tokens_entree"] = r.usage.prompt_tokens or 0
-            base["tokens_sortie"] = r.usage.completion_tokens or 0
-    except Exception as e:  # noqa: BLE001 - l'echec est une donnee, pas un arret
-        # APIConnectionError se resume a "Connection error." et masque la
-        # cause httpx. Sans elle on ne sait pas si c'est le DNS, le TLS ou
-        # un refus de connexion.
-        cause = getattr(e, "__cause__", None)
-        detail = f" | cause: {type(cause).__name__}: {cause}" if cause else ""
-        base["erreur"] = f"{type(e).__name__}: {e}{detail}"[:400]
-    base.update({"code": ligne.code, "marque_tag": ligne.marque_tag,
-                 "brands": ligne.brands, "bras": ligne.bras,
-                 "tag_halal": ligne.tag_halal,
-                 "sous_categorie": ligne.sous_categorie,
-                 "url_lue": url, "taille_demandee": taille})
-    return base
-
-
-def cout(conf, e: int, s: int) -> float:
-    return (e * conf["tarif_entree_par_million"]
-            + s * conf["tarif_sortie_par_million"]) / 1e6
-
-
-def preflight(client, conf, df, args) -> int:
-    """Un seul appel. Tranche la question qui conditionne tout le reste :
-    la passerelle relaie-t-elle les images jusqu'au modele ?"""
-    ligne = next(df[df.bras == "halal"].itertuples())
-    titre("PREFLIGHT — un appel, une image")
-    print(f"  modele : {conf['modele']}  via  {conf['base_url']}")
-    r = lire_une(client, conf, ligne, args.taille, args.params_minimax)
-    print(f"  produit : {ligne.code}  {ligne.brands}")
-    print(f"  url     : {r['url_lue']}")
-    print()
-    for c in CHAMPS:
-        print(f"    {c:<22} {r[c]!r}")
-    print(f"    {'tokens entree':<22} {r['tokens_entree']}")
-    print(f"    {'cout de cet appel':<22} "
-          f"${cout(conf, r['tokens_entree'], r['tokens_sortie']):.5f}")
-    if r["erreur"]:
-        e = r["erreur"].lower()
-        print(f"\n  ECHEC : {r['erreur']}")
-        if "illegal header" in e or "401" in e or "auth" in e:
-            print("\n  Probleme de cle, pas de passerelle ni d'image. Verifie")
-            print("  le secret : valeur exacte, sans espace ni saut de ligne.")
-        elif "image_url" in e or "content" in e or "modality" in e:
-            print("\n  La passerelle ne relaie pas les images jusqu'au modele.")
-            print("  Changer de fournisseur dans config/lecture_image.yaml,")
-            print("  pas contourner.")
-        else:
-            print("\n  Lance `python3 src/couche2_diagnostic.py` pour separer")
-            print("  un probleme de reseau d'un probleme d'API.")
-        return 1
-    if r["tokens_entree"] < 200:
-        print("\n  AVERTISSEMENT : moins de 200 tokens en entree. Une image")
-        print("  analysee en coute beaucoup plus. La passerelle a probablement")
-        print("  ignore l'image et repondu sur le seul texte de la consigne.")
-        print("  Ne PAS lancer le lot : la reponse ci-dessus serait inventee.")
-        return 1
-    print("\n  Image relayee et facturee. Le lot peut partir.")
-    return 0
-
-
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--preflight", action="store_true",
-                    help="un seul appel, verifie que la passerelle relaie l'image")
-    ap.add_argument("--executer", action="store_true",
-                    help="emet reellement le lot d'appels (payant)")
-    ap.add_argument("--modele", default=None)
+    ap.add_argument("--preflight", action="store_true")
+    ap.add_argument("--executer", action="store_true")
+    ap.add_argument("--fournisseur", default=None,
+                    help="force un fournisseur au lieu de l'ordre configure")
     ap.add_argument("--max", type=int, default=None, dest="limite")
     ap.add_argument("--par-marque", type=int, default=3)
     ap.add_argument("--taille", choices=list(TAILLES), default="full")
-    ap.add_argument("--params-minimax", action="store_true",
-                    help="envoie detail et max_long_side_pixel (non garantis)")
+    ap.add_argument("--params-minimax", action="store_true")
     ap.add_argument("--concurrence", type=int, default=6)
     args = ap.parse_args()
 
+    conf = charger("lecture_image.yaml")
     con = connexion()
     df = cibles(con, args.limite, args.par_marque)
     titre("COUCHE 2 — lecture des emballages")
     print(f"  produits : {len(df)}  ({df.marque_tag.nunique()} marques, "
           f"{(df.bras == 'halal').sum()} halal / "
           f"{(df.bras == 'temoin').sum()} temoin)")
+    print("  fournisseurs, dans l'ordre :")
+    for f in fournisseurs(conf, args.fournisseur):
+        etat = f["indisponible"] or "cle presente"
+        print(f"    {f['nom']:<24} {f['modele']:<42} {etat}")
 
     if not (args.preflight or args.executer):
-        conf = charger("lecture_image.yaml")
-        print(f"  modele   : {conf['modele']} via {conf['base_url']}")
         print("\n  MODE ESTIMATION — aucun appel emis, aucun euro depense.")
-        print("  Le cout depend du nombre de tokens qu'une image consomme chez")
-        print("  ce fournisseur, inconnu tant que --preflight n'a pas tourne.")
-        print("  Ordre de grandeur, si une image vaut ~1500 tokens d'entree :")
-        for n in (20, len(df)):
-            print(f"    {n:>6} produits  ~ ${cout(conf, n * 1500, n * 120):.2f}")
-        print("\n  Enchainement : --preflight, puis --executer --max 20,")
+        print("  Le cout par image est inconnu tant que --preflight n'a pas")
+        print("  tourne. Enchainement : --preflight, puis --executer --max 20,")
         print("  puis le lot complet une fois le cout reel connu.")
         return 0
 
-    client, conf = client_et_conf(args)
+    retenu = preflight(conf, df, args)
+    if retenu is None:
+        echec("aucun fournisseur ne passe le preflight. Le lot ne part pas : "
+              "mieux vaut zero lecture qu'un CSV de lectures inventees.")
     if args.preflight:
-        return preflight(client, conf, df, args)
+        return 0
 
     t0 = time.time()
+    client = client_pour(retenu)
     resultats = []
     with cf.ThreadPoolExecutor(max_workers=args.concurrence) as ex:
-        futurs = [ex.submit(lire_une, client, conf, l, args.taille,
+        futurs = [ex.submit(lire_une, client, retenu, conf, l, args.taille,
                             args.params_minimax) for l in df.itertuples()]
-        for i, f in enumerate(cf.as_completed(futurs), 1):
-            resultats.append(f.result())
+        for i, fut in enumerate(cf.as_completed(futurs), 1):
+            resultats.append(fut.result())
             if i % 25 == 0:
                 print(f"    {i}/{len(futurs)}", flush=True)
 
@@ -294,11 +365,13 @@ def main() -> int:
 
     n_err = int((out.erreur != "").sum())
     te, ts = int(out.tokens_entree.sum()), int(out.tokens_sortie.sum())
-    print(f"\n  {len(out)} lectures en {time.time() - t0:.0f}s, "
+    titre("RESULTAT")
+    print(f"  fournisseur : {retenu['nom']} / {retenu['modele']}")
+    print(f"  {len(out)} lectures en {time.time() - t0:.0f}s, "
           f"{n_err} echecs techniques")
     print(f"  tokens : {te} entree / {ts} sortie")
-    print(f"  cout   : ${cout(conf, te, ts):.4f}  "
-          f"(${cout(conf, te, ts) / max(len(out), 1):.5f} par produit)")
+    print(f"  cout   : ${cout(retenu, te, ts):.4f}  "
+          f"(${cout(retenu, te, ts) / max(len(out), 1):.5f} par produit)")
     print(f"  -> {chemin}")
 
     ok = out[out.erreur == ""]
@@ -313,7 +386,7 @@ def main() -> int:
                   "halal lisible.")
             print("  C'est la mesure attendue des faux negatifs du tag. Elle ne")
             print("  vaut rien tant que src/couche2_validation.py n'a pas publie")
-            print("  le taux d'erreur de cette lecture contre un codage humain.")
+            print("  le taux d'erreur de CE fournisseur contre un codage humain.")
 
     # Fichier d'ENTREE a remplir par un humain, en aveugle. Les specs exigent
     # que le double codage soit un fichier d'entree du depot, pas une sortie

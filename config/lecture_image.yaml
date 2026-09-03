@@ -1,31 +1,54 @@
-# Fournisseur de lecture d'image. API compatible OpenAI.
+# Fournisseurs de lecture d'image, essayes DANS L'ORDRE.
 #
-# Valeurs par defaut : passerelle OpenCode Zen, modele MiniMax M3.
-# La cle est lue dans STUDY_API_KEY (secret du depot, injecte par l Action).
-# M3 est nativement multimodal (entree image et video) ; la passerelle Zen est
-# compatible OpenAI sur /v1/chat/completions.
+# Le premier qui repond a l'appel de verification emporte tout le lot. On ne
+# panache pas deux fournisseurs dans un meme jeu de lectures : leurs taux
+# d'erreur different, et melanger reviendrait a publier une variable dont la
+# qualite varie d'une ligne a l'autre sans que rien ne le signale. La colonne
+# `fournisseur` du CSV porte le choix retenu, et src/couche2_validation.py
+# calcule le taux d'erreur par fournisseur.
 #
-# CE QUI EST VERIFIE : le modele M3 accepte des images en entree, et Zen expose
-# une API compatible OpenAI a cette URL avec ce nom de modele.
-# CE QUI NE L'EST PAS : que la passerelle Zen relaie effectivement les blocs
-# `image_url` jusqu'au modele. Zen est d'abord une passerelle de modeles de
-# code. Les pages de documentation d'opencode.ai et de minimax.io sont
-# injoignables depuis l'environnement de developpement de ce depot.
+# ETAT VERIFIE SUR LE RUNNER (run #3) :
+#  - opencode-zen : URL et cle correctes, compte sans credit
+#    (401 CreditsError). Redevient utilisable des que le compte est approvisionne.
+#  - images.openfoodfacts.org sert le .full.jpg en HTTP 200.
 #
-# => `python3 src/couche2_lecture_image.py --preflight` tranche la question en
-#    un seul appel. Le lancer AVANT tout lot.
+# NON VERIFIE : le comportement reel de chaque fournisseur sur une image.
+# `--preflight` le tranche en un appel.
 
-base_url: https://opencode.ai/zen/v1
-variable_env_cle: STUDY_API_KEY
-modele: minimax-m3
+fournisseurs:
+  - nom: opencode-zen
+    base_url: https://opencode.ai/zen/v1
+    env_cle: STUDY_API_KEY
+    modele: minimax-m3
+    # MiniMax M3 est nativement multimodal, module de vision jusqu'a 2016 px.
+    image: url
+    tarif_entree_par_million: 0.30
+    tarif_sortie_par_million: 1.20
 
-# Tarifs annonces par les agregateurs, en dollars par million de tokens.
-# Servent a chiffrer un run, pas a facturer. A corriger si la facture diverge.
-tarif_entree_par_million: 0.30
-tarif_sortie_par_million: 1.20
+  - nom: cloudflare-workers-ai
+    # L'identifiant de compte est substitue depuis la variable d'environnement.
+    base_url: https://api.cloudflare.com/client/v4/accounts/{CF_ACCOUNT_ID}/ai/v1
+    env_cle: CF_API_TOKEN
+    env_compte: CF_ACCOUNT_ID
+    modele: "@cf/meta/llama-3.2-11b-vision-instruct"
+    # Cloudflare annonce accepter l'image en URL comme en base64. On envoie du
+    # base64 : le runner telecharge lui-meme l'image, ce qui supprime la
+    # dependance a la capacite du fournisseur d'aller la chercher.
+    image: base64
+    # Tarification Workers AI en neurones, pas en tokens : le chiffrage en
+    # dollars de ce depot ne s'y applique pas. Laisse a zero pour ne pas
+    # afficher un cout faux.
+    tarif_entree_par_million: 0.0
+    tarif_sortie_par_million: 0.0
+    # Autres modeles de vision disponibles sur Workers AI, a departager sur le
+    # taux d'erreur mesure et non sur une intuition :
+    #   @cf/google/gemma-3-12b-it
+    #   @cf/llava-hf/llava-1.5-7b-hf
+    # Un modele de 11 B ne lit pas un petit logo aussi bien qu'un modele de
+    # frontiere. Le taux d'erreur de src/couche2_validation.py doit etre
+    # recalcule apres tout changement de fournisseur : celui du precedent ne
+    # se transporte pas.
 
-# Parametres specifiques MiniMax pour la resolution d'analyse. Non garantis a
-# travers la passerelle : envoyes seulement si --params-minimax est passe.
 params_minimax:
   detail: high
   max_long_side_pixel: 2016

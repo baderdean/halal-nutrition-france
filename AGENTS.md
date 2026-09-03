@@ -73,6 +73,11 @@ rapport. Ecart hors tolerance = arret, pas d'avertissement.
   (`donnees_humaines/double_codage.csv`), jamais une sortie generee.
 - Priorite : ce passage sur les images sert d'abord a mesurer le taux de faux
   negatifs du tag halal. Le certificateur est un sous-produit du meme passage.
+- Un jeu de lectures ne melange jamais deux fournisseurs. Leurs taux d'erreur
+  different ; un taux global n'aurait pas de sens et la qualite varierait
+  d'une ligne a l'autre sans que rien ne le signale. `couche2_validation.py`
+  s'arrete si le jeu en contient plusieurs, et le taux d'erreur d'un
+  fournisseur ne se transporte pas a un autre.
 - Aucun lot de lecture ne part sans un preflight reussi. Une passerelle qui
   ignore silencieusement le bloc image repond quand meme, a partir du seul
   texte de la consigne : la sortie serait entierement inventee et rien dans le

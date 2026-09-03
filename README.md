@@ -70,8 +70,18 @@ fait par un modele de vision, dans l'Action GitHub
 `.github/workflows/couche2-images.yml` — declenchement manuel, jamais sur push,
 puisqu'elle appelle une API payante.
 
-Prerequis : le secret `STUDY_API_KEY` dans Settings -> Secrets and variables ->
-Actions. Fournisseur et modele dans `config/lecture_image.yaml`.
+Fournisseurs essayes dans l'ordre, declares dans `config/lecture_image.yaml`.
+Le premier qui passe le preflight emporte tout le lot ; on ne panache pas, les
+taux d'erreur different d'un modele a l'autre.
+
+| Fournisseur | Modele | Identifiants | Ou |
+|---|---|---|---|
+| `opencode-zen` | `minimax-m3` | `STUDY_API_KEY` | secret |
+| `cloudflare-workers-ai` | `@cf/meta/llama-3.2-11b-vision-instruct` | `CF_API_TOKEN` | secret |
+| | | `CF_ACCOUNT_ID` | variable |
+
+Settings -> Secrets and variables -> Actions, onglet *Secrets* pour les deux
+cles, onglet *Variables* pour l'identifiant de compte Cloudflare.
 
 Enchainement impose :
 

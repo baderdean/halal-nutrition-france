@@ -60,6 +60,18 @@ def main() -> int:
 
     titre("COUCHE 2 — taux d'erreur de la lecture d'image")
     print(f"  produits doublement codes : {len(j)}")
+    if "fournisseur" in j.columns:
+        vus = j.groupby(["fournisseur", "modele"]).size()
+        print("\n  Lectures par fournisseur :")
+        print(vus.to_string())
+        if len(vus) > 1:
+            echec(
+                "le jeu melange plusieurs fournisseurs. Leurs taux d'erreur "
+                "different :\n    un taux global n'aurait aucun sens et la "
+                "qualite varierait d'une ligne a l'autre sans que rien ne le "
+                "signale.\n    Relancer la lecture avec --fournisseur, un "
+                "seul, ou valider chaque sous-ensemble separement."
+            )
     if len(j) < args.n_min:
         echec(
             f"seulement {len(j)} produits doublement codes, minimum "

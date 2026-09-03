@@ -18,11 +18,7 @@ import urllib.request
 
 from commun import charger, titre
 
-CANDIDATS = [
-    "https://opencode.ai/zen/v1",
-    "https://opencode.ai/zen",
-    "https://api.opencode.ai/v1",
-]
+
 
 
 def sonde(url: str, cle: str | None = None, methode: str = "GET",
