@@ -57,6 +57,14 @@ jobs:
       # Un seul appel. Verifie que la passerelle relaie bien l'image jusqu'au
       # modele : sans cette preuve, un lot complet produirait des lectures
       # inventees a partir du seul texte de la consigne.
+      # Etablit ce qui repond depuis le runner avant d'accuser la passerelle :
+      # hotes candidats, code HTTP par URL, et disponibilite des images OFF
+      # aux trois resolutions. N'imprime jamais la cle.
+      - name: Diagnostic reseau et API
+        env:
+          STUDY_API_KEY: ${{ secrets.STUDY_API_KEY }}
+        run: python3 src/couche2_diagnostic.py
+
       - name: Preflight
         env:
           STUDY_API_KEY: ${{ secrets.STUDY_API_KEY }}

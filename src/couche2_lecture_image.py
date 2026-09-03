@@ -169,7 +169,12 @@ def lire_une(client, conf, ligne, taille, params_minimax) -> dict:
             base["tokens_entree"] = r.usage.prompt_tokens or 0
             base["tokens_sortie"] = r.usage.completion_tokens or 0
     except Exception as e:  # noqa: BLE001 - l'echec est une donnee, pas un arret
-        base["erreur"] = f"{type(e).__name__}: {e}"[:300]
+        # APIConnectionError se resume a "Connection error." et masque la
+        # cause httpx. Sans elle on ne sait pas si c'est le DNS, le TLS ou
+        # un refus de connexion.
+        cause = getattr(e, "__cause__", None)
+        detail = f" | cause: {type(cause).__name__}: {cause}" if cause else ""
+        base["erreur"] = f"{type(e).__name__}: {e}{detail}"[:400]
     base.update({"code": ligne.code, "marque_tag": ligne.marque_tag,
                  "brands": ligne.brands, "bras": ligne.bras,
                  "tag_halal": ligne.tag_halal,
