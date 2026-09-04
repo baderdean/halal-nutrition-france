@@ -34,7 +34,8 @@ VARIABLES = [("nutriscore_score", "Nutri-Score en score continu", 1),
 
 def main() -> int:
     cfg = charger("certificateurs.yaml")
-    noms = {c["tag"]: c["nom"] for c in cfg["certificateurs"]}
+    # Un organisme, plusieurs tags : la taxonomie OFF l'eclate en variantes.
+    noms = {t: c["nom"] for c in cfg["certificateurs"] for t in c["tags"]}
     tags = "', '".join(noms)
     con = connexion()
     rng = np.random.default_rng(GRAINE)
@@ -50,21 +51,25 @@ def main() -> int:
           "halal portent un certificateur identifie.")
     print("  La couche 1 annoncait 6,9 % et abandonnait la question. Corrige.\n")
 
-    sep = con.execute(f"""
-        SELECT lab AS tag, count(*) AS n_produits,
-               count(DISTINCT marque) AS n_marques,
-               round(100.0 * max(part) , 1) AS pct_1re_marque
-        FROM (
-          SELECT lab, marque, count(*) OVER (PARTITION BY lab) AS tot,
-                 count(*) OVER (PARTITION BY lab, marque)::DOUBLE
-                   / count(*) OVER (PARTITION BY lab) AS part
-          FROM (SELECT unnest(labels_tags) AS lab,
-                       regexp_replace(brands_tags[1], '^[a-z]{{2}}:', '') AS marque
-                FROM '{PERIMETRE}'
-                WHERE brands_tags IS NOT NULL AND len(brands_tags) > 0))
-        WHERE lab IN ('{tags}')
-        GROUP BY lab ORDER BY n_produits DESC""").df()
-    sep["certificateur"] = sep.tag.map(noms)
+    # L'agregation se fait par ORGANISME, pas par tag : sinon un certificateur
+    # eclate en variantes apparait plusieurs fois et parait plus petit qu'il
+    # n'est.
+    brut = con.execute(f"""
+        SELECT lab, marque, count(*) AS n FROM (
+          SELECT unnest(labels_tags) AS lab,
+                 regexp_replace(brands_tags[1], '^[a-z]{{2}}:', '') AS marque
+          FROM '{PERIMETRE}'
+          WHERE brands_tags IS NOT NULL AND len(brands_tags) > 0)
+        WHERE lab IN ('{tags}') GROUP BY lab, marque""").df()
+    brut["certificateur"] = brut.lab.map(noms)
+    # Un produit peut porter deux variantes du meme organisme : on compte les
+    # couples organisme x marque une seule fois par produit, en prenant le max.
+    par = (brut.groupby(["certificateur", "marque"])["n"].max().reset_index())
+    sep = (par.groupby("certificateur")
+           .agg(n_produits=("n", "sum"), n_marques=("marque", "nunique"),
+                premiere=("n", "max")).reset_index())
+    sep["pct_1re_marque"] = (100.0 * sep.premiere / sep.n_produits).round(1)
+    sep = sep.sort_values("n_produits", ascending=False)
     print("  Separabilite d'avec la marque, second motif d'abandon :")
     print(sep[["certificateur", "n_produits", "n_marques",
                "pct_1re_marque"]].to_string(index=False))
@@ -134,7 +139,60 @@ def main() -> int:
               f"   sans {sens*ib[0]:+.2f} "
               f"[{min(sens*ib[1],sens*ib[2]):+.2f} ; {max(sens*ib[1],sens*ib[2]):+.2f}]"
               f"   n={len(a)}/{len(b)}")
+
+    comparaison_electronarcose(halal, rng)
     return 0
+
+def comparaison_electronarcose(halal, rng):
+    """Compare les certificateurs selon un regroupement DECLARE, pas etabli.
+
+    Le regroupement vient du commanditaire de l'etude. Ce depot ne dispose
+    d'aucune donnee sur les pratiques d'abattage : il applique le decoupage
+    fourni et n'en garantit pas l'exactitude.
+    """
+    e = charger("electronarcose.yaml")
+    grp = {}
+    for c in e["sans_electronarcose"]:
+        grp[c] = "sans electronarcose (declare)"
+    for c in e["avec_electronarcose"]:
+        grp[c] = "avec electronarcose (declare)"
+    halal = halal.copy()
+    halal["groupe_e"] = halal.certificateur.map(grp)
+    halal.loc[halal.certificateur.isna(), "groupe_e"] = "sans certificateur"
+
+    titre("Electronarcose : regroupement DECLARE par le commanditaire")
+    print("Ce depot n'etablit PAS quels organismes pratiquent l'electronarcose.")
+    print("Open Food Facts n'en dit rien. La classification est fournie, non")
+    print("verifiee, et toute publication doit citer les cahiers des charges")
+    print("des organismes, pas ce fichier.\n")
+    print("  Composition des groupes :")
+    print(halal.groupby("groupe_e").certificateur.nunique().to_string())
+    print()
+    lignes = []
+    for var, libelle, sens in VARIABLES:
+        for g, sous in halal.groupby("groupe_e"):
+            v = sous["ecart_" + var].dropna().to_numpy()
+            if len(v) < N_MIN:
+                continue
+            ic = ic_mediane(v, rng)
+            if ic is None:
+                continue
+            lignes.append({
+                "variable": libelle, "groupe": g, "n": len(v),
+                "ecart_median": round(sens * ic[0], 3),
+                "ic95_bas": round(min(sens * ic[1], sens * ic[2]), 3),
+                "ic95_haut": round(max(sens * ic[1], sens * ic[2]), 3),
+                "marques": sous.groupby("certificateur").size().size,
+            })
+    r = pd.DataFrame(lignes)
+    print(r.to_string(index=False))
+    r.to_csv(SORTIES / "c_electronarcose.csv", index=False)
+    print("\n  LIMITE DECISIVE : ces groupes ne sont pas separables de la")
+    print("  marque. L'ARGML tire 78 % de ses produits d'une seule marque,")
+    print("  Achahada 67 % de trois marques. Un ecart entre groupes peut etre")
+    print("  la recette d'une marque, pas une consequence du mode d'abattage.")
+    print("  Aucun mecanisme connu ne relie l'electronarcose au sel ou aux")
+    print("  acides gras satures d'une recette industrielle.")
 
 
 if __name__ == "__main__":

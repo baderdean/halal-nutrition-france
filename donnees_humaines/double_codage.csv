@@ -1,201 +1,201 @@
-n,code,marque,h_estampille_halal,h_certificateur,h_lisibilite,h_commentaire,source_lecture
-1,5411781006900,Beynur,oui,Halal International Control,zone_absente,,externe
-2,3270120590607,Programme Ange Gardien,non,,nette,,image
-3,3660014115564,Escale Gourmande,non,,,,non_code
-4,2860093044019,Volandrie,non,,,,non_code
-5,2000000006802,Soulié Restauration,non,,,,non_code
-6,3760195571507,Boucherie,oui,AVS,zone_absente,,externe
-7,3770004232376,le goût bourbon,non,,,,non_code
-8,76214882,baluchon,oui,AVS,,,non_code
-9,6111050005564,koutoubia,oui,Institut Marocain de Normalisation,nette,,image
-10,3560071474713,Carrefour Sensation,non,,,,non_code
-11,3770022585379,Hünkar,oui,Halal Verif,zone_absente,,externe
-12,2213978074982,Chantal Plasse,non,,,,non_code
-13,3336100000181,Colomba,non,,,,non_code
-14,3838977026863,Perutnina,oui,Emirates International Accreditation Centre,zone_absente,,externe
-15,2000000049840,"El Tequito, Lidl",non,,,,non_code
-16,3529351092504,ADER,non,,,,non_code
-17,3499150350719,Carf,non,,,,non_code
-18,4027394005073,Yayla,oui,Halal Europe,nette,,image
-19,2987086002006,Solexia,oui,,zone_absente,,externe
-20,8423759061023,L'Oasis De dJerba,oui,Junta Islamica,nette,Garantia Halal de Junta Islamica (Institut Halal),image
-21,3346235711005,Finesse de veau,non,,,,non_code
-22,3266110050305,Bocaron,non,,,,non_code
-23,4008460261227,Emin,oui,,zone_absente,,externe
-24,0765857436388,Insectes Comestibles,non,,,,non_code
-25,8711659036631,Si-bel,oui,Centre Islamique de Aachen,nette,,image
-26,3760331570371,Mélanie Serre,non,,,,non_code
-27,3499150342523,Rest'or chef,non,,,,non_code
-28,3760084446046,Majonque,non,,,,non_code
-29,3760247500028,Amin Omar,oui,,zone_absente,,externe
-30,2457059021322,Les éleveurs de chez nous,non,,,,non_code
-31,2688183075442,Morteau saucisse SAS,non,,,,non_code
-32,20929923,Volaille Francaise,oui,Mosquée d'Evry-Courcouronnes,floue,,image
-33,3499150326714,Rest'Chef,oui,,zone_absente,,externe
-34,3230890439308,Maître CoQ,oui,,,,non_code
-35,3381590007806,oumaty,oui,ACHAHADA,nette,,image
-36,9120054460641,Hallal Center,oui,,zone_absente,,externe
-37,3346384061037,Salaisons Cros,non,,,,non_code
-38,7310240075472,Felix,non,,,,non_code
-39,3375220502656,Raffin,non,,,,non_code
-40,4260505990602,Tavuk Salam,oui,,zone_absente,,externe
-41,3596692926171,Dar Al Mazak,oui,AFCAI,nette,,image
-42,7826814980016,Boots,non,,,,non_code
-43,0272515052151,Savyane,non,,,,non_code
-44,5941460014587,Attayeb,oui,HIMS,nette,,image
-45,4260193511400,Destan,oui,Halal-Institute,zone_absente,,externe
-46,2435971025987,Saint Sauveur,non,,,,non_code
-47,3276440774093,Médina Halal,oui,Mosquée d'Evry-Courcouronnes,trop_petite,,image
-48,0226773029912,"Gastronome Distribution, Shems",oui,ARGML,nette,,image
-49,5420014106423,LE DOMAINE DU LAC,non,,,,non_code
-50,4056489362074,MSC LIDL,non,,,,non_code
-51,3443705047791,El Dawaq,oui,,zone_absente,,externe
-52,3760114530578,Aljadid Professionnel,oui,AVS,nette,,image
-53,2336201007127,Demoizet,non,,,,non_code
-54,3760114530295,Aljadid,oui,AVS,,,non_code
-55,8717701002470,Sadia,oui,The Islamic Committee Office of Thailand,nette,,image
-56,3375220201047,Le Petit Savoyard,non,,,,non_code
-57,3071500420886,Cochonou,non,,,,non_code
-58,6111270940287,Dar Al Lahm,oui,Institut Marocain de Normalisation,nette,,image
-59,5283001701939,Hawa Chicken,oui,Mohammad Hussein Fadlallah,zone_absente,,externe
-60,3760378620008,El Benna,oui,EHT,nette,,image
-61,5010436503018,exeter,oui,,zone_absente,,externe
-62,4027394005011,Yayla,oui,Centre Islamique de Aachen,floue,,image
-63,3598960036605,Salette,non,,,,non_code
-64,6111050005571,Koutoubia,oui,Institut Marocain de Normalisation,nette,,image
-65,3273625873893,"Cooperl, Sans marque",non,,,,non_code
-66,5504056341964,Lezita,oui,KAS,zone_absente,Sur leur site web on trouve un certificat de KAS mais expiré depuis fin 2025,externe
-67,3337530442268,Les Amicales,non,,,,non_code
-68,3531940625000,Aldi,oui,SECVH,floue,,image
-69,3325815008995,Pêcheurs Bretons,non,,,,non_code
-70,8001665704892,Giovanni Rana,non,,,,non_code
-71,8007281321543,Martini,non,,,,non_code
-72,4260174654256,Ekselans,oui,,zone_absente,,externe
-73,26026480,Asia,non,,,,non_code
-74,3760114530462,Aljadid,oui,AVS,nette,,image
-75,3327750000287,Pierrat,non,,,,non_code
-76,4251097402888,JACK LINK'S,non,,,,non_code
-77,4036117010089,Hallal,oui,,zone_absente,,externe
-78,20928421,"Saint Alby, French Style",non,,,,non_code
-79,3493833080375,"Champlat, Réserve de Champlat",non,,,,non_code
-80,5019503011715,Quorn,non,,,,non_code
-81,3272931009064,Laguilhon,non,,,,non_code
-82,3378740764399,Biladi,oui,,zone_absente,,externe
-83,3291520001630,"Grand Saloir Saint Nicolas, Grand saloir Saint Nicolas / signature charcutière, Signature Charcutière",non,,,,non_code
-84,6008123006187,Klein Karoo,non,,,,non_code
-85,3166352967907,Marie,non,,,,non_code
-86,3264056111821,"Berni, Les delices de l atlasLes délices de l'Atlas",oui,,zone_absente,,externe
-87,3700141400659,Oriental,oui,Mosquée d'Evry-Courcouronnes,nette,,image
-88,8017596007148,"Eurospin, La Bottega del Gusto",non,,,,non_code
-89,3336920007926,LE POULAILLER DE LUCETTE,non,,,,non_code
-90,2693099029526,Cochon Futé,non,,,,non_code
-91,3365629000143,Les Mouettes d'Arvor,non,,,,non_code
-92,3397210000492,La Rétaise,non,,,,non_code
-93,01030464,halal,oui,Mosquée d'Evry-Courcouronnes,nette,,image
-94,5060037672002,Skyfood,non,,,,non_code
-95,2644188023291,Adrien Labrouche,non,,,,non_code
-96,3039050044334,"Sans marque, Socopa",oui,Mosquée d'Evry-Courcouronnes,nette,,image
-97,5033712160101,Al Kabeer,oui,,zone_absente,,externe
-98,5901885541143,Gulnur,oui,"RHD, EHT",zone_absente,,externe
-99,3384230039656,Les Fines Saveurs de Lyon,non,,,,non_code
-100,12908514,arabi,oui,AVS,nette,,image
-101,2689284045983,Bioporc,non,,,,non_code
-102,3700483801473,Mosaïque,oui,,zone_absente,,externe
-103,3018253179111,ÉDOUARD,non,,,,non_code
-104,5412586016767,Halal Time,oui,AVS,nette,,image
-105,3432770018317,Comte De La Segnie,non,,,,non_code
-106,8414169721027,Cardoso,non,,,,non_code
-107,5411431115143,Volibon,oui,Halal Food Council of Europe,nette,,image
-108,3760095063232,Le Lavandier,non,,,,non_code
-109,2801017012271,Veranis,oui,AVS,nette,,image
-110,15825889,Isla Mondial,oui,AVS,nette,,image
-111,3701392401624,Vedina,non,RHD,,,non_code
-112,0000300000684,Crystal,oui,ARGML,nette,,image
-113,3565300002323,La Boutique Provencale,non,,,,non_code
-114,3291510003460,La Ronde des Gourmands,non,,,,non_code
-115,0276204087646,Réghalal,oui,,zone_absente,,externe
-116,3700483801060,Mosaic,oui,"Majelis Ulama Indonesia, Malaysia Halal, EIACI, Saudi Halal Center, TURKEY HALAL ACCREDITATION AGENCY",,,non_code
-117,2124890002727,DUC,non,,,,non_code
-118,4260193510878,Özyörem,oui,,zone_absente,,externe
-119,3233970440348,L.S.R,non,,,,non_code
-120,3770005344030,"Eljaouda, Les Surgelés Eljaouda",oui,ARGML,nette,,image
-121,8710581915984,Zwan,oui,,zone_absente,,externe
-122,3770014985019,Les cocottes de la Montagne Noire,non,,,,non_code
-123,5425005732339,Europa Cuisson,oui,,zone_absente,,externe
-124,6409100061463,HK,non,,,,non_code
-125,0217463045466,Saveurs Forestières,non,,,,non_code
-126,3416510001531,Al Halal,oui,Halal Réunion,nette,,image
-127,5411431113842,Volibon Halal,oui,Halal Food Council of Europe,nette,,image
-128,3250390021568,Odyssée,non,,,,non_code
-129,3567894230014,Pescanova,non,,,,non_code
-130,8006473900146,Amadori,oui,Casa della Cultura Islamica,zone_absente,,externe
-131,3760246260008,KENZA,oui,"Mosquée de Munich, Junta Islamic, Mosquée d'Evry-Courconnes",zone_absente,,externe
-132,3067850001592,So Hal,oui,,zone_absente,,externe
-133,3273230720742,Groupe Bigard,non,,,,non_code
-134,4047187001709,SELAM,oui,,zone_absente,,externe
-135,3265980313633,Al Qassab,oui,SECVH,nette,,image
-136,3254560242227,Mmm!,non,,,,non_code
-137,2877228008686,Gourmet Game,non,,,,non_code
-138,2409416065869,dabia,oui,Mosquée d'Evry-Courcouronnes,nette,,image
-139,8421764165644,carchelejo,oui,Junta Islamica,nette,,image
-140,3245412149269,Classic,non,,,,non_code
-141,2760009200020,Larignon,non,,,,non_code
-142,3039050643070,"Cap Saveurs, Socopa",non,,,,non_code
-143,3760350683113,Plat du jour,non,,,,non_code
-144,2232752028072,Les prêts à cuisiner du volailler,non,,,,non_code
-145,2236344056351,les fermiers occitans,non,,,,non_code
-146,3336461700294,A m'Baraque à frites,non,,,,non_code
-147,3154230809685,Herta le Bon Paris,non,,,,non_code
-148,3547110000515,Coopérative du Haricot Tarbais,non,,,,non_code
-149,3426620001970,l'oued,oui,SECVH,floue,,image
-150,8001070000015,Simmenthal,non,,,,non_code
-151,5283000328670,Maxim's,non,,,,non_code
-152,2112362004355,Qualité & Prix,non,,,,non_code
-153,0327628128034,Royal HALAL,oui,ARGML,zone_absente,,externe
-154,26015910,"Les Doris, Les Doris (Aldi)",non,,,,non_code
-155,4260166730388,Conower,non,,,,non_code
-156,4047187002218,Selam,oui,,zone_absente,,externe
-157,3238990010434,Voilaille française,non,,,,non_code
-158,2678238039031,Maison CHASSAGNARD,non,,,,non_code
-159,3700912305312,saveur d'antoine,non,,,,non_code
-160,3770030173056,BLUFF,non,,,,non_code
-161,5051751000721,Iglo,non,,,,non_code
-162,5941621002880,Transavia,non,,,,non_code
-163,8711659080443,Orient delice,oui,Centre Islamique de Aachen,floue,,image
-164,3770022585416,HÜNKAR,oui,,zone_absente,,externe
-165,0031506319228,Dietz & Watson,non,,,,non_code
-166,4260193515026,Özyörem,oui,,zone_absente,,externe
-167,0292472052612,CHARAL SAS,non,,,,non_code
-168,17594537,prima vera,non,,,,non_code
-169,27009598,primo fiore,non,,,,non_code
-170,0265912015874,Les Salaisons du Terroir,non,,,,non_code
-171,3443705080743,Domaine du Périé,non,,,,non_code
-172,5601119044654,Nobre,non,,,,non_code
-173,7894904572205,Seara,non,,,,non_code
-174,3193482624028,"BTI, Sans marque",non,,,,non_code
-175,3770012128401,Vosg'bocaux,non,,,,non_code
-176,8423759805788,Tif Anoual,oui,Junta Islamica,trop_petite,,image
-177,2424910018838,Porc 71,non,,,,non_code
-178,5413110541960,Isali,non,,,,non_code
-179,5941460014600,Attayeb,oui,ACHAHADA,nette,,image
-180,8711659030318,Orient Délice,oui,Junta Islamica,floue,,image
-181,4040328072446,,oui,,zone_absente,,externe
-182,8711659041161,SIBEL,oui,,trop_petite,,image
-183,3276440042468,Medina,oui,Mosquée d'Evry-Courcouronnes,nette,,image
-184,8711659430057,Sibel,oui,Centre Islamique de Aachen,floue,,image
-185,5411431122240,Agrosnack,oui,Halal Food Council of Europe,nette,,image
-186,3256477048039,Bistrot gourmand,non,,,,non_code
-187,3498301004822,Saucisson D'ardèche,non,,,,non_code
-188,8423759805979,ZAHRA HALAL,oui,,zone_absente,,externe
-189,6008123005074,"Klein Karoo, Klein Karoo International",non,,,,non_code
-190,8853652022027,King Chief,non,,,,non_code
-191,3592860070417,Baton Rouge,non,,,Kasher,non_code
-192,3277160800765,Secrets d'Éleveurs,non,,,,non_code
-193,3173660011826,Rocheblin,non,,,,non_code
-194,3395090063262,Limoujoux,non,,,,non_code
-195,6191542000420,Chahia,oui,,zone_absente,,externe
-196,5425030790311,Tadal,oui,,zone_absente,,externe
-197,3254560185258,"Groupe Auchan,Auchan",non,,,,non_code
-198,2288922018107,Saucissons Moiroud,non,,,,non_code
-199,3123070101099,Roger Dutruy,non,,,,non_code
-200,3760170230887,grolière,non,,,,non_code
+n,code,marque,h_estampille_halal,h_certificateur,h_lisibilite,h_commentaire,h_certificateur_norm,source_lecture
+1,5411781006900,Beynur,oui,Halal International Control,zone_absente,,Halal International Control,externe
+2,3270120590607,Programme Ange Gardien,non,,nette,,,image
+3,3660014115564,Escale Gourmande,non,,,,,non_code
+4,2860093044019,Volandrie,non,,,,,non_code
+5,2000000006802,Soulié Restauration,non,,,,,non_code
+6,3760195571507,Boucherie,oui,AVS,zone_absente,,AVS — A Votre Service,externe
+7,3770004232376,le goût bourbon,non,,,,,non_code
+8,76214882,baluchon,oui,AVS,,,AVS — A Votre Service,non_code
+9,6111050005564,koutoubia,oui,Institut Marocain de Normalisation,nette,,Institut Marocain de Normalisation,image
+10,3560071474713,Carrefour Sensation,non,,,,,non_code
+11,3770022585379,Hünkar,oui,Halal Verif,zone_absente,,Halal Verif,externe
+12,2213978074982,Chantal Plasse,non,,,,,non_code
+13,3336100000181,Colomba,non,,,,,non_code
+14,3838977026863,Perutnina,oui,Emirates International Accreditation Centre,zone_absente,,Emirates International Accreditation Centre,externe
+15,2000000049840,"El Tequito, Lidl",non,,,,,non_code
+16,3529351092504,ADER,non,,,,,non_code
+17,3499150350719,Carf,non,,,,,non_code
+18,4027394005073,Yayla,oui,Halal Europe,nette,,Halal Europe,image
+19,2987086002006,Solexia,oui,,zone_absente,,,externe
+20,8423759061023,L'Oasis De dJerba,oui,Junta Islamica,nette,Garantia Halal de Junta Islamica (Institut Halal),Junta Islamica,image
+21,3346235711005,Finesse de veau,non,,,,,non_code
+22,3266110050305,Bocaron,non,,,,,non_code
+23,4008460261227,Emin,oui,,zone_absente,,,externe
+24,0765857436388,Insectes Comestibles,non,,,,,non_code
+25,8711659036631,Si-bel,oui,Centre Islamique de Aachen,nette,,Centre Islamique de Aachen,image
+26,3760331570371,Mélanie Serre,non,,,,,non_code
+27,3499150342523,Rest'or chef,non,,,,,non_code
+28,3760084446046,Majonque,non,,,,,non_code
+29,3760247500028,Amin Omar,oui,,zone_absente,,,externe
+30,2457059021322,Les éleveurs de chez nous,non,,,,,non_code
+31,2688183075442,Morteau saucisse SAS,non,,,,,non_code
+32,20929923,Volaille Francaise,oui,Mosquée d'Evry-Courcouronnes,floue,,Mosquee d'Evry-Courcouronnes,image
+33,3499150326714,Rest'Chef,oui,,zone_absente,,,externe
+34,3230890439308,Maître CoQ,oui,,,,,non_code
+35,3381590007806,oumaty,oui,ACHAHADA,nette,,Achahada,image
+36,9120054460641,Hallal Center,oui,,zone_absente,,,externe
+37,3346384061037,Salaisons Cros,non,,,,,non_code
+38,7310240075472,Felix,non,,,,,non_code
+39,3375220502656,Raffin,non,,,,,non_code
+40,4260505990602,Tavuk Salam,oui,,zone_absente,,,externe
+41,3596692926171,Dar Al Mazak,oui,AFCAI,nette,,AFCAI,image
+42,7826814980016,Boots,non,,,,,non_code
+43,0272515052151,Savyane,non,,,,,non_code
+44,5941460014587,Attayeb,oui,HIMS,nette,,HIMS,image
+45,4260193511400,Destan,oui,Halal-Institute,zone_absente,,Halal-Institute,externe
+46,2435971025987,Saint Sauveur,non,,,,,non_code
+47,3276440774093,Médina Halal,oui,Mosquée d'Evry-Courcouronnes,trop_petite,,Mosquee d'Evry-Courcouronnes,image
+48,0226773029912,"Gastronome Distribution, Shems",oui,ARGML,nette,,ARGML — Grande Mosquee de Lyon,image
+49,5420014106423,LE DOMAINE DU LAC,non,,,,,non_code
+50,4056489362074,MSC LIDL,non,,,,,non_code
+51,3443705047791,El Dawaq,oui,,zone_absente,,,externe
+52,3760114530578,Aljadid Professionnel,oui,AVS,nette,,AVS — A Votre Service,image
+53,2336201007127,Demoizet,non,,,,,non_code
+54,3760114530295,Aljadid,oui,AVS,,,AVS — A Votre Service,non_code
+55,8717701002470,Sadia,oui,The Islamic Committee Office of Thailand,nette,,The Islamic Committee Office of Thailand,image
+56,3375220201047,Le Petit Savoyard,non,,,,,non_code
+57,3071500420886,Cochonou,non,,,,,non_code
+58,6111270940287,Dar Al Lahm,oui,Institut Marocain de Normalisation,nette,,Institut Marocain de Normalisation,image
+59,5283001701939,Hawa Chicken,oui,Mohammad Hussein Fadlallah,zone_absente,,Mohammad Hussein Fadlallah,externe
+60,3760378620008,El Benna,oui,EHT,nette,,EHT,image
+61,5010436503018,exeter,oui,,zone_absente,,,externe
+62,4027394005011,Yayla,oui,Centre Islamique de Aachen,floue,,Centre Islamique de Aachen,image
+63,3598960036605,Salette,non,,,,,non_code
+64,6111050005571,Koutoubia,oui,Institut Marocain de Normalisation,nette,,Institut Marocain de Normalisation,image
+65,3273625873893,"Cooperl, Sans marque",non,,,,,non_code
+66,5504056341964,Lezita,oui,KAS,zone_absente,Sur leur site web on trouve un certificat de KAS mais expiré depuis fin 2025,KAS,externe
+67,3337530442268,Les Amicales,non,,,,,non_code
+68,3531940625000,Aldi,oui,SECVH,floue,,SFCVH — Grande Mosquee de Paris,image
+69,3325815008995,Pêcheurs Bretons,non,,,,,non_code
+70,8001665704892,Giovanni Rana,non,,,,,non_code
+71,8007281321543,Martini,non,,,,,non_code
+72,4260174654256,Ekselans,oui,,zone_absente,,,externe
+73,26026480,Asia,non,,,,,non_code
+74,3760114530462,Aljadid,oui,AVS,nette,,AVS — A Votre Service,image
+75,3327750000287,Pierrat,non,,,,,non_code
+76,4251097402888,JACK LINK'S,non,,,,,non_code
+77,4036117010089,Hallal,oui,,zone_absente,,,externe
+78,20928421,"Saint Alby, French Style",non,,,,,non_code
+79,3493833080375,"Champlat, Réserve de Champlat",non,,,,,non_code
+80,5019503011715,Quorn,non,,,,,non_code
+81,3272931009064,Laguilhon,non,,,,,non_code
+82,3378740764399,Biladi,oui,,zone_absente,,,externe
+83,3291520001630,"Grand Saloir Saint Nicolas, Grand saloir Saint Nicolas / signature charcutière, Signature Charcutière",non,,,,,non_code
+84,6008123006187,Klein Karoo,non,,,,,non_code
+85,3166352967907,Marie,non,,,,,non_code
+86,3264056111821,"Berni, Les delices de l atlasLes délices de l'Atlas",oui,,zone_absente,,,externe
+87,3700141400659,Oriental,oui,Mosquée d'Evry-Courcouronnes,nette,,Mosquee d'Evry-Courcouronnes,image
+88,8017596007148,"Eurospin, La Bottega del Gusto",non,,,,,non_code
+89,3336920007926,LE POULAILLER DE LUCETTE,non,,,,,non_code
+90,2693099029526,Cochon Futé,non,,,,,non_code
+91,3365629000143,Les Mouettes d'Arvor,non,,,,,non_code
+92,3397210000492,La Rétaise,non,,,,,non_code
+93,01030464,halal,oui,Mosquée d'Evry-Courcouronnes,nette,,Mosquee d'Evry-Courcouronnes,image
+94,5060037672002,Skyfood,non,,,,,non_code
+95,2644188023291,Adrien Labrouche,non,,,,,non_code
+96,3039050044334,"Sans marque, Socopa",oui,Mosquée d'Evry-Courcouronnes,nette,,Mosquee d'Evry-Courcouronnes,image
+97,5033712160101,Al Kabeer,oui,,zone_absente,,,externe
+98,5901885541143,Gulnur,oui,"RHD, EHT",zone_absente,,"RHD, EHT",externe
+99,3384230039656,Les Fines Saveurs de Lyon,non,,,,,non_code
+100,12908514,arabi,oui,AVS,nette,,AVS — A Votre Service,image
+101,2689284045983,Bioporc,non,,,,,non_code
+102,3700483801473,Mosaïque,oui,,zone_absente,,,externe
+103,3018253179111,ÉDOUARD,non,,,,,non_code
+104,5412586016767,Halal Time,oui,AVS,nette,,AVS — A Votre Service,image
+105,3432770018317,Comte De La Segnie,non,,,,,non_code
+106,8414169721027,Cardoso,non,,,,,non_code
+107,5411431115143,Volibon,oui,Halal Food Council of Europe,nette,,Halal Food Council of Europe,image
+108,3760095063232,Le Lavandier,non,,,,,non_code
+109,2801017012271,Veranis,oui,AVS,nette,,AVS — A Votre Service,image
+110,15825889,Isla Mondial,oui,AVS,nette,,AVS — A Votre Service,image
+111,3701392401624,Vedina,non,RHD,,,RHD,non_code
+112,0000300000684,Crystal,oui,ARGML,nette,,ARGML — Grande Mosquee de Lyon,image
+113,3565300002323,La Boutique Provencale,non,,,,,non_code
+114,3291510003460,La Ronde des Gourmands,non,,,,,non_code
+115,0276204087646,Réghalal,oui,,zone_absente,,,externe
+116,3700483801060,Mosaic,oui,"Majelis Ulama Indonesia, Malaysia Halal, EIACI, Saudi Halal Center, TURKEY HALAL ACCREDITATION AGENCY",,,"Majelis Ulama Indonesia, Malaysia Halal, EIACI, Saudi Halal Center, TURKEY HALAL ACCREDITATION AGENCY",non_code
+117,2124890002727,DUC,non,,,,,non_code
+118,4260193510878,Özyörem,oui,,zone_absente,,,externe
+119,3233970440348,L.S.R,non,,,,,non_code
+120,3770005344030,"Eljaouda, Les Surgelés Eljaouda",oui,ARGML,nette,,ARGML — Grande Mosquee de Lyon,image
+121,8710581915984,Zwan,oui,,zone_absente,,,externe
+122,3770014985019,Les cocottes de la Montagne Noire,non,,,,,non_code
+123,5425005732339,Europa Cuisson,oui,,zone_absente,,,externe
+124,6409100061463,HK,non,,,,,non_code
+125,0217463045466,Saveurs Forestières,non,,,,,non_code
+126,3416510001531,Al Halal,oui,Halal Réunion,nette,,Halal Réunion,image
+127,5411431113842,Volibon Halal,oui,Halal Food Council of Europe,nette,,Halal Food Council of Europe,image
+128,3250390021568,Odyssée,non,,,,,non_code
+129,3567894230014,Pescanova,non,,,,,non_code
+130,8006473900146,Amadori,oui,Casa della Cultura Islamica,zone_absente,,Casa della Cultura Islamica,externe
+131,3760246260008,KENZA,oui,"Mosquée de Munich, Junta Islamic, Mosquée d'Evry-Courconnes",zone_absente,,"Mosquée de Munich, Junta Islamic, Mosquée d'Evry-Courconnes",externe
+132,3067850001592,So Hal,oui,,zone_absente,,,externe
+133,3273230720742,Groupe Bigard,non,,,,,non_code
+134,4047187001709,SELAM,oui,,zone_absente,,,externe
+135,3265980313633,Al Qassab,oui,SECVH,nette,,SFCVH — Grande Mosquee de Paris,image
+136,3254560242227,Mmm!,non,,,,,non_code
+137,2877228008686,Gourmet Game,non,,,,,non_code
+138,2409416065869,dabia,oui,Mosquée d'Evry-Courcouronnes,nette,,Mosquee d'Evry-Courcouronnes,image
+139,8421764165644,carchelejo,oui,Junta Islamica,nette,,Junta Islamica,image
+140,3245412149269,Classic,non,,,,,non_code
+141,2760009200020,Larignon,non,,,,,non_code
+142,3039050643070,"Cap Saveurs, Socopa",non,,,,,non_code
+143,3760350683113,Plat du jour,non,,,,,non_code
+144,2232752028072,Les prêts à cuisiner du volailler,non,,,,,non_code
+145,2236344056351,les fermiers occitans,non,,,,,non_code
+146,3336461700294,A m'Baraque à frites,non,,,,,non_code
+147,3154230809685,Herta le Bon Paris,non,,,,,non_code
+148,3547110000515,Coopérative du Haricot Tarbais,non,,,,,non_code
+149,3426620001970,l'oued,oui,SECVH,floue,,SFCVH — Grande Mosquee de Paris,image
+150,8001070000015,Simmenthal,non,,,,,non_code
+151,5283000328670,Maxim's,non,,,,,non_code
+152,2112362004355,Qualité & Prix,non,,,,,non_code
+153,0327628128034,Royal HALAL,oui,ARGML,zone_absente,,ARGML — Grande Mosquee de Lyon,externe
+154,26015910,"Les Doris, Les Doris (Aldi)",non,,,,,non_code
+155,4260166730388,Conower,non,,,,,non_code
+156,4047187002218,Selam,oui,,zone_absente,,,externe
+157,3238990010434,Voilaille française,non,,,,,non_code
+158,2678238039031,Maison CHASSAGNARD,non,,,,,non_code
+159,3700912305312,saveur d'antoine,non,,,,,non_code
+160,3770030173056,BLUFF,non,,,,,non_code
+161,5051751000721,Iglo,non,,,,,non_code
+162,5941621002880,Transavia,non,,,,,non_code
+163,8711659080443,Orient delice,oui,Centre Islamique de Aachen,floue,,Centre Islamique de Aachen,image
+164,3770022585416,HÜNKAR,oui,,zone_absente,,,externe
+165,0031506319228,Dietz & Watson,non,,,,,non_code
+166,4260193515026,Özyörem,oui,,zone_absente,,,externe
+167,0292472052612,CHARAL SAS,non,,,,,non_code
+168,17594537,prima vera,non,,,,,non_code
+169,27009598,primo fiore,non,,,,,non_code
+170,0265912015874,Les Salaisons du Terroir,non,,,,,non_code
+171,3443705080743,Domaine du Périé,non,,,,,non_code
+172,5601119044654,Nobre,non,,,,,non_code
+173,7894904572205,Seara,non,,,,,non_code
+174,3193482624028,"BTI, Sans marque",non,,,,,non_code
+175,3770012128401,Vosg'bocaux,non,,,,,non_code
+176,8423759805788,Tif Anoual,oui,Junta Islamica,trop_petite,,Junta Islamica,image
+177,2424910018838,Porc 71,non,,,,,non_code
+178,5413110541960,Isali,non,,,,,non_code
+179,5941460014600,Attayeb,oui,ACHAHADA,nette,,Achahada,image
+180,8711659030318,Orient Délice,oui,Junta Islamica,floue,,Junta Islamica,image
+181,4040328072446,,oui,,zone_absente,,,externe
+182,8711659041161,SIBEL,oui,,trop_petite,,,image
+183,3276440042468,Medina,oui,Mosquée d'Evry-Courcouronnes,nette,,Mosquee d'Evry-Courcouronnes,image
+184,8711659430057,Sibel,oui,Centre Islamique de Aachen,floue,,Centre Islamique de Aachen,image
+185,5411431122240,Agrosnack,oui,Halal Food Council of Europe,nette,,Halal Food Council of Europe,image
+186,3256477048039,Bistrot gourmand,non,,,,,non_code
+187,3498301004822,Saucisson D'ardèche,non,,,,,non_code
+188,8423759805979,ZAHRA HALAL,oui,,zone_absente,,,externe
+189,6008123005074,"Klein Karoo, Klein Karoo International",non,,,,,non_code
+190,8853652022027,King Chief,non,,,,,non_code
+191,3592860070417,Baton Rouge,non,,,Kasher,,non_code
+192,3277160800765,Secrets d'Éleveurs,non,,,,,non_code
+193,3173660011826,Rocheblin,non,,,,,non_code
+194,3395090063262,Limoujoux,non,,,,,non_code
+195,6191542000420,Chahia,oui,,zone_absente,,,externe
+196,5425030790311,Tadal,oui,,zone_absente,,,externe
+197,3254560185258,"Groupe Auchan,Auchan",non,,,,,non_code
+198,2288922018107,Saucissons Moiroud,non,,,,,non_code
+199,3123070101099,Roger Dutruy,non,,,,,non_code
+200,3760170230887,grolière,non,,,,,non_code

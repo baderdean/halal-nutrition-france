@@ -1,7 +1,9 @@
-tag,n_produits,n_marques,pct_1re_marque,certificateur
-fr:controle-de-la-mosquee-d-evry-courcouronnes,225,29,28.0,Mosquee d'Evry-Courcouronnes
-fr:association-rituelle-de-la-grande-mosquee-de-lyon,165,18,78.2,ARGML — Grande Mosquee de Lyon
-fr:a-votre-service,139,15,40.3,AVS — A Votre Service
-fr:societe-francaise-de-controle-de-viande-halal,89,14,61.8,SFCVH
-en:societe-francaise-de-controle-de-viande-halal-grande-mosquee-de-paris,44,6,79.5,SFCVH — Grande Mosquee de Paris
-en:halal-food-council-of-europe,22,6,63.6,Halal Food Council of Europe
+certificateur,n_produits,n_marques,premiere,pct_1re_marque
+Mosquee d'Evry-Courcouronnes,225,29,63,28.0
+ARGML — Grande Mosquee de Lyon,165,18,129,78.2
+AVS — A Votre Service,139,15,56,40.3
+SFCVH — Grande Mosquee de Paris,92,16,55,59.8
+Halal Food Council of Europe,22,6,14,63.6
+Achahada,9,3,6,66.7
+Halal Certification Germany,6,3,3,50.0
+Extra Kalite,4,2,2,50.0

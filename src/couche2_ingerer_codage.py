@@ -24,7 +24,8 @@ import sys
 
 import pandas as pd
 
-from commun import PERIMETRE, RACINE, SORTIES, connexion, echec, titre
+from commun import (PERIMETRE, RACINE, SORTIES, charger, connexion, echec,
+                    titre)
 
 CLASSEUR = RACINE / "donnees_humaines" / "double_codage_rempli.xlsx"
 CSV = RACINE / "donnees_humaines" / "double_codage.csv"
@@ -51,6 +52,15 @@ def main() -> int:
     for c in ("h_estampille_halal", "h_certificateur", "h_lisibilite",
               "h_commentaire"):
         d[c] = d[c].fillna("").astype(str).str.strip()
+
+    # Normalisation des noms de certificateurs saisis a la main. SECVH est une
+    # coquille pour SFCVH, et plusieurs organismes ont ete nommes de facons
+    # differentes. La table vit dans config/certificateurs.yaml.
+    norm = charger("certificateurs.yaml").get("normalisation_saisie", {})
+    d["h_certificateur_norm"] = d.h_certificateur.replace(norm)
+    n_corr = int((d.h_certificateur_norm != d.h_certificateur).sum())
+    if n_corr:
+        print(f"  {n_corr} noms de certificateurs normalises a l'ingestion")
 
     # Origine de la lecture, deduite mecaniquement de la lisibilite saisie.
     d["source_lecture"] = "non_code"

@@ -1,0 +1,33 @@
+# Regroupement des certificateurs selon la pratique de l'electronarcose.
+#
+# PROVENANCE : classification DECLAREE PAR LE COMMANDITAIRE DE L'ETUDE, le
+# 2026-09-04. Elle n'est PAS etablie par ce depot. Open Food Facts ne contient
+# aucune information sur les pratiques d'abattage des organismes de
+# certification : rien ici ne la verifie, ni ne la conteste.
+#
+# Toute publication reposant sur ce decoupage doit citer sa source reelle,
+# c'est-a-dire les cahiers des charges des organismes eux-memes, et non ce
+# fichier. Un classement errone d'un organisme serait une mise en cause
+# publique infondee.
+#
+# Le tag `fr:sans-electronarcose` existe dans la base mais ne couvre que
+# 4 produits : il ne permet aucune verification.
+
+sans_electronarcose:
+  - ARGML — Grande Mosquee de Lyon
+  - AVS — A Votre Service
+  - Achahada
+
+avec_electronarcose:
+  - SFCVH — Grande Mosquee de Paris
+  - Mosquee d'Evry-Courcouronnes
+
+# Le commanditaire evoque un troisieme organisme pratiquant l'electronarcose
+# sans le nommer. Il n'est PAS devine ici : classer a tort un organisme sur
+# une pratique d'abattage serait une mise en cause publique infondee.
+# Halal Food Council of Europe est le seul autre certificateur a depasser
+# 20 produits ; il reste non classe tant qu'il n'est pas nomme.
+non_classes:
+  - Halal Food Council of Europe
+  - Halal Certification Germany
+  - Extra Kalite
