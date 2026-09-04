@@ -351,7 +351,17 @@ def accepter_licence(conf, args) -> int:
             print("  Licence acceptee pour ce compte. Le preflight suit.")
             reussites += 1
         except urllib.error.HTTPError as e:
-            corps = e.read(400).decode("utf-8", "replace")
+            corps = e.read(600).decode("utf-8", "replace")
+            # Cloudflare renvoie la CONFIRMATION d'acceptation dans un HTTP 403
+            # au corps marque success:false. Le code de statut ne dit donc pas
+            # si l'acceptation a pris : seul le texte le dit.
+            if any(m in corps.lower() for m in
+                   ("thank you for agreeing", "you may now use the model")):
+                print(f"  Reponse : HTTP {e.code} {corps}"[:400])
+                print("  Licence acceptee pour ce compte : Cloudflare rend la")
+                print("  confirmation dans un 403, le statut ne fait pas foi.")
+                reussites += 1
+                continue
             print(f"  ECHEC : HTTP {e.code} {corps}"[:400])
             continue
         except Exception as e:  # noqa: BLE001
