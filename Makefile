@@ -9,7 +9,7 @@ PY       := HNF_DATA=$(HNF_DATA) python3
 SRC      := src
 
 .PHONY: install couche1 source france perimetre assertions analyse rapport \
-        amorce figer propre
+        couche3 couche4 marques certificateurs classement amorce figer propre
 
 install:
 	pip install -r requirements.txt
@@ -39,6 +39,21 @@ analyse:
 
 rapport:
 	$(PY) $(SRC)/etape1_rapport.py
+
+couche3:
+	$(PY) $(SRC)/etape3_appariement.py
+
+couche4: marques certificateurs classement
+
+marques:
+	$(PY) $(SRC)/etape4_marques.py
+
+certificateurs:
+	$(PY) $(SRC)/etape4_certificateurs.py
+
+# Ne relit que sorties/m_toutes_nutriscore.csv : ne demande pas le dump.
+classement:
+	$(PY) $(SRC)/etape4_classement_complet.py
 
 # A n'utiliser que pour acter volontairement un changement de dump ou de
 # perimetre. Jamais pour faire passer un pipeline rouge.
