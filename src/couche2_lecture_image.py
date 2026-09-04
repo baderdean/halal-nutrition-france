@@ -177,9 +177,13 @@ def extraire_json(texte: str) -> dict:
 
 def appeler(client, f, conf, url, params_minimax, json_mode=True):
     kw = {"model": f["modele"], "max_tokens": 512,
+          # Le texte AVANT l'image. Cloudflare traite les parties dans
+          # l'ordre et rejette une image qui precede tout message :
+          # "Unable to add image when there are no user-supplied messages"
+          # (code 3030). C'est aussi l'ordre des exemples officiels.
           "messages": [{"role": "user", "content": [
-              contenu_image(url, f, conf, params_minimax),
-              {"type": "text", "text": CONSIGNE}]}]}
+              {"type": "text", "text": CONSIGNE},
+              contenu_image(url, f, conf, params_minimax)]}]}
     if json_mode:
         kw["response_format"] = {"type": "json_object"}
     try:
