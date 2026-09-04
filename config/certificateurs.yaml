@@ -1,0 +1,26 @@
+# Certificateurs halal, detectes PAR LES DONNEES et non par la chaine 'halal'.
+#
+# Critere de detection : un label porte par au moins 20 produits du perimetre
+# et dont 80 % ou plus des porteurs sont tagues en:halal. Un tel label est un
+# organisme de certification ou une mention halal specifique.
+#
+# La couche 1 cherchait les tags contenant 'halal' et annoncait 6,9 % de
+# couverture. Elle ratait les organismes nommes par leur mosquee ou leur
+# association. La couverture reelle est de 30,5 %.
+#
+# `fr:a-votre-service` est AVS, le principal certificateur francais : son nom
+# ne contient pas 'halal', d'ou l'angle mort.
+
+certificateurs:
+  - tag: fr:controle-de-la-mosquee-d-evry-courcouronnes
+    nom: Mosquee d'Evry-Courcouronnes
+  - tag: fr:association-rituelle-de-la-grande-mosquee-de-lyon
+    nom: ARGML — Grande Mosquee de Lyon
+  - tag: fr:a-votre-service
+    nom: AVS — A Votre Service
+  - tag: fr:societe-francaise-de-controle-de-viande-halal
+    nom: SFCVH
+  - tag: en:societe-francaise-de-controle-de-viande-halal-grande-mosquee-de-paris
+    nom: SFCVH — Grande Mosquee de Paris
+  - tag: en:halal-food-council-of-europe
+    nom: Halal Food Council of Europe

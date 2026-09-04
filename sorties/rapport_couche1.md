@@ -1,6 +1,6 @@
 # Etude halal / non halal — rapport de couche 1
 
-Genere le 2026-09-04 par `src/etape1_rapport.py`, revision `6eb9a64`. Tous les chiffres sont derives des CSV de `sorties/`, aucun n'est saisi a la main.
+Genere le 2026-09-04 par `src/etape1_rapport.py`, revision `7ffc6a0`. Tous les chiffres sont derives des CSV de `sorties/`, aucun n'est saisi a la main.
 
 **Ce rapport ne conclut pas sur la qualite nutritionnelle des produits halal.** Il repond a une question de faisabilite : les donnees permettent-elles l'etude, et sur quelles variables. L'ecart chiffre presente en section 6 est brut, non ajuste, non apparie. Il n'est pas un resultat publiable en l'etat, et la section 7 dit pourquoi.
 
@@ -130,7 +130,24 @@ Le perimetre est bati sur les categories reellement observees dans le dump, pas 
 | fr:controle-mosquee-de-paris-halal                                       |            1 |           1 |
 | fr:halal-mosquee-courcouronnes                                           |            1 |           1 |
 
-`[FAIT]` **Inexploitable EN L'ETAT DU TAG, pour couverture et non pour separabilite.** Seuls 165 produits halal sur 2387 portent un tag de certificateur, soit 6.9 %. Une variable renseignee sur moins de 7 % des cas ne permet aucune comparaison, separable ou non. La separabilite elle-meme reste INCONNUE : les produits tagues ne sont pas un echantillon representatif, ce sont ceux dont un contributeur a pris la peine de saisir le certificateur. La question n'est donc pas close, elle est renvoyee a la lecture d'image de la couche 2 (section 4bis).
+`[FAIT]` **CORRECTION.** Le verdict ci-dessous etait faux, et la cause est une erreur de methode a moi : la detection des certificateurs cherchait la chaine `halal` dans les tags. Elle ratait donc tous les organismes nommes par leur mosquee ou leur association — dont **AVS, A Votre Service**, le principal certificateur francais, dont le nom ne contient pas `halal`.
+
+`[FAIT]` Detection refaite par les donnees, sur le critere « label porte par au moins 20 produits dont 80 % ou plus sont tagues halal » : la couverture reelle est de **30,5 %** des produits halal, et non 6,9 %.
+
+| certificateur                   |   n_produits |   n_marques |   pct_1re_marque |
+|:--------------------------------|-------------:|------------:|-----------------:|
+| Mosquee d'Evry-Courcouronnes    |          225 |          29 |             28   |
+| ARGML — Grande Mosquee de Lyon  |          165 |          18 |             78.2 |
+| AVS — A Votre Service           |          139 |          15 |             40.3 |
+| SFCVH                           |           89 |          14 |             61.8 |
+| SFCVH — Grande Mosquee de Paris |           44 |           6 |             79.5 |
+| Halal Food Council of Europe    |           22 |           6 |             63.6 |
+
+`[FAIT]` La separabilite d'avec la marque, second motif d'abandon, n'est pas la meme pour tous. La Mosquee d'Evry-Courcouronnes couvre 29 marques dont la premiere ne fait que 28 % des produits : elle est separable. L'ARGML, a l'inverse, tire 78 % de ses produits d'une seule marque : son effet ne se distingue pas de celui de cette marque.
+
+`[INFERENCE]` La question du certificateur est donc ROUVERTE pour les organismes separables, et elle reste fermee pour les autres. Le detail est en couche 4.
+
+`[FAIT, version initiale erronee]` **Inexploitable EN L'ETAT DU TAG, pour couverture et non pour separabilite.** Seuls 165 produits halal sur 2387 portent un tag de certificateur, soit 6.9 %. Une variable renseignee sur moins de 7 % des cas ne permet aucune comparaison, separable ou non. La separabilite elle-meme reste INCONNUE : les produits tagues ne sont pas un echantillon representatif, ce sont ceux dont un contributeur a pris la peine de saisir le certificateur. La question n'est donc pas close, elle est renvoyee a la lecture d'image de la couche 2 (section 4bis).
 
 `[FAIT]` Plusieurs tags designent le meme organisme sous des orthographes differentes — les variantes `fr:` et `en:` de la Societe francaise de controle de viande halal en sont l'exemple. Le comptage ci-dessus est donc une borne HAUTE du nombre d'organismes distincts.
 

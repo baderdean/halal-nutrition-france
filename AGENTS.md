@@ -124,6 +124,17 @@ Couverture du label visible dans le perimetre : 10,6 % du bras halal,
 la regle des 30. La lecture d'emballage sert precisement a combler ce que le
 tag OFF sous-declare.
 
+## Detection des certificateurs : jamais par la chaine 'halal'
+
+Un certificateur se detecte PAR LES DONNEES : label porte par au moins 20
+produits du perimetre dont 80 % ou plus sont tagues `en:halal`. Chercher la
+chaine `halal` dans le nom du tag rate les organismes nommes par leur mosquee
+ou leur association, a commencer par AVS — A Votre Service, le principal
+certificateur francais. Cette erreur a fait annoncer 6,9 % de couverture la
+ou elle est de 30,5 %, et abandonner a tort la question du certificateur.
+
+La liste figee est dans `config/certificateurs.yaml`.
+
 ## Distinction obligatoire dans toute sortie
 
 Fait mesure / inference / hypothese non testee. Un chiffre sans statut est un

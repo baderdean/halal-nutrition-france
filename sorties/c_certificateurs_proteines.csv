@@ -1,0 +1,6 @@
+groupe,n,ecart_median,ic95_bas,ic95_haut,strates,distingue_du_marche
+SFCVH,98,-0.0,-0.0,-0.0,20,non
+Mosquee d'Evry-Courcouronnes,214,2.0,1.25,3.0,36,oui
+halal SANS certificateur,1286,2.0,1.55,2.0,45,oui
+AVS — A Votre Service,143,2.1,1.8,2.6,25,oui
+ARGML — Grande Mosquee de Lyon,157,4.2,4.2,5.0,29,oui

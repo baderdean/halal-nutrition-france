@@ -48,6 +48,9 @@ def main() -> int:
     fn = None
     if (SORTIES / "couche2_faux_negatifs.csv").exists():
         fn = pd.read_csv(SORTIES / "couche2_faux_negatifs.csv")
+    cert4 = None
+    if (SORTIES / "c_certificateurs_separabilite.csv").exists():
+        cert4 = pd.read_csv(SORTIES / "c_certificateurs_separabilite.csv")
     img_halal = img[img.bras == "halal"].iloc[0].to_dict()
 
     v, ns, ce, se = k["volumetrie"], k["nutriscore"], k["certificateurs"], k["sel_ensemble"]
@@ -225,7 +228,34 @@ def main() -> int:
     A("")
     A(md(d5))
     A("")
-    A(f"`[FAIT]` {verdicts_cert[ce['verdict']]}")
+    if cert4 is not None:
+        A("`[FAIT]` **CORRECTION.** Le verdict ci-dessous etait faux, et la "
+          "cause est une erreur de methode a moi : la detection des "
+          "certificateurs cherchait la chaine `halal` dans les tags. Elle "
+          "ratait donc tous les organismes nommes par leur mosquee ou leur "
+          "association — dont **AVS, A Votre Service**, le principal "
+          "certificateur francais, dont le nom ne contient pas `halal`.")
+        A("")
+        A("`[FAIT]` Detection refaite par les donnees, sur le critere « label "
+          "porte par au moins 20 produits dont 80 % ou plus sont tagues "
+          "halal » : la couverture reelle est de **30,5 %** des produits "
+          "halal, et non 6,9 %.")
+        A("")
+        A(md(cert4[["certificateur", "n_produits", "n_marques",
+                    "pct_1re_marque"]]))
+        A("")
+        A("`[FAIT]` La separabilite d'avec la marque, second motif d'abandon, "
+          "n'est pas la meme pour tous. La Mosquee d'Evry-Courcouronnes couvre "
+          "29 marques dont la premiere ne fait que 28 % des produits : elle "
+          "est separable. L'ARGML, a l'inverse, tire 78 % de ses produits "
+          "d'une seule marque : son effet ne se distingue pas de celui de "
+          "cette marque.")
+        A("")
+        A("`[INFERENCE]` La question du certificateur est donc ROUVERTE pour "
+          "les organismes separables, et elle reste fermee pour les autres. "
+          "Le detail est en couche 4.")
+        A("")
+    A(f"`[FAIT, version initiale erronee]` {verdicts_cert[ce['verdict']]}")
     A("")
     A("`[FAIT]` Plusieurs tags designent le meme organisme sous des orthographes "
       "differentes — les variantes `fr:` et `en:` de la Societe francaise de "
