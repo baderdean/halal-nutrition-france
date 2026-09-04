@@ -13,7 +13,7 @@ on:
         required: true
         default: "preflight"
         type: choice
-        options: ["preflight", "lot"]
+        options: ["preflight", "sonder-formes", "lot"]
       max_produits:
         description: "Nombre maximum de produits a lire (etape lot)"
         required: true
@@ -98,7 +98,22 @@ jobs:
             ${{ inputs.fournisseur && format('--fournisseur {0}', inputs.fournisseur) || '' }} \
             ${{ inputs.modele && format('--modele {0}', inputs.modele) || '' }}
 
+      # Essaie chaque forme de message en un passage, au lieu d'en deviner
+      # une par run de quatre minutes.
+      - name: Sonde des formes de message
+        if: inputs.etape == 'sonder-formes'
+        env:
+          STUDY_API_KEY: ${{ secrets.STUDY_API_KEY }}
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+        run: |
+          python3 src/couche2_lecture_image.py --sonder-formes \
+            --taille "${{ inputs.taille_image }}" \
+            ${{ inputs.fournisseur && format('--fournisseur {0}', inputs.fournisseur) || '' }} \
+            ${{ inputs.modele && format('--modele {0}', inputs.modele) || '' }}
+
       - name: Preflight
+        if: inputs.etape != 'sonder-formes' 
         env:
           STUDY_API_KEY: ${{ secrets.STUDY_API_KEY }}
           CF_API_KEY: ${{ secrets.CF_API_KEY }}

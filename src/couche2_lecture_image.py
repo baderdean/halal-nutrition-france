@@ -175,15 +175,40 @@ def extraire_json(texte: str) -> dict:
     raise ValueError(f"reponse non parsable : {texte[:200]}")
 
 
+def formes_message(consigne: str, bloc_image: dict) -> dict:
+    """Formes de message candidates.
+
+    Les passerelles compatibles OpenAI ne traduisent pas toutes le tableau de
+    contenu de la meme facon. Cloudflare a rejete la forme A avec
+    "Unable to add image when there are no user-supplied nor system-supplied
+    messages" (code 3030), dans les deux ordres. `--sonder-formes` les essaie
+    toutes en un passage plutot que de deviner une par run.
+    """
+    return {
+        "A_texte_puis_image": [
+            {"role": "user", "content": [
+                {"type": "text", "text": consigne}, bloc_image]}],
+        "B_image_puis_texte": [
+            {"role": "user", "content": [
+                bloc_image, {"type": "text", "text": consigne}]}],
+        "C_systeme_texte_user_image": [
+            {"role": "system", "content": consigne},
+            {"role": "user", "content": [bloc_image]}],
+        "D_user_texte_puis_user_image": [
+            {"role": "user", "content": consigne},
+            {"role": "user", "content": [bloc_image]}],
+        "E_systeme_texte_user_mixte": [
+            {"role": "system", "content": consigne},
+            {"role": "user", "content": [
+                {"type": "text", "text": "Analyse cette image."}, bloc_image]}],
+    }
+
+
 def appeler(client, f, conf, url, params_minimax, json_mode=True):
+    forme = f.get("forme_message", "A_texte_puis_image")
+    bloc = contenu_image(url, f, conf, params_minimax)
     kw = {"model": f["modele"], "max_tokens": 512,
-          # Le texte AVANT l'image. Cloudflare traite les parties dans
-          # l'ordre et rejette une image qui precede tout message :
-          # "Unable to add image when there are no user-supplied messages"
-          # (code 3030). C'est aussi l'ordre des exemples officiels.
-          "messages": [{"role": "user", "content": [
-              {"type": "text", "text": CONSIGNE},
-              contenu_image(url, f, conf, params_minimax)]}]}
+          "messages": formes_message(CONSIGNE, bloc)[forme]}
     if json_mode:
         kw["response_format"] = {"type": "json_object"}
     try:
@@ -250,6 +275,40 @@ def diagnostiquer(erreur: str) -> str:
 
 
 # --------------------------------------------------------------- preflight
+
+def sonder_formes(conf, df, args) -> int:
+    """Essaie chaque forme de message et rapporte laquelle passe."""
+    ligne = next(df[df.bras == "halal"].itertuples())
+    url = ligne.image_url
+    if args.taille != "400":
+        url = url.replace(".400.jpg", TAILLES[args.taille])
+    for f in fournisseurs(conf, args.fournisseur, args.modele):
+        titre(f"SONDE DES FORMES — {f['nom']} / {f['modele']}")
+        if f["indisponible"]:
+            print(f"  ECARTE : {f['indisponible']}")
+            continue
+        client = client_pour(f)
+        bloc = contenu_image(url, f, conf, args.params_minimax)
+        for nom, messages in formes_message(CONSIGNE, bloc).items():
+            for json_mode in (True, False):
+                etiquette = f"{nom}{' +json' if json_mode else ''}"
+                kw = {"model": f["modele"], "max_tokens": 256,
+                      "messages": messages}
+                if json_mode:
+                    kw["response_format"] = {"type": "json_object"}
+                try:
+                    r = client.chat.completions.create(**kw)
+                    contenu = (r.choices[0].message.content or "")[:120]
+                    jetons = r.usage.prompt_tokens if r.usage else 0
+                    print(f"  {etiquette:<34} OK  {jetons} jetons entree")
+                    print(f"    -> {contenu!r}")
+                except Exception as e:  # noqa: BLE001
+                    msg = str(e).replace(chr(10), " ")[:150]
+                    print(f"  {etiquette:<34} ECHEC {msg}")
+    print("\n  Reporter la forme qui passe dans config/lecture_image.yaml,")
+    print("  champ `forme_message` du fournisseur concerne.")
+    return 0
+
 
 def preflight(conf, df, args, verbeux=True):
     """Un appel par fournisseur, dans l'ordre, jusqu'au premier qui passe.
@@ -381,6 +440,8 @@ def accepter_licence(conf, args) -> int:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--preflight", action="store_true")
+    ap.add_argument("--sonder-formes", action="store_true",
+                    help="essaie chaque forme de message, une seule fois")
     ap.add_argument("--executer", action="store_true")
     ap.add_argument("--fournisseur", default=None,
                     help="force un fournisseur au lieu de l'ordre configure")
@@ -409,6 +470,9 @@ def main() -> int:
 
     if args.accepter_licence:
         return accepter_licence(conf, args)
+
+    if args.sonder_formes:
+        return sonder_formes(conf, df, args)
 
     if not (args.preflight or args.executer):
         print("\n  MODE ESTIMATION — aucun appel emis, aucun euro depense.")
