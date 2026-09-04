@@ -6,25 +6,28 @@
 effectifs:
   autres_carnes:
     halal: 436
-    temoin: 22291
+    temoin: 22194
   charcuterie_cuite:
     halal: 379
-    temoin: 15183
+    temoin: 15180
   charcuterie_seche:
     halal: 260
     temoin: 6935
   decoupes:
     halal: 391
     temoin: 13885
+  foie_gras:
+    halal: 1
+    temoin: 85
   panes:
     halal: 338
-    temoin: 3406
+    temoin: 2482
   plats_cuisines:
     halal: 164
     temoin: 12253
   rillettes_pates_mousses:
-    halal: 41
-    temoin: 6677
+    halal: 40
+    temoin: 6600
   saucisses:
     halal: 259
     temoin: 6950

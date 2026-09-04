@@ -31,6 +31,17 @@ def clause_perimetre(p: dict) -> str:
             f"len(list_intersect(labels_tags, "
             f"{sql_liste(p['exclusions_labels'])})) = 0"
         )
+    if p.get("exclusion_mer"):
+        m, v = p["exclusion_mer"]["motif_mer"], p["exclusion_mer"]["motif_viande"]
+        # Sort si le produit porte une categorie PRODUIT de la mer et aucune
+        # categorie PRODUIT carnee. Une categorie qui matche les deux motifs
+        # est une categorie parente et ne compte pour aucun des deux.
+        cond.append(
+            f"NOT (len(list_filter(categories_tags, x -> regexp_matches(x, "
+            f"'{m}') AND NOT regexp_matches(x, '{v}'))) > 0 "
+            f"AND len(list_filter(categories_tags, x -> regexp_matches(x, "
+            f"'{v}') AND NOT regexp_matches(x, '{m}'))) = 0)"
+        )
     return " AND ".join(cond)
 
 

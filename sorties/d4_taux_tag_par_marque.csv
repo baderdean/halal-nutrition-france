@@ -1,43 +1,43 @@
 marque_tag,marque_affichee,n_produits,n_tagues,pct_tague
-carrefour,Carrefour,2909,61.0,2.1
-fleury-michon,Fleury Michon,1116,75.0,6.7
-lidl,"Lidl, L’étal Du Vollailler",459,8.0,1.7
-socopa,socopa,265,7.0,2.6
-sans-marque,sans marque,192,9.0,4.7
-isla-delice,Isla Délice,192,190.0,99.0
+carrefour,Carrefour,2868,61.0,2.1
+fleury-michon,Fleury Michon,1084,75.0,6.9
+lidl,"Lidl, Socopa",443,8.0,1.8
+socopa,Socopa,265,7.0,2.6
+isla-delice,isla delice,192,190.0,99.0
+sans-marque,Sans marque,188,9.0,4.8
 reghalal,Reghalal,147,129.0,87.8
-aia,AIA,93,21.0,22.6
+aia,Aia,93,21.0,22.6
 oriental-viandes,Oriental Viandes,91,85.0,93.4
-isla-mondial,Isla Mondial,80,78.0,97.5
-arabi,arabi,49,48.0,98.0
+isla-mondial,isla mondial,80,78.0,97.5
+arabi,Arabi,49,48.0,98.0
 jack-link-s,Jack Link's,42,6.0,14.3
 duc,Duc,41,5.0,12.2
-id-halal,ID-Halal,38,38.0,100.0
+id-halal,Id Halal,38,38.0,100.0
 royal-halal,Royal HALAL,30,30.0,100.0
 suntat,suntat,25,25.0,100.0
+halal,HALAL,24,23.0,95.8
 al-jadid,Al Jadid,24,22.0,91.7
-halal,Halal,24,23.0,95.8
 wassila,Wassila,22,22.0,100.0
 doux,Doux,19,5.0,26.3
-hunkar,Hunkar,17,14.0,82.4
-volibon,Volibon,15,15.0,100.0
+hunkar,Hünkar,17,14.0,82.4
 medina-halal,MEDINA HALAL,15,15.0,100.0
-mahdia,Mahdia,14,14.0,100.0
-yayla,Yayla,14,8.0,57.1
-kenza-halal,Kenza Halal,14,14.0,100.0
+volibon,Volibon,15,15.0,100.0
 dounia-halal,Dounia Halal,14,14.0,100.0
-medina,Medina,13,13.0,100.0
+yayla,Yayla,14,8.0,57.1
+mahdia,Mahdia,14,14.0,100.0
+kenza-halal,Kenza halal,14,14.0,100.0
 dabia,Dabia,13,13.0,100.0
+medina,Medina,13,13.0,100.0
 oumaty,Oumaty,12,8.0,66.7
 aljadid,Aljadid,12,9.0,75.0
-kenza,Kenza,11,11.0,100.0
+kenza,kenza,11,11.0,100.0
 el-benna,El Benna,9,9.0,100.0
-kamar,Kamar,9,8.0,88.9
 zahra,Zahra,9,8.0,88.9
-esma,Esma,8,7.0,87.5
-aladin,Aladin,8,6.0,75.0
-l-atelier-de-noor,L' Atelier de Noor,8,8.0,100.0
+kamar,Kamar,9,8.0,88.9
 al-jayid,Al jayid,8,8.0,100.0
+l-atelier-de-noor,L' Atelier de Noor,8,8.0,100.0
+aladin,Aladin,8,6.0,75.0
+esma,Esma,8,7.0,87.5
 baktat,Baktat,6,5.0,83.3
-shems,Shems,6,6.0,100.0
+shems,shems,6,6.0,100.0
 efepasa,Efepasa,5,5.0,100.0

@@ -71,9 +71,17 @@ def main() -> int:
         f"SELECT code, bras, sous_categorie, brands FROM '{PERIMETRE}'").df()
     p["code"] = p.code.astype(str)
     j = d.merge(p, on="code", how="left")
-    if j.bras.isna().any():
-        echec(f"{int(j.bras.isna().sum())} codes du codage humain absents du "
-              "perimetre. Le perimetre a change depuis le tirage.")
+    # Le perimetre a pu se resserrer depuis le tirage (exclusion des produits
+    # de la mer et des insectes). Les produits sortis ne sont pas supprimes en
+    # silence : ils sont nommes, comptes, et retires du calcul du taux.
+    sortis = j[j.bras.isna()]
+    if len(sortis):
+        print(f"\n  [declaration] {len(sortis)} produits codes sont sortis du "
+              "perimetre depuis le tirage :")
+        for _, r in sortis.iterrows():
+            print(f"    {r.code}  {r.marque}  estampille={r.h_estampille_halal}")
+        print("  Ils sont retires du calcul du taux, pas du fichier de codage.")
+        j = j[j.bras.notna()].copy()
 
     titre("FAUX NEGATIFS DU TAG en:halal")
     print("Un produit du bras TEMOIN portant une estampille halal est un faux")

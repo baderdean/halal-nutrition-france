@@ -36,9 +36,26 @@ racines:
 # tout bras vegetarien ou substitut vegetal.
 exclusions_categories:
   - en:meat-alternatives
+  # Insectes : hors du champ « produit carne ». Seul `en:insects` est retenu.
+  # Les tags `fr:grillons*` designent les GRILLONS DE CANARD, une charcuterie
+  # du Sud-Ouest, pas des criquets : les exclure supprimerait 23 produits
+  # carnes legitimes.
+  - en:insects
 exclusions_labels:
   - en:vegan
   - en:vegetarian
+
+# Exclusion composee : produits de la mer entres par une racine de FORME
+# (panes, rillettes) et non par une racine carnee. Un produit portant une
+# categorie produit de la mer et aucune categorie produit carnee n'est pas
+# carne. 924 produits concernes, essentiellement des panes de poisson.
+#
+# Une categorie qui matche les deux motifs, comme `en:fish-and-meat-and-eggs`,
+# ne prouve rien : c'est une categorie PARENTE que des produits carnes portent
+# legitimement. D'ou le `AND NOT` dans les deux sens.
+exclusion_mer:
+  motif_mer: "(fish|seafood|surimi|mollusc|crustac|poisson|thon|saumon|crevette)"
+  motif_viande: "(meat|poultr|chicken|beef|pork|turkey|sausage|ham|charcuter|viande|volaille|lamb|veal|duck|canard)"
 
 # Sous-categories : affectation ORDONNEE, premier match gagnant, un produit
 # et un seul par sous-categorie. Necessaire pour la regle des 30 et pour
@@ -58,13 +75,21 @@ sous_categories:
     libelle: "Saucisses fraiches et merguez"
     tags: [en:sausages, en:french-sausages, en:poultry-sausages,
            en:chicken-sausages, fr:merguez, en:merguez]
+  # Le foie gras sort de la charcuterie : sa halalite est disputee au regard
+  # de la souffrance animale et de l'etat pathologique du foie. Un seul produit
+  # y est tague halal, donc cette strate ne portera jamais de comparaison
+  # halal / temoin. Elle existe pour etre decrite a part, pas testee.
+  - nom: foie_gras
+    libelle: "Foie gras et produits de foie gras (halalite disputee)"
+    tags: [en:foies-gras-from-ducks, en:foie-gras, en:foies-gras,
+           fr:foie-gras-de-canard, fr:foie-gras-d-oie, en:duck-foie-gras]
+
   - nom: rillettes_pates_mousses
     libelle: "Rillettes, pates, terrines, mousses et tartinables carnes"
     tags: [en:rillettes, en:poultry-rillettes, en:white-meat-rillettes,
            en:chicken-rillettes, en:potted-meats, en:terrines, en:pates,
            en:savory-mousses, en:duck-mousse, fr:mousses-de-foies,
-           fr:mousses-de-foies-de-volailles, en:salted-spreads,
-           en:foies-gras-from-ducks]
+           fr:mousses-de-foies-de-volailles, en:salted-spreads]
   - nom: charcuterie_cuite
     libelle: "Charcuterie cuite en tranches (jambons, blancs de volaille cuits)"
     tags: [fr:charcuteries-cuites, en:poultry-hams, en:hams, en:white-hams,
