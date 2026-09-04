@@ -104,6 +104,26 @@ rapport. Ecart hors tolerance = arret, pas d'avertissement.
   de ce qui ne l'est pas. Melanger les deux dans un taux d'erreur machine
   reviendrait a reprocher au modele d'ignorer ce qui n'est pas sur l'image.
 
+## Origine : le label visible, pas la metadonnee
+
+La question « les produits halal fabriques en France different-ils des
+autres » se traite par le **label de production visible sur l'emballage**
+(`en:made-in-france`, `fr:origine-france`, logo Viande de France...), pas par
+`origins_tags` ni `emb_codes_tags`. Raison : la contrainte transverse de
+l'etude veut que toute conclusion se rattache a une variable qu'un client
+peut voir en rayon. L'origine des ingredients et le code d'emballage
+sanitaire n'en sont pas.
+
+Les colonnes `origins_tags`, `manufacturing_places_tags` et `emb_codes_tags`
+restent extraites, comme variables de CONTROLE, jamais comme la variable
+d'interet. Elles ne mesurent pas la meme chose entre elles et ne se fusionnent
+pas : ingredients, usine, dernier conditionnement.
+
+Couverture du label visible dans le perimetre : 10,6 % du bras halal,
+9,5 % du temoin. `en:made-in-france` couvre 109 produits halal, au-dessus de
+la regle des 30. La lecture d'emballage sert precisement a combler ce que le
+tag OFF sous-declare.
+
 ## Distinction obligatoire dans toute sortie
 
 Fait mesure / inference / hypothese non testee. Un chiffre sans statut est un

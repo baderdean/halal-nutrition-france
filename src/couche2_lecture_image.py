@@ -51,7 +51,7 @@ from commun import PERIMETRE, SORTIES, charger, connexion, echec, titre
 TAILLES = {"full": ".full.jpg", "400": ".400.jpg"}
 
 CHAMPS = ["estampille_halal", "certificateur_texte", "certificateur_logo",
-          "confiance", "lisibilite"]
+          "mention_origine", "origine_texte", "confiance", "lisibilite"]
 
 CONSIGNE = """Tu examines la photo d'un emballage de produit carne vendu en France.
 
@@ -62,6 +62,8 @@ avec exactement ces cinq cles :
   "estampille_halal": "oui" | "non" | "illisible",
   "certificateur_texte": "nom de l'organisme certificateur EXACTEMENT tel qu'ecrit sur l'emballage, chaine vide si aucun nom lisible",
   "certificateur_logo": "description litterale du logo de certification s'il y en a un sans nom lisible, chaine vide sinon",
+  "mention_origine": "oui" | "non" | "illisible",
+  "origine_texte": "la mention d'origine ou de fabrication EXACTEMENT telle qu'ecrite sur l'emballage, chaine vide si aucune",
   "confiance": "haute" | "moyenne" | "basse",
   "lisibilite": "nette" | "floue" | "trop_petite" | "zone_absente"
 }
@@ -79,6 +81,18 @@ envie de fournir une reponse utile :
   lisibilite plutot que de proposer une lecture incertaine.
 - "zone_absente" si la face photographiee ne montre pas la zone ou figurerait
   une estampille.
+
+Sur la mention d'origine : releve ce qui est ECRIT ou APPOSE sur l'emballage
+et qu'un client voit en rayon. Par exemple "Fabrique en France", "Origine
+France", "Viande de France", "Origine UE", "Elabore en Pologne", un logo
+tricolore de type Viande de France ou Origine France Garantie, un drapeau
+accompagne d'un pays. Recopie le texte tel quel, sans le traduire ni le
+normaliser.
+
+Ne deduis PAS l'origine d'une adresse de siege social, d'un code sanitaire
+ovale, d'une langue d'etiquetage ou du nom de la marque. Une adresse de
+societe n'est pas une mention d'origine. En l'absence de mention explicite,
+mention_origine vaut "non" et origine_texte reste vide.
 
 Une reponse "illisible" correctement rapportee vaut mieux qu'une lecture
 plausible mais fausse. Une erreur ici se propage a toute la gamme d'une marque,
