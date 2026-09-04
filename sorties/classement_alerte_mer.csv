@@ -1,5 +1,5 @@
-marque,n,ecart_median,ic95_bas,ic95_haut,regle_30,strates_couvertes,gamme_halal,rang,rang_min,rang_max,niveau
-petit-navire,15,-15.0,-15.0,-13.0,sous 30,1,non,3,1,9,1
-les-mouettes-d-arvor,15,-13.0,-14.025,-5.0,sous 30,1,non,6,1,28,1
-l-atelier-du-poissonnier,15,-4.0,-5.0,-2.0,sous 30,1,non,16,9,138,1
-la-cuisine-d-oceane,55,-1.0,-1.0,0.0,franchie,9,non,101,22,301,1
+marque,n,ecart_median,ic95_bas,ic95_haut,regle_30,strates_couvertes,gamme_halal,rang,rang_min,rang_max,niveau,pct_tague,profil
+petit-navire,15,-15.0,-15.0,-13.0,sous 30,1,non,3,1,9,1,,hors bras halal
+les-mouettes-d-arvor,15,-13.0,-14.025,-5.0,sous 30,1,non,6,1,28,1,,hors bras halal
+l-atelier-du-poissonnier,15,-4.0,-5.0,-2.0,sous 30,1,non,16,9,138,1,,hors bras halal
+la-cuisine-d-oceane,55,-1.0,-1.0,0.0,franchie,9,non,101,22,301,1,,hors bras halal

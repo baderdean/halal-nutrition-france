@@ -35,11 +35,14 @@ from __future__ import annotations
 
 import sys
 
+import numpy as np
 import pandas as pd
 
 from commun import SORTIES, echec, titre
 
 ENTREE = SORTIES / "m_toutes_nutriscore.csv"
+PROFILS = SORTIES / "d4_taux_tag_par_marque.csv"
+SEUIL_SPECIALISTE = 50.0     # % de produits tagues halal dans le catalogue
 
 # Signal, pas classification. Le nom d'une marque ne prouve rien sur ses
 # produits : Petit Navire vend aussi des rillettes de volaille. Ce motif sert
@@ -89,12 +92,40 @@ def separabilite(t: pd.DataFrame) -> tuple[int, int]:
     return int(separees), total
 
 
+def profil_halal(t: pd.DataFrame) -> pd.DataFrame:
+    """Distingue le specialiste halal de la marque generaliste a gamme halal.
+
+    « gamme_halal = oui » melange Isla Delice, dont tout le catalogue est
+    halal, et Carrefour, dont 2 % des produits carnes le sont. Le rang de
+    Carrefour est fixe par ses 98 % non halal : le lire comme un rang halal
+    est faux. La sortie D4 donne le taux de produits tagues halal par marque,
+    ce qui separe les deux profils.
+
+    D4 ne retient que les marques a 5 produits tagues au moins : une marque
+    absente y a donc une gamme halal marginale, ce qui est une information,
+    pas une donnee manquante.
+    """
+    t = t.copy()
+    if not PROFILS.exists():
+        t["profil"] = "non evalue"
+        return t
+    d4 = pd.read_csv(PROFILS)[["marque_tag", "pct_tague"]]
+    t = t.merge(d4, left_on="marque", right_on="marque_tag", how="left")
+    t["profil"] = np.where(
+        t.gamme_halal != "oui", "hors bras halal",
+        np.where(t.pct_tague.isna(), "gamme halal marginale (< 5 produits)",
+                 np.where(t.pct_tague >= SEUIL_SPECIALISTE,
+                          "specialiste halal", "gamme halal minoritaire")))
+    return t.drop(columns=["marque_tag"])
+
+
 def alerte_mer(t: pd.DataFrame) -> pd.DataFrame:
     """Marques dont le NOM evoque un produit de la mer. A verifier."""
     return t[t.marque.str.contains(MOTIF_MER_MARQUE, regex=True, na=False)]
 
 
-def markdown(t: pd.DataFrame, alerte: pd.DataFrame) -> str:
+def markdown(t: pd.DataFrame, alerte: pd.DataFrame,
+             prof: pd.DataFrame | None = None) -> str:
     lignes = [
         "# Classement complet des marques — Nutri-Score, a composition egale",
         "",
@@ -108,10 +139,32 @@ def markdown(t: pd.DataFrame, alerte: pd.DataFrame) -> str:
         "les IC forment une chaine continue du rang 1 au rang 398.",
         "",
         "`n` < 30 : ligne decrite, jamais testee (regle des 30).",
-        "`gamme halal` = la marque a au moins un produit du bras halal ; ce n'est",
-        "pas une marque halal.",
+        "`profil` distingue le specialiste halal du generaliste a gamme halal.",
+        "Le rang d'un generaliste est fixe par son catalogue majoritairement non",
+        "halal : il ne dit rien de sa gamme halal.",
         "",
     ] + ([
+        "## Ou se situent les marques halal",
+        "",
+        "Le rang median des 43 marques a gamme halal est "
+        f"{int(t[t.gamme_halal == 'oui'].rang.median())} sur "
+        f"{len(t)}. Ce chiffre",
+        "est trompeur : il melange le specialiste halal et le generaliste qui a",
+        "quelques references halal dans un catalogue qui ne l'est pas. Le rang",
+        "d'un generaliste est fixe par ses produits non halal.",
+        "",
+        "| profil de catalogue | marques | rang median | ecart median | rangs |",
+        "|:---|---:|---:|---:|:---:|",
+    ] + [
+        f"| {i} | {int(r.k)} | {r.rang_median:.0f} | {r.ecart_median:+.1f} "
+        f"| {int(r.rang_min)}-{int(r.rang_max)} |"
+        for i, r in prof.iterrows()
+    ] + [
+        "",
+        "Seule la ligne « specialiste halal » se lit comme un resultat portant",
+        "sur le bras halal.",
+        "",
+    ] if prof is not None and len(prof) else []) + ([
         "## Alerte : residus de produits de la mer en haut de classement",
         "",
         f"{len(alerte)} marques du classement portent un nom evoquant un produit",
@@ -132,8 +185,8 @@ def markdown(t: pd.DataFrame, alerte: pd.DataFrame) -> str:
         "pas exhaustif : cette liste est un signal a verifier, pas une exclusion.",
         "",
     ] if len(alerte) else []) + [
-        "| rang | rangs possibles | marque | n | ecart | IC 95 % | strates | gamme halal |",
-        "|---:|:---:|:---|---:|---:|:---:|---:|:---:|",
+        "| rang | rangs possibles | marque | n | ecart | IC 95 % | strates | profil |",
+        "|---:|:---:|:---|---:|---:|:---:|---:|:---|",
     ]
     for r in t.itertuples():
         lignes.append(
@@ -141,7 +194,7 @@ def markdown(t: pd.DataFrame, alerte: pd.DataFrame) -> str:
             f"| {r.n}{'' if r.regle_30 == 'franchie' else ' *'} "
             f"| {r.ecart_median:+.1f} "
             f"| [{r.ic95_bas:+.1f} ; {r.ic95_haut:+.1f}] "
-            f"| {r.strates_couvertes} | {r.gamme_halal} |")
+            f"| {r.strates_couvertes} | {r.profil} |")
     lignes += ["", "`*` effectif sous 30 : ligne descriptive, non testable."]
     return "\n".join(lignes) + "\n"
 
@@ -156,7 +209,7 @@ def tableur(t: pd.DataFrame, chemin) -> None:
     ws.title = "classement"
     entetes = ["rang", "rang_min", "rang_max", "marque", "n",
                "ecart_median", "ic95_bas", "ic95_haut", "regle_30",
-               "strates_couvertes", "gamme_halal"]
+               "strates_couvertes", "gamme_halal", "profil"]
     ws.append(entetes)
     for c in ws[1]:
         c.font = Font(bold=True)
@@ -183,6 +236,9 @@ def tableur(t: pd.DataFrame, chemin) -> None:
         ["regle_30      'sous 30' = ligne decrite, jamais testee"],
         ["gamme_halal   la marque a au moins un produit du bras halal."],
         ["              Ce n'est pas une marque halal."],
+        ["profil        part du catalogue tague halal (sortie D4). Le rang"],
+        ["              d'un generaliste est fixe par ses produits non halal"],
+        ["              et ne dit rien de sa gamme halal."],
         [""],
         ["Ce classement ne dit rien de la halalite ni de la conformite"],
         ["d'aucun produit."],
@@ -215,6 +271,8 @@ def main() -> int:
     print(f"  Marques dont l'effectif franchit 30 : "
           f"{int((t.regle_30 == 'franchie').sum())}.\n")
 
+    t = profil_halal(t)
+    prof = None
     h = t[t.gamme_halal == "oui"]
     print(f"  Les {len(h)} marques a gamme halal : rangs {int(h.rang.min())} a "
           f"{int(h.rang.max())}, rang median {int(h.rang.median())}.")
@@ -222,6 +280,22 @@ def main() -> int:
           f"{t[t.gamme_halal == 'non'].ecart_median.median():+.1f} pour les "
           f"{len(t) - len(h)} autres : les deux groupes sont, en mediane, sur "
           f"la\n  mediane de marche de leurs strates.\n")
+    if "profil" in t and t.profil.nunique() > 1:
+        print(f"  Ce rang median de {int(h.rang.median())} est trompeur : il "
+              "melange des profils que D4\n  separe. Detail par profil de "
+              "catalogue :\n")
+        prof = (h.groupby("profil")
+                 .agg(k=("marque", "size"), rang_median=("rang", "median"),
+                      ecart_median=("ecart_median", "median"),
+                      rang_min=("rang", "min"), rang_max=("rang", "max"))
+                 .sort_values("rang_median"))
+        print(prof.to_string())
+        prof.to_csv(SORTIES / "classement_profils_halal.csv")
+
+        print("\n  Une marque generaliste est classee par son catalogue, "
+              "majoritairement non\n  halal : son rang ne dit rien de sa gamme "
+              "halal. Seule la ligne\n  « specialiste halal » se lit comme un "
+              "resultat sur le bras halal.\n")
 
     alerte = alerte_mer(t)
     if len(alerte):
@@ -236,11 +310,11 @@ def main() -> int:
 
     colonnes = ["rang", "rang_min", "rang_max", "marque", "n",
                 "ecart_median", "ic95_bas", "ic95_haut", "regle_30",
-                "strates_couvertes", "gamme_halal"]
+                "strates_couvertes", "gamme_halal", "profil"]
     t = t[colonnes]
     t.to_csv(SORTIES / "classement_marques_complet.csv", index=False)
     (SORTIES / "classement_marques_complet.md").write_text(
-        markdown(t, alerte), encoding="utf-8")
+        markdown(t, alerte, prof), encoding="utf-8")
     tableur(t, SORTIES / "classement_marques_complet.xlsx")
 
     with pd.option_context("display.max_rows", None, "display.width", 200):

@@ -10,8 +10,25 @@ conservateur). Il n'existe aucun point de coupure dans ce classement :
 les IC forment une chaine continue du rang 1 au rang 398.
 
 `n` < 30 : ligne decrite, jamais testee (regle des 30).
-`gamme halal` = la marque a au moins un produit du bras halal ; ce n'est
-pas une marque halal.
+`profil` distingue le specialiste halal du generaliste a gamme halal.
+Le rang d'un generaliste est fixe par son catalogue majoritairement non
+halal : il ne dit rien de sa gamme halal.
+
+## Ou se situent les marques halal
+
+Le rang median des 43 marques a gamme halal est 194 sur 398. Ce chiffre
+est trompeur : il melange le specialiste halal et le generaliste qui a
+quelques references halal dans un catalogue qui ne l'est pas. Le rang
+d'un generaliste est fixe par ses produits non halal.
+
+| profil de catalogue | marques | rang median | ecart median | rangs |
+|:---|---:|---:|---:|:---:|
+| gamme halal marginale (< 5 produits) | 21 | 140 | +0.0 | 53-284 |
+| gamme halal minoritaire | 9 | 194 | +0.0 | 14-371 |
+| specialiste halal | 13 | 369 | +5.5 | 139-398 |
+
+Seule la ligne « specialiste halal » se lit comme un resultat portant
+sur le bras halal.
 
 ## Alerte : residus de produits de la mer en haut de classement
 
@@ -26,408 +43,408 @@ quelque chose. **Le haut de ce classement n'est pas publiable avant**
 
 Marques concernees : petit-navire (rang 3, n=15, 1 strate), les-mouettes-d-arvor (rang 6, n=15, 1 strate), l-atelier-du-poissonnier (rang 16, n=15, 1 strate), la-cuisine-d-oceane (rang 101, n=55, 9 strates).
 
-Le nom d'une marque ne prouve rien sur ses produits : cette liste est un
-signal a verifier, pas une exclusion.
+Le nom d'une marque ne prouve rien sur ses produits, et le motif n'est
+pas exhaustif : cette liste est un signal a verifier, pas une exclusion.
 
-| rang | rangs possibles | marque | n | ecart | IC 95 % | strates | gamme halal |
-|---:|:---:|:---|---:|---:|:---:|---:|:---:|
-| 1 | 1-9 | dam | 17 * | -17.0 | [-19.0 ; -12.5] | 3 | non |
-| 2 | 1-9 | evasion-festive | 50 | -15.0 | [-15.0 ; -13.0] | 3 | non |
-| 3 | 1-9 | petit-navire | 15 * | -15.0 | [-15.0 ; -13.0] | 1 | non |
-| 4 | 1-21 | saveurs-forestieres | 29 * | -14.0 | [-16.0 ; -6.0] | 4 | non |
-| 5 | 1-9 | la-table-du-fermier | 19 * | -13.0 | [-13.0 ; -13.0] | 5 | non |
-| 6 | 1-28 | les-mouettes-d-arvor | 15 * | -13.0 | [-14.0 ; -5.0] | 1 | non |
-| 7 | 1-398 | randy | 18 * | -11.5 | [-13.0 ; +15.0] | 5 | non |
-| 8 | 5-68 | nature-de-france | 126 | -10.0 | [-10.0 ; -3.0] | 13 | non |
-| 9 | 5-17 | l-etal-du-boucher | 535 | -10.0 | [-12.0 ; -7.0] | 19 | non |
-| 10 | 1-138 | boucherie-st-clement | 62 | -7.0 | [-13.0 ; -2.0] | 8 | non |
-| 11 | 1-21 | groix-nature | 24 * | -7.0 | [-13.0 ; -5.5] | 1 | non |
-| 12 | 6-21 | saint-agaune | 56 | -6.0 | [-6.0 ; -6.0] | 4 | non |
-| 13 | 9-68 | les-delices-de-lyon | 24 * | -4.0 | [-5.0 ; -3.0] | 10 | non |
-| 14 | 10-138 | duc | 27 * | -4.0 | [-4.0 ; -2.0] | 7 | oui |
-| 15 | 10-47 | la-nouvelle-agriculture | 1039 | -4.0 | [-4.0 ; -4.0] | 19 | non |
-| 16 | 9-138 | l-atelier-du-poissonnier | 15 * | -4.0 | [-5.0 ; -2.0] | 1 | non |
-| 17 | 10-301 | les-fermiers-de-loue | 55 | -3.0 | [-4.0 ; +0.0] | 5 | non |
-| 18 | 10-68 | tripes-paillard | 19 * | -3.0 | [-4.0 ; -3.0] | 3 | non |
-| 19 | 5-395 | pedrazzoli | 19 * | -3.0 | [-11.0 ; +11.0] | 7 | non |
-| 20 | 10-208 | soelia | 15 * | -3.0 | [-4.0 ; -1.0] | 3 | non |
-| 21 | 10-68 | loue | 213 | -3.0 | [-4.0 ; -3.0] | 9 | non |
-| 22 | 5-346 | golfera | 25 * | -3.0 | [-8.0 ; +1.0] | 11 | non |
-| 23 | 9-346 | les-legendaires | 17 * | -3.0 | [-5.0 ; +1.0] | 7 | non |
-| 24 | 10-373 | le-gaulois-ocb-oui-c-est-bon | 17 * | -3.0 | [-4.0 ; +2.0] | 2 | non |
-| 25 | 9-208 | cochonnailles-du-haut-bois | 28 * | -3.0 | [-5.0 ; -1.0] | 8 | non |
-| 26 | 5-208 | panzani | 110 | -2.5 | [-10.0 ; -1.0] | 9 | non |
-| 27 | 11-301 | les-occitanes | 26 * | -2.0 | [-3.0 ; +0.0] | 9 | non |
-| 28 | 15-138 | fleury-michon | 1015 | -2.0 | [-2.0 ; -2.0] | 27 | oui |
-| 29 | 15-138 | seazon | 131 | -2.0 | [-2.0 ; -2.0] | 10 | non |
-| 30 | 15-138 | domaine-picard | 167 | -2.0 | [-2.0 ; -2.0] | 7 | non |
-| 31 | 11-208 | dietbon | 29 * | -2.0 | [-3.0 ; -1.0] | 7 | non |
-| 32 | 15-301 | volandrie | 77 | -2.0 | [-2.0 ; +0.0] | 8 | non |
-| 33 | 15-301 | lausse | 27 * | -2.0 | [-2.0 ; +0.0] | 5 | non |
-| 34 | 11-208 | raynal-et-roquelaure | 65 | -2.0 | [-3.0 ; -1.0] | 13 | non |
-| 35 | 15-208 | saint-alby | 498 | -2.0 | [-2.0 ; -1.0] | 21 | non |
-| 36 | 10-208 | kitchen-diet | 26 * | -2.0 | [-4.0 ; -1.0] | 7 | non |
-| 37 | 15-208 | comtesse-du-barry | 116 | -2.0 | [-2.0 ; -1.0] | 21 | non |
-| 38 | 15-208 | comme-j-aime | 94 | -2.0 | [-2.0 ; -1.0] | 7 | non |
-| 39 | 15-382 | charles-keller | 15 * | -2.0 | [-2.0 ; +3.0] | 4 | non |
-| 40 | 10-382 | andre-krief | 31 | -2.0 | [-4.0 ; +3.0] | 16 | non |
-| 41 | 10-390 | maison-monfort | 18 * | -2.0 | [-4.0 ; +5.5] | 3 | non |
-| 42 | 10-346 | label-rouge | 17 * | -2.0 | [-4.0 ; +1.0] | 9 | non |
-| 43 | 6-208 | conserverie-des-saveurs | 15 * | -2.0 | [-6.0 ; -1.0] | 2 | non |
-| 44 | 9-301 | sainsbury-s | 16 * | -2.0 | [-5.0 ; +0.0] | 10 | non |
-| 45 | 15-301 | tradilege | 50 | -2.0 | [-2.0 ; +0.0] | 14 | non |
-| 46 | 11-395 | campofrio | 25 * | -2.0 | [-3.0 ; +10.0] | 8 | non |
-| 47 | 11-346 | vallegrain | 23 * | -2.0 | [-3.0 ; +1.0] | 9 | non |
-| 48 | 11-208 | conserverie-st-christophe | 31 | -2.0 | [-3.0 ; -1.0] | 11 | non |
-| 49 | 15-373 | volandry | 30 | -2.0 | [-2.0 ; +2.0] | 4 | non |
-| 50 | 15-208 | maitre-cochon | 20 * | -2.0 | [-2.0 ; -1.0] | 8 | non |
-| 51 | 11-301 | m-s | 32 | -2.0 | [-3.0 ; +0.0] | 11 | non |
-| 52 | 9-373 | martini | 15 * | -2.0 | [-5.0 ; +2.0] | 3 | non |
-| 53 | 15-138 | herta | 449 | -2.0 | [-2.0 ; -2.0] | 13 | oui |
-| 54 | 6-301 | nestle | 98 | -2.0 | [-6.0 ; +0.0] | 18 | non |
-| 55 | 15-301 | la-table-d-antan | 24 * | -1.5 | [-2.0 ; +0.0] | 8 | non |
-| 56 | 15-346 | audary | 26 * | -1.5 | [-2.5 ; +1.0] | 11 | non |
-| 57 | 15-301 | douce-france | 43 | -1.0 | [-2.0 ; +0.0] | 10 | non |
-| 58 | 22-208 | moritz | 66 | -1.0 | [-1.0 ; -1.0] | 4 | non |
-| 59 | 22-301 | monique-ranou | 298 | -1.0 | [-1.0 ; +0.0] | 30 | non |
-| 60 | 15-301 | micouleau | 30 | -1.0 | [-2.0 ; +0.0] | 11 | non |
-| 61 | 15-346 | mercadier | 37 | -1.0 | [-2.0 ; +1.0] | 14 | non |
-| 62 | 15-208 | maitre-jacques | 170 | -1.0 | [-2.0 ; -1.0] | 11 | non |
-| 63 | 15-301 | marks-and-spencer | 15 * | -1.0 | [-2.0 ; +0.0] | 8 | non |
-| 64 | 15-301 | marks-spencer | 126 | -1.0 | [-2.0 ; +0.0] | 23 | oui |
-| 65 | 15-301 | clermont | 56 | -1.0 | [-2.0 ; +0.0] | 11 | non |
-| 66 | 22-301 | paul-louise | 54 | -1.0 | [-1.0 ; +0.0] | 12 | non |
-| 67 | 11-398 | parmacotto | 28 * | -1.0 | [-3.0 ; +14.0] | 6 | non |
-| 68 | 5-346 | nobles | 18 * | -1.0 | [-7.0 ; +1.0] | 8 | non |
-| 69 | 10-373 | naturalia | 23 * | -1.0 | [-4.0 ; +2.0] | 10 | non |
-| 70 | 15-208 | henaff | 191 | -1.0 | [-2.0 ; -1.0] | 24 | non |
-| 71 | 11-346 | esprit-gourmet | 21 * | -1.0 | [-3.0 ; +1.0] | 7 | non |
-| 72 | 22-301 | duc-de-pressac | 16 * | -1.0 | [-1.0 ; +0.0] | 5 | non |
-| 73 | 15-301 | lucien-georgelin | 35 | -1.0 | [-2.0 ; +0.0] | 9 | non |
-| 74 | 11-346 | les-mousquetaires | 21 * | -1.0 | [-3.0 ; +1.0] | 13 | non |
-| 75 | 22-373 | le-porc-de-nos-villages | 21 * | -1.0 | [-1.0 ; +2.0] | 3 | non |
-| 76 | 6-301 | le-picoreur | 16 * | -1.0 | [-6.0 ; +0.0] | 13 | non |
-| 77 | 15-349 | les-trois-chefs | 20 * | -1.0 | [-2.0 ; +1.5] | 9 | non |
-| 78 | 22-301 | mere-lalie | 47 | -1.0 | [-1.0 ; +0.0] | 10 | non |
-| 79 | 15-306 | zwan | 16 * | -1.0 | [-2.5 ; +0.5] | 7 | oui |
-| 80 | 22-208 | william-saurin | 139 | -1.0 | [-1.0 ; -1.0] | 16 | non |
-| 81 | 15-301 | d-aucy | 36 | -1.0 | [-2.0 ; +0.0] | 7 | non |
-| 82 | 10-301 | super-u | 15 * | -1.0 | [-4.0 ; +0.0] | 7 | non |
-| 83 | 15-208 | tendre-plus | 505 | -1.0 | [-2.0 ; -1.0] | 16 | non |
-| 84 | 10-346 | cooperl | 37 | -1.0 | [-4.0 ; +1.0] | 12 | oui |
-| 85 | 11-382 | sol-mar | 17 * | -1.0 | [-3.0 ; +3.0] | 8 | non |
-| 86 | 15-208 | weight-watchers | 37 | -1.0 | [-2.0 ; -1.0] | 10 | non |
-| 87 | 15-208 | madrange | 336 | -1.0 | [-2.0 ; -1.0] | 24 | non |
-| 88 | 15-301 | kermene | 59 | -1.0 | [-2.0 ; +0.0] | 14 | non |
-| 89 | 15-373 | castaing | 16 * | -1.0 | [-2.0 ; +2.0] | 7 | non |
-| 90 | 22-301 | jean-larnaudie | 82 | -1.0 | [-1.5 ; +0.0] | 13 | non |
-| 91 | 9-208 | rostain | 58 | -1.0 | [-5.0 ; -1.0] | 13 | non |
-| 92 | 15-301 | rovagnati | 65 | -1.0 | [-2.0 ; +0.0] | 8 | non |
-| 93 | 11-306 | raynal-roquelaure | 16 * | -1.0 | [-3.0 ; +0.5] | 8 | non |
-| 94 | 22-301 | picard | 503 | -1.0 | [-1.0 ; +0.0] | 34 | non |
-| 95 | 22-346 | pierre-champion | 33 | -1.0 | [-1.0 ; +1.0] | 12 | non |
-| 96 | 15-346 | larnaudie | 68 | -1.0 | [-2.5 ; +1.0] | 11 | non |
-| 97 | 22-301 | u | 1832 | -1.0 | [-1.0 ; +0.0] | 48 | non |
-| 98 | 22-208 | charal | 906 | -1.0 | [-1.0 ; -1.0] | 13 | oui |
-| 99 | 5-208 | charcuterie-ruel | 49 | -1.0 | [-7.0 ; -1.0] | 8 | non |
-| 100 | 22-301 | claude-vetillard | 22 * | -1.0 | [-1.5 ; +0.0] | 6 | non |
-| 101 | 22-301 | la-cuisine-d-oceane | 55 | -1.0 | [-1.0 ; +0.0] | 9 | non |
-| 102 | 22-208 | zapetti | 78 | -1.0 | [-1.0 ; -1.0] | 5 | non |
-| 103 | 15-306 | carrefour-bio | 68 | -1.0 | [-2.0 ; +0.5] | 21 | non |
-| 104 | 22-346 | beretta | 33 | -1.0 | [-1.0 ; +1.0] | 9 | non |
-| 105 | 15-346 | bonjour-campagne | 63 | -1.0 | [-2.0 ; +1.0] | 17 | non |
-| 106 | 22-346 | bioporc | 81 | -1.0 | [-1.0 ; +1.0] | 13 | non |
-| 107 | 15-301 | biocoop | 115 | -1.0 | [-2.0 ; +0.0] | 20 | non |
-| 108 | 15-208 | bio-village | 84 | -1.0 | [-2.0 ; -1.0] | 24 | non |
-| 109 | 11-301 | broceliande | 82 | -1.0 | [-3.0 ; +0.0] | 11 | non |
-| 110 | 15-301 | brient | 46 | -1.0 | [-2.0 ; +0.0] | 11 | non |
-| 111 | 10-373 | bonval | 41 | -1.0 | [-4.0 ; +2.0] | 9 | non |
-| 112 | 15-301 | bigard | 225 | -1.0 | [-2.0 ; +0.0] | 20 | non |
-| 113 | 11-394 | pedelhez | 16 * | -0.5 | [-3.5 ; +8.0] | 6 | non |
-| 114 | 11-346 | tradival | 47 | +0.0 | [-3.0 ; +1.0] | 10 | non |
-| 115 | 22-346 | valette | 71 | +0.0 | [-1.0 ; +1.0] | 13 | non |
-| 116 | 46-301 | thiriet | 393 | +0.0 | [+0.0 ; +0.0] | 33 | non |
-| 117 | 46-382 | volae | 245 | +0.0 | [+0.0 ; +3.0] | 9 | non |
-| 118 | 46-301 | bordeau-chesnel | 64 | +0.0 | [-0.5 ; +0.0] | 8 | non |
-| 119 | 22-373 | boucheries-andre | 21 * | +0.0 | [-1.0 ; +2.0] | 10 | non |
-| 120 | 22-373 | bonneterre | 42 | +0.0 | [-1.0 ; +2.0] | 10 | non |
-| 121 | 46-346 | toupargel | 127 | +0.0 | [+0.0 ; +1.0] | 26 | oui |
-| 122 | 10-373 | casa-modena | 29 * | +0.0 | [-4.0 ; +2.0] | 7 | non |
-| 123 | 46-301 | casino | 630 | +0.0 | [+0.0 ; +0.0] | 40 | oui |
-| 124 | 22-301 | cesar-moroni | 30 | +0.0 | [-1.5 ; +0.0] | 6 | non |
-| 125 | 15-306 | cmi-carrefour-marchandises-internationales | 30 | +0.0 | [-2.5 ; +0.5] | 15 | non |
-| 126 | 22-385 | citterio | 97 | +0.0 | [-1.0 ; +4.0] | 10 | non |
-| 127 | 22-301 | claude-leger | 34 | +0.0 | [-1.0 ; +0.0] | 9 | non |
-| 128 | 22-346 | comte-de-la-seynie | 26 * | +0.0 | [-1.0 ; +1.0] | 11 | non |
-| 129 | 46-346 | belle-france | 248 | +0.0 | [+0.0 ; +1.0] | 34 | non |
-| 130 | 15-373 | volaille-francaise | 19 * | +0.0 | [-2.0 ; +2.0] | 6 | oui |
-| 131 | 46-346 | aldi | 191 | +0.0 | [+0.0 ; +1.0] | 34 | oui |
-| 132 | 22-373 | la-vie-claire | 60 | +0.0 | [-1.0 ; +2.0] | 24 | non |
-| 133 | 22-346 | rochambeau | 80 | +0.0 | [-1.0 ; +1.0] | 22 | non |
-| 134 | 15-346 | larroque | 15 * | +0.0 | [-2.0 ; +1.0] | 8 | non |
-| 135 | 15-373 | nous-anti-gaspi | 15 * | +0.0 | [-2.0 ; +2.0] | 9 | oui |
-| 136 | 46-301 | pere-dodu | 313 | +0.0 | [+0.0 ; +0.0] | 14 | non |
-| 137 | 46-346 | intermarche | 165 | +0.0 | [+0.0 ; +1.0] | 31 | non |
-| 138 | 22-301 | jean-roze | 233 | +0.0 | [-1.0 ; +0.0] | 16 | non |
-| 139 | 22-346 | royal-halal | 29 * | +0.0 | [-1.0 ; +1.0] | 8 | oui |
-| 140 | 22-306 | royal-bernard | 98 | +0.0 | [-1.0 ; +0.5] | 12 | oui |
-| 141 | 22-346 | kerets | 29 * | +0.0 | [-1.0 ; +1.0] | 10 | non |
-| 142 | 46-301 | l-etal-du-volailler | 664 | +0.0 | [-0.5 ; +0.0] | 13 | non |
-| 143 | 22-346 | la-belle-chaurienne | 117 | +0.0 | [-1.0 ; +1.0] | 18 | non |
-| 144 | 46-301 | carrefour | 1349 | +0.0 | [+0.0 ; +0.0] | 50 | oui |
-| 145 | 11-346 | knorr | 19 * | +0.0 | [-3.0 ; +1.0] | 11 | non |
-| 146 | 15-346 | pays-gourmand | 33 | +0.0 | [-2.0 ; +1.0] | 16 | non |
-| 147 | 11-397 | revilla | 17 * | +0.0 | [-3.0 ; +12.0] | 3 | non |
-| 148 | 15-346 | relais-gourmand | 23 * | +0.0 | [-2.0 ; +1.0] | 12 | non |
-| 149 | 15-346 | le-vieux-chene | 47 | +0.0 | [-2.0 ; +1.0] | 13 | non |
-| 150 | 22-373 | le-volvestre | 22 * | +0.0 | [-1.0 ; +2.0] | 8 | non |
-| 151 | 22-373 | le-manoir-alexandre | 31 | +0.0 | [-1.0 ; +2.0] | 11 | non |
-| 152 | 46-346 | le-gaulois | 2727 | +0.0 | [+0.0 ; +1.0] | 23 | non |
-| 153 | 22-346 | le-choix-du-charcutier | 26 * | +0.0 | [-1.0 ; +1.0] | 7 | non |
-| 154 | 11-382 | le-pere-jean | 21 * | +0.0 | [-3.0 ; +3.0] | 9 | non |
-| 155 | 15-382 | le-petit-cuisinier | 24 * | +0.0 | [-2.0 ; +3.0] | 8 | non |
-| 156 | 22-346 | mix-buffet | 52 | +0.0 | [-1.0 ; +1.0] | 7 | non |
-| 157 | 15-346 | le-marsigny | 46 | +0.0 | [-2.0 ; +1.0] | 14 | non |
-| 158 | 15-346 | e-leclerc | 37 | +0.0 | [-2.0 ; +1.0] | 16 | non |
-| 159 | 46-301 | lidl | 420 | +0.0 | [+0.0 ; +0.0] | 39 | oui |
-| 160 | 22-346 | les-bories | 65 | +0.0 | [-1.0 ; +1.0] | 16 | non |
-| 161 | 22-373 | lionor | 18 * | +0.0 | [-1.5 ; +2.5] | 5 | oui |
-| 162 | 22-301 | findus | 37 | +0.0 | [-1.0 ; +0.0] | 11 | non |
-| 163 | 22-349 | fiorini | 28 * | +0.0 | [-1.0 ; +1.5] | 4 | non |
-| 164 | 46-346 | franprix | 142 | +0.0 | [+0.0 ; +1.0] | 24 | non |
-| 165 | 11-395 | fumagalli | 15 * | +0.0 | [-3.0 ; +11.0] | 6 | non |
-| 166 | 46-349 | dulano | 130 | +0.0 | [-0.5 ; +1.5] | 18 | non |
-| 167 | 22-373 | les-saveurs-de-bourdette | 27 * | +0.0 | [-1.0 ; +2.0] | 10 | non |
-| 168 | 11-346 | elpozo | 69 | +0.0 | [-3.0 ; +1.0] | 11 | non |
-| 169 | 15-301 | groupe-casino | 15 * | +0.0 | [-2.0 ; +0.0] | 10 | non |
-| 170 | 46-301 | porc-de-l-aveyron | 26 * | +0.0 | [+0.0 ; +0.0] | 2 | non |
-| 171 | 22-301 | garbit | 32 | +0.0 | [-1.0 ; +0.0] | 4 | non |
-| 172 | 46-373 | ferial | 47 | +0.0 | [+0.0 ; +2.0] | 11 | non |
-| 173 | 22-373 | iglo | 20 * | +0.0 | [-1.0 ; +2.0] | 7 | oui |
-| 174 | 15-373 | pierre-martinet | 19 * | +0.0 | [-2.0 ; +2.0] | 4 | non |
-| 175 | 46-346 | netto | 246 | +0.0 | [+0.0 ; +1.0] | 32 | oui |
-| 176 | 15-382 | nature-bio | 17 * | +0.0 | [-2.0 ; +3.0] | 9 | non |
-| 177 | 22-306 | panache-des-landes | 22 * | +0.0 | [-1.0 ; +0.5] | 4 | non |
-| 178 | 11-382 | madern | 15 * | +0.0 | [-3.0 ; +3.0] | 5 | non |
-| 179 | 22-301 | marie | 112 | +0.0 | [-1.0 ; +0.0] | 10 | non |
-| 180 | 46-301 | maitre-coq | 1039 | +0.0 | [+0.0 ; +0.0] | 19 | oui |
-| 181 | 15-349 | metro | 30 | +0.0 | [-2.0 ; +1.5] | 14 | non |
-| 182 | 22-301 | maison-riviere | 88 | +0.0 | [-1.0 ; +0.0] | 18 | non |
-| 183 | 22-382 | migros | 42 | +0.0 | [-1.0 ; +3.5] | 17 | non |
-| 184 | 46-301 | auchan | 1122 | +0.0 | [+0.0 ; +0.0] | 45 | non |
-| 185 | 46-301 | marque-repere | 754 | +0.0 | [+0.0 ; +0.0] | 44 | oui |
-| 186 | 46-301 | monoprix | 466 | +0.0 | [+0.0 ; +0.0] | 40 | non |
-| 187 | 15-373 | le-pre-aux-canards | 21 * | +0.0 | [-2.0 ; +2.0] | 6 | non |
-| 188 | 22-346 | le-porc-francais | 88 | +0.0 | [-1.0 ; +1.0] | 11 | non |
-| 189 | 46-382 | les-eleveurs-de-la-charentonne | 28 * | +0.0 | [-0.5 ; +3.0] | 15 | non |
-| 190 | 15-346 | terrines-du-morvan | 52 | +0.0 | [-2.0 ; +1.0] | 13 | non |
-| 191 | 5-382 | denner | 16 * | +0.0 | [-9.0 ; +3.0] | 9 | non |
-| 192 | 22-346 | deluxe | 133 | +0.0 | [-1.0 ; +1.0] | 22 | non |
-| 193 | 10-373 | agerria | 16 * | +0.0 | [-4.0 ; +2.0] | 7 | non |
-| 194 | 46-346 | socopa | 224 | +0.0 | [+0.0 ; +1.0] | 17 | oui |
-| 195 | 15-373 | secret-d-eleveurs | 25 * | +0.0 | [-2.0 ; +2.0] | 9 | non |
-| 196 | 22-373 | alain-martin | 22 * | +0.0 | [-1.0 ; +2.5] | 11 | non |
-| 197 | 22-349 | wiltmann | 18 * | +0.0 | [-1.5 ; +1.5] | 5 | non |
-| 198 | 46-301 | tallec | 253 | +0.0 | [+0.0 ; +0.0] | 13 | non |
-| 199 | 22-346 | sudreau | 24 * | +0.0 | [-1.0 ; +1.0] | 6 | non |
-| 200 | 46-373 | tendre-et-plus | 39 | +0.0 | [+0.0 ; +2.0] | 11 | non |
-| 201 | 22-301 | saveur-d-auge | 51 | +0.0 | [-1.0 ; +0.0] | 12 | non |
-| 202 | 22-346 | daunat | 27 * | +0.0 | [-1.0 ; +1.0] | 5 | non |
-| 203 | 15-349 | st-clement | 18 * | +0.0 | [-2.5 ; +1.5] | 10 | non |
-| 204 | 46-346 | cora | 448 | +0.0 | [+0.0 ; +1.0] | 43 | non |
-| 205 | 15-346 | corril | 61 | +0.0 | [-2.0 ; +1.0] | 11 | non |
-| 206 | 22-373 | delhaize | 105 | +0.0 | [-1.0 ; +2.0] | 25 | non |
-| 207 | 22-373 | la-cuisine-des-saveurs | 22 * | +0.5 | [-1.5 ; +2.0] | 8 | non |
-| 208 | 46-391 | feyel | 28 * | +0.5 | [+0.0 ; +6.0] | 8 | non |
-| 209 | 46-373 | leclerc | 86 | +0.5 | [+0.0 ; +2.0] | 24 | non |
-| 210 | 46-373 | baton-rouge | 16 * | +0.5 | [+0.0 ; +2.0] | 9 | non |
-| 211 | 22-382 | zentz | 22 * | +0.5 | [-1.0 ; +3.0] | 5 | non |
-| 212 | 22-398 | fratelli-beretta | 30 | +0.5 | [-1.5 ; +13.5] | 7 | non |
-| 213 | 46-373 | le-bois-jumel | 21 * | +1.0 | [+0.0 ; +2.0] | 7 | non |
-| 214 | 15-382 | lartigue | 17 * | +1.0 | [-2.0 ; +3.0] | 10 | non |
-| 215 | 15-382 | itineraire-de-nos-regions | 29 * | +1.0 | [-2.0 ; +3.0] | 11 | non |
-| 216 | 107-373 | isali | 41 | +1.0 | [+1.0 ; +2.0] | 5 | oui |
-| 217 | 107-373 | petit-prix | 24 * | +1.0 | [+1.0 ; +2.0] | 8 | non |
-| 218 | 22-346 | la-grange | 17 * | +1.0 | [-1.0 ; +1.0] | 7 | non |
-| 219 | 46-373 | jean-caby | 44 | +1.0 | [+0.0 ; +2.0] | 7 | non |
-| 220 | 46-346 | jean-floc-h | 78 | +1.0 | [+0.0 ; +1.0] | 14 | non |
-| 221 | 46-346 | andre-loussouarn | 32 | +1.0 | [+0.0 ; +1.0] | 9 | non |
-| 222 | 46-382 | orocbat | 35 | +1.0 | [+0.0 ; +3.0] | 10 | non |
-| 223 | 15-385 | hiruak | 122 | +1.0 | [-2.0 ; +4.5] | 9 | non |
-| 224 | 46-346 | grand-jury | 88 | +1.0 | [+0.0 ; +1.0] | 25 | non |
-| 225 | 46-373 | le-cesarin | 28 * | +1.0 | [+0.0 ; +2.0] | 3 | non |
-| 226 | 46-385 | les-braserades | 53 | +1.0 | [+0.0 ; +4.0] | 9 | non |
-| 227 | 10-398 | noel | 31 | +1.0 | [-4.0 ; +14.0] | 7 | non |
-| 228 | 46-373 | bahier | 125 | +1.0 | [+0.0 ; +2.0] | 13 | non |
-| 229 | 15-373 | bofrost | 24 * | +1.0 | [-2.0 ; +2.0] | 10 | non |
-| 230 | 22-395 | tulip | 26 * | +1.0 | [-1.0 ; +10.0] | 9 | oui |
-| 231 | 46-398 | treo | 23 * | +1.0 | [+0.0 ; +15.0] | 8 | non |
-| 232 | 22-390 | tesco | 32 | +1.0 | [-1.5 ; +5.0] | 16 | non |
-| 233 | 46-390 | top-budget | 44 | +1.0 | [+0.0 ; +5.0] | 18 | non |
-| 234 | 46-385 | chef-select | 39 | +1.0 | [+0.0 ; +4.0] | 10 | non |
-| 235 | 46-373 | coop | 54 | +1.0 | [-0.5 ; +2.0] | 18 | non |
-| 236 | 107-373 | cochonou | 71 | +1.0 | [+1.0 ; +2.0] | 6 | non |
-| 237 | 107-373 | toque-du-chef | 126 | +1.0 | [+1.0 ; +2.0] | 20 | non |
-| 238 | 107-373 | roches-blanches | 39 | +1.0 | [+1.0 ; +2.0] | 4 | non |
-| 239 | 46-346 | casa-ramon | 43 | +1.0 | [+0.0 ; +1.0] | 8 | oui |
-| 240 | 46-390 | charcupac | 35 | +1.0 | [+0.0 ; +5.0] | 7 | non |
-| 241 | 107-382 | charculor | 39 | +1.0 | [+1.0 ; +3.0] | 13 | non |
-| 242 | 107-373 | henri-raffin | 79 | +1.0 | [+1.0 ; +2.0] | 13 | non |
-| 243 | 107-373 | stoeffler | 77 | +1.0 | [+1.0 ; +2.0] | 11 | non |
-| 244 | 15-390 | delifin | 18 * | +1.0 | [-2.0 ; +5.0] | 9 | non |
-| 245 | 46-382 | maison-papillon | 17 * | +1.0 | [+0.0 ; +3.0] | 5 | non |
-| 246 | 107-385 | monoprix-gourmet | 42 | +1.0 | [+1.0 ; +4.0] | 13 | non |
-| 247 | 107-373 | arnaud | 37 | +1.0 | [+1.0 ; +2.0] | 7 | non |
-| 248 | 46-382 | mix | 21 * | +1.0 | [+0.0 ; +3.0] | 4 | non |
-| 249 | 46-390 | maison-montfort | 84 | +1.0 | [+0.0 ; +5.0] | 5 | non |
-| 250 | 46-373 | lechef | 70 | +1.0 | [+0.0 ; +2.0] | 16 | non |
-| 251 | 46-346 | leader-price | 670 | +1.0 | [+0.0 ; +1.0] | 44 | oui |
-| 252 | 46-373 | prix-mini | 61 | +1.0 | [+0.0 ; +2.0] | 23 | non |
-| 253 | 15-382 | qualite-traiteur | 18 * | +1.0 | [-2.0 ; +3.0] | 5 | non |
-| 254 | 46-385 | hod-lavan | 23 * | +1.0 | [+0.0 ; +4.0] | 9 | non |
-| 255 | 46-346 | ducs-de-gascogne | 78 | +1.0 | [+0.0 ; +1.0] | 14 | non |
-| 256 | 107-349 | louis-auvergne | 24 * | +1.0 | [+1.0 ; +1.5] | 3 | non |
-| 257 | 101-373 | maison-prunier | 68 | +1.0 | [+0.5 ; +2.0] | 14 | non |
-| 258 | 46-373 | agis | 71 | +1.0 | [+0.0 ; +2.0] | 12 | non |
-| 259 | 101-382 | aia | 88 | +1.0 | [+0.5 ; +3.0] | 15 | oui |
-| 260 | 46-382 | yarden | 36 | +1.0 | [+0.0 ; +3.0] | 15 | non |
-| 261 | 46-373 | despi | 141 | +1.0 | [+0.0 ; +2.0] | 15 | non |
-| 262 | 101-373 | sans-marque | 134 | +1.0 | [+0.5 ; +2.0] | 34 | oui |
-| 263 | 46-373 | ajinomoto | 17 * | +1.0 | [+0.0 ; +2.0] | 6 | non |
-| 264 | 15-373 | saveur-passion | 33 | +1.0 | [-2.0 ; +2.0] | 10 | non |
-| 265 | 107-346 | saveurs-de-nos-regions | 148 | +1.0 | [+1.0 ; +1.0] | 12 | non |
-| 266 | 46-382 | maison-occitane | 24 * | +1.5 | [+0.0 ; +3.0] | 9 | non |
-| 267 | 46-385 | mainjolle | 38 | +1.5 | [+0.0 ; +4.0] | 5 | non |
-| 268 | 46-385 | itineraire-des-saveurs | 74 | +1.5 | [+0.0 ; +4.0] | 17 | non |
-| 269 | 46-391 | winny | 27 * | +2.0 | [+0.0 ; +7.0] | 14 | non |
-| 270 | 22-382 | bredial | 21 * | +2.0 | [-1.0 ; +3.0] | 4 | non |
-| 271 | 22-391 | tous-les-jours | 29 * | +2.0 | [-1.0 ; +7.0] | 17 | non |
-| 272 | 107-390 | bell | 61 | +2.0 | [+1.0 ; +5.0] | 12 | non |
-| 273 | 101-382 | biraben | 58 | +2.0 | [+0.5 ; +3.0] | 18 | non |
-| 274 | 46-385 | tlj | 25 * | +2.0 | [+0.0 ; +4.0] | 10 | non |
-| 275 | 46-385 | michel-ogier | 15 * | +2.0 | [+0.0 ; +4.0] | 3 | non |
-| 276 | 46-382 | maison-tino | 18 * | +2.0 | [+0.0 ; +3.0] | 6 | non |
-| 277 | 107-390 | mossieur-polette | 18 * | +2.0 | [+1.0 ; +5.0] | 7 | non |
-| 278 | 22-382 | metro-chef | 37 | +2.0 | [-1.0 ; +3.0] | 17 | non |
-| 279 | 170-382 | metzger-muller | 31 | +2.0 | [+2.0 ; +3.0] | 11 | non |
-| 280 | 170-395 | montagne-noire | 81 | +2.0 | [+2.0 ; +10.0] | 6 | non |
-| 281 | 170-382 | auvernou | 17 * | +2.0 | [+2.0 ; +3.0] | 2 | non |
-| 282 | 170-373 | baton-de-berger | 17 * | +2.0 | [+2.0 ; +2.0] | 2 | non |
-| 283 | 107-382 | au-fume-vosgien | 54 | +2.0 | [+1.0 ; +3.0] | 7 | non |
-| 284 | 107-373 | berni | 66 | +2.0 | [+1.0 ; +2.5] | 13 | oui |
-| 285 | 46-382 | lou-gascoun | 26 * | +2.0 | [+0.0 ; +3.0] | 9 | non |
-| 286 | 22-373 | les-garibotes | 18 * | +2.0 | [-1.0 ; +2.0] | 8 | non |
-| 287 | 22-373 | le-revelois | 31 | +2.0 | [-1.0 ; +2.0] | 12 | non |
-| 288 | 170-373 | le-batistou | 40 | +2.0 | [+2.0 ; +2.0] | 4 | non |
-| 289 | 46-395 | oberti | 64 | +2.0 | [+0.0 ; +10.0] | 9 | non |
-| 290 | 46-385 | patrimoine-gourmand | 39 | +2.0 | [+0.0 ; +4.0] | 14 | non |
-| 291 | 46-397 | la-jasse | 38 | +2.0 | [+0.0 ; +12.0] | 5 | non |
-| 292 | 170-373 | jean-brunet | 94 | +2.0 | [+2.0 ; +2.5] | 13 | non |
-| 293 | 46-391 | maison-larzul | 36 | +2.0 | [-0.5 ; +6.0] | 11 | non |
-| 294 | 170-397 | maison-milhau | 83 | +2.0 | [+2.0 ; +12.0] | 7 | non |
-| 295 | 46-382 | maistres-occitans | 41 | +2.0 | [+0.0 ; +3.0] | 8 | non |
-| 296 | 107-382 | maison-torres | 62 | +2.0 | [+1.0 ; +3.0] | 11 | non |
-| 297 | 107-382 | pierre-schmidt | 43 | +2.0 | [+1.0 ; +3.0] | 12 | non |
-| 298 | 170-373 | salaisons-du-maconnais | 21 * | +2.0 | [+2.0 ; +2.0] | 3 | non |
-| 299 | 170-373 | keesbo | 17 * | +2.0 | [+2.0 ; +2.0] | 5 | non |
-| 300 | 170-373 | justin-bridou | 59 | +2.0 | [+2.0 ; +2.0] | 7 | non |
-| 301 | 107-382 | eco | 92 | +2.0 | [+1.0 ; +3.0] | 25 | non |
-| 302 | 22-397 | espuna | 68 | +2.0 | [-1.0 ; +12.0] | 11 | non |
-| 303 | 107-391 | terre-de-l-alpe | 19 * | +2.0 | [+1.0 ; +6.0] | 8 | non |
-| 304 | 107-382 | porcidou | 16 * | +2.0 | [+1.0 ; +3.0] | 4 | non |
-| 305 | 46-385 | gourmets-de-l-artois | 40 | +2.0 | [+0.0 ; +4.5] | 8 | non |
-| 306 | 107-373 | galibier | 55 | +2.0 | [+1.0 ; +2.0] | 5 | non |
-| 307 | 22-385 | guyader | 65 | +2.0 | [-1.0 ; +4.0] | 11 | non |
-| 308 | 107-391 | gueze | 37 | +2.0 | [+1.0 ; +7.0] | 10 | non |
-| 309 | 46-382 | saveurs-des-mauges | 71 | +2.0 | [+0.0 ; +3.0] | 14 | non |
-| 310 | 46-382 | clos-saint-sozy | 43 | +2.0 | [+0.0 ; +3.0] | 9 | non |
-| 311 | 107-382 | charcuterie-cosme | 50 | +2.0 | [+1.0 ; +3.0] | 12 | non |
-| 312 | 46-385 | dia | 81 | +2.0 | [+0.0 ; +4.0] | 24 | non |
-| 313 | 107-382 | stephan | 87 | +2.0 | [+1.0 ; +3.0] | 15 | non |
-| 314 | 22-394 | simpl | 19 * | +2.0 | [-1.0 ; +8.0] | 12 | non |
-| 315 | 46-390 | saveur-des-mauges | 23 * | +2.0 | [+0.0 ; +5.0] | 9 | non |
-| 316 | 107-385 | sodebo | 81 | +2.0 | [+1.0 ; +4.0] | 8 | non |
-| 317 | 46-382 | fleurons-de-lomagne | 49 | +2.0 | [+0.0 ; +3.0] | 10 | non |
-| 318 | 163-382 | iller | 40 | +2.0 | [+1.5 ; +3.0] | 7 | non |
-| 319 | 101-390 | grand-frais | 28 * | +2.0 | [+0.5 ; +5.0] | 13 | non |
-| 320 | 22-382 | festein-d-alsace | 23 * | +2.0 | [-1.0 ; +3.0] | 7 | non |
-| 321 | 46-395 | volailles-champenoises | 64 | +2.5 | [+0.0 ; +10.0] | 8 | non |
-| 322 | 46-385 | fe-p-c | 18 * | +2.5 | [+0.0 ; +4.5] | 8 | non |
-| 323 | 46-390 | pouce | 32 | +2.5 | [+0.0 ; +5.5] | 13 | non |
-| 324 | 107-382 | secrets-du-val-d-argent | 26 * | +2.5 | [+1.0 ; +3.0] | 6 | non |
-| 325 | 46-385 | lustucru | 16 * | +2.5 | [+0.0 ; +4.0] | 5 | non |
-| 326 | 46-382 | u-saveurs | 70 | +2.5 | [+0.0 ; +3.0] | 6 | non |
-| 327 | 170-390 | jean-louis-amiotte | 15 * | +3.0 | [+2.0 ; +5.0] | 4 | non |
-| 328 | 107-391 | l-assiette-d-antoine | 53 | +3.0 | [+1.0 ; +6.0] | 14 | non |
-| 329 | 107-390 | thierry-schweitzer | 30 | +3.0 | [+1.0 ; +5.0] | 7 | non |
-| 330 | 107-385 | nos-regions-ont-du-talent | 51 | +3.0 | [+1.0 ; +4.0] | 14 | non |
-| 331 | 170-394 | lafitte | 20 * | +3.0 | [+2.0 ; +8.0] | 9 | non |
-| 332 | 107-395 | bien-vu | 23 * | +3.0 | [+1.0 ; +10.0] | 15 | non |
-| 333 | 107-391 | charles-antona | 18 * | +3.0 | [+1.0 ; +6.0] | 9 | non |
-| 334 | 231-385 | stemmelen | 35 | +3.0 | [+3.0 ; +4.0] | 6 | non |
-| 335 | 107-385 | domaine-de-gammareix | 16 * | +3.0 | [+1.0 ; +4.0] | 6 | non |
-| 336 | 163-397 | hoa-nam | 18 * | +3.0 | [+1.5 ; +12.0] | 8 | non |
-| 337 | 46-395 | id-halal | 35 | +3.0 | [+0.0 ; +10.0] | 14 | oui |
-| 338 | 107-391 | doux | 17 * | +3.0 | [+1.0 ; +7.0] | 6 | oui |
-| 339 | 107-382 | royal-bourbon | 17 * | +3.0 | [+1.0 ; +3.0] | 2 | non |
-| 340 | 170-390 | reflets-de-france | 24 * | +3.0 | [+2.0 ; +5.5] | 8 | non |
-| 341 | 107-394 | isla-mondial | 76 | +3.0 | [+1.0 ; +8.5] | 22 | oui |
-| 342 | 46-390 | of-tov | 39 | +3.0 | [+0.0 ; +5.0] | 10 | non |
-| 343 | 107-398 | le-flutiau | 17 * | +3.0 | [+1.0 ; +13.0] | 5 | non |
-| 344 | 10-395 | piquebroche | 17 * | +3.0 | [-4.0 ; +11.0] | 6 | non |
-| 345 | 107-385 | roger-vidal | 17 * | +3.0 | [+1.0 ; +4.0] | 8 | non |
-| 346 | 15-395 | transgourmet | 18 * | +3.5 | [-2.0 ; +10.5] | 11 | non |
-| 347 | 163-385 | prunier | 18 * | +3.5 | [+1.5 ; +4.5] | 8 | non |
-| 348 | 170-398 | carrefour-original | 15 * | +4.0 | [+2.0 ; +13.0] | 3 | non |
-| 349 | 231-385 | escal | 47 | +4.0 | [+3.0 ; +4.0] | 2 | non |
-| 350 | 46-394 | le-fleuron-de-la-reunion | 18 * | +4.0 | [+0.0 ; +8.0] | 6 | non |
-| 351 | 276-391 | maison-monterrat | 18 * | +4.0 | [+4.0 ; +6.0] | 3 | non |
-| 352 | 46-385 | philippe-wagner | 23 * | +4.0 | [+0.0 ; +4.0] | 6 | non |
-| 353 | 170-394 | oriental-viandes | 85 | +4.0 | [+2.0 ; +8.5] | 31 | oui |
-| 354 | 231-390 | vitasia | 15 * | +4.0 | [+3.0 ; +5.0] | 3 | non |
-| 355 | 170-385 | michel-bolard | 21 * | +4.0 | [+2.0 ; +4.0] | 4 | non |
-| 356 | 170-390 | loeul-et-piriot | 77 | +4.0 | [+2.0 ; +5.0] | 3 | non |
-| 357 | 231-390 | francaise-de-gastronomie | 46 | +4.0 | [+3.0 ; +5.0] | 3 | non |
-| 358 | 170-395 | isla-delice | 183 | +4.0 | [+2.0 ; +10.0] | 32 | oui |
-| 359 | 15-391 | saveurs-bressanes | 17 * | +4.0 | [-2.0 ; +7.0] | 9 | non |
-| 360 | 46-395 | wassila | 21 * | +5.0 | [+0.0 ; +11.0] | 12 | oui |
-| 361 | 107-395 | boni | 39 | +5.0 | [+1.0 ; +10.0] | 11 | non |
-| 362 | 301-390 | petitgas | 65 | +5.0 | [+5.0 ; +5.0] | 9 | non |
-| 363 | 231-390 | pierre-laguilhon | 46 | +5.0 | [+3.0 ; +5.0] | 12 | non |
-| 364 | 46-398 | negroni | 79 | +5.0 | [+0.0 ; +14.0] | 8 | non |
-| 365 | 231-398 | ronsard | 42 | +5.0 | [+3.0 ; +14.0] | 9 | non |
-| 366 | 170-391 | tempe | 43 | +5.0 | [+2.0 ; +6.0] | 10 | non |
-| 367 | 276-390 | claviere | 28 * | +5.0 | [+4.0 ; +5.0] | 5 | non |
-| 368 | 46-394 | cipressi-in-chianti | 15 * | +5.0 | [+0.0 ; +9.0] | 9 | non |
-| 369 | 231-395 | reghalal | 112 | +5.5 | [+3.0 ; +10.0] | 24 | oui |
-| 370 | 170-394 | suntat | 21 * | +6.0 | [+2.0 ; +8.0] | 10 | oui |
-| 371 | 231-391 | jack-link-s | 39 | +6.0 | [+3.0 ; +6.0] | 4 | oui |
-| 372 | 301-391 | tendriade | 73 | +6.0 | [+5.0 ; +7.0] | 9 | non |
-| 373 | 276-391 | roland-monterrat | 17 * | +6.0 | [+4.0 ; +7.0] | 4 | non |
-| 374 | 46-395 | halal | 20 * | +6.0 | [+0.0 ; +10.0] | 10 | oui |
-| 375 | 22-395 | realvalle | 29 * | +7.0 | [-1.0 ; +11.0] | 6 | non |
-| 376 | 170-394 | merle | 35 | +8.0 | [+2.0 ; +9.0] | 5 | non |
-| 377 | 301-395 | delpeyrat | 194 | +8.0 | [+5.0 ; +10.0] | 15 | non |
-| 378 | 46-395 | hunkar | 16 * | +8.0 | [+0.0 ; +11.0] | 7 | oui |
-| 379 | 337-395 | marion | 21 * | +8.0 | [+8.0 ; +10.0] | 4 | non |
-| 380 | 15-398 | al-jadid | 21 * | +8.0 | [-2.0 ; +13.0] | 12 | oui |
-| 381 | 107-397 | frais-devant | 31 | +9.0 | [+1.0 ; +12.0] | 7 | non |
-| 382 | 301-397 | labeyrie | 99 | +9.0 | [+5.0 ; +12.0] | 17 | non |
-| 383 | 15-398 | peguet-savoie | 24 * | +9.5 | [-2.0 ; +14.0] | 4 | non |
-| 384 | 46-398 | villani | 55 | +10.0 | [+0.0 ; +15.0] | 7 | non |
-| 385 | 322-397 | aoste | 227 | +10.0 | [+6.0 ; +12.0] | 14 | non |
-| 386 | 337-395 | boadas | 29 * | +10.0 | [+8.0 ; +11.0] | 6 | non |
-| 387 | 337-397 | arabi | 44 | +11.0 | [+8.0 ; +12.0] | 13 | oui |
-| 388 | 170-398 | argal | 36 | +12.0 | [+2.0 ; +13.0] | 6 | non |
-| 389 | 301-398 | serrano | 26 * | +12.0 | [+5.0 ; +13.0] | 6 | non |
-| 390 | 170-398 | simon | 21 * | +12.0 | [+2.0 ; +15.0] | 8 | non |
-| 391 | 367-397 | michel-dupuy | 29 * | +12.0 | [+12.0 ; +12.0] | 5 | non |
-| 392 | 231-398 | corte-del-gusto | 31 | +12.0 | [+3.0 ; +15.0] | 6 | non |
-| 393 | 46-398 | montorsi | 31 | +12.0 | [+0.0 ; +16.0] | 7 | non |
-| 394 | 170-398 | navidul | 19 * | +12.0 | [+2.0 ; +13.0] | 4 | non |
-| 395 | 367-398 | le-saloir-du-perigord | 15 * | +13.0 | [+12.0 ; +13.0] | 2 | non |
-| 396 | 46-398 | rosa-dell-angelo | 20 * | +13.5 | [+0.0 ; +16.0] | 6 | non |
-| 397 | 377-398 | italiamo | 54 | +14.0 | [+13.0 ; +14.0] | 13 | non |
-| 398 | 346-398 | volibon | 15 * | +15.0 | [+10.0 ; +16.0] | 4 | oui |
+| rang | rangs possibles | marque | n | ecart | IC 95 % | strates | profil |
+|---:|:---:|:---|---:|---:|:---:|---:|:---|
+| 1 | 1-9 | dam | 17 * | -17.0 | [-19.0 ; -12.5] | 3 | hors bras halal |
+| 2 | 1-9 | evasion-festive | 50 | -15.0 | [-15.0 ; -13.0] | 3 | hors bras halal |
+| 3 | 1-9 | petit-navire | 15 * | -15.0 | [-15.0 ; -13.0] | 1 | hors bras halal |
+| 4 | 1-21 | saveurs-forestieres | 29 * | -14.0 | [-16.0 ; -6.0] | 4 | hors bras halal |
+| 5 | 1-9 | la-table-du-fermier | 19 * | -13.0 | [-13.0 ; -13.0] | 5 | hors bras halal |
+| 6 | 1-28 | les-mouettes-d-arvor | 15 * | -13.0 | [-14.0 ; -5.0] | 1 | hors bras halal |
+| 7 | 1-398 | randy | 18 * | -11.5 | [-13.0 ; +15.0] | 5 | hors bras halal |
+| 8 | 5-68 | nature-de-france | 126 | -10.0 | [-10.0 ; -3.0] | 13 | hors bras halal |
+| 9 | 5-17 | l-etal-du-boucher | 535 | -10.0 | [-12.0 ; -7.0] | 19 | hors bras halal |
+| 10 | 1-138 | boucherie-st-clement | 62 | -7.0 | [-13.0 ; -2.0] | 8 | hors bras halal |
+| 11 | 1-21 | groix-nature | 24 * | -7.0 | [-13.0 ; -5.5] | 1 | hors bras halal |
+| 12 | 6-21 | saint-agaune | 56 | -6.0 | [-6.0 ; -6.0] | 4 | hors bras halal |
+| 13 | 9-68 | les-delices-de-lyon | 24 * | -4.0 | [-5.0 ; -3.0] | 10 | hors bras halal |
+| 14 | 10-138 | duc | 27 * | -4.0 | [-4.0 ; -2.0] | 7 | gamme halal minoritaire |
+| 15 | 10-47 | la-nouvelle-agriculture | 1039 | -4.0 | [-4.0 ; -4.0] | 19 | hors bras halal |
+| 16 | 9-138 | l-atelier-du-poissonnier | 15 * | -4.0 | [-5.0 ; -2.0] | 1 | hors bras halal |
+| 17 | 10-301 | les-fermiers-de-loue | 55 | -3.0 | [-4.0 ; +0.0] | 5 | hors bras halal |
+| 18 | 10-68 | tripes-paillard | 19 * | -3.0 | [-4.0 ; -3.0] | 3 | hors bras halal |
+| 19 | 5-395 | pedrazzoli | 19 * | -3.0 | [-11.0 ; +11.0] | 7 | hors bras halal |
+| 20 | 10-208 | soelia | 15 * | -3.0 | [-4.0 ; -1.0] | 3 | hors bras halal |
+| 21 | 10-68 | loue | 213 | -3.0 | [-4.0 ; -3.0] | 9 | hors bras halal |
+| 22 | 5-346 | golfera | 25 * | -3.0 | [-8.0 ; +1.0] | 11 | hors bras halal |
+| 23 | 9-346 | les-legendaires | 17 * | -3.0 | [-5.0 ; +1.0] | 7 | hors bras halal |
+| 24 | 10-373 | le-gaulois-ocb-oui-c-est-bon | 17 * | -3.0 | [-4.0 ; +2.0] | 2 | hors bras halal |
+| 25 | 9-208 | cochonnailles-du-haut-bois | 28 * | -3.0 | [-5.0 ; -1.0] | 8 | hors bras halal |
+| 26 | 5-208 | panzani | 110 | -2.5 | [-10.0 ; -1.0] | 9 | hors bras halal |
+| 27 | 11-301 | les-occitanes | 26 * | -2.0 | [-3.0 ; +0.0] | 9 | hors bras halal |
+| 28 | 15-138 | fleury-michon | 1015 | -2.0 | [-2.0 ; -2.0] | 27 | gamme halal minoritaire |
+| 29 | 15-138 | seazon | 131 | -2.0 | [-2.0 ; -2.0] | 10 | hors bras halal |
+| 30 | 15-138 | domaine-picard | 167 | -2.0 | [-2.0 ; -2.0] | 7 | hors bras halal |
+| 31 | 11-208 | dietbon | 29 * | -2.0 | [-3.0 ; -1.0] | 7 | hors bras halal |
+| 32 | 15-301 | volandrie | 77 | -2.0 | [-2.0 ; +0.0] | 8 | hors bras halal |
+| 33 | 15-301 | lausse | 27 * | -2.0 | [-2.0 ; +0.0] | 5 | hors bras halal |
+| 34 | 11-208 | raynal-et-roquelaure | 65 | -2.0 | [-3.0 ; -1.0] | 13 | hors bras halal |
+| 35 | 15-208 | saint-alby | 498 | -2.0 | [-2.0 ; -1.0] | 21 | hors bras halal |
+| 36 | 10-208 | kitchen-diet | 26 * | -2.0 | [-4.0 ; -1.0] | 7 | hors bras halal |
+| 37 | 15-208 | comtesse-du-barry | 116 | -2.0 | [-2.0 ; -1.0] | 21 | hors bras halal |
+| 38 | 15-208 | comme-j-aime | 94 | -2.0 | [-2.0 ; -1.0] | 7 | hors bras halal |
+| 39 | 15-382 | charles-keller | 15 * | -2.0 | [-2.0 ; +3.0] | 4 | hors bras halal |
+| 40 | 10-382 | andre-krief | 31 | -2.0 | [-4.0 ; +3.0] | 16 | hors bras halal |
+| 41 | 10-390 | maison-monfort | 18 * | -2.0 | [-4.0 ; +5.5] | 3 | hors bras halal |
+| 42 | 10-346 | label-rouge | 17 * | -2.0 | [-4.0 ; +1.0] | 9 | hors bras halal |
+| 43 | 6-208 | conserverie-des-saveurs | 15 * | -2.0 | [-6.0 ; -1.0] | 2 | hors bras halal |
+| 44 | 9-301 | sainsbury-s | 16 * | -2.0 | [-5.0 ; +0.0] | 10 | hors bras halal |
+| 45 | 15-301 | tradilege | 50 | -2.0 | [-2.0 ; +0.0] | 14 | hors bras halal |
+| 46 | 11-395 | campofrio | 25 * | -2.0 | [-3.0 ; +10.0] | 8 | hors bras halal |
+| 47 | 11-346 | vallegrain | 23 * | -2.0 | [-3.0 ; +1.0] | 9 | hors bras halal |
+| 48 | 11-208 | conserverie-st-christophe | 31 | -2.0 | [-3.0 ; -1.0] | 11 | hors bras halal |
+| 49 | 15-373 | volandry | 30 | -2.0 | [-2.0 ; +2.0] | 4 | hors bras halal |
+| 50 | 15-208 | maitre-cochon | 20 * | -2.0 | [-2.0 ; -1.0] | 8 | hors bras halal |
+| 51 | 11-301 | m-s | 32 | -2.0 | [-3.0 ; +0.0] | 11 | hors bras halal |
+| 52 | 9-373 | martini | 15 * | -2.0 | [-5.0 ; +2.0] | 3 | hors bras halal |
+| 53 | 15-138 | herta | 449 | -2.0 | [-2.0 ; -2.0] | 13 | gamme halal marginale (< 5 produits) |
+| 54 | 6-301 | nestle | 98 | -2.0 | [-6.0 ; +0.0] | 18 | hors bras halal |
+| 55 | 15-301 | la-table-d-antan | 24 * | -1.5 | [-2.0 ; +0.0] | 8 | hors bras halal |
+| 56 | 15-346 | audary | 26 * | -1.5 | [-2.5 ; +1.0] | 11 | hors bras halal |
+| 57 | 15-301 | douce-france | 43 | -1.0 | [-2.0 ; +0.0] | 10 | hors bras halal |
+| 58 | 22-208 | moritz | 66 | -1.0 | [-1.0 ; -1.0] | 4 | hors bras halal |
+| 59 | 22-301 | monique-ranou | 298 | -1.0 | [-1.0 ; +0.0] | 30 | hors bras halal |
+| 60 | 15-301 | micouleau | 30 | -1.0 | [-2.0 ; +0.0] | 11 | hors bras halal |
+| 61 | 15-346 | mercadier | 37 | -1.0 | [-2.0 ; +1.0] | 14 | hors bras halal |
+| 62 | 15-208 | maitre-jacques | 170 | -1.0 | [-2.0 ; -1.0] | 11 | hors bras halal |
+| 63 | 15-301 | marks-and-spencer | 15 * | -1.0 | [-2.0 ; +0.0] | 8 | hors bras halal |
+| 64 | 15-301 | marks-spencer | 126 | -1.0 | [-2.0 ; +0.0] | 23 | gamme halal marginale (< 5 produits) |
+| 65 | 15-301 | clermont | 56 | -1.0 | [-2.0 ; +0.0] | 11 | hors bras halal |
+| 66 | 22-301 | paul-louise | 54 | -1.0 | [-1.0 ; +0.0] | 12 | hors bras halal |
+| 67 | 11-398 | parmacotto | 28 * | -1.0 | [-3.0 ; +14.0] | 6 | hors bras halal |
+| 68 | 5-346 | nobles | 18 * | -1.0 | [-7.0 ; +1.0] | 8 | hors bras halal |
+| 69 | 10-373 | naturalia | 23 * | -1.0 | [-4.0 ; +2.0] | 10 | hors bras halal |
+| 70 | 15-208 | henaff | 191 | -1.0 | [-2.0 ; -1.0] | 24 | hors bras halal |
+| 71 | 11-346 | esprit-gourmet | 21 * | -1.0 | [-3.0 ; +1.0] | 7 | hors bras halal |
+| 72 | 22-301 | duc-de-pressac | 16 * | -1.0 | [-1.0 ; +0.0] | 5 | hors bras halal |
+| 73 | 15-301 | lucien-georgelin | 35 | -1.0 | [-2.0 ; +0.0] | 9 | hors bras halal |
+| 74 | 11-346 | les-mousquetaires | 21 * | -1.0 | [-3.0 ; +1.0] | 13 | hors bras halal |
+| 75 | 22-373 | le-porc-de-nos-villages | 21 * | -1.0 | [-1.0 ; +2.0] | 3 | hors bras halal |
+| 76 | 6-301 | le-picoreur | 16 * | -1.0 | [-6.0 ; +0.0] | 13 | hors bras halal |
+| 77 | 15-349 | les-trois-chefs | 20 * | -1.0 | [-2.0 ; +1.5] | 9 | hors bras halal |
+| 78 | 22-301 | mere-lalie | 47 | -1.0 | [-1.0 ; +0.0] | 10 | hors bras halal |
+| 79 | 15-306 | zwan | 16 * | -1.0 | [-2.5 ; +0.5] | 7 | gamme halal marginale (< 5 produits) |
+| 80 | 22-208 | william-saurin | 139 | -1.0 | [-1.0 ; -1.0] | 16 | hors bras halal |
+| 81 | 15-301 | d-aucy | 36 | -1.0 | [-2.0 ; +0.0] | 7 | hors bras halal |
+| 82 | 10-301 | super-u | 15 * | -1.0 | [-4.0 ; +0.0] | 7 | hors bras halal |
+| 83 | 15-208 | tendre-plus | 505 | -1.0 | [-2.0 ; -1.0] | 16 | hors bras halal |
+| 84 | 10-346 | cooperl | 37 | -1.0 | [-4.0 ; +1.0] | 12 | gamme halal marginale (< 5 produits) |
+| 85 | 11-382 | sol-mar | 17 * | -1.0 | [-3.0 ; +3.0] | 8 | hors bras halal |
+| 86 | 15-208 | weight-watchers | 37 | -1.0 | [-2.0 ; -1.0] | 10 | hors bras halal |
+| 87 | 15-208 | madrange | 336 | -1.0 | [-2.0 ; -1.0] | 24 | hors bras halal |
+| 88 | 15-301 | kermene | 59 | -1.0 | [-2.0 ; +0.0] | 14 | hors bras halal |
+| 89 | 15-373 | castaing | 16 * | -1.0 | [-2.0 ; +2.0] | 7 | hors bras halal |
+| 90 | 22-301 | jean-larnaudie | 82 | -1.0 | [-1.5 ; +0.0] | 13 | hors bras halal |
+| 91 | 9-208 | rostain | 58 | -1.0 | [-5.0 ; -1.0] | 13 | hors bras halal |
+| 92 | 15-301 | rovagnati | 65 | -1.0 | [-2.0 ; +0.0] | 8 | hors bras halal |
+| 93 | 11-306 | raynal-roquelaure | 16 * | -1.0 | [-3.0 ; +0.5] | 8 | hors bras halal |
+| 94 | 22-301 | picard | 503 | -1.0 | [-1.0 ; +0.0] | 34 | hors bras halal |
+| 95 | 22-346 | pierre-champion | 33 | -1.0 | [-1.0 ; +1.0] | 12 | hors bras halal |
+| 96 | 15-346 | larnaudie | 68 | -1.0 | [-2.5 ; +1.0] | 11 | hors bras halal |
+| 97 | 22-301 | u | 1832 | -1.0 | [-1.0 ; +0.0] | 48 | hors bras halal |
+| 98 | 22-208 | charal | 906 | -1.0 | [-1.0 ; -1.0] | 13 | gamme halal marginale (< 5 produits) |
+| 99 | 5-208 | charcuterie-ruel | 49 | -1.0 | [-7.0 ; -1.0] | 8 | hors bras halal |
+| 100 | 22-301 | claude-vetillard | 22 * | -1.0 | [-1.5 ; +0.0] | 6 | hors bras halal |
+| 101 | 22-301 | la-cuisine-d-oceane | 55 | -1.0 | [-1.0 ; +0.0] | 9 | hors bras halal |
+| 102 | 22-208 | zapetti | 78 | -1.0 | [-1.0 ; -1.0] | 5 | hors bras halal |
+| 103 | 15-306 | carrefour-bio | 68 | -1.0 | [-2.0 ; +0.5] | 21 | hors bras halal |
+| 104 | 22-346 | beretta | 33 | -1.0 | [-1.0 ; +1.0] | 9 | hors bras halal |
+| 105 | 15-346 | bonjour-campagne | 63 | -1.0 | [-2.0 ; +1.0] | 17 | hors bras halal |
+| 106 | 22-346 | bioporc | 81 | -1.0 | [-1.0 ; +1.0] | 13 | hors bras halal |
+| 107 | 15-301 | biocoop | 115 | -1.0 | [-2.0 ; +0.0] | 20 | hors bras halal |
+| 108 | 15-208 | bio-village | 84 | -1.0 | [-2.0 ; -1.0] | 24 | hors bras halal |
+| 109 | 11-301 | broceliande | 82 | -1.0 | [-3.0 ; +0.0] | 11 | hors bras halal |
+| 110 | 15-301 | brient | 46 | -1.0 | [-2.0 ; +0.0] | 11 | hors bras halal |
+| 111 | 10-373 | bonval | 41 | -1.0 | [-4.0 ; +2.0] | 9 | hors bras halal |
+| 112 | 15-301 | bigard | 225 | -1.0 | [-2.0 ; +0.0] | 20 | hors bras halal |
+| 113 | 11-394 | pedelhez | 16 * | -0.5 | [-3.5 ; +8.0] | 6 | hors bras halal |
+| 114 | 11-346 | tradival | 47 | +0.0 | [-3.0 ; +1.0] | 10 | hors bras halal |
+| 115 | 22-346 | valette | 71 | +0.0 | [-1.0 ; +1.0] | 13 | hors bras halal |
+| 116 | 46-301 | thiriet | 393 | +0.0 | [+0.0 ; +0.0] | 33 | hors bras halal |
+| 117 | 46-382 | volae | 245 | +0.0 | [+0.0 ; +3.0] | 9 | hors bras halal |
+| 118 | 46-301 | bordeau-chesnel | 64 | +0.0 | [-0.5 ; +0.0] | 8 | hors bras halal |
+| 119 | 22-373 | boucheries-andre | 21 * | +0.0 | [-1.0 ; +2.0] | 10 | hors bras halal |
+| 120 | 22-373 | bonneterre | 42 | +0.0 | [-1.0 ; +2.0] | 10 | hors bras halal |
+| 121 | 46-346 | toupargel | 127 | +0.0 | [+0.0 ; +1.0] | 26 | gamme halal marginale (< 5 produits) |
+| 122 | 10-373 | casa-modena | 29 * | +0.0 | [-4.0 ; +2.0] | 7 | hors bras halal |
+| 123 | 46-301 | casino | 630 | +0.0 | [+0.0 ; +0.0] | 40 | gamme halal marginale (< 5 produits) |
+| 124 | 22-301 | cesar-moroni | 30 | +0.0 | [-1.5 ; +0.0] | 6 | hors bras halal |
+| 125 | 15-306 | cmi-carrefour-marchandises-internationales | 30 | +0.0 | [-2.5 ; +0.5] | 15 | hors bras halal |
+| 126 | 22-385 | citterio | 97 | +0.0 | [-1.0 ; +4.0] | 10 | hors bras halal |
+| 127 | 22-301 | claude-leger | 34 | +0.0 | [-1.0 ; +0.0] | 9 | hors bras halal |
+| 128 | 22-346 | comte-de-la-seynie | 26 * | +0.0 | [-1.0 ; +1.0] | 11 | hors bras halal |
+| 129 | 46-346 | belle-france | 248 | +0.0 | [+0.0 ; +1.0] | 34 | hors bras halal |
+| 130 | 15-373 | volaille-francaise | 19 * | +0.0 | [-2.0 ; +2.0] | 6 | gamme halal marginale (< 5 produits) |
+| 131 | 46-346 | aldi | 191 | +0.0 | [+0.0 ; +1.0] | 34 | gamme halal marginale (< 5 produits) |
+| 132 | 22-373 | la-vie-claire | 60 | +0.0 | [-1.0 ; +2.0] | 24 | hors bras halal |
+| 133 | 22-346 | rochambeau | 80 | +0.0 | [-1.0 ; +1.0] | 22 | hors bras halal |
+| 134 | 15-346 | larroque | 15 * | +0.0 | [-2.0 ; +1.0] | 8 | hors bras halal |
+| 135 | 15-373 | nous-anti-gaspi | 15 * | +0.0 | [-2.0 ; +2.0] | 9 | gamme halal marginale (< 5 produits) |
+| 136 | 46-301 | pere-dodu | 313 | +0.0 | [+0.0 ; +0.0] | 14 | hors bras halal |
+| 137 | 46-346 | intermarche | 165 | +0.0 | [+0.0 ; +1.0] | 31 | hors bras halal |
+| 138 | 22-301 | jean-roze | 233 | +0.0 | [-1.0 ; +0.0] | 16 | hors bras halal |
+| 139 | 22-346 | royal-halal | 29 * | +0.0 | [-1.0 ; +1.0] | 8 | specialiste halal |
+| 140 | 22-306 | royal-bernard | 98 | +0.0 | [-1.0 ; +0.5] | 12 | gamme halal marginale (< 5 produits) |
+| 141 | 22-346 | kerets | 29 * | +0.0 | [-1.0 ; +1.0] | 10 | hors bras halal |
+| 142 | 46-301 | l-etal-du-volailler | 664 | +0.0 | [-0.5 ; +0.0] | 13 | hors bras halal |
+| 143 | 22-346 | la-belle-chaurienne | 117 | +0.0 | [-1.0 ; +1.0] | 18 | hors bras halal |
+| 144 | 46-301 | carrefour | 1349 | +0.0 | [+0.0 ; +0.0] | 50 | gamme halal minoritaire |
+| 145 | 11-346 | knorr | 19 * | +0.0 | [-3.0 ; +1.0] | 11 | hors bras halal |
+| 146 | 15-346 | pays-gourmand | 33 | +0.0 | [-2.0 ; +1.0] | 16 | hors bras halal |
+| 147 | 11-397 | revilla | 17 * | +0.0 | [-3.0 ; +12.0] | 3 | hors bras halal |
+| 148 | 15-346 | relais-gourmand | 23 * | +0.0 | [-2.0 ; +1.0] | 12 | hors bras halal |
+| 149 | 15-346 | le-vieux-chene | 47 | +0.0 | [-2.0 ; +1.0] | 13 | hors bras halal |
+| 150 | 22-373 | le-volvestre | 22 * | +0.0 | [-1.0 ; +2.0] | 8 | hors bras halal |
+| 151 | 22-373 | le-manoir-alexandre | 31 | +0.0 | [-1.0 ; +2.0] | 11 | hors bras halal |
+| 152 | 46-346 | le-gaulois | 2727 | +0.0 | [+0.0 ; +1.0] | 23 | hors bras halal |
+| 153 | 22-346 | le-choix-du-charcutier | 26 * | +0.0 | [-1.0 ; +1.0] | 7 | hors bras halal |
+| 154 | 11-382 | le-pere-jean | 21 * | +0.0 | [-3.0 ; +3.0] | 9 | hors bras halal |
+| 155 | 15-382 | le-petit-cuisinier | 24 * | +0.0 | [-2.0 ; +3.0] | 8 | hors bras halal |
+| 156 | 22-346 | mix-buffet | 52 | +0.0 | [-1.0 ; +1.0] | 7 | hors bras halal |
+| 157 | 15-346 | le-marsigny | 46 | +0.0 | [-2.0 ; +1.0] | 14 | hors bras halal |
+| 158 | 15-346 | e-leclerc | 37 | +0.0 | [-2.0 ; +1.0] | 16 | hors bras halal |
+| 159 | 46-301 | lidl | 420 | +0.0 | [+0.0 ; +0.0] | 39 | gamme halal minoritaire |
+| 160 | 22-346 | les-bories | 65 | +0.0 | [-1.0 ; +1.0] | 16 | hors bras halal |
+| 161 | 22-373 | lionor | 18 * | +0.0 | [-1.5 ; +2.5] | 5 | gamme halal marginale (< 5 produits) |
+| 162 | 22-301 | findus | 37 | +0.0 | [-1.0 ; +0.0] | 11 | hors bras halal |
+| 163 | 22-349 | fiorini | 28 * | +0.0 | [-1.0 ; +1.5] | 4 | hors bras halal |
+| 164 | 46-346 | franprix | 142 | +0.0 | [+0.0 ; +1.0] | 24 | hors bras halal |
+| 165 | 11-395 | fumagalli | 15 * | +0.0 | [-3.0 ; +11.0] | 6 | hors bras halal |
+| 166 | 46-349 | dulano | 130 | +0.0 | [-0.5 ; +1.5] | 18 | hors bras halal |
+| 167 | 22-373 | les-saveurs-de-bourdette | 27 * | +0.0 | [-1.0 ; +2.0] | 10 | hors bras halal |
+| 168 | 11-346 | elpozo | 69 | +0.0 | [-3.0 ; +1.0] | 11 | hors bras halal |
+| 169 | 15-301 | groupe-casino | 15 * | +0.0 | [-2.0 ; +0.0] | 10 | hors bras halal |
+| 170 | 46-301 | porc-de-l-aveyron | 26 * | +0.0 | [+0.0 ; +0.0] | 2 | hors bras halal |
+| 171 | 22-301 | garbit | 32 | +0.0 | [-1.0 ; +0.0] | 4 | hors bras halal |
+| 172 | 46-373 | ferial | 47 | +0.0 | [+0.0 ; +2.0] | 11 | hors bras halal |
+| 173 | 22-373 | iglo | 20 * | +0.0 | [-1.0 ; +2.0] | 7 | gamme halal marginale (< 5 produits) |
+| 174 | 15-373 | pierre-martinet | 19 * | +0.0 | [-2.0 ; +2.0] | 4 | hors bras halal |
+| 175 | 46-346 | netto | 246 | +0.0 | [+0.0 ; +1.0] | 32 | gamme halal marginale (< 5 produits) |
+| 176 | 15-382 | nature-bio | 17 * | +0.0 | [-2.0 ; +3.0] | 9 | hors bras halal |
+| 177 | 22-306 | panache-des-landes | 22 * | +0.0 | [-1.0 ; +0.5] | 4 | hors bras halal |
+| 178 | 11-382 | madern | 15 * | +0.0 | [-3.0 ; +3.0] | 5 | hors bras halal |
+| 179 | 22-301 | marie | 112 | +0.0 | [-1.0 ; +0.0] | 10 | hors bras halal |
+| 180 | 46-301 | maitre-coq | 1039 | +0.0 | [+0.0 ; +0.0] | 19 | gamme halal marginale (< 5 produits) |
+| 181 | 15-349 | metro | 30 | +0.0 | [-2.0 ; +1.5] | 14 | hors bras halal |
+| 182 | 22-301 | maison-riviere | 88 | +0.0 | [-1.0 ; +0.0] | 18 | hors bras halal |
+| 183 | 22-382 | migros | 42 | +0.0 | [-1.0 ; +3.5] | 17 | hors bras halal |
+| 184 | 46-301 | auchan | 1122 | +0.0 | [+0.0 ; +0.0] | 45 | hors bras halal |
+| 185 | 46-301 | marque-repere | 754 | +0.0 | [+0.0 ; +0.0] | 44 | gamme halal marginale (< 5 produits) |
+| 186 | 46-301 | monoprix | 466 | +0.0 | [+0.0 ; +0.0] | 40 | hors bras halal |
+| 187 | 15-373 | le-pre-aux-canards | 21 * | +0.0 | [-2.0 ; +2.0] | 6 | hors bras halal |
+| 188 | 22-346 | le-porc-francais | 88 | +0.0 | [-1.0 ; +1.0] | 11 | hors bras halal |
+| 189 | 46-382 | les-eleveurs-de-la-charentonne | 28 * | +0.0 | [-0.5 ; +3.0] | 15 | hors bras halal |
+| 190 | 15-346 | terrines-du-morvan | 52 | +0.0 | [-2.0 ; +1.0] | 13 | hors bras halal |
+| 191 | 5-382 | denner | 16 * | +0.0 | [-9.0 ; +3.0] | 9 | hors bras halal |
+| 192 | 22-346 | deluxe | 133 | +0.0 | [-1.0 ; +1.0] | 22 | hors bras halal |
+| 193 | 10-373 | agerria | 16 * | +0.0 | [-4.0 ; +2.0] | 7 | hors bras halal |
+| 194 | 46-346 | socopa | 224 | +0.0 | [+0.0 ; +1.0] | 17 | gamme halal minoritaire |
+| 195 | 15-373 | secret-d-eleveurs | 25 * | +0.0 | [-2.0 ; +2.0] | 9 | hors bras halal |
+| 196 | 22-373 | alain-martin | 22 * | +0.0 | [-1.0 ; +2.5] | 11 | hors bras halal |
+| 197 | 22-349 | wiltmann | 18 * | +0.0 | [-1.5 ; +1.5] | 5 | hors bras halal |
+| 198 | 46-301 | tallec | 253 | +0.0 | [+0.0 ; +0.0] | 13 | hors bras halal |
+| 199 | 22-346 | sudreau | 24 * | +0.0 | [-1.0 ; +1.0] | 6 | hors bras halal |
+| 200 | 46-373 | tendre-et-plus | 39 | +0.0 | [+0.0 ; +2.0] | 11 | hors bras halal |
+| 201 | 22-301 | saveur-d-auge | 51 | +0.0 | [-1.0 ; +0.0] | 12 | hors bras halal |
+| 202 | 22-346 | daunat | 27 * | +0.0 | [-1.0 ; +1.0] | 5 | hors bras halal |
+| 203 | 15-349 | st-clement | 18 * | +0.0 | [-2.5 ; +1.5] | 10 | hors bras halal |
+| 204 | 46-346 | cora | 448 | +0.0 | [+0.0 ; +1.0] | 43 | hors bras halal |
+| 205 | 15-346 | corril | 61 | +0.0 | [-2.0 ; +1.0] | 11 | hors bras halal |
+| 206 | 22-373 | delhaize | 105 | +0.0 | [-1.0 ; +2.0] | 25 | hors bras halal |
+| 207 | 22-373 | la-cuisine-des-saveurs | 22 * | +0.5 | [-1.5 ; +2.0] | 8 | hors bras halal |
+| 208 | 46-391 | feyel | 28 * | +0.5 | [+0.0 ; +6.0] | 8 | hors bras halal |
+| 209 | 46-373 | leclerc | 86 | +0.5 | [+0.0 ; +2.0] | 24 | hors bras halal |
+| 210 | 46-373 | baton-rouge | 16 * | +0.5 | [+0.0 ; +2.0] | 9 | hors bras halal |
+| 211 | 22-382 | zentz | 22 * | +0.5 | [-1.0 ; +3.0] | 5 | hors bras halal |
+| 212 | 22-398 | fratelli-beretta | 30 | +0.5 | [-1.5 ; +13.5] | 7 | hors bras halal |
+| 213 | 46-373 | le-bois-jumel | 21 * | +1.0 | [+0.0 ; +2.0] | 7 | hors bras halal |
+| 214 | 15-382 | lartigue | 17 * | +1.0 | [-2.0 ; +3.0] | 10 | hors bras halal |
+| 215 | 15-382 | itineraire-de-nos-regions | 29 * | +1.0 | [-2.0 ; +3.0] | 11 | hors bras halal |
+| 216 | 107-373 | isali | 41 | +1.0 | [+1.0 ; +2.0] | 5 | gamme halal marginale (< 5 produits) |
+| 217 | 107-373 | petit-prix | 24 * | +1.0 | [+1.0 ; +2.0] | 8 | hors bras halal |
+| 218 | 22-346 | la-grange | 17 * | +1.0 | [-1.0 ; +1.0] | 7 | hors bras halal |
+| 219 | 46-373 | jean-caby | 44 | +1.0 | [+0.0 ; +2.0] | 7 | hors bras halal |
+| 220 | 46-346 | jean-floc-h | 78 | +1.0 | [+0.0 ; +1.0] | 14 | hors bras halal |
+| 221 | 46-346 | andre-loussouarn | 32 | +1.0 | [+0.0 ; +1.0] | 9 | hors bras halal |
+| 222 | 46-382 | orocbat | 35 | +1.0 | [+0.0 ; +3.0] | 10 | hors bras halal |
+| 223 | 15-385 | hiruak | 122 | +1.0 | [-2.0 ; +4.5] | 9 | hors bras halal |
+| 224 | 46-346 | grand-jury | 88 | +1.0 | [+0.0 ; +1.0] | 25 | hors bras halal |
+| 225 | 46-373 | le-cesarin | 28 * | +1.0 | [+0.0 ; +2.0] | 3 | hors bras halal |
+| 226 | 46-385 | les-braserades | 53 | +1.0 | [+0.0 ; +4.0] | 9 | hors bras halal |
+| 227 | 10-398 | noel | 31 | +1.0 | [-4.0 ; +14.0] | 7 | hors bras halal |
+| 228 | 46-373 | bahier | 125 | +1.0 | [+0.0 ; +2.0] | 13 | hors bras halal |
+| 229 | 15-373 | bofrost | 24 * | +1.0 | [-2.0 ; +2.0] | 10 | hors bras halal |
+| 230 | 22-395 | tulip | 26 * | +1.0 | [-1.0 ; +10.0] | 9 | gamme halal marginale (< 5 produits) |
+| 231 | 46-398 | treo | 23 * | +1.0 | [+0.0 ; +15.0] | 8 | hors bras halal |
+| 232 | 22-390 | tesco | 32 | +1.0 | [-1.5 ; +5.0] | 16 | hors bras halal |
+| 233 | 46-390 | top-budget | 44 | +1.0 | [+0.0 ; +5.0] | 18 | hors bras halal |
+| 234 | 46-385 | chef-select | 39 | +1.0 | [+0.0 ; +4.0] | 10 | hors bras halal |
+| 235 | 46-373 | coop | 54 | +1.0 | [-0.5 ; +2.0] | 18 | hors bras halal |
+| 236 | 107-373 | cochonou | 71 | +1.0 | [+1.0 ; +2.0] | 6 | hors bras halal |
+| 237 | 107-373 | toque-du-chef | 126 | +1.0 | [+1.0 ; +2.0] | 20 | hors bras halal |
+| 238 | 107-373 | roches-blanches | 39 | +1.0 | [+1.0 ; +2.0] | 4 | hors bras halal |
+| 239 | 46-346 | casa-ramon | 43 | +1.0 | [+0.0 ; +1.0] | 8 | gamme halal marginale (< 5 produits) |
+| 240 | 46-390 | charcupac | 35 | +1.0 | [+0.0 ; +5.0] | 7 | hors bras halal |
+| 241 | 107-382 | charculor | 39 | +1.0 | [+1.0 ; +3.0] | 13 | hors bras halal |
+| 242 | 107-373 | henri-raffin | 79 | +1.0 | [+1.0 ; +2.0] | 13 | hors bras halal |
+| 243 | 107-373 | stoeffler | 77 | +1.0 | [+1.0 ; +2.0] | 11 | hors bras halal |
+| 244 | 15-390 | delifin | 18 * | +1.0 | [-2.0 ; +5.0] | 9 | hors bras halal |
+| 245 | 46-382 | maison-papillon | 17 * | +1.0 | [+0.0 ; +3.0] | 5 | hors bras halal |
+| 246 | 107-385 | monoprix-gourmet | 42 | +1.0 | [+1.0 ; +4.0] | 13 | hors bras halal |
+| 247 | 107-373 | arnaud | 37 | +1.0 | [+1.0 ; +2.0] | 7 | hors bras halal |
+| 248 | 46-382 | mix | 21 * | +1.0 | [+0.0 ; +3.0] | 4 | hors bras halal |
+| 249 | 46-390 | maison-montfort | 84 | +1.0 | [+0.0 ; +5.0] | 5 | hors bras halal |
+| 250 | 46-373 | lechef | 70 | +1.0 | [+0.0 ; +2.0] | 16 | hors bras halal |
+| 251 | 46-346 | leader-price | 670 | +1.0 | [+0.0 ; +1.0] | 44 | gamme halal marginale (< 5 produits) |
+| 252 | 46-373 | prix-mini | 61 | +1.0 | [+0.0 ; +2.0] | 23 | hors bras halal |
+| 253 | 15-382 | qualite-traiteur | 18 * | +1.0 | [-2.0 ; +3.0] | 5 | hors bras halal |
+| 254 | 46-385 | hod-lavan | 23 * | +1.0 | [+0.0 ; +4.0] | 9 | hors bras halal |
+| 255 | 46-346 | ducs-de-gascogne | 78 | +1.0 | [+0.0 ; +1.0] | 14 | hors bras halal |
+| 256 | 107-349 | louis-auvergne | 24 * | +1.0 | [+1.0 ; +1.5] | 3 | hors bras halal |
+| 257 | 101-373 | maison-prunier | 68 | +1.0 | [+0.5 ; +2.0] | 14 | hors bras halal |
+| 258 | 46-373 | agis | 71 | +1.0 | [+0.0 ; +2.0] | 12 | hors bras halal |
+| 259 | 101-382 | aia | 88 | +1.0 | [+0.5 ; +3.0] | 15 | gamme halal minoritaire |
+| 260 | 46-382 | yarden | 36 | +1.0 | [+0.0 ; +3.0] | 15 | hors bras halal |
+| 261 | 46-373 | despi | 141 | +1.0 | [+0.0 ; +2.0] | 15 | hors bras halal |
+| 262 | 101-373 | sans-marque | 134 | +1.0 | [+0.5 ; +2.0] | 34 | gamme halal minoritaire |
+| 263 | 46-373 | ajinomoto | 17 * | +1.0 | [+0.0 ; +2.0] | 6 | hors bras halal |
+| 264 | 15-373 | saveur-passion | 33 | +1.0 | [-2.0 ; +2.0] | 10 | hors bras halal |
+| 265 | 107-346 | saveurs-de-nos-regions | 148 | +1.0 | [+1.0 ; +1.0] | 12 | hors bras halal |
+| 266 | 46-382 | maison-occitane | 24 * | +1.5 | [+0.0 ; +3.0] | 9 | hors bras halal |
+| 267 | 46-385 | mainjolle | 38 | +1.5 | [+0.0 ; +4.0] | 5 | hors bras halal |
+| 268 | 46-385 | itineraire-des-saveurs | 74 | +1.5 | [+0.0 ; +4.0] | 17 | hors bras halal |
+| 269 | 46-391 | winny | 27 * | +2.0 | [+0.0 ; +7.0] | 14 | hors bras halal |
+| 270 | 22-382 | bredial | 21 * | +2.0 | [-1.0 ; +3.0] | 4 | hors bras halal |
+| 271 | 22-391 | tous-les-jours | 29 * | +2.0 | [-1.0 ; +7.0] | 17 | hors bras halal |
+| 272 | 107-390 | bell | 61 | +2.0 | [+1.0 ; +5.0] | 12 | hors bras halal |
+| 273 | 101-382 | biraben | 58 | +2.0 | [+0.5 ; +3.0] | 18 | hors bras halal |
+| 274 | 46-385 | tlj | 25 * | +2.0 | [+0.0 ; +4.0] | 10 | hors bras halal |
+| 275 | 46-385 | michel-ogier | 15 * | +2.0 | [+0.0 ; +4.0] | 3 | hors bras halal |
+| 276 | 46-382 | maison-tino | 18 * | +2.0 | [+0.0 ; +3.0] | 6 | hors bras halal |
+| 277 | 107-390 | mossieur-polette | 18 * | +2.0 | [+1.0 ; +5.0] | 7 | hors bras halal |
+| 278 | 22-382 | metro-chef | 37 | +2.0 | [-1.0 ; +3.0] | 17 | hors bras halal |
+| 279 | 170-382 | metzger-muller | 31 | +2.0 | [+2.0 ; +3.0] | 11 | hors bras halal |
+| 280 | 170-395 | montagne-noire | 81 | +2.0 | [+2.0 ; +10.0] | 6 | hors bras halal |
+| 281 | 170-382 | auvernou | 17 * | +2.0 | [+2.0 ; +3.0] | 2 | hors bras halal |
+| 282 | 170-373 | baton-de-berger | 17 * | +2.0 | [+2.0 ; +2.0] | 2 | hors bras halal |
+| 283 | 107-382 | au-fume-vosgien | 54 | +2.0 | [+1.0 ; +3.0] | 7 | hors bras halal |
+| 284 | 107-373 | berni | 66 | +2.0 | [+1.0 ; +2.5] | 13 | gamme halal marginale (< 5 produits) |
+| 285 | 46-382 | lou-gascoun | 26 * | +2.0 | [+0.0 ; +3.0] | 9 | hors bras halal |
+| 286 | 22-373 | les-garibotes | 18 * | +2.0 | [-1.0 ; +2.0] | 8 | hors bras halal |
+| 287 | 22-373 | le-revelois | 31 | +2.0 | [-1.0 ; +2.0] | 12 | hors bras halal |
+| 288 | 170-373 | le-batistou | 40 | +2.0 | [+2.0 ; +2.0] | 4 | hors bras halal |
+| 289 | 46-395 | oberti | 64 | +2.0 | [+0.0 ; +10.0] | 9 | hors bras halal |
+| 290 | 46-385 | patrimoine-gourmand | 39 | +2.0 | [+0.0 ; +4.0] | 14 | hors bras halal |
+| 291 | 46-397 | la-jasse | 38 | +2.0 | [+0.0 ; +12.0] | 5 | hors bras halal |
+| 292 | 170-373 | jean-brunet | 94 | +2.0 | [+2.0 ; +2.5] | 13 | hors bras halal |
+| 293 | 46-391 | maison-larzul | 36 | +2.0 | [-0.5 ; +6.0] | 11 | hors bras halal |
+| 294 | 170-397 | maison-milhau | 83 | +2.0 | [+2.0 ; +12.0] | 7 | hors bras halal |
+| 295 | 46-382 | maistres-occitans | 41 | +2.0 | [+0.0 ; +3.0] | 8 | hors bras halal |
+| 296 | 107-382 | maison-torres | 62 | +2.0 | [+1.0 ; +3.0] | 11 | hors bras halal |
+| 297 | 107-382 | pierre-schmidt | 43 | +2.0 | [+1.0 ; +3.0] | 12 | hors bras halal |
+| 298 | 170-373 | salaisons-du-maconnais | 21 * | +2.0 | [+2.0 ; +2.0] | 3 | hors bras halal |
+| 299 | 170-373 | keesbo | 17 * | +2.0 | [+2.0 ; +2.0] | 5 | hors bras halal |
+| 300 | 170-373 | justin-bridou | 59 | +2.0 | [+2.0 ; +2.0] | 7 | hors bras halal |
+| 301 | 107-382 | eco | 92 | +2.0 | [+1.0 ; +3.0] | 25 | hors bras halal |
+| 302 | 22-397 | espuna | 68 | +2.0 | [-1.0 ; +12.0] | 11 | hors bras halal |
+| 303 | 107-391 | terre-de-l-alpe | 19 * | +2.0 | [+1.0 ; +6.0] | 8 | hors bras halal |
+| 304 | 107-382 | porcidou | 16 * | +2.0 | [+1.0 ; +3.0] | 4 | hors bras halal |
+| 305 | 46-385 | gourmets-de-l-artois | 40 | +2.0 | [+0.0 ; +4.5] | 8 | hors bras halal |
+| 306 | 107-373 | galibier | 55 | +2.0 | [+1.0 ; +2.0] | 5 | hors bras halal |
+| 307 | 22-385 | guyader | 65 | +2.0 | [-1.0 ; +4.0] | 11 | hors bras halal |
+| 308 | 107-391 | gueze | 37 | +2.0 | [+1.0 ; +7.0] | 10 | hors bras halal |
+| 309 | 46-382 | saveurs-des-mauges | 71 | +2.0 | [+0.0 ; +3.0] | 14 | hors bras halal |
+| 310 | 46-382 | clos-saint-sozy | 43 | +2.0 | [+0.0 ; +3.0] | 9 | hors bras halal |
+| 311 | 107-382 | charcuterie-cosme | 50 | +2.0 | [+1.0 ; +3.0] | 12 | hors bras halal |
+| 312 | 46-385 | dia | 81 | +2.0 | [+0.0 ; +4.0] | 24 | hors bras halal |
+| 313 | 107-382 | stephan | 87 | +2.0 | [+1.0 ; +3.0] | 15 | hors bras halal |
+| 314 | 22-394 | simpl | 19 * | +2.0 | [-1.0 ; +8.0] | 12 | hors bras halal |
+| 315 | 46-390 | saveur-des-mauges | 23 * | +2.0 | [+0.0 ; +5.0] | 9 | hors bras halal |
+| 316 | 107-385 | sodebo | 81 | +2.0 | [+1.0 ; +4.0] | 8 | hors bras halal |
+| 317 | 46-382 | fleurons-de-lomagne | 49 | +2.0 | [+0.0 ; +3.0] | 10 | hors bras halal |
+| 318 | 163-382 | iller | 40 | +2.0 | [+1.5 ; +3.0] | 7 | hors bras halal |
+| 319 | 101-390 | grand-frais | 28 * | +2.0 | [+0.5 ; +5.0] | 13 | hors bras halal |
+| 320 | 22-382 | festein-d-alsace | 23 * | +2.0 | [-1.0 ; +3.0] | 7 | hors bras halal |
+| 321 | 46-395 | volailles-champenoises | 64 | +2.5 | [+0.0 ; +10.0] | 8 | hors bras halal |
+| 322 | 46-385 | fe-p-c | 18 * | +2.5 | [+0.0 ; +4.5] | 8 | hors bras halal |
+| 323 | 46-390 | pouce | 32 | +2.5 | [+0.0 ; +5.5] | 13 | hors bras halal |
+| 324 | 107-382 | secrets-du-val-d-argent | 26 * | +2.5 | [+1.0 ; +3.0] | 6 | hors bras halal |
+| 325 | 46-385 | lustucru | 16 * | +2.5 | [+0.0 ; +4.0] | 5 | hors bras halal |
+| 326 | 46-382 | u-saveurs | 70 | +2.5 | [+0.0 ; +3.0] | 6 | hors bras halal |
+| 327 | 170-390 | jean-louis-amiotte | 15 * | +3.0 | [+2.0 ; +5.0] | 4 | hors bras halal |
+| 328 | 107-391 | l-assiette-d-antoine | 53 | +3.0 | [+1.0 ; +6.0] | 14 | hors bras halal |
+| 329 | 107-390 | thierry-schweitzer | 30 | +3.0 | [+1.0 ; +5.0] | 7 | hors bras halal |
+| 330 | 107-385 | nos-regions-ont-du-talent | 51 | +3.0 | [+1.0 ; +4.0] | 14 | hors bras halal |
+| 331 | 170-394 | lafitte | 20 * | +3.0 | [+2.0 ; +8.0] | 9 | hors bras halal |
+| 332 | 107-395 | bien-vu | 23 * | +3.0 | [+1.0 ; +10.0] | 15 | hors bras halal |
+| 333 | 107-391 | charles-antona | 18 * | +3.0 | [+1.0 ; +6.0] | 9 | hors bras halal |
+| 334 | 231-385 | stemmelen | 35 | +3.0 | [+3.0 ; +4.0] | 6 | hors bras halal |
+| 335 | 107-385 | domaine-de-gammareix | 16 * | +3.0 | [+1.0 ; +4.0] | 6 | hors bras halal |
+| 336 | 163-397 | hoa-nam | 18 * | +3.0 | [+1.5 ; +12.0] | 8 | hors bras halal |
+| 337 | 46-395 | id-halal | 35 | +3.0 | [+0.0 ; +10.0] | 14 | specialiste halal |
+| 338 | 107-391 | doux | 17 * | +3.0 | [+1.0 ; +7.0] | 6 | gamme halal minoritaire |
+| 339 | 107-382 | royal-bourbon | 17 * | +3.0 | [+1.0 ; +3.0] | 2 | hors bras halal |
+| 340 | 170-390 | reflets-de-france | 24 * | +3.0 | [+2.0 ; +5.5] | 8 | hors bras halal |
+| 341 | 107-394 | isla-mondial | 76 | +3.0 | [+1.0 ; +8.5] | 22 | specialiste halal |
+| 342 | 46-390 | of-tov | 39 | +3.0 | [+0.0 ; +5.0] | 10 | hors bras halal |
+| 343 | 107-398 | le-flutiau | 17 * | +3.0 | [+1.0 ; +13.0] | 5 | hors bras halal |
+| 344 | 10-395 | piquebroche | 17 * | +3.0 | [-4.0 ; +11.0] | 6 | hors bras halal |
+| 345 | 107-385 | roger-vidal | 17 * | +3.0 | [+1.0 ; +4.0] | 8 | hors bras halal |
+| 346 | 15-395 | transgourmet | 18 * | +3.5 | [-2.0 ; +10.5] | 11 | hors bras halal |
+| 347 | 163-385 | prunier | 18 * | +3.5 | [+1.5 ; +4.5] | 8 | hors bras halal |
+| 348 | 170-398 | carrefour-original | 15 * | +4.0 | [+2.0 ; +13.0] | 3 | hors bras halal |
+| 349 | 231-385 | escal | 47 | +4.0 | [+3.0 ; +4.0] | 2 | hors bras halal |
+| 350 | 46-394 | le-fleuron-de-la-reunion | 18 * | +4.0 | [+0.0 ; +8.0] | 6 | hors bras halal |
+| 351 | 276-391 | maison-monterrat | 18 * | +4.0 | [+4.0 ; +6.0] | 3 | hors bras halal |
+| 352 | 46-385 | philippe-wagner | 23 * | +4.0 | [+0.0 ; +4.0] | 6 | hors bras halal |
+| 353 | 170-394 | oriental-viandes | 85 | +4.0 | [+2.0 ; +8.5] | 31 | specialiste halal |
+| 354 | 231-390 | vitasia | 15 * | +4.0 | [+3.0 ; +5.0] | 3 | hors bras halal |
+| 355 | 170-385 | michel-bolard | 21 * | +4.0 | [+2.0 ; +4.0] | 4 | hors bras halal |
+| 356 | 170-390 | loeul-et-piriot | 77 | +4.0 | [+2.0 ; +5.0] | 3 | hors bras halal |
+| 357 | 231-390 | francaise-de-gastronomie | 46 | +4.0 | [+3.0 ; +5.0] | 3 | hors bras halal |
+| 358 | 170-395 | isla-delice | 183 | +4.0 | [+2.0 ; +10.0] | 32 | specialiste halal |
+| 359 | 15-391 | saveurs-bressanes | 17 * | +4.0 | [-2.0 ; +7.0] | 9 | hors bras halal |
+| 360 | 46-395 | wassila | 21 * | +5.0 | [+0.0 ; +11.0] | 12 | specialiste halal |
+| 361 | 107-395 | boni | 39 | +5.0 | [+1.0 ; +10.0] | 11 | hors bras halal |
+| 362 | 301-390 | petitgas | 65 | +5.0 | [+5.0 ; +5.0] | 9 | hors bras halal |
+| 363 | 231-390 | pierre-laguilhon | 46 | +5.0 | [+3.0 ; +5.0] | 12 | hors bras halal |
+| 364 | 46-398 | negroni | 79 | +5.0 | [+0.0 ; +14.0] | 8 | hors bras halal |
+| 365 | 231-398 | ronsard | 42 | +5.0 | [+3.0 ; +14.0] | 9 | hors bras halal |
+| 366 | 170-391 | tempe | 43 | +5.0 | [+2.0 ; +6.0] | 10 | hors bras halal |
+| 367 | 276-390 | claviere | 28 * | +5.0 | [+4.0 ; +5.0] | 5 | hors bras halal |
+| 368 | 46-394 | cipressi-in-chianti | 15 * | +5.0 | [+0.0 ; +9.0] | 9 | hors bras halal |
+| 369 | 231-395 | reghalal | 112 | +5.5 | [+3.0 ; +10.0] | 24 | specialiste halal |
+| 370 | 170-394 | suntat | 21 * | +6.0 | [+2.0 ; +8.0] | 10 | specialiste halal |
+| 371 | 231-391 | jack-link-s | 39 | +6.0 | [+3.0 ; +6.0] | 4 | gamme halal minoritaire |
+| 372 | 301-391 | tendriade | 73 | +6.0 | [+5.0 ; +7.0] | 9 | hors bras halal |
+| 373 | 276-391 | roland-monterrat | 17 * | +6.0 | [+4.0 ; +7.0] | 4 | hors bras halal |
+| 374 | 46-395 | halal | 20 * | +6.0 | [+0.0 ; +10.0] | 10 | specialiste halal |
+| 375 | 22-395 | realvalle | 29 * | +7.0 | [-1.0 ; +11.0] | 6 | hors bras halal |
+| 376 | 170-394 | merle | 35 | +8.0 | [+2.0 ; +9.0] | 5 | hors bras halal |
+| 377 | 301-395 | delpeyrat | 194 | +8.0 | [+5.0 ; +10.0] | 15 | hors bras halal |
+| 378 | 46-395 | hunkar | 16 * | +8.0 | [+0.0 ; +11.0] | 7 | specialiste halal |
+| 379 | 337-395 | marion | 21 * | +8.0 | [+8.0 ; +10.0] | 4 | hors bras halal |
+| 380 | 15-398 | al-jadid | 21 * | +8.0 | [-2.0 ; +13.0] | 12 | specialiste halal |
+| 381 | 107-397 | frais-devant | 31 | +9.0 | [+1.0 ; +12.0] | 7 | hors bras halal |
+| 382 | 301-397 | labeyrie | 99 | +9.0 | [+5.0 ; +12.0] | 17 | hors bras halal |
+| 383 | 15-398 | peguet-savoie | 24 * | +9.5 | [-2.0 ; +14.0] | 4 | hors bras halal |
+| 384 | 46-398 | villani | 55 | +10.0 | [+0.0 ; +15.0] | 7 | hors bras halal |
+| 385 | 322-397 | aoste | 227 | +10.0 | [+6.0 ; +12.0] | 14 | hors bras halal |
+| 386 | 337-395 | boadas | 29 * | +10.0 | [+8.0 ; +11.0] | 6 | hors bras halal |
+| 387 | 337-397 | arabi | 44 | +11.0 | [+8.0 ; +12.0] | 13 | specialiste halal |
+| 388 | 170-398 | argal | 36 | +12.0 | [+2.0 ; +13.0] | 6 | hors bras halal |
+| 389 | 301-398 | serrano | 26 * | +12.0 | [+5.0 ; +13.0] | 6 | hors bras halal |
+| 390 | 170-398 | simon | 21 * | +12.0 | [+2.0 ; +15.0] | 8 | hors bras halal |
+| 391 | 367-397 | michel-dupuy | 29 * | +12.0 | [+12.0 ; +12.0] | 5 | hors bras halal |
+| 392 | 231-398 | corte-del-gusto | 31 | +12.0 | [+3.0 ; +15.0] | 6 | hors bras halal |
+| 393 | 46-398 | montorsi | 31 | +12.0 | [+0.0 ; +16.0] | 7 | hors bras halal |
+| 394 | 170-398 | navidul | 19 * | +12.0 | [+2.0 ; +13.0] | 4 | hors bras halal |
+| 395 | 367-398 | le-saloir-du-perigord | 15 * | +13.0 | [+12.0 ; +13.0] | 2 | hors bras halal |
+| 396 | 46-398 | rosa-dell-angelo | 20 * | +13.5 | [+0.0 ; +16.0] | 6 | hors bras halal |
+| 397 | 377-398 | italiamo | 54 | +14.0 | [+13.0 ; +14.0] | 13 | hors bras halal |
+| 398 | 346-398 | volibon | 15 * | +15.0 | [+10.0 ; +16.0] | 4 | specialiste halal |
 
 `*` effectif sous 30 : ligne descriptive, non testable.
