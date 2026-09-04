@@ -85,7 +85,7 @@ parce que toutes ses references partagent le meme emballage."""
 
 # --------------------------------------------------------------- fournisseurs
 
-def fournisseurs(conf, filtre=None):
+def fournisseurs(conf, filtre=None, modele=None):
     """Fournisseurs configures, resolus contre l'environnement.
 
     Un fournisseur dont la cle manque est ecarte AVEC SON MOTIF, pas en
@@ -97,6 +97,8 @@ def fournisseurs(conf, filtre=None):
         f = dict(brut_f)
         if filtre and f["nom"] != filtre:
             continue
+        if modele:
+            f["modele"] = modele
         brut = os.environ.get(f["env_cle"], "")
         # Un secret colle dans l'interface GitHub garde l'espace ou le saut de
         # ligne final. httpx refuse alors l'en-tete Authorization, et l'echec
@@ -227,6 +229,11 @@ def diagnostiquer(erreur: str) -> str:
     if "credit" in e or "balance" in e or "quota" in e or "402" in e:
         return ("Compte sans credit. La cle est valide, le fournisseur refuse "
                 "de servir. Approvisionner, ou passer au fournisseur suivant.")
+    if "model agreement" in e or "community license" in e or "must submit" in e:
+        return ("Le modele exige l'acceptation prealable de sa licence, une "
+                "fois par compte.\n     C'est un engagement juridique : il "
+                "revient au titulaire du compte de le prendre,\n     pas au "
+                "script. Voir --accepter-licence, ou changer de modele.")
     if "auth" in e or "401" in e or "403" in e:
         return "Cle refusee. Verifier sa valeur et ses droits."
     if "image" in e or "modality" in e or "content" in e or "vision" in e:
@@ -246,7 +253,7 @@ def preflight(conf, df, args, verbeux=True):
     signalerait.
     """
     ligne = next(df[df.bras == "halal"].itertuples())
-    for f in fournisseurs(conf, args.fournisseur):
+    for f in fournisseurs(conf, args.fournisseur, args.modele):
         if verbeux:
             titre(f"PREFLIGHT — {f['nom']} / {f['modele']}")
             print(f"  base_url : {f['base_url']}")
@@ -307,12 +314,44 @@ def cibles(con, limite, par_marque):
     return df.head(limite) if limite else df
 
 
+def accepter_licence(conf, args) -> int:
+    """Envoie le prompt 'agree' exige par certains modeles avant tout usage.
+
+    C'est l'acceptation d'un contrat de licence, pas une formalite technique.
+    Le script ne la fait JAMAIS de lui-meme : elle n'a lieu que sur ce drapeau
+    explicite, et le texte affiche les licences concernees avant d'envoyer.
+    """
+    for f in fournisseurs(conf, args.fournisseur, args.modele):
+        if f["indisponible"]:
+            print(f"  {f['nom']} ECARTE : {f['indisponible']}")
+            continue
+        titre(f"ACCEPTATION DE LICENCE — {f['nom']} / {f['modele']}")
+        print("  Envoi du prompt 'agree' au modele. Cela engage le titulaire du")
+        print("  compte a respecter la licence communautaire du modele et sa")
+        print("  politique d'usage acceptable, dont les URL figurent dans le")
+        print("  message d'erreur du fournisseur.")
+        try:
+            r = client_pour(f).chat.completions.create(
+                model=f["modele"], max_tokens=16,
+                messages=[{"role": "user", "content": "agree"}])
+            print(f"  Reponse : {r.choices[0].message.content!r}")
+            print("  Licence acceptee pour ce compte. Relancer le preflight.")
+        except Exception as e:  # noqa: BLE001
+            print(f"  ECHEC : {type(e).__name__}: {e}"[:400])
+            return 1
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--preflight", action="store_true")
     ap.add_argument("--executer", action="store_true")
     ap.add_argument("--fournisseur", default=None,
                     help="force un fournisseur au lieu de l'ordre configure")
+    ap.add_argument("--modele", default=None,
+                    help="remplace le modele du fournisseur retenu")
+    ap.add_argument("--accepter-licence", action="store_true",
+                    help="envoie 'agree' au modele pour accepter sa licence")
     ap.add_argument("--max", type=int, default=None, dest="limite")
     ap.add_argument("--par-marque", type=int, default=3)
     ap.add_argument("--taille", choices=list(TAILLES), default="full")
@@ -328,9 +367,12 @@ def main() -> int:
           f"{(df.bras == 'halal').sum()} halal / "
           f"{(df.bras == 'temoin').sum()} temoin)")
     print("  fournisseurs, dans l'ordre :")
-    for f in fournisseurs(conf, args.fournisseur):
+    for f in fournisseurs(conf, args.fournisseur, args.modele):
         etat = f["indisponible"] or "cle presente"
         print(f"    {f['nom']:<24} {f['modele']:<42} {etat}")
+
+    if args.accepter_licence:
+        return accepter_licence(conf, args)
 
     if not (args.preflight or args.executer):
         print("\n  MODE ESTIMATION — aucun appel emis, aucun euro depense.")

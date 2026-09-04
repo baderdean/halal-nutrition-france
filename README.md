@@ -83,6 +83,11 @@ taux d'erreur different d'un modele a l'autre.
 Settings -> Secrets and variables -> Actions, onglet *Secrets* pour les deux
 cles, onglet *Variables* pour l'identifiant de compte Cloudflare.
 
+Certains modeles Workers AI exigent l'acceptation de leur licence avant tout
+usage, une fois par compte. Le workflow a une entree dediee
+(`accepter_licence_modele`), decochee par defaut : c'est au titulaire du compte
+de prendre cet engagement, pas au script.
+
 Enchainement impose :
 
 1. `etape: preflight` — un seul appel. Verifie que la passerelle relaie bien

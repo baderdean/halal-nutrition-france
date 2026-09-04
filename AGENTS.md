@@ -78,6 +78,10 @@ rapport. Ecart hors tolerance = arret, pas d'avertissement.
   d'une ligne a l'autre sans que rien ne le signale. `couche2_validation.py`
   s'arrete si le jeu en contient plusieurs, et le taux d'erreur d'un
   fournisseur ne se transporte pas a un autre.
+- Le script n'accepte jamais de lui-meme la licence d'un modele. Certains
+  modeles Workers AI l'exigent avant tout usage : c'est un engagement
+  juridique du titulaire du compte, pas une formalite technique. L'etape
+  existe (`--accepter-licence`) mais ne tourne que sur demande explicite.
 - Aucun lot de lecture ne part sans un preflight reussi. Une passerelle qui
   ignore silencieusement le bloc image repond quand meme, a partir du seul
   texte de la consigne : la sortie serait entierement inventee et rien dans le

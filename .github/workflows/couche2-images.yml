@@ -24,6 +24,15 @@ on:
         default: ""
         type: choice
         options: ["", "opencode-zen", "cloudflare-workers-ai"]
+      modele:
+        description: "Modele (vide = celui de config/lecture_image.yaml)"
+        required: false
+        default: ""
+      accepter_licence_modele:
+        description: "Accepter la licence du modele (Llama Community License + AUP). Engage le titulaire du compte."
+        required: false
+        default: false
+        type: boolean
       taille_image:
         description: "Resolution demandee a Open Food Facts"
         required: true
@@ -75,6 +84,20 @@ jobs:
           CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
         run: python3 src/couche2_diagnostic.py
 
+      # Certains modeles Workers AI exigent une acceptation de licence, une
+      # fois par compte. C'est un engagement juridique : cette etape ne tourne
+      # que si la personne l'a explicitement demandee au lancement.
+      - name: Acceptation de la licence du modele
+        if: inputs.accepter_licence_modele
+        env:
+          STUDY_API_KEY: ${{ secrets.STUDY_API_KEY }}
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+        run: |
+          python3 src/couche2_lecture_image.py --accepter-licence \
+            ${{ inputs.fournisseur && format('--fournisseur {0}', inputs.fournisseur) || '' }} \
+            ${{ inputs.modele && format('--modele {0}', inputs.modele) || '' }}
+
       - name: Preflight
         env:
           STUDY_API_KEY: ${{ secrets.STUDY_API_KEY }}
@@ -87,7 +110,8 @@ jobs:
           fi
           python3 src/couche2_lecture_image.py --preflight \
             --taille "${{ inputs.taille_image }}" \
-            ${{ inputs.fournisseur && format('--fournisseur {0}', inputs.fournisseur) || '' }}
+            ${{ inputs.fournisseur && format('--fournisseur {0}', inputs.fournisseur) || '' }} \
+            ${{ inputs.modele && format('--modele {0}', inputs.modele) || '' }}
 
       - name: Lecture du lot
         if: inputs.etape == 'lot'
@@ -99,7 +123,8 @@ jobs:
           python3 src/couche2_lecture_image.py --executer \
             --max "${{ inputs.max_produits }}" \
             --taille "${{ inputs.taille_image }}" \
-            ${{ inputs.fournisseur && format('--fournisseur {0}', inputs.fournisseur) || '' }}
+            ${{ inputs.fournisseur && format('--fournisseur {0}', inputs.fournisseur) || '' }} \
+            ${{ inputs.modele && format('--modele {0}', inputs.modele) || '' }}
 
       # Le taux d'erreur ne peut etre calcule que si un humain a rempli
       # donnees_humaines/double_codage.csv. Sans lui, la lecture reste
