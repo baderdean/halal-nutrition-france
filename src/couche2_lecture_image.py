@@ -437,6 +437,26 @@ def preflight(conf, df, args, verbeux=True):
 GRAINE = 20260904
 
 
+def ecrire_gabarit(df, taille="full"):
+    """Fichier d'ENTREE a remplir a la main, en aveugle.
+
+    Ne contient AUCUNE lecture machine : les specs exigent que le double
+    codage soit une entree du depot, pas une sortie generee, et un codeur qui
+    verrait la reponse de la machine ne coderait plus en aveugle.
+    """
+    gabarit = df[["code", "brands", "bras", "image_url"]].copy()
+    if taille != "400":
+        gabarit["image_url"] = gabarit.image_url.str.replace(
+            ".400.jpg", TAILLES[taille], regex=False)
+    for col in ("h_estampille_halal", "h_certificateur", "h_lisibilite",
+                "h_commentaire"):
+        gabarit[col] = ""
+    SORTIES.mkdir(exist_ok=True)
+    chemin = SORTIES / "double_codage_a_remplir.csv"
+    gabarit.to_csv(chemin, index=False)
+    return chemin
+
+
 def cibles(con, limite, par_marque):
     """Echantillon a lire, tire PAR MARQUE et par bras, pas par produit.
 
@@ -546,6 +566,8 @@ def main() -> int:
     ap.add_argument("--preflight", action="store_true")
     ap.add_argument("--sonder-formes", action="store_true",
                     help="essaie chaque forme de message, une seule fois")
+    ap.add_argument("--gabarit-seul", action="store_true",
+                    help="ecrit le gabarit de double codage humain, 0 appel")
     ap.add_argument("--executer", action="store_true")
     ap.add_argument("--fournisseur", default=None,
                     help="force un fournisseur au lieu de l'ordre configure")
@@ -574,6 +596,15 @@ def main() -> int:
 
     if args.accepter_licence:
         return accepter_licence(conf, args)
+
+    if args.gabarit_seul:
+        # Le codeur humain lit les emballages, pas les sorties machine : le
+        # gabarit n'a besoin d'aucun appel API. Le tirage etant a graine figee,
+        # il porte exactement les memes produits que la lecture machine a venir.
+        chemin = ecrire_gabarit(df, args.taille)
+        print(f"\n  {len(df)} lignes ecrites, aucun appel emis.")
+        print(f"  -> {chemin}")
+        return 0
 
     if args.sonder_formes:
         return sonder_formes(conf, df, args)
@@ -636,12 +667,7 @@ def main() -> int:
     # Fichier d'ENTREE a remplir par un humain, en aveugle. Les specs exigent
     # que le double codage soit un fichier d'entree du depot, pas une sortie
     # generee : ce CSV ne contient donc aucune lecture machine.
-    gabarit = df[["code", "brands", "bras", "image_url"]].copy()
-    for col in ("h_estampille_halal", "h_certificateur", "h_lisibilite",
-                "h_commentaire"):
-        gabarit[col] = ""
-    cible = SORTIES / "double_codage_a_remplir.csv"
-    gabarit.to_csv(cible, index=False)
+    cible = ecrire_gabarit(df, args.taille)
     print(f"\n  -> {cible}")
     print("     A remplir a la main, en aveugle, SANS consulter")
     print("     couche2_lecture_image.csv, puis a deposer dans")

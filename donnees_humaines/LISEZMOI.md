@@ -18,6 +18,14 @@ Colonnes attendues :
 | `h_lisibilite` | `nette` / `floue` / `trop_petite` / `zone_absente` |
 | `h_commentaire` | libre |
 
-Gabarit vide genere par `src/couche2_lecture_image.py` dans
-`sorties/double_codage_a_remplir.csv`. Minimum 200 produits : en dessous, le
+Gabarit vide genere sans aucun appel API, donc sans rien depenser :
+
+```bash
+python3 src/couche2_lecture_image.py --gabarit-seul --max 200 --taille full
+```
+
+Il sort dans `sorties/double_codage_a_remplir.csv`, avec les URL en pleine
+resolution : le codeur doit voir exactement ce que le modele voit, sinon les
+deux ne codent pas la meme chose. Le tirage est a graine figee, donc le
+gabarit porte les memes produits que la lecture machine a venir. Minimum 200 produits : en dessous, le
 taux d'erreur n'est pas publiable et `src/couche2_validation.py` s'arrete.
