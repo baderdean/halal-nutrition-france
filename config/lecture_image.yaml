@@ -35,6 +35,13 @@ fournisseurs:
     # base64 : le runner telecharge lui-meme l'image, ce qui supprime la
     # dependance a la capacite du fournisseur d'aller la chercher.
     image: base64
+    # La couche compatible OpenAI de Cloudflare refuse l'image pour ce modele :
+    # dix dispositions du tableau de contenu sondees au run #11, toutes en
+    # erreur ("Unable to add image..." sans message system, "Internal Server
+    # Error" avec). L'API native accepte l'image comme champ FRERE de messages.
+    api: workers_ai_native
+    url_inference: https://api.cloudflare.com/client/v4/accounts/{CF_ACCOUNT_ID}/ai/run/{modele}
+    variante_native: N1_messages_image
     # L'acceptation de licence des modeles Meta ne passe PAS par l'endpoint
     # compatible OpenAI : elle exige l'API native Workers AI, avec un champ
     # `prompt` et non `messages`. Verifie : le meme 'agree' envoye en

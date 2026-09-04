@@ -118,8 +118,9 @@ def fournisseurs(conf, filtre=None, modele=None):
             else:
                 jeton = "{" + f["env_compte"] + "}"
                 f["base_url"] = f["base_url"].replace(jeton, compte)
-                if f.get("url_licence"):
-                    f["url_licence"] = f["url_licence"].replace(jeton, compte)
+                for champ in ("url_licence", "url_inference"):
+                    if f.get(champ):
+                        f[champ] = f[champ].replace(jeton, compte)
         out.append(f)
     if not out:
         echec(f"aucun fournisseur {filtre!r} dans config/lecture_image.yaml.")
@@ -136,6 +137,46 @@ def cout(f, entree: int, sortie: int) -> float:
 
 
 # ------------------------------------------------------------------- appel
+
+def image_data_uri(url: str) -> str:
+    """Telecharge l'image et la rend en data URI base64."""
+    req = urllib.request.Request(
+        url, headers={"User-Agent": "halal-nutrition-france/couche2"})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        octets = r.read()
+        mime = r.headers.get("Content-Type", "image/jpeg").split(";")[0]
+    return f"data:{mime};base64,{base64.b64encode(octets).decode('ascii')}"
+
+
+def appeler_natif(f, consigne: str, data_uri: str, variante: str):
+    """API native Workers AI : /ai/run/{modele}.
+
+    La couche compatible OpenAI de Cloudflare refuse l'image pour ce modele,
+    quelle que soit la disposition du tableau de contenu (10 formes sondees,
+    run #11 : "Unable to add image..." ou "Internal Server Error"). L'API
+    native attend l'image comme champ FRERE de messages, pas comme element du
+    contenu. C'est la voie qui a deja fonctionne pour l'acceptation de licence.
+    """
+    charges = {
+        "N1_messages_image": {
+            "messages": [{"role": "system", "content": consigne},
+                         {"role": "user", "content": "Analyse cette image."}],
+            "image": data_uri,
+        },
+        "N2_prompt_image": {"prompt": consigne, "image": data_uri},
+    }
+    url = f["url_inference"].replace("{modele}", f["modele"])
+    req = urllib.request.Request(
+        url, data=json.dumps(charges[variante]).encode(), method="POST")
+    req.add_header("Authorization", f"Bearer {f['cle']}")
+    req.add_header("Content-Type", "application/json")
+    with urllib.request.urlopen(req, timeout=180) as r:
+        rep = json.loads(r.read().decode("utf-8", "replace"))
+    res = rep.get("result") or {}
+    texte = res.get("response") or ""
+    usage = res.get("usage") or {}
+    return texte, usage.get("prompt_tokens", 0), usage.get("completion_tokens", 0)
+
 
 def contenu_image(url: str, f: dict, conf: dict, params_minimax: bool) -> dict:
     """Bloc image du message.
@@ -231,12 +272,19 @@ def lire_une(client, f, conf, ligne, taille, params_minimax) -> dict:
     base = {c: "" for c in CHAMPS}
     base.update({"erreur": "", "tokens_entree": 0, "tokens_sortie": 0})
     try:
-        r = appeler(client, f, conf, url, params_minimax)
-        lu = extraire_json(r.choices[0].message.content or "")
+        if f.get("api") == "workers_ai_native":
+            texte, te, ts = appeler_natif(
+                f, CONSIGNE, image_data_uri(url),
+                f.get("variante_native", "N1_messages_image"))
+            base["tokens_entree"], base["tokens_sortie"] = te, ts
+        else:
+            r = appeler(client, f, conf, url, params_minimax)
+            texte = r.choices[0].message.content or ""
+            if r.usage:
+                base["tokens_entree"] = r.usage.prompt_tokens or 0
+                base["tokens_sortie"] = r.usage.completion_tokens or 0
+        lu = extraire_json(texte)
         base.update({c: str(lu.get(c, "")) for c in CHAMPS})
-        if r.usage:
-            base["tokens_entree"] = r.usage.prompt_tokens or 0
-            base["tokens_sortie"] = r.usage.completion_tokens or 0
     except Exception as e:  # noqa: BLE001 - l'echec est une donnee, pas un arret
         # APIConnectionError se resume a "Connection error." et masque la cause
         # httpx : sans elle on ne distingue pas le DNS, le TLS, un refus de
@@ -287,6 +335,22 @@ def sonder_formes(conf, df, args) -> int:
         if f["indisponible"]:
             print(f"  ECARTE : {f['indisponible']}")
             continue
+        if f.get("url_inference"):
+            data_uri = image_data_uri(url)
+            print(f"  image telechargee : {len(data_uri)} signes en data URI")
+            for variante in ("N1_messages_image", "N2_prompt_image"):
+                try:
+                    texte, te, ts = appeler_natif(f, CONSIGNE, data_uri, variante)
+                    print(f"  {variante + ' (natif)':<34} OK  {te} jetons entree")
+                    print(f"    -> {texte[:160]!r}")
+                except urllib.error.HTTPError as e:
+                    corps = e.read(200).decode("utf-8", "replace").replace(
+                        chr(10), " ")
+                    print(f"  {variante + ' (natif)':<34} ECHEC HTTP {e.code} "
+                          f"{corps}")
+                except Exception as e:  # noqa: BLE001
+                    print(f"  {variante + ' (natif)':<34} ECHEC "
+                          f"{type(e).__name__}: {str(e)[:120]}")
         client = client_pour(f)
         bloc = contenu_image(url, f, conf, args.params_minimax)
         for nom, messages in formes_message(CONSIGNE, bloc).items():
