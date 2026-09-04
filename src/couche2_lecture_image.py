@@ -173,7 +173,16 @@ def appeler_natif(f, consigne: str, data_uri: str, variante: str):
     with urllib.request.urlopen(req, timeout=180) as r:
         rep = json.loads(r.read().decode("utf-8", "replace"))
     res = rep.get("result") or {}
-    texte = res.get("response") or ""
+    brut = res.get("response")
+    if isinstance(brut, str):
+        texte = brut
+    elif brut is None:
+        texte = json.dumps(res, ensure_ascii=False)
+    else:
+        # L'API rend parfois un objet la ou on attend du texte. On le serialise
+        # plutot que de le decouper comme une chaine : c'est ce decoupage qui
+        # a masque le succes des variantes natives au run #12.
+        texte = json.dumps(brut, ensure_ascii=False)
     usage = res.get("usage") or {}
     return texte, usage.get("prompt_tokens", 0), usage.get("completion_tokens", 0)
 
@@ -341,8 +350,9 @@ def sonder_formes(conf, df, args) -> int:
             for variante in ("N1_messages_image", "N2_prompt_image"):
                 try:
                     texte, te, ts = appeler_natif(f, CONSIGNE, data_uri, variante)
-                    print(f"  {variante + ' (natif)':<34} OK  {te} jetons entree")
-                    print(f"    -> {texte[:160]!r}")
+                    print(f"  {variante + ' (natif)':<34} OK  {te} jetons "
+                          f"entree, {ts} sortie")
+                    print(f"    -> {str(texte)[:400]!r}")
                 except urllib.error.HTTPError as e:
                     corps = e.read(200).decode("utf-8", "replace").replace(
                         chr(10), " ")
