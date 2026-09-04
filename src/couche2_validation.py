@@ -78,13 +78,32 @@ def main() -> int:
             f"{args.n_min}. Un taux d'erreur sur un echantillon plus petit "
             "n'est pas publiable. Completer le double codage."
         )
+    print()
+
+    # Le taux doit etre calcule SEPAREMENT selon l'origine de la lecture
+    # humaine. Un codage etabli hors de la photo (source=externe) n'est pas
+    # comparable a un modele qui ne voit que la photo : l'y compter revient a
+    # reprocher au modele d'ignorer ce qui n'est pas sur l'image, et gonfle
+    # artificiellement son taux d'erreur.
+    sous_ensembles = [("toutes lectures confondues", j)]
+    if "source_lecture" in j.columns:
+        sous_ensembles = [
+            ("lectures humaines SUR IMAGE (seul taux honnete)",
+             j[j.source_lecture == "image"]),
+            ("lectures humaines hors image (non imputable au modele)",
+             j[j.source_lecture == "externe"]),
+            ("toutes lectures confondues (surestime l'erreur)", j),
+        ]
 
     lignes = []
-    for nom, col_h, col_m in [
+    for etiquette, jeu in sous_ensembles:
+      for nom, col_h, col_m in [
         ("estampille halal", "h_estampille_halal", "estampille_halal"),
         ("certificateur", "h_certificateur", "certificateur_texte"),
-    ]:
-        v = j[[col_h, col_m]].fillna("").astype(str)
+      ]:
+        if not len(jeu):
+            continue
+        v = jeu[[col_h, col_m]].fillna("").astype(str)
         v = v.apply(lambda s: s.str.strip().str.lower())
         # Le certificateur se compare sur la presence d'un nom, pas sur son
         # orthographe : la normalisation des variantes est un travail humain
@@ -94,7 +113,8 @@ def main() -> int:
         d = (v[col_h] != v[col_m])
         k, n = int(d.sum()), len(v)
         bas, haut = wilson(k, n)
-        lignes.append({"variable": nom, "n": n, "desaccords": k,
+        lignes.append({"sous_ensemble": etiquette, "variable": nom,
+                       "n": n, "desaccords": k,
                        "taux_erreur": round(k / n, 4),
                        "ic95_bas": round(bas, 4), "ic95_haut": round(haut, 4),
                        "verdict": "utilisable" if k / n <= args.seuil
@@ -121,7 +141,14 @@ def main() -> int:
             print(concentrees.sort_values("sum", ascending=False)
                   .head(15).to_string())
 
-    mauvais = res[res.verdict != "utilisable"]
+    honnete = res[res.sous_ensemble.str.startswith("lectures humaines SUR IMAGE")] \
+        if "sous_ensemble" in res.columns else res
+    if len(honnete) and honnete.n.max() < args.n_min:
+        print(f"\n  Le sous-ensemble comparable au modele ne compte que "
+              f"{int(honnete.n.max())} produits, minimum {args.n_min}.")
+        print("  Le taux d'erreur affiche pour ce sous-ensemble est indicatif,")
+        print("  pas publiable.")
+    mauvais = honnete[honnete.verdict != "utilisable"]
     if len(mauvais):
         echec(
             "taux d'erreur au-dessus du seuil pour : "
