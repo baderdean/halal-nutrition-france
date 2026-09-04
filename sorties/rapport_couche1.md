@@ -1,6 +1,6 @@
 # Etude halal / non halal — rapport de couche 1
 
-Genere le 2026-09-04 par `src/etape1_rapport.py`, revision `d966f2a`. Tous les chiffres sont derives des CSV de `sorties/`, aucun n'est saisi a la main.
+Genere le 2026-09-04 par `src/etape1_rapport.py`, revision `6eb9a64`. Tous les chiffres sont derives des CSV de `sorties/`, aucun n'est saisi a la main.
 
 **Ce rapport ne conclut pas sur la qualite nutritionnelle des produits halal.** Il repond a une question de faisabilite : les donnees permettent-elles l'etude, et sur quelles variables. L'ecart chiffre presente en section 6 est brut, non ajuste, non apparie. Il n'est pas un resultat publiable en l'etat, et la section 7 dit pourquoi.
 
@@ -117,17 +117,17 @@ Le perimetre est bati sur les categories reellement observees dans le dump, pas 
 | en:societe-francaise-de-controle-de-viande-halal-grande-mosquee-de-paris |           44 |           7 |
 | en:halal-food-council-of-europe                                          |           28 |           8 |
 | fr:societe-francaise-de-controle-de-viande-halal-grande-mosquee-de-paris |            6 |           2 |
-| fr:tracabilite-100-halal                                                 |            3 |           1 |
 | fr:halal-certification-germany                                           |            3 |           3 |
+| fr:tracabilite-100-halal                                                 |            3 |           1 |
 | en:societe-francaise-de-controle-de-viande-halal                         |            2 |           2 |
+| fr:organisme-de-controle-independant-avs-halal                           |            1 |           1 |
+| fr:halal-food-concil-of-europe                                           |            1 |           1 |
 | en:label-certification-halal                                             |            1 |           1 |
 | fr:controle-certification-avs-halal                                      |            1 |           1 |
 | fr:id-halal                                                              |            1 |           1 |
 | en:tracabilite100halal                                                   |            1 |           1 |
-| fr:controle-mosquee-de-paris-halal                                       |            1 |           1 |
 | fr:controle-grande-mosquee-de-lyon-halal                                 |            1 |           1 |
-| fr:halal-food-concil-of-europe                                           |            1 |           1 |
-| fr:organisme-de-controle-independant-avs-halal                           |            1 |           1 |
+| fr:controle-mosquee-de-paris-halal                                       |            1 |           1 |
 | fr:halal-mosquee-courcouronnes                                           |            1 |           1 |
 
 `[FAIT]` **Inexploitable EN L'ETAT DU TAG, pour couverture et non pour separabilite.** Seuls 165 produits halal sur 2387 portent un tag de certificateur, soit 6.9 %. Une variable renseignee sur moins de 7 % des cas ne permet aucune comparaison, separable ou non. La separabilite elle-meme reste INCONNUE : les produits tagues ne sont pas un echantillon representatif, ce sont ceux dont un contributeur a pris la peine de saisir le certificateur. La question n'est donc pas close, elle est renvoyee a la lecture d'image de la couche 2 (section 4bis).
@@ -165,33 +165,33 @@ Le perimetre est bati sur les categories reellement observees dans le dump, pas 
 
 `[FAIT]` 42 marques comptent au moins 5 produits tagues halal dans le perimetre.
 
-| marque_tag       | marque_affichee   |   n_produits |   n_tagues |   pct_tague |
-|:-----------------|:------------------|-------------:|-----------:|------------:|
-| carrefour        | Carrefour         |         2868 |         61 |         2.1 |
-| fleury-michon    | Fleury Michon     |         1084 |         75 |         6.9 |
-| lidl             | Lidl, Socopa      |          443 |          8 |         1.8 |
-| socopa           | Socopa            |          265 |          7 |         2.6 |
-| isla-delice      | isla delice       |          192 |        190 |        99   |
-| sans-marque      | Sans marque       |          188 |          9 |         4.8 |
-| reghalal         | Reghalal          |          147 |        129 |        87.8 |
-| aia              | Aia               |           93 |         21 |        22.6 |
-| oriental-viandes | Oriental Viandes  |           91 |         85 |        93.4 |
-| isla-mondial     | isla mondial      |           80 |         78 |        97.5 |
-| arabi            | Arabi             |           49 |         48 |        98   |
-| jack-link-s      | Jack Link's       |           42 |          6 |        14.3 |
-| duc              | Duc               |           41 |          5 |        12.2 |
-| id-halal         | Id Halal          |           38 |         38 |       100   |
-| royal-halal      | Royal HALAL       |           30 |         30 |       100   |
-| suntat           | suntat            |           25 |         25 |       100   |
-| halal            | HALAL             |           24 |         23 |        95.8 |
-| al-jadid         | Al Jadid          |           24 |         22 |        91.7 |
-| wassila          | Wassila           |           22 |         22 |       100   |
-| doux             | Doux              |           19 |          5 |        26.3 |
-| hunkar           | Hünkar            |           17 |         14 |        82.4 |
-| medina-halal     | MEDINA HALAL      |           15 |         15 |       100   |
-| volibon          | Volibon           |           15 |         15 |       100   |
-| dounia-halal     | Dounia Halal      |           14 |         14 |       100   |
-| yayla            | Yayla             |           14 |          8 |        57.1 |
+| marque_tag       | marque_affichee      |   n_produits |   n_tagues |   pct_tague |
+|:-----------------|:---------------------|-------------:|-----------:|------------:|
+| carrefour        | carrefour            |         2868 |         61 |         2.1 |
+| fleury-michon    | Fleury Michon        |         1084 |         75 |         6.9 |
+| lidl             | Lidl                 |          443 |          8 |         1.8 |
+| socopa           | Socopa               |          265 |          7 |         2.6 |
+| isla-delice      | Isla Délice          |          192 |        190 |        99   |
+| sans-marque      | Sans marque, St Géry |          188 |          9 |         4.8 |
+| reghalal         | Reghalal             |          147 |        129 |        87.8 |
+| aia              | Aia, Montorsi        |           93 |         21 |        22.6 |
+| oriental-viandes | Oriental viandes     |           91 |         85 |        93.4 |
+| isla-mondial     | Isla Mondial         |           80 |         78 |        97.5 |
+| arabi            | arabi                |           49 |         48 |        98   |
+| jack-link-s      | Jack Link's          |           42 |          6 |        14.3 |
+| duc              | DUC                  |           41 |          5 |        12.2 |
+| id-halal         | Id Halal             |           38 |         38 |       100   |
+| royal-halal      | Royal Halal          |           30 |         30 |       100   |
+| suntat           | suntat               |           25 |         25 |       100   |
+| al-jadid         | Al Jadid             |           24 |         22 |        91.7 |
+| halal            | halal                |           24 |         23 |        95.8 |
+| wassila          | Wassila              |           22 |         22 |       100   |
+| doux             | Doux, Père Dodu      |           19 |          5 |        26.3 |
+| hunkar           | Hunkar               |           17 |         14 |        82.4 |
+| medina-halal     | MEDINA HALAL         |           15 |         15 |       100   |
+| volibon          | Volibon              |           15 |         15 |       100   |
+| dounia-halal     | Dounia Halal         |           14 |         14 |       100   |
+| kenza-halal      | Kenza halal          |           14 |         14 |       100   |
 
 `[FAIT]` Parmi ces 42 marques, 29 ont au moins 80 % de leur gamme carnee taguee halal, soit 916 produits. Parmi eux, 39 ne portent pas le tag alors que la marque est manifestement specialisee.
 

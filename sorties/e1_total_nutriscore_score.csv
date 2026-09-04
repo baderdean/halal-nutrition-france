@@ -1,0 +1,10 @@
+strate,n_halal,n_temoin,median_halal,median_temoin,diff,ic95_bas,ic95_haut
+autres_carnes,355,15567,12.0,11.0,1.0,1.0,2.0
+charcuterie_cuite,340,13159,14.0,13.0,1.0,0.0,2.0
+charcuterie_seche,235,6010,28.0,33.0,-5.0,-5.0,-3.975
+decoupes,203,7874,3.0,-2.0,5.0,4.0,7.0
+panes,290,2150,6.0,4.0,2.0,1.0,7.0
+plats_cuisines,142,10679,5.0,4.0,1.0,0.0,2.0
+rillettes_pates_mousses,39,5576,18.0,19.0,-1.0,-4.0,1.0
+saucisses,240,5752,18.0,19.0,-1.0,-2.0,0.0
+viande_hachee,102,1084,11.0,6.0,5.0,1.0,5.0

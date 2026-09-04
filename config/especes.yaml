@@ -1,0 +1,39 @@
+# Espece principale, deduite des categories OFF. Ordre = priorite : le premier
+# motif qui matche gagne, donc les especes specifiques passent avant les
+# regroupements. `mixte` capte les produits qui portent plusieurs especes,
+# `indetermine` ceux qui n'en portent aucune.
+#
+# L'espece est le mediateur central de l'etude : l'exclusion du porc est une
+# CONSEQUENCE du label halal, pas une variable de confusion. C'est pourquoi
+# elle est traitee dans deux estimands separes et jamais melangee.
+especes:
+  # ATTENTION : ne mettre ici que des motifs qui nomment l'ESPECE, jamais une
+  # FORME de produit. Salami, chorizo, mortadelle, bacon, saucisson sec et pate
+  # de campagne existent en versions dinde ou boeuf, largement diffusees par
+  # les marques halal : les classer porc attribuait 203 produits halal a cette
+  # espece, ce qui est absurde pour un produit certifie halal.
+  - nom: porc
+  # Deuxieme resserrement : `lardon`, `jambon-sec` et `saucisse-de-strasbourg`
+  # sont eux aussi des formes. Lardons de volaille, lardons de dinde et
+  # saucisson sec halal existent. Ne restent que des motifs qui nomment
+  # l'animal ou une piece anatomiquement porcine.
+    motifs: ["pork", "porc", "cochon", "andouille", "jambonneau", "coppa",
+             "pancetta", "rillettes-de-porc", "jambon-de-porc"]
+  - nom: poulet
+    motifs: ["chicken", "poulet", "coquelet"]
+  - nom: dinde
+    motifs: ["turkey", "dinde"]
+  - nom: canard
+    motifs: ["duck", "canard", "foie-gras", "magret"]
+  - nom: boeuf
+    motifs: ["beef", "boeuf", "steak-hache", "bresaola"]
+  - nom: veau
+    motifs: ["veal", "veau"]
+  - nom: agneau
+    motifs: ["lamb", "mutton", "agneau", "mouton", "merguez"]
+  - nom: lapin
+    motifs: ["rabbit", "lapin"]
+  - nom: cheval
+    motifs: ["horse", "cheval"]
+  - nom: volaille_autre
+    motifs: ["poultr", "volaille", "pintade", "caille", "oie", "goose"]

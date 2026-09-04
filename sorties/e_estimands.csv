@@ -1,0 +1,9 @@
+estimand,variable,n_strates,n_halal_apparies,diff_ponderee,ic95_bas,ic95_haut
+E1_total,sel,9,1959,0.288,0.263,0.345
+E1_total,ags,9,1958,-0.984,-1.206,-0.761
+E1_total,proteines,9,1959,-3.025,-3.35,-2.696
+E1_total,nutriscore_score,9,1946,0.765,0.379,1.71
+E2_direct,sel,13,1275,0.552,0.507,0.615
+E2_direct,ags,13,1275,0.41,0.293,0.587
+E2_direct,proteines,13,1275,-2.928,-3.168,-2.48
+E2_direct,nutriscore_score,13,1269,7.041,5.893,7.31

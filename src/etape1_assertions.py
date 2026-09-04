@@ -15,7 +15,8 @@ import sys
 
 import yaml
 
-from commun import CONFIG, PERIMETRE, charger, connexion, echec, titre
+from commun import (CONFIG, PERIMETRE, SORTIES, charger, connexion, echec,
+                    titre)
 
 # Bornes physiques. Au-dela, la valeur est une erreur de saisie, pas un aliment.
 BORNES = {
@@ -104,6 +105,33 @@ def main() -> int:
         echecs.append(
             f"A5 : {pct:.2f} % de lignes hors bornes physiques (> 1 %). "
             "Parsing numerique suspect."
+        )
+
+    # A7 — coherence espece / label. Un produit certifie halal ne peut pas
+    # etre du porc : chaque cas est soit une erreur de tag OFF, soit une
+    # erreur de ma derivation d'espece. Les deux meritent d'etre vues.
+    n_porc_halal = con.execute(f"""
+        SELECT count(*) FROM '{PERIMETRE}' WHERE tag_halal AND espece = 'porc'
+    """).fetchone()[0]
+    n_halal = con.execute(
+        f"SELECT count(*) FROM '{PERIMETRE}' WHERE tag_halal").fetchone()[0]
+    pct_ph = 100.0 * n_porc_halal / n_halal if n_halal else 0.0
+    print(f"  A7 halal classes porc            : {n_porc_halal} ({pct_ph:.2f} %)")
+    # La liste est publiee, pas seulement comptee : l'inspection montre qu'elle
+    # melange deux causes, des erreurs de taxonomie OFF (saucissons de boeuf
+    # ranges sous porc) et de vraies erreurs de tag halal (andouillettes de
+    # Troyes taguees halal). Le seuil est a 2 % : au-dela, c'est la derivation
+    # d'espece qui est cassee, pas la base.
+    con.execute(f"""
+        COPY (SELECT code, product_name, brands, sous_categorie
+              FROM '{PERIMETRE}' WHERE tag_halal AND espece = 'porc')
+        TO '{SORTIES / "a7_halal_classes_porc.csv"}' (HEADER, DELIMITER ',')
+    """)
+    if pct_ph > 2.0:
+        echecs.append(
+            f"A7 : {pct_ph:.2f} % des produits halal sont classes porc "
+            "(> 2 %). Soit la derivation d'espece attrape des FORMES de "
+            "produit au lieu de l'espece, soit le tag halal est errone."
         )
 
     # A6 — effectifs attendus

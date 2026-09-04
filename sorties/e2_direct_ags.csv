@@ -1,0 +1,14 @@
+strate,n_halal,n_temoin,median_halal,median_temoin,diff,ic95_bas,ic95_haut
+autres_carnes / dinde,78,520,1.8,0.9,0.9,0.5,1.6
+autres_carnes / poulet,165,1806,1.9,2.4,-0.5,-0.775,-0.1
+charcuterie_cuite / dinde,113,195,0.9,0.5,0.4,0.3,0.7
+charcuterie_cuite / poulet,151,720,0.5,0.6,-0.1,-0.2,0.0
+charcuterie_cuite / volaille_autre,40,121,1.7,5.0,-3.3,-5.2,-1.6
+decoupes / poulet,164,6214,1.65,1.3,0.35,-0.046,1.25
+panes / dinde,69,629,3.3,0.4,2.9,2.2,3.1
+panes / poulet,167,941,1.67,2.1,-0.43,-0.6,0.1
+plats_cuisines / boeuf,39,2299,1.35,1.9,-0.55,-0.9,0.306
+plats_cuisines / poulet,66,2996,2.05,1.4,0.65,0.065,0.9
+saucisses / poulet,51,141,5.39,4.7,0.69,0.2,1.09
+saucisses / volaille_autre,72,329,5.4,2.7,2.7,2.1,3.2
+viande_hachee / boeuf,100,932,8.0,6.0,2.0,1.748,2.6

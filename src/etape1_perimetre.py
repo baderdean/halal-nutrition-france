@@ -45,6 +45,23 @@ def clause_perimetre(p: dict) -> str:
     return " AND ".join(cond)
 
 
+def expr_espece(e: dict) -> str:
+    """Espece principale, premier motif qui matche.
+
+    Variable centrale de la couche 3 : l'exclusion du porc est un MEDIATEUR du
+    label halal, pas un confondant. Elle est donc traitee dans deux estimands
+    separes, jamais melangee.
+    """
+    morceaux = ["CASE"]
+    for esp in e["especes"]:
+        motif = "|".join(esp["motifs"])
+        morceaux.append(
+            f"WHEN len(list_filter(categories_tags, x -> regexp_matches(x, "
+            f"'({motif})'))) > 0 THEN '{esp['nom']}'")
+    morceaux.append("ELSE 'indetermine' END")
+    return " ".join(morceaux)
+
+
 def expr_sous_categorie(p: dict) -> str:
     """Affectation ordonnee, premier match gagnant. Exactement une par produit."""
     morceaux = ["CASE"]
@@ -74,6 +91,7 @@ def main() -> None:
     COPY (
       SELECT *,
              {expr_sous_categorie(p)} AS sous_categorie,
+             {expr_espece(charger("especes.yaml"))} AS espece,
              list_contains(labels_tags, '{p['tag_traitement']}') AS tag_halal,
              CASE WHEN list_contains(labels_tags, '{p['tag_traitement']}')
                   THEN 'halal' ELSE 'temoin' END AS bras,
