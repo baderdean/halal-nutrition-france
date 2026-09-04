@@ -444,7 +444,10 @@ def ecrire_gabarit(df, taille="full"):
     codage soit une entree du depot, pas une sortie generee, et un codeur qui
     verrait la reponse de la machine ne coderait plus en aveugle.
     """
-    gabarit = df[["code", "brands", "bras", "image_url"]].copy()
+    # `bras` est volontairement EXCLU : il dirait au codeur ce que le tag
+    # affirme, or c'est ce que son codage doit verifier sans le savoir. La
+    # jointure avec la lecture machine se fait sur `code`.
+    gabarit = df[["code", "brands", "image_url"]].copy()
     if taille != "400":
         gabarit["image_url"] = gabarit.image_url.str.replace(
             ".400.jpg", TAILLES[taille], regex=False)
