@@ -321,6 +321,7 @@ def accepter_licence(conf, args) -> int:
     Le script ne la fait JAMAIS de lui-meme : elle n'a lieu que sur ce drapeau
     explicite, et le texte affiche les licences concernees avant d'envoyer.
     """
+    reussites = 0
     for f in fournisseurs(conf, args.fournisseur, args.modele):
         if f["indisponible"]:
             print(f"  {f['nom']} ECARTE : {f['indisponible']}")
@@ -336,9 +337,14 @@ def accepter_licence(conf, args) -> int:
                 messages=[{"role": "user", "content": "agree"}])
             print(f"  Reponse : {r.choices[0].message.content!r}")
             print("  Licence acceptee pour ce compte. Relancer le preflight.")
+            reussites += 1
         except Exception as e:  # noqa: BLE001
             print(f"  ECHEC : {type(e).__name__}: {e}"[:400])
-            return 1
+            print(f"  -> {diagnostiquer(str(e))}")
+            continue
+    if not reussites:
+        print("\n  Aucune licence acceptee.")
+        return 1
     return 0
 
 
