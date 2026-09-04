@@ -50,6 +50,12 @@ jobs:
       - name: Espace disque
         run: df -h /
 
+      # 50 ms, avant les deux minutes de couche 1 et tout appel payant.
+      # Existe parce qu'un renommage de cles dans la config n'avait pas ete
+      # suivi dans le diagnostic, et que l'ecart n'est apparu qu'au runtime.
+      - name: Coherence config / code / workflow
+        run: python3 tests/test_coherence.py
+
       # Le runner GitHub n'a pas les restrictions reseau de l'environnement de
       # developpement : il joint le dump Open Food Facts, images.openfoodfacts.org
       # et la passerelle du modele.

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Couche 2 — diagnostic reseau et API, a lancer sur le runner.
 
-L'environnement de developpement de ce depot ne joint ni la passerelle du
-modele ni images.openfoodfacts.org. Ce script etablit sur le runner ce qui
+L'environnement de developpement de ce depot ne joint ni les passerelles de
+modeles ni images.openfoodfacts.org. Ce script etablit sur le runner ce qui
 repond et ce qui ne repond pas, avant d'accuser le mauvais coupable.
 
-N'imprime JAMAIS la cle : uniquement sa longueur et son prefixe de 4 signes.
+N'imprime JAMAIS une cle : uniquement sa longueur et son prefixe de 4 signes.
 """
 
 from __future__ import annotations
@@ -18,7 +18,8 @@ import urllib.request
 
 from commun import charger, titre
 
-
+IMAGE_TEST = ("https://images.openfoodfacts.org/images/products/"
+              "590/566/864/0597/front_fr.13")
 
 
 def sonde(url: str, cle: str | None = None, methode: str = "GET",
@@ -31,9 +32,8 @@ def sonde(url: str, cle: str | None = None, methode: str = "GET",
         req.add_header("Content-Type", "application/json")
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
-            taille = r.headers.get("Content-Length", "?")
-            ctype = r.headers.get("Content-Type", "?")
-            return f"HTTP {r.status}  {ctype}  {taille} octets"
+            return (f"HTTP {r.status}  {r.headers.get('Content-Type', '?')}  "
+                    f"{r.headers.get('Content-Length', '?')} octets")
     except urllib.error.HTTPError as e:
         extrait = e.read(300).decode("utf-8", "replace").replace("\n", " ")
         return f"HTTP {e.code}  {extrait[:200]}"
@@ -43,36 +43,44 @@ def sonde(url: str, cle: str | None = None, methode: str = "GET",
 
 def main() -> int:
     conf = charger("lecture_image.yaml")
-    brut = os.environ.get(conf["variable_env_cle"], "")
-    cle = brut.strip()
 
-    titre("DIAGNOSTIC — cle")
-    print(f"  variable      : {conf['variable_env_cle']}")
-    print(f"  presente      : {bool(cle)}")
-    print(f"  longueur brute: {len(brut)}")
-    print(f"  longueur nette: {len(cle)}")
-    if cle != brut:
-        print("  BLANCS PARASITES en debut ou fin. httpx refuse un en-tete")
-        print("  Authorization qui en contient, et l'echec remonte en erreur")
-        print("  de connexion. A corriger a la source du secret.")
-    print(f"  prefixe       : {cle[:4] + '...' if cle else '(vide)'}")
+    for f in conf["fournisseurs"]:
+        titre(f"DIAGNOSTIC — {f['nom']} / {f['modele']}")
+        brut = os.environ.get(f["env_cle"], "")
+        cle = brut.strip()
+        print(f"  variable cle   : {f['env_cle']}")
+        print(f"  longueur brute : {len(brut)}   nette : {len(cle)}")
+        print(f"  prefixe        : {cle[:4] + '...' if cle else '(vide)'}")
+        if cle != brut:
+            print("  BLANCS PARASITES en debut ou fin. httpx refuse un en-tete")
+            print("  Authorization qui en contient, et l'echec remonte en")
+            print("  erreur de connexion. A corriger a la source du secret.")
 
-    titre("DIAGNOSTIC — hotes candidats pour la passerelle")
-    for base in CANDIDATS:
-        print(f"\n  {base}")
-        print(f"    /models          {sonde(base + '/models', cle)}")
+        base = f["base_url"]
+        if "env_compte" in f:
+            compte = os.environ.get(f["env_compte"], "").strip()
+            print(f"  variable compte: {f['env_compte']} "
+                  f"({'presente' if compte else 'ABSENTE'})")
+            if not compte:
+                print("  -> sonde impossible sans identifiant de compte.")
+                continue
+            base = base.replace("{" + f["env_compte"] + "}", compte)
+        if not cle:
+            print("  -> sonde impossible sans cle.")
+            continue
+
+        print(f"  base_url       : {base}")
+        print(f"    /models            {sonde(base + '/models', cle)}")
         charge = json.dumps({
-            "model": conf["modele"], "max_tokens": 16,
+            "model": f["modele"], "max_tokens": 16,
             "messages": [{"role": "user", "content": "ping"}],
         }).encode()
-        print(f"    /chat/completions {sonde(base + '/chat/completions', cle, 'POST', charge)}")
+        print(f"    /chat/completions  "
+              f"{sonde(base + '/chat/completions', cle, 'POST', charge)}")
 
     titre("DIAGNOSTIC — images Open Food Facts")
-    exemple = ("https://images.openfoodfacts.org/images/products/"
-               "590/566/864/0597/front_fr.13")
-    for suffixe in (".400.jpg", ".800.jpg", ".full.jpg"):
-        print(f"  {suffixe:<10} {sonde(exemple + suffixe)}")
-
+    for suffixe in (".400.jpg", ".full.jpg"):
+        print(f"  {suffixe:<10} {sonde(IMAGE_TEST + suffixe)}")
     print("\n  Une image qui ne repond pas ici invalide toute la voie de la")
     print("  couche 2, independamment de la passerelle.")
     return 0
