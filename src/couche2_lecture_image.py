@@ -164,7 +164,8 @@ def image_data_uri(url: str) -> str:
     return f"data:{mime};base64,{base64.b64encode(octets).decode('ascii')}"
 
 
-def appeler_natif(f, consigne: str, data_uri: str, variante: str):
+def appeler_natif(f, consigne: str, data_uri: str, variante: str,
+                  essais: int = 4):
     """API native Workers AI : /ai/run/{modele}.
 
     La couche compatible OpenAI de Cloudflare refuse l'image pour ce modele,
@@ -182,12 +183,25 @@ def appeler_natif(f, consigne: str, data_uri: str, variante: str):
         "N2_prompt_image": {"prompt": consigne, "image": data_uri},
     }
     url = f["url_inference"].replace("{modele}", f["modele"])
-    req = urllib.request.Request(
-        url, data=json.dumps(charges[variante]).encode(), method="POST")
-    req.add_header("Authorization", f"Bearer {f['cle']}")
-    req.add_header("Content-Type", "application/json")
-    with urllib.request.urlopen(req, timeout=180) as r:
-        rep = json.loads(r.read().decode("utf-8", "replace"))
+    corps = json.dumps(charges[variante]).encode()
+    for essai in range(essais):
+        req = urllib.request.Request(url, data=corps, method="POST")
+        req.add_header("Authorization", f"Bearer {f['cle']}")
+        req.add_header("Content-Type", "application/json")
+        try:
+            with urllib.request.urlopen(req, timeout=180) as r:
+                rep = json.loads(r.read().decode("utf-8", "replace"))
+            break
+        except urllib.error.HTTPError as e:
+            # 429 : limite de debit du fournisseur, pas une erreur de requete.
+            # On attend en doublant, en respectant Retry-After s'il est donne.
+            if e.code == 429 and essai < essais - 1:
+                pause = int(e.headers.get("Retry-After") or 0) or 2 ** (essai + 2)
+                print(f"    429, pause de {pause}s "
+                      f"(essai {essai + 1}/{essais})", flush=True)
+                time.sleep(pause)
+                continue
+            raise
     res = rep.get("result") or {}
     brut = res.get("response")
     if isinstance(brut, str):
@@ -628,7 +642,10 @@ def main() -> int:
     ap.add_argument("--par-marque", type=int, default=3)
     ap.add_argument("--taille", choices=list(TAILLES), default="full")
     ap.add_argument("--params-minimax", action="store_true")
-    ap.add_argument("--concurrence", type=int, default=6)
+    ap.add_argument("--concurrence", type=int, default=3,
+                    help="appels simultanes. 6 a declenche un 429 Cloudflare")
+    ap.add_argument("--pause", type=float, default=0.3,
+                    help="pause entre deux soumissions, en secondes")
     args = ap.parse_args()
 
     global CODAGE_HUMAIN
@@ -682,8 +699,11 @@ def main() -> int:
     client = client_pour(retenu)
     resultats = []
     with cf.ThreadPoolExecutor(max_workers=args.concurrence) as ex:
-        futurs = [ex.submit(lire_une, client, retenu, conf, l, args.taille,
-                            args.params_minimax) for l in df.itertuples()]
+        futurs = []
+        for l in df.itertuples():
+            futurs.append(ex.submit(lire_une, client, retenu, conf, l,
+                                    args.taille, args.params_minimax))
+            time.sleep(args.pause)
         for i, fut in enumerate(cf.as_completed(futurs), 1):
             resultats.append(fut.result())
             if i % 25 == 0:
