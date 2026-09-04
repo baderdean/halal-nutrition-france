@@ -28,7 +28,7 @@ fournisseurs:
   - nom: cloudflare-workers-ai
     # L'identifiant de compte est substitue depuis la variable d'environnement.
     base_url: https://api.cloudflare.com/client/v4/accounts/{CF_ACCOUNT_ID}/ai/v1
-    env_cle: CF_API_TOKEN
+    env_cle: CF_API_KEY
     env_compte: CF_ACCOUNT_ID
     modele: "@cf/meta/llama-3.2-11b-vision-instruct"
     # Cloudflare annonce accepter l'image en URL comme en base64. On envoie du

@@ -77,7 +77,7 @@ taux d'erreur different d'un modele a l'autre.
 | Fournisseur | Modele | Identifiants | Ou |
 |---|---|---|---|
 | `opencode-zen` | `minimax-m3` | `STUDY_API_KEY` | secret |
-| `cloudflare-workers-ai` | `@cf/meta/llama-3.2-11b-vision-instruct` | `CF_API_TOKEN` | secret |
+| `cloudflare-workers-ai` | `@cf/meta/llama-3.2-11b-vision-instruct` | `CF_API_KEY` | secret |
 | | | `CF_ACCOUNT_ID` | variable |
 
 Settings -> Secrets and variables -> Actions, onglet *Secrets* pour les deux

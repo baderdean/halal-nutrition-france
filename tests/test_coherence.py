@@ -63,6 +63,17 @@ def main() -> int:
         if nom and f'"{nom}"' not in wf:
             echecs.append(f"workflow : {nom} absent des choix de fournisseur")
 
+    # Chaque variable d'environnement attendue par la config doit etre injectee
+    # par le workflow. Un secret renomme d'un cote et pas de l'autre ne se voit
+    # autrement qu'au runtime, apres deux minutes de couche 1.
+    for f in fournisseurs or []:
+        for champ in ("env_cle", "env_compte"):
+            var = f.get(champ)
+            if var and var not in wf:
+                echecs.append(
+                    f"{f.get('nom')} : {champ}={var} n'est injecte nulle part "
+                    "dans le workflow")
+
     if echecs:
         print("INCOHERENCES :", file=sys.stderr)
         for e in echecs:

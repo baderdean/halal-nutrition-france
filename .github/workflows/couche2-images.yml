@@ -71,18 +71,18 @@ jobs:
       - name: Diagnostic reseau et API
         env:
           STUDY_API_KEY: ${{ secrets.STUDY_API_KEY }}
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
           CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
         run: python3 src/couche2_diagnostic.py
 
       - name: Preflight
         env:
           STUDY_API_KEY: ${{ secrets.STUDY_API_KEY }}
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
           CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
         run: |
-          if [ -z "$STUDY_API_KEY" ] && [ -z "$CF_API_TOKEN" ]; then
-            echo "::error::aucune cle. Renseigner le secret STUDY_API_KEY ou le secret CF_API_TOKEN avec la variable CF_ACCOUNT_ID."
+          if [ -z "$STUDY_API_KEY" ] && [ -z "$CF_API_KEY" ]; then
+            echo "::error::aucune cle. Renseigner le secret STUDY_API_KEY ou le secret CF_API_KEY avec la variable CF_ACCOUNT_ID."
             exit 1
           fi
           python3 src/couche2_lecture_image.py --preflight \
@@ -93,7 +93,7 @@ jobs:
         if: inputs.etape == 'lot'
         env:
           STUDY_API_KEY: ${{ secrets.STUDY_API_KEY }}
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
           CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
         run: |
           python3 src/couche2_lecture_image.py --executer \
