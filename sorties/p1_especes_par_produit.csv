@@ -1,0 +1,16 @@
+produit,bras3,boeuf,canard,cheval,dinde,indetermine,porc,poulet,veau,volaille_autre
+cordon_bleu,halal,0,0,0,37,25,0,15,0,5
+cordon_bleu,kasher,0,0,0,0,0,0,1,0,0
+cordon_bleu,temoin,0,0,0,148,151,1,175,0,59
+jambon_cuit,halal,0,0,0,85,3,0,138,0,27
+jambon_cuit,kasher,0,0,0,19,1,0,15,0,1
+jambon_cuit,temoin,1,0,0,161,5634,567,689,0,35
+jambon_sec,halal,0,0,0,0,2,0,0,0,1
+jambon_sec,kasher,0,0,0,0,1,0,0,0,0
+jambon_sec,temoin,2,0,1,0,2242,408,0,0,7
+nugget,halal,0,0,0,19,0,0,64,0,2
+nugget,kasher,0,0,0,0,0,0,2,0,0
+nugget,temoin,1,0,0,12,2,1,392,0,6
+saucisson_sec,halal,10,0,0,39,112,17,5,0,4
+saucisson_sec,kasher,2,0,0,2,9,0,0,0,0
+saucisson_sec,temoin,16,1,2,18,4216,909,3,1,20

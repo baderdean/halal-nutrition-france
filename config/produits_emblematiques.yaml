@@ -1,0 +1,62 @@
+# Produits emblematiques — couche 5.
+#
+# Le lecteur n'achete pas une « sous-categorie charcuterie cuite ». Il achete
+# un jambon, un cordon bleu, des nuggets, un saucisson. Ce fichier definit ces
+# quatre produits par leurs categories OFF, pour une comparaison halal /
+# kasher / ni l'un ni l'autre a produit reellement identique.
+#
+# AFFECTATION ORDONNEE, PREMIER MATCH GAGNANT. L'ordre n'est pas cosmetique :
+#  - les plats a base de jambon (pizzas, salades piemontaises) portent aussi
+#    en:hams. Ils sortent en premier : une pizza n'est pas un jambon ;
+#  - le jambon SEC porte souvent en:hams en plus de en:cured-hams. Il passe
+#    avant le jambon cuit, sinon un jambon de Bayonne finirait compte comme
+#    un jambon blanc.
+#
+# Date de figeage : 2026-09-04. Dump : voir config/source.yaml.
+
+produits:
+  # Sort du champ. Present uniquement pour absorber les categories parasites
+  # avant les regles suivantes ; jamais analyse.
+  - nom: plat_a_base_de_jambon
+    libelle: "Plats portant une categorie jambon (pizzas, salades) — exclu"
+    analyse: false
+    tags: [en:pizza-with-ham-and-cheese, en:ham-pizzas,
+           en:piemontese-salads-with-ham, en:sandwiches-with-ham,
+           en:croque-monsieur]
+
+  - nom: jambon_sec
+    libelle: "Jambon sec et cru (Bayonne, Serrano, Parme, coppa)"
+    analyse: true
+    tags: [en:cured-hams, en:dried-hams, en:raw-cured-ham, en:serrano-ham,
+           en:bayonne-ham, en:parma-ham, en:smoked-cured-hams,
+           en:iberian-ham, en:black-forest-ham, en:coppa]
+
+  - nom: saucisson_sec
+    libelle: "Saucisson sec, salami, chorizo"
+    analyse: true
+    tags: [en:cured-sausages, en:dry-sausages, en:salami, en:chorizo,
+           en:turkey-salami, en:pork-salami, en:rosette-dry-sausage,
+           en:beef-salami, en:dry-sausage-pure-pork]
+
+  - nom: cordon_bleu
+    libelle: "Cordon bleu"
+    analyse: true
+    tags: [en:cordons-bleus, en:turkey-cordons-bleus,
+           en:chicken-cordons-bleus, en:poultry-cordons-bleus,
+           fr:cordons-bleus]
+
+  - nom: nugget
+    libelle: "Nuggets"
+    analyse: true
+    tags: [en:poultry-nuggets, en:chicken-nuggets, en:turkey-nuggets,
+           fr:nuggets]
+
+  # En dernier : en:hams est porte par beaucoup de produits deja captes.
+  - nom: jambon_cuit
+    libelle: "Jambon cuit (blanc, de volaille, a l'os)"
+    analyse: true
+    tags: [en:hams, en:white-hams, en:poultry-hams, en:cooked-hams,
+           en:braised-hams, en:white-smoked-hams, en:knuckle-of-ham-cooked,
+           en:cooked-ham-of-superior-quality, en:white-hams-with-less-salt,
+           en:french-hams, en:diced-ham, fr:jambons-cuits-a-l-ancienne,
+           fr:jambon-cuit-avec-couenne, en:turkey-hams, en:chicken-hams]

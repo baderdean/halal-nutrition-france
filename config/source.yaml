@@ -9,6 +9,13 @@
 
 nom: open-food-facts-export-plat
 url: https://openfoodfacts-ds.s3.eu-west-3.amazonaws.com/en.openfoodfacts.org.products.csv.gz
+
+# Le bucket est versionne et l'objet est ecrase chaque jour : sans version_id,
+# l'URL ci-dessus rend le dump DU JOUR, pas celui de l'etude. Le sha256 le
+# detecte mais ne le repare pas. version_id epingle l'artefact exact et rend
+# l'etude rejouable ; il a ete releve dans la liste des versions du bucket
+# (?versions&prefix=...) a la ligne LastModified == date_dump.
+version_id: CCZZxpXWH2qQAWWozpp4SQQ2MDSSyKoq
 fichier_local: en.products.csv.gz
 format: csv-tabule-gzip
 separateur: "\t"

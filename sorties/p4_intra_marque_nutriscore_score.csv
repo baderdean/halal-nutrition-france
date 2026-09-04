@@ -1,0 +1,5 @@
+produit,marque,espece,n_halal,n_temoin,mediane_halal,mediane_temoin,ecart,ic95_bas,ic95_haut,testable
+jambon_cuit,fleury-michon,poulet,32,159,2.0,2.0,0.0,0.0,0.0,True
+jambon_cuit,fleury-michon,dinde,12,24,2.5,2.0,0.5,0.0,1.0,False
+jambon_cuit,carrefour,dinde,6,5,12.5,2.0,,,,False
+jambon_cuit,fleury-michon,volaille_autre,5,6,3.0,2.0,,,,False
