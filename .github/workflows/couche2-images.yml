@@ -135,7 +135,12 @@ jobs:
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
           CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
         run: |
-          python3 src/couche2_lecture_image.py --executer \
+          # Si un codage humain existe, la machine lit EXACTEMENT les memes
+          # produits : sans cela, toute evolution du perimetre change le
+          # tirage et rend les deux jeux incomparables.
+          APPARIER=""
+          [ -f donnees_humaines/double_codage.csv ] && APPARIER="--apparier-codage"
+          python3 src/couche2_lecture_image.py --executer $APPARIER \
             --max "${{ inputs.max_produits }}" \
             --taille "${{ inputs.taille_image }}" \
             ${{ inputs.fournisseur && format('--fournisseur {0}', inputs.fournisseur) || '' }} \

@@ -43,7 +43,8 @@ import urllib.request
 import pandas as pd
 from openai import OpenAI
 
-from commun import PERIMETRE, SORTIES, charger, connexion, echec, titre
+from commun import (PERIMETRE, RACINE, SORTIES, charger, connexion, echec,
+                    titre)
 
 # L'export plat pointe des images en 400 px sur le grand cote. Un logo de
 # certificateur y occupe quelques dizaines de pixels. Le .full.jpg existe et
@@ -474,6 +475,25 @@ def ecrire_gabarit(df, taille="full"):
     return chemin
 
 
+CODAGE_HUMAIN = None  # renseigne par main() si --apparier-codage
+
+
+def codes_du_codage_humain():
+    """Codes deja codes a la main, s'il en existe.
+
+    Le tirage a graine figee n'est stable que si le CADRE l'est. Toute
+    evolution du perimetre change le tirage et casse l'appariement avec le
+    codage humain. Quand ce codage existe, il devient la reference : la
+    machine lit exactement les memes produits, quoi qu'il advienne du
+    perimetre.
+    """
+    import pandas as pd
+    f = RACINE / "donnees_humaines" / "double_codage.csv"
+    if not f.exists():
+        return None
+    return set(pd.read_csv(f, dtype={"code": str}).code.astype(str))
+
+
 def cibles(con, limite, par_marque):
     """Echantillon a lire, tire PAR MARQUE et par bras, pas par produit.
 
@@ -503,6 +523,16 @@ def cibles(con, limite, par_marque):
             ORDER BY code) <= {par_marque}
         ORDER BY marque_tag, bras, code
     """).df()
+    if CODAGE_HUMAIN:
+        avant = len(df)
+        df = df[df.code.astype(str).isin(CODAGE_HUMAIN)]
+        print(f"  appariement au codage humain : {len(df)} produits retenus "
+              f"sur {avant} ({len(CODAGE_HUMAIN)} codes codes a la main)")
+        manquants = CODAGE_HUMAIN - set(df.code.astype(str))
+        if manquants:
+            print(f"  [declaration] {len(manquants)} produits codes a la main "
+                  "ne sont plus dans le perimetre, donc non relus.")
+        return df
     if not limite:
         return df
     moitie = max(1, limite // 2)
@@ -585,6 +615,8 @@ def main() -> int:
                     help="essaie chaque forme de message, une seule fois")
     ap.add_argument("--gabarit-seul", action="store_true",
                     help="ecrit le gabarit de double codage humain, 0 appel")
+    ap.add_argument("--apparier-codage", action="store_true",
+                    help="lit exactement les produits deja codes a la main")
     ap.add_argument("--executer", action="store_true")
     ap.add_argument("--fournisseur", default=None,
                     help="force un fournisseur au lieu de l'ordre configure")
@@ -599,6 +631,12 @@ def main() -> int:
     ap.add_argument("--concurrence", type=int, default=6)
     args = ap.parse_args()
 
+    global CODAGE_HUMAIN
+    if args.apparier_codage:
+        CODAGE_HUMAIN = codes_du_codage_humain()
+        if not CODAGE_HUMAIN:
+            echec("--apparier-codage demande mais "
+                  "donnees_humaines/double_codage.csv est absent.")
     conf = charger("lecture_image.yaml")
     con = connexion()
     df = cibles(con, args.limite, args.par_marque)
