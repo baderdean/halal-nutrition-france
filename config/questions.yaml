@@ -1,0 +1,31 @@
+# Questions ajoutees apres la couche 1, chacune avec son statut.
+#
+# Aucune n'est causale : toutes se heurtent au meme confondant que la couche 1,
+# la marque et le degre de transformation. Elles sont DESCRIPTIVES tant que
+# l'appariement de la couche 3 n'a pas eu lieu.
+
+# Q1 — le label de production visible, pas l'origine des ingredients.
+# Un client voit ces mentions en rayon ; il ne voit ni origins_tags ni le code
+# d'emballage sanitaire.
+labels_production_france:
+  - en:made-in-france
+  - en:transformed-in-france
+  - en:cooked-in-france
+  - fr:origine-france
+  - fr:viande-francaise
+  - fr:poulet-francais
+  - fr:viande-de-veau-francais
+  - fr:lapin-francais
+  - en:origine-france-garantie
+  - fr:viande-de-france
+  - fr:volaille-francaise
+  - fr:porc-francais
+  - fr:boeuf-francais
+
+# Q2 — le kasher comme contrefactuel. Meme contrainte d'abattage rituel,
+# population de consommateurs differente : c'est un temoin bien plus proche
+# que le temoin generique.
+labels_kasher:
+  - en:kosher
+  - en:orthodox-union-kosher
+  - fr:glatt-kosher
