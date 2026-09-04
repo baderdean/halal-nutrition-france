@@ -1,13 +1,13 @@
 variable,groupe,n,ecart_median,ic95_bas,ic95_haut,marques
 Nutri-Score en score continu,avec electronarcose (declare),323,3.0,2.0,4.0,2
-Nutri-Score en score continu,sans certificateur,1252,2.0,2.0,3.0,0
-Nutri-Score en score continu,sans electronarcose (declare),308,3.0,2.0,5.5,3
-sel pour 100 g,avec electronarcose (declare),327,0.32,0.2,0.4,2
-sel pour 100 g,sans certificateur,1259,0.322,0.3,0.4,0
-sel pour 100 g,sans electronarcose (declare),310,0.45,0.3,0.591,3
+Nutri-Score en score continu,sans certificateur,1248,2.0,2.0,3.0,0
+Nutri-Score en score continu,sans electronarcose (declare),307,3.0,2.0,6.0,3
+sel pour 100 g,avec electronarcose (declare),327,0.32,0.2,0.395,2
+sel pour 100 g,sans certificateur,1255,0.322,0.3,0.4,0
+sel pour 100 g,sans electronarcose (declare),309,0.45,0.3,0.6,3
 AGS pour 100 g,avec electronarcose (declare),327,0.3,0.1,0.5,2
-AGS pour 100 g,sans certificateur,1259,0.2,0.05,0.3,0
-AGS pour 100 g,sans electronarcose (declare),309,0.0,-0.1,0.33,3
+AGS pour 100 g,sans certificateur,1255,0.2,0.05,0.3,0
+AGS pour 100 g,sans electronarcose (declare),308,0.0,-0.1,0.365,3
 proteines pour 100 g,avec electronarcose (declare),327,1.0,1.0,2.0,2
-proteines pour 100 g,sans certificateur,1259,2.0,1.5,2.0,0
-proteines pour 100 g,sans electronarcose (declare),310,3.15,2.6,3.85,3
+proteines pour 100 g,sans certificateur,1255,2.0,1.4,2.0,0
+proteines pour 100 g,sans electronarcose (declare),309,3.1,2.6,3.902,3

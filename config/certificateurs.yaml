@@ -65,6 +65,50 @@ certificateurs:
       - fr:extra-kalite
       - fr:controle-extra-kalite
       - en:halalcontrole-extra-kalite
+      - en:controle-extra-kalite
+
+  - nom: Muslim Council International
+    tags:
+      - en:muslim-council-international
+
+  - nom: Centre Islamique de Aachen
+    tags:
+      - fr:centre-islamique-aachen
+
+  - nom: World Islamic Foundation
+    tags:
+      - en:world-islamic-fundation
+
+  - nom: ID Halal
+    tags:
+      - fr:id-halal
+
+  - nom: Tracabilite 100 % Halal
+    tags:
+      - fr:tracabilite-100-halal
+      - en:tracabilite100halal
+
+# Nationalite de l'organisme. Critere EXPLICITE et verifiable sur le nom :
+# est dit francais un organisme dont le nom designe une institution francaise,
+# mosquee ou association identifiee en France. Ce n'est pas une affirmation
+# sur le siege social ni sur le lieu d'abattage, que ce depot ne connait pas.
+nationalite:
+  francais:
+    - Mosquee d'Evry-Courcouronnes
+    - ARGML — Grande Mosquee de Lyon
+    - AVS — A Votre Service
+    - SFCVH — Grande Mosquee de Paris
+    - Achahada
+    - ID Halal
+  etranger:
+    - Halal Food Council of Europe
+    - Halal Certification Germany
+    - Extra Kalite
+    - Muslim Council International
+    - Centre Islamique de Aachen
+    - World Islamic Foundation
+  non_classe:
+    - Tracabilite 100 % Halal
 
 # Corrections de saisie du codage humain, appliquees a l'ingestion.
 # SECVH est une coquille pour SFCVH.

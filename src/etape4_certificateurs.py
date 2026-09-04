@@ -82,6 +82,7 @@ def main() -> int:
     print("meme methode que les marques et les labels. Negatif = mieux.\n")
     d = con.execute(f"""
         SELECT sous_categorie, espece, labels_tags, tag_halal,
+               regexp_replace(brands_tags[1], '^[a-z]{{2}}:', '') AS marque,
                CASE WHEN salt_100g BETWEEN 0 AND 100 THEN salt_100g END AS sel,
                CASE WHEN saturated_fat_100g BETWEEN 0 AND 100
                     THEN saturated_fat_100g END AS ags,
@@ -140,8 +141,76 @@ def main() -> int:
               f"[{min(sens*ib[1],sens*ib[2]):+.2f} ; {max(sens*ib[1],sens*ib[2]):+.2f}]"
               f"   n={len(a)}/{len(b)}")
 
+    comparaison_nationalite(halal, rng)
     comparaison_electronarcose(halal, rng)
     return 0
+
+def comparaison_nationalite(halal, rng):
+    """Les certificateurs francais font-ils mieux que les etrangers ?
+
+    Critere de nationalite : le nom de l'organisme designe une institution
+    francaise. Ce n'est pas une affirmation sur le siege social ni sur le lieu
+    d'abattage, que ce depot ne connait pas.
+    """
+    nat = charger("certificateurs.yaml")["nationalite"]
+    grp = {c: "certificateur francais" for c in nat["francais"]}
+    grp.update({c: "certificateur etranger" for c in nat["etranger"]})
+    h = halal.copy()
+    h["nationalite"] = h.certificateur.map(grp)
+    h.loc[h.certificateur.isna(), "nationalite"] = "sans certificateur"
+
+    titre("Les certificateurs francais font-ils mieux que les etrangers ?")
+    compo = (h[h.nationalite.notna()]
+             .groupby("nationalite")
+             .agg(produits=("certificateur", "size"),
+                  organismes=("certificateur", "nunique")))
+    print(compo.to_string())
+    print()
+    lignes = []
+    for var, libelle, sens in VARIABLES:
+        for g, sous in h.groupby("nationalite"):
+            v = sous["ecart_" + var].dropna().to_numpy()
+            if len(v) < N_MIN:
+                print(f"  {libelle} / {g} : {len(v)} produits, sous le seuil "
+                      f"de {N_MIN}. Non calcule.")
+                continue
+            ic = ic_mediane(v, rng)
+            if ic is None:
+                continue
+            lignes.append({
+                "variable": libelle, "groupe": g, "n": len(v),
+                "ecart_median": round(sens * ic[0], 3),
+                "ic95_bas": round(min(sens * ic[1], sens * ic[2]), 3),
+                "ic95_haut": round(max(sens * ic[1], sens * ic[2]), 3),
+            })
+    if lignes:
+        r = pd.DataFrame(lignes)
+        print(r.to_string(index=False))
+        r.to_csv(SORTIES / "c_nationalite.csv", index=False)
+
+    # Un groupe si petit peut n'etre qu'une marque. Concentration, puis test
+    # de sensibilite en retirant la marque dominante : si l'ecart s'effondre,
+    # ce n'etait pas un effet de nationalite du certificateur.
+    print("\n  Concentration par marque du groupe etranger :")
+    etr = h[h.nationalite == "certificateur etranger"]
+    print((etr.marque.value_counts(normalize=True) * 100).round(1)
+          .head(5).to_string())
+    dominante = etr.marque.value_counts().idxmax()
+    print(f"\n  Sensibilite, Nutri-Score, en retirant « {dominante} » :")
+    for lab, sous in [("etranger, tout", etr),
+                      (f"etranger sans {dominante}",
+                       etr[etr.marque != dominante]),
+                      ("francais", h[h.nationalite == "certificateur francais"])]:
+        v = sous["ecart_nutriscore_score"].dropna().to_numpy()
+        ic = ic_mediane(v, rng) if len(v) >= 5 else None
+        if ic is None:
+            print(f"    {lab:<28} n={len(v)}, trop peu")
+            continue
+        alerte = "  SOUS LE SEUIL" if len(v) < N_MIN else ""
+        print(f"    {lab:<28} n={len(v):>4}  {ic[0]:+.1f} "
+              f"[{ic[1]:+.1f} ; {ic[2]:+.1f}]{alerte}")
+    return h
+
 
 def comparaison_electronarcose(halal, rng):
     """Compare les certificateurs selon un regroupement DECLARE, pas etabli.
