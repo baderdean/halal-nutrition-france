@@ -37,6 +37,7 @@ import os
 import re
 import sys
 import time
+import urllib.error
 import urllib.request
 
 from openai import OpenAI
@@ -115,8 +116,10 @@ def fournisseurs(conf, filtre=None, modele=None):
                 f["indisponible"] = (f"{f['env_compte']} absente de "
                                      "l'environnement")
             else:
-                f["base_url"] = f["base_url"].replace(
-                    "{" + f["env_compte"] + "}", compte)
+                jeton = "{" + f["env_compte"] + "}"
+                f["base_url"] = f["base_url"].replace(jeton, compte)
+                if f.get("url_licence"):
+                    f["url_licence"] = f["url_licence"].replace(jeton, compte)
         out.append(f)
     if not out:
         echec(f"aucun fournisseur {filtre!r} dans config/lecture_image.yaml.")
@@ -331,13 +334,26 @@ def accepter_licence(conf, args) -> int:
         print("  compte a respecter la licence communautaire du modele et sa")
         print("  politique d'usage acceptable, dont les URL figurent dans le")
         print("  message d'erreur du fournisseur.")
+        if not f.get("url_licence"):
+            print("  Aucune route d'acceptation declaree pour ce fournisseur.")
+            continue
+        url = f["url_licence"].replace("{modele}", f["modele"])
+        print(f"  POST {url}")
+        print(f"  corps : {f['corps_licence']}")
         try:
-            r = client_pour(f).chat.completions.create(
-                model=f["modele"], max_tokens=16,
-                messages=[{"role": "user", "content": "agree"}])
-            print(f"  Reponse : {r.choices[0].message.content!r}")
-            print("  Licence acceptee pour ce compte. Relancer le preflight.")
+            req = urllib.request.Request(
+                url, data=f["corps_licence"].encode(), method="POST")
+            req.add_header("Authorization", f"Bearer {f['cle']}")
+            req.add_header("Content-Type", "application/json")
+            with urllib.request.urlopen(req, timeout=60) as r:
+                print(f"  Reponse : HTTP {r.status} "
+                      f"{r.read(400).decode('utf-8', 'replace')}")
+            print("  Licence acceptee pour ce compte. Le preflight suit.")
             reussites += 1
+        except urllib.error.HTTPError as e:
+            corps = e.read(400).decode("utf-8", "replace")
+            print(f"  ECHEC : HTTP {e.code} {corps}"[:400])
+            continue
         except Exception as e:  # noqa: BLE001
             print(f"  ECHEC : {type(e).__name__}: {e}"[:400])
             print(f"  -> {diagnostiquer(str(e))}")

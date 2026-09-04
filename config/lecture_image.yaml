@@ -35,6 +35,12 @@ fournisseurs:
     # base64 : le runner telecharge lui-meme l'image, ce qui supprime la
     # dependance a la capacite du fournisseur d'aller la chercher.
     image: base64
+    # L'acceptation de licence des modeles Meta ne passe PAS par l'endpoint
+    # compatible OpenAI : elle exige l'API native Workers AI, avec un champ
+    # `prompt` et non `messages`. Verifie : le meme 'agree' envoye en
+    # /ai/v1/chat/completions est refuse par le meme 403.
+    url_licence: https://api.cloudflare.com/client/v4/accounts/{CF_ACCOUNT_ID}/ai/run/{modele}
+    corps_licence: '{"prompt": "agree"}' 
     # Tarification Workers AI en neurones, pas en tokens : le chiffrage en
     # dollars de ce depot ne s'y applique pas. Laisse a zero pour ne pas
     # afficher un cout faux.
