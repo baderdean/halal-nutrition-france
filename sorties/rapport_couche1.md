@@ -1,6 +1,6 @@
 # Etude halal / non halal — rapport de couche 1
 
-Genere le 2026-09-03 par `src/etape1_rapport.py`, revision `c47bff1`. Tous les chiffres sont derives des CSV de `sorties/`, aucun n'est saisi a la main.
+Genere le 2026-09-04 par `src/etape1_rapport.py`, revision `df32903`. Tous les chiffres sont derives des CSV de `sorties/`, aucun n'est saisi a la main.
 
 **Ce rapport ne conclut pas sur la qualite nutritionnelle des produits halal.** Il repond a une question de faisabilite : les donnees permettent-elles l'etude, et sur quelles variables. L'ecart chiffre presente en section 6 est brut, non ajuste, non apparie. Il n'est pas un resultat publiable en l'etat, et la section 7 dit pourquoi.
 
@@ -193,7 +193,24 @@ Le perimetre est bati sur les categories reellement observees dans le dump, pas 
 
 `[INFERENCE]` Cela donne une **borne basse** du taux de faux negatifs de 4.26 % chez les marques specialisees. Borne basse seulement : la methode ne voit pas les gammes halal des marques generalistes. Carrefour compte 2909 produits carnes dans le perimetre dont 61 tagues : impossible de savoir par cette voie combien de references halal de l'enseigne ne portent pas le tag.
 
-`[HYPOTHESE]` Le taux reel de faux negatifs dans le temoin est superieur a cette borne. Il se mesure sur photo d'emballage, sur echantillon aleatoire du temoin, avec intervalle. C'est le premier livrable de la couche 2, et il conditionne l'amplitude de tous les ecarts de ce rapport.
+`[FAIT]` **Mesure directe, couche 2.** Un echantillon aleatoire de 100 produits du temoin et 100 produits tagues halal a ete recode a la main, en aveugle, par un humain (`donnees_humaines/double_codage.csv`).
+
+| bras   | mesure                                 |   k |   n |   taux_pct |   ic95_bas_pct |   ic95_haut_pct |
+|:-------|:---------------------------------------|----:|----:|-----------:|---------------:|----------------:|
+| temoin | faux negatifs (temoin avec estampille) |   0 | 100 |          0 |            0   |             3.7 |
+| halal  | tagues halal SANS estampille trouvee   |  16 | 100 |         16 |           10.1 |            24.4 |
+
+`[FAIT]` **0 produit sur 100 du temoin porte une estampille halal**, soit 0.0 % (IC 95 % de Wilson [0.0 ; 3.7] %).
+
+`[FAIT]` Cette mesure CONTREDIT ce que ce rapport avancait dans ses versions precedentes. La borne basse de 4,26 % calculee plus haut porte sur les seules marques specialisees halal, une sous-population choisie pour maximiser le phenomene ; en faire un plancher du taux global etait une extrapolation abusive. Le taux sur un tirage aleatoire du temoin est compatible avec zero.
+
+`[INFERENCE]` Consequence directe : la contamination du temoin par des produits halal non tagues n'est PAS le facteur limitant de l'etude. Les ecarts de la section 6 ne sont pas d'amplitude inconnue de ce fait la. Les autres limites de la section 7 demeurent entieres, en particulier la confusion avec le degre de transformation.
+
+`[FAIT]` L'ecart joue dans l'autre sens : 16 produits sur 100 tagues `en:halal` ne montrent AUCUNE estampille reperable, soit 16.0 % (IC 95 % [10.1 ; 24.4] %). Le tag est donc plus large que ce qu'un consommateur verifierait en rayon.
+
+`[HYPOTHESE]` Ces 16 produits peuvent etre des erreurs de tag, des estampilles absentes de la face photographiee, ou des produits dont la certification n'est plus a jour. Non tranche.
+
+`[FAIT]` Limite de la mesure : le codeur a etabli le statut de 38 produits par recherche externe et non sur la photo, tous dans le bras halal. Si cet effort de recherche n'a pas ete symetrique entre les deux bras, le zero du temoin est sous-estime. La colonne `source_lecture` du fichier de codage permet de rejouer la mesure sur les seules lectures faites sur image.
 
 ---
 

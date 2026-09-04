@@ -38,7 +38,7 @@ ENTETE = PatternFill("solid", fgColor="1F3864")
 BORDURE = Border(*[Side(style="thin", color="BFBFBF")] * 4)
 
 ESTAMPILLE = ["oui", "non", "illisible"]
-LISIBILITE = ["nette", "floue", "trop_petite", "zone_absente"]
+LISIBILITE = ["nette", "partiel", "floue", "trop_petite", "zone_absente"]
 
 COLONNES = [
     ("n", "N°", 6, False),
@@ -81,12 +81,22 @@ CONSIGNES = [
     ("   non        la photo montre la zone utile, aucune mention halal", None),
     ("   illisible  quelque chose y ressemble mais ne se lit pas", None),
     ("", None),
-    ("Lisibilite   nette  |  floue  |  trop_petite  |  zone_absente", None),
-    ("   nette         le texte de l'emballage se lit sans effort", None),
+    ("Lisibilite   nette | partiel | floue | trop_petite | zone_absente", None),
+    ("   nette         l'estampille est entierement visible et se lit", None),
+    ("   partiel       l'estampille est la mais partiellement masquee ou "
+     "coupee", None),
     ("   floue         image trop degradee pour trancher", None),
     ("   trop_petite   la zone existe mais est trop petite pour etre lue", None),
     ("   zone_absente  la face photographiee ne montre pas ou figurerait "
      "l'estampille", None),
+    ("", None),
+    ("Une regle qui a manque au premier codage", "section"),
+    ("Si vous etablissez le statut d'un produit AUTREMENT que par la photo "
+     "(site du", None),
+    ("fabricant, recherche en ligne), codez lisibilite = zone_absente. C'est "
+     "ce qui", None),
+    ("permet de separer ensuite ce qui est lisible en rayon de ce qui ne "
+     "l'est pas.", None),
     ("", None),
     ("Exemple d'une ligne remplie", "section"),
 ]

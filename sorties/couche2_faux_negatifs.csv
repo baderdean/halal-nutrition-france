@@ -1,0 +1,3 @@
+bras,mesure,k,n,taux_pct,ic95_bas_pct,ic95_haut_pct
+temoin,faux negatifs (temoin avec estampille),0,100,0.0,0.0,3.7
+halal,tagues halal SANS estampille trouvee,16,100,16.0,10.1,24.4

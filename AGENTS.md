@@ -88,6 +88,22 @@ rapport. Ecart hors tolerance = arret, pas d'avertissement.
   CSV ne le signalerait. Le preflight verifie le compte de tokens d'entree,
   qui est la seule preuve que l'image a bien ete analysee.
 
+## Faits etablis par mesure, non renegociables sans nouvelle mesure
+
+- Taux de faux negatifs du tag `en:halal` dans le bras temoin : **0 / 100**,
+  IC 95 % de Wilson [0 ; 3,7] %, sur tirage aleatoire recode a la main en
+  aveugle (`donnees_humaines/double_codage.csv`, 2026-09-04). La borne basse
+  de 4,26 % issue des marques specialisees ne vaut PAS comme plancher global :
+  c'etait une extrapolation d'une sous-population choisie pour maximiser le
+  phenomene.
+- Taux de produits tagues `en:halal` sans estampille reperable : 16 / 100,
+  IC 95 % [10,1 ; 24,4] %.
+- Un codage humain qui etablit le statut hors de la photo doit porter
+  `lisibilite = zone_absente`. La colonne `source_lecture` (image / externe /
+  non_code) en decoule et separe ce qui est comparable a une lecture machine
+  de ce qui ne l'est pas. Melanger les deux dans un taux d'erreur machine
+  reviendrait a reprocher au modele d'ignorer ce qui n'est pas sur l'image.
+
 ## Distinction obligatoire dans toute sortie
 
 Fait mesure / inference / hypothese non testee. Un chiffre sans statut est un

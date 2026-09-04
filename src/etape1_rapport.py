@@ -45,6 +45,9 @@ def main() -> int:
     c1, c2 = lire("c1_comparaison_sel.csv"), lire("c2_nutriscore_par_strate.csv")
     c3 = lire("c3_transformation_par_strate.csv")
     img = lire("d8_couverture_image.csv")
+    fn = None
+    if (SORTIES / "couche2_faux_negatifs.csv").exists():
+        fn = pd.read_csv(SORTIES / "couche2_faux_negatifs.csv")
     img_halal = img[img.bras == "halal"].iloc[0].to_dict()
 
     v, ns, ce, se = k["volumetrie"], k["nutriscore"], k["certificateurs"], k["sel_ensemble"]
@@ -308,10 +311,56 @@ def main() -> int:
       "tagues : impossible de savoir par cette voie combien de references halal "
       "de l'enseigne ne portent pas le tag.")
     A("")
-    A("`[HYPOTHESE]` Le taux reel de faux negatifs dans le temoin est superieur "
-      "a cette borne. Il se mesure sur photo d'emballage, sur echantillon "
-      "aleatoire du temoin, avec intervalle. C'est le premier livrable de la "
-      "couche 2, et il conditionne l'amplitude de tous les ecarts de ce rapport.")
+    if fn is not None:
+        t = fn[fn.bras == "temoin"].iloc[0]
+        h = fn[fn.bras == "halal"].iloc[0]
+        A("`[FAIT]` **Mesure directe, couche 2.** Un echantillon aleatoire de "
+          f"{int(t.n)} produits du temoin et {int(h.n)} produits tagues halal "
+          "a ete recode a la main, en aveugle, par un humain "
+          "(`donnees_humaines/double_codage.csv`).")
+        A("")
+        A(md(fn[["bras", "mesure", "k", "n", "taux_pct", "ic95_bas_pct",
+                 "ic95_haut_pct"]]))
+        A("")
+        A(f"`[FAIT]` **{int(t.k)} produit sur {int(t.n)} du temoin porte une "
+          f"estampille halal**, soit {t.taux_pct} % "
+          f"(IC 95 % de Wilson [{t.ic95_bas_pct} ; {t.ic95_haut_pct}] %).")
+        A("")
+        A("`[FAIT]` Cette mesure CONTREDIT ce que ce rapport avancait dans ses "
+          "versions precedentes. La borne basse de 4,26 % calculee plus haut "
+          "porte sur les seules marques specialisees halal, une "
+          "sous-population choisie pour maximiser le phenomene ; en faire un "
+          "plancher du taux global etait une extrapolation abusive. Le taux "
+          "sur un tirage aleatoire du temoin est compatible avec zero.")
+        A("")
+        A("`[INFERENCE]` Consequence directe : la contamination du temoin par "
+          "des produits halal non tagues n'est PAS le facteur limitant de "
+          "l'etude. Les ecarts de la section 6 ne sont pas d'amplitude "
+          "inconnue de ce fait la. Les autres limites de la section 7 "
+          "demeurent entieres, en particulier la confusion avec le degre de "
+          "transformation.")
+        A("")
+        A(f"`[FAIT]` L'ecart joue dans l'autre sens : {int(h.k)} produits sur "
+          f"{int(h.n)} tagues `en:halal` ne montrent AUCUNE estampille "
+          f"reperable, soit {h.taux_pct} % "
+          f"(IC 95 % [{h.ic95_bas_pct} ; {h.ic95_haut_pct}] %). Le tag est "
+          "donc plus large que ce qu'un consommateur verifierait en rayon.")
+        A("")
+        A("`[HYPOTHESE]` Ces 16 produits peuvent etre des erreurs de tag, des "
+          "estampilles absentes de la face photographiee, ou des produits "
+          "dont la certification n'est plus a jour. Non tranche.")
+        A("")
+        A("`[FAIT]` Limite de la mesure : le codeur a etabli le statut de "
+          "38 produits par recherche externe et non sur la photo, tous dans "
+          "le bras halal. Si cet effort de recherche n'a pas ete symetrique "
+          "entre les deux bras, le zero du temoin est sous-estime. La colonne "
+          "`source_lecture` du fichier de codage permet de rejouer la mesure "
+          "sur les seules lectures faites sur image.")
+    else:
+        A("`[HYPOTHESE]` Le taux reel de faux negatifs dans le temoin n'est "
+          "pas mesure. Il se mesure sur photo d'emballage, sur echantillon "
+          "aleatoire du temoin, avec intervalle. C'est le premier livrable de "
+          "la couche 2.")
     A("")
     A("---")
     A("")
