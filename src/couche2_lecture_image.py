@@ -40,6 +40,7 @@ import time
 import urllib.error
 import urllib.request
 
+import pandas as pd
 from openai import OpenAI
 
 from commun import PERIMETRE, SORTIES, charger, connexion, echec, titre
@@ -335,7 +336,8 @@ def diagnostiquer(erreur: str) -> str:
 
 def sonder_formes(conf, df, args) -> int:
     """Essaie chaque forme de message et rapporte laquelle passe."""
-    ligne = next(df[df.bras == "halal"].itertuples())
+    halal = df[df.bras == "halal"]
+    ligne = next((halal if len(halal) else df).itertuples())
     url = ligne.image_url
     if args.taille != "400":
         url = url.replace(".400.jpg", TAILLES[args.taille])
@@ -432,12 +434,25 @@ def preflight(conf, df, args, verbeux=True):
 
 # ------------------------------------------------------------------- cibles
 
+GRAINE = 20260904
+
+
 def cibles(con, limite, par_marque):
     """Echantillon a lire, tire PAR MARQUE et par bras, pas par produit.
 
     Une marque partage un design d'emballage : lire dix references de la meme
     marque ne mesure pas dix fois la lecture, cela mesure une fois le design
     et neuf fois la meme erreur eventuelle.
+
+    Quand `limite` est posee, l'echantillon est TIRE AU SORT et equilibre
+    entre les deux bras, graine figee. Prendre les premieres lignes d'un
+    tableau trie par marque donnerait une tranche alphabetique : les 20
+    premieres marques de l'alphabet, toutes du temoin. Ce n'est pas un
+    echantillon, et un pilote biaise ainsi ne dirait rien du lot complet.
+
+    L'equilibre 50/50 n'est pas la proportion du perimetre : il sert les deux
+    questions du pilote a parts egales, lire un certificateur cote halal et
+    reperer une estampille cote temoin.
     """
     df = con.execute(f"""
         SELECT code, product_name, brands,
@@ -451,7 +466,22 @@ def cibles(con, limite, par_marque):
             ORDER BY code) <= {par_marque}
         ORDER BY marque_tag, bras, code
     """).df()
-    return df.head(limite) if limite else df
+    if not limite:
+        return df
+    moitie = max(1, limite // 2)
+    tirages = []
+    for bras in ("halal", "temoin"):
+        sous = df[df.bras == bras]
+        tirages.append(sous.sample(min(moitie, len(sous)),
+                                   random_state=GRAINE))
+    ech = pd.concat(tirages)
+    # Complement si un bras est trop petit pour fournir sa moitie.
+    if len(ech) < limite:
+        reste = df.drop(ech.index)
+        manque = min(limite - len(ech), len(reste))
+        if manque:
+            ech = pd.concat([ech, reste.sample(manque, random_state=GRAINE)])
+    return ech.sort_values(["bras", "marque_tag", "code"])
 
 
 def accepter_licence(conf, args) -> int:
@@ -573,7 +603,6 @@ def main() -> int:
             if i % 25 == 0:
                 print(f"    {i}/{len(futurs)}", flush=True)
 
-    import pandas as pd
     out = pd.DataFrame(resultats)
     SORTIES.mkdir(exist_ok=True)
     chemin = SORTIES / "couche2_lecture_image.csv"
