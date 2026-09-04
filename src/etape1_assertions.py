@@ -124,7 +124,12 @@ def main() -> int:
     # d'espece qui est cassee, pas la base.
     con.execute(f"""
         COPY (SELECT code, product_name, brands, sous_categorie
-              FROM '{PERIMETRE}' WHERE tag_halal AND espece = 'porc')
+              FROM '{PERIMETRE}' WHERE tag_halal AND espece = 'porc'
+              -- ORDER BY obligatoire : la connexion tourne en
+              -- preserve_insertion_order=false, donc sans tri le fichier
+              -- change d'ordre a chaque execution sur les memes donnees.
+              -- Un livrable versionne doit etre stable octet pour octet.
+              ORDER BY code)
         TO '{SORTIES / "a7_halal_classes_porc.csv"}' (HEADER, DELIMITER ',')
     """)
     if pct_ph > 2.0:

@@ -32,11 +32,20 @@ def main() -> int:
     cible = DONNEES / src["fichier_local"]
 
     titre("ETAPE 0 — source")
+    # Sans version_id, l'URL rend le dump du jour : le bucket est versionne
+    # et l'objet ecrase quotidiennement. Le sha256 detecte la substitution,
+    # version_id l'evite.
+    url = src["url"]
+    if src.get("version_id"):
+        url += f"?versionId={src['version_id']}"
+    else:
+        print("  [ATTENTION] config/source.yaml sans version_id : le dump "
+              "telecharge sera\n  celui du jour, pas celui de l'etude.")
     if not cible.exists():
-        print(f"  telechargement de {src['url']}")
+        print(f"  telechargement de {url}")
         r = subprocess.run(
             ["curl", "-sSL", "--fail", "--retry", "4", "--retry-delay", "2",
-             "-o", str(cible), src["url"]]
+             "-o", str(cible), url]
         )
         if r.returncode != 0:
             echec(f"telechargement echoue (curl {r.returncode}).")

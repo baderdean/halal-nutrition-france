@@ -1,0 +1,16 @@
+produit,bras,n,mediane,regle_30,ecart_vs_temoin,ic95_bas,ic95_haut,testable
+cordon_bleu,halal,82,12.0,franchie,-1.0,-1.0,-1.0,True
+cordon_bleu,kasher,1,13.0,sous 30,,,,
+cordon_bleu,temoin,534,13.0,franchie,,,,
+jambon_cuit,halal,253,18.0,franchie,-3.0,-4.0,-2.2,True
+jambon_cuit,kasher,36,17.0,franchie,-4.0,-5.0,-3.0,True
+jambon_cuit,temoin,7087,21.0,franchie,,,,
+jambon_sec,halal,3,32.2,sous 30,,,,
+jambon_sec,kasher,1,29.0,sous 30,,,,
+jambon_sec,temoin,2660,28.4,franchie,,,,
+nugget,halal,85,13.0,franchie,0.0,-0.8,0.6,True
+nugget,kasher,2,13.5,sous 30,,,,
+nugget,temoin,414,13.0,franchie,,,,
+saucisson_sec,halal,187,19.6,franchie,-6.4,-7.2,-4.6,True
+saucisson_sec,kasher,13,28.0,sous 30,2.0,-8.0,2.4,False
+saucisson_sec,temoin,5186,26.0,franchie,,,,
