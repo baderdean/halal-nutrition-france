@@ -1,0 +1,16 @@
+marque,n,ecart_median,ic95_bas,ic95_haut,regle_30,strates_couvertes
+al-jadid,19,-0.3,-1.2,0.4,sous 30,11
+fleury-michon,71,-0.2,-0.2,-0.199,franchie,12
+isla-mondial,73,-0.1,-0.2,0.0,franchie,22
+halal,19,0.2,-0.4,1.55,sous 30,10
+isla-delice,182,0.2,-0.1,0.6,franchie,32
+id-halal,35,0.3,-0.5,0.4,franchie,14
+reghalal,97,0.3,-0.2,0.4,franchie,23
+aia,20,0.35,0.05,1.6,sous 30,7
+carrefour,39,0.4,-0.4,0.8,franchie,20
+royal-halal,29,0.45,-0.25,0.7,sous 30,8
+wassila,21,0.5,-0.1,2.8,sous 30,12
+oriental-viandes,80,0.665,0.225,1.25,franchie,31
+arabi,43,1.5,1.1,1.9,franchie,13
+volibon,15,1.7,0.9,2.6,sous 30,4
+suntat,22,2.975,2.25,4.2,sous 30,10

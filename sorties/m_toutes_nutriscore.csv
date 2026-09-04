@@ -1,0 +1,399 @@
+marque,n,ecart_median,ic95_bas,ic95_haut,regle_30,strates_couvertes,gamme_halal
+dam,17,-17.0,-19.0,-12.5,sous 30,3,non
+evasion-festive,50,-15.0,-15.0,-13.0,franchie,3,non
+petit-navire,15,-15.0,-15.0,-13.0,sous 30,1,non
+saveurs-forestieres,29,-14.0,-16.0,-6.0,sous 30,4,non
+la-table-du-fermier,19,-13.0,-13.0,-13.0,sous 30,5,non
+les-mouettes-d-arvor,15,-13.0,-14.025,-5.0,sous 30,1,non
+randy,18,-11.5,-13.0,15.0,sous 30,5,non
+nature-de-france,126,-10.0,-10.0,-3.0,franchie,13,non
+l-etal-du-boucher,535,-10.0,-12.0,-7.0,franchie,19,non
+boucherie-st-clement,62,-7.0,-13.0,-2.0,franchie,8,non
+groix-nature,24,-7.0,-13.0,-5.5,sous 30,1,non
+saint-agaune,56,-6.0,-6.0,-6.0,franchie,4,non
+les-delices-de-lyon,24,-4.0,-5.0,-3.0,sous 30,10,non
+duc,27,-4.0,-4.0,-2.0,sous 30,7,oui
+la-nouvelle-agriculture,1039,-4.0,-4.0,-4.0,franchie,19,non
+l-atelier-du-poissonnier,15,-4.0,-5.0,-2.0,sous 30,1,non
+les-fermiers-de-loue,55,-3.0,-4.0,0.0,franchie,5,non
+tripes-paillard,19,-3.0,-4.0,-3.0,sous 30,3,non
+pedrazzoli,19,-3.0,-11.0,11.0,sous 30,7,non
+soelia,15,-3.0,-4.0,-1.0,sous 30,3,non
+loue,213,-3.0,-4.0,-3.0,franchie,9,non
+golfera,25,-3.0,-8.0,1.0,sous 30,11,non
+les-legendaires,17,-3.0,-5.0,1.0,sous 30,7,non
+le-gaulois-ocb-oui-c-est-bon,17,-3.0,-4.0,2.0,sous 30,2,non
+cochonnailles-du-haut-bois,28,-3.0,-5.0,-1.0,sous 30,8,non
+panzani,110,-2.5,-10.0,-1.0,franchie,9,non
+les-occitanes,26,-2.0,-3.0,0.0,sous 30,9,non
+fleury-michon,1015,-2.0,-2.0,-2.0,franchie,27,oui
+seazon,131,-2.0,-2.0,-2.0,franchie,10,non
+domaine-picard,167,-2.0,-2.0,-2.0,franchie,7,non
+dietbon,29,-2.0,-3.0,-1.0,sous 30,7,non
+volandrie,77,-2.0,-2.0,0.0,franchie,8,non
+lausse,27,-2.0,-2.0,0.0,sous 30,5,non
+raynal-et-roquelaure,65,-2.0,-3.0,-1.0,franchie,13,non
+saint-alby,498,-2.0,-2.0,-1.0,franchie,21,non
+kitchen-diet,26,-2.0,-4.0,-1.0,sous 30,7,non
+comtesse-du-barry,116,-2.0,-2.0,-1.0,franchie,21,non
+comme-j-aime,94,-2.0,-2.0,-1.0,franchie,7,non
+charles-keller,15,-2.0,-2.0,3.0,sous 30,4,non
+andre-krief,31,-2.0,-4.0,3.0,franchie,16,non
+maison-monfort,18,-2.0,-4.0,5.5,sous 30,3,non
+label-rouge,17,-2.0,-4.0,1.0,sous 30,9,non
+conserverie-des-saveurs,15,-2.0,-6.0,-1.0,sous 30,2,non
+sainsbury-s,16,-2.0,-5.0,0.0,sous 30,10,non
+tradilege,50,-2.0,-2.0,0.0,franchie,14,non
+campofrio,25,-2.0,-3.0,10.0,sous 30,8,non
+vallegrain,23,-2.0,-3.0,1.0,sous 30,9,non
+conserverie-st-christophe,31,-2.0,-3.0,-1.0,franchie,11,non
+volandry,30,-2.0,-2.0,2.0,franchie,4,non
+maitre-cochon,20,-2.0,-2.0,-1.0,sous 30,8,non
+m-s,32,-2.0,-3.0,0.0,franchie,11,non
+martini,15,-2.0,-5.0,2.0,sous 30,3,non
+herta,449,-2.0,-2.0,-2.0,franchie,13,oui
+nestle,98,-2.0,-6.0,0.0,franchie,18,non
+la-table-d-antan,24,-1.5,-2.0,0.0,sous 30,8,non
+audary,26,-1.5,-2.5,1.0,sous 30,11,non
+douce-france,43,-1.0,-2.0,0.0,franchie,10,non
+moritz,66,-1.0,-1.0,-1.0,franchie,4,non
+monique-ranou,298,-1.0,-1.0,0.0,franchie,30,non
+micouleau,30,-1.0,-2.0,0.0,franchie,11,non
+mercadier,37,-1.0,-2.0,1.0,franchie,14,non
+maitre-jacques,170,-1.0,-2.0,-1.0,franchie,11,non
+marks-and-spencer,15,-1.0,-2.0,0.0,sous 30,8,non
+marks-spencer,126,-1.0,-2.0,0.0,franchie,23,oui
+clermont,56,-1.0,-2.0,0.012,franchie,11,non
+paul-louise,54,-1.0,-1.0,0.0,franchie,12,non
+parmacotto,28,-1.0,-3.0,14.0,sous 30,6,non
+nobles,18,-1.0,-7.0,1.0,sous 30,8,non
+naturalia,23,-1.0,-4.0,2.0,sous 30,10,non
+henaff,191,-1.0,-2.0,-1.0,franchie,24,non
+esprit-gourmet,21,-1.0,-3.0,1.0,sous 30,7,non
+duc-de-pressac,16,-1.0,-1.0,0.0,sous 30,5,non
+lucien-georgelin,35,-1.0,-2.0,0.0,franchie,9,non
+les-mousquetaires,21,-1.0,-3.0,1.0,sous 30,13,non
+le-porc-de-nos-villages,21,-1.0,-1.0,2.0,sous 30,3,non
+le-picoreur,16,-1.0,-6.0,0.0,sous 30,13,non
+les-trois-chefs,20,-1.0,-2.0,1.5,sous 30,9,non
+mere-lalie,47,-1.0,-1.0,0.0,franchie,10,non
+zwan,16,-1.0,-2.5,0.5,sous 30,7,oui
+william-saurin,139,-1.0,-1.0,-1.0,franchie,16,non
+d-aucy,36,-1.0,-2.0,0.0,franchie,7,non
+super-u,15,-1.0,-4.0,0.0,sous 30,7,non
+tendre-plus,505,-1.0,-2.0,-1.0,franchie,16,non
+cooperl,37,-1.0,-4.0,1.0,franchie,12,oui
+sol-mar,17,-1.0,-3.0,3.0,sous 30,8,non
+weight-watchers,37,-1.0,-2.0,-1.0,franchie,10,non
+madrange,336,-1.0,-2.0,-1.0,franchie,24,non
+kermene,59,-1.0,-2.0,0.0,franchie,14,non
+castaing,16,-1.0,-2.0,2.0,sous 30,7,non
+jean-larnaudie,82,-1.0,-1.5,0.0,franchie,13,non
+rostain,58,-1.0,-5.0,-1.0,franchie,13,non
+rovagnati,65,-1.0,-2.0,0.0,franchie,8,non
+raynal-roquelaure,16,-1.0,-3.0,0.5,sous 30,8,non
+picard,503,-1.0,-1.0,0.0,franchie,34,non
+pierre-champion,33,-1.0,-1.0,1.0,franchie,12,non
+larnaudie,68,-1.0,-2.5,1.0,franchie,11,non
+u,1832,-1.0,-1.0,0.0,franchie,48,non
+charal,906,-1.0,-1.0,-1.0,franchie,13,oui
+charcuterie-ruel,49,-1.0,-7.0,-1.0,franchie,8,non
+claude-vetillard,22,-1.0,-1.5,0.0,sous 30,6,non
+la-cuisine-d-oceane,55,-1.0,-1.0,0.0,franchie,9,non
+zapetti,78,-1.0,-1.0,-1.0,franchie,5,non
+carrefour-bio,68,-1.0,-2.0,0.5,franchie,21,non
+beretta,33,-1.0,-1.0,1.0,franchie,9,non
+bonjour-campagne,63,-1.0,-2.0,1.0,franchie,17,non
+bioporc,81,-1.0,-1.0,1.0,franchie,13,non
+biocoop,115,-1.0,-2.0,0.0,franchie,20,non
+bio-village,84,-1.0,-2.0,-1.0,franchie,24,non
+broceliande,82,-1.0,-3.0,0.0,franchie,11,non
+brient,46,-1.0,-2.0,0.012,franchie,11,non
+bonval,41,-1.0,-4.0,2.0,franchie,9,non
+bigard,225,-1.0,-2.0,0.0,franchie,20,non
+pedelhez,16,-0.5,-3.5,8.0,sous 30,6,non
+tradival,47,0.0,-3.0,1.0,franchie,10,non
+valette,71,0.0,-1.0,1.0,franchie,13,non
+thiriet,393,0.0,0.0,0.0,franchie,33,non
+volae,245,0.0,0.0,3.0,franchie,9,non
+bordeau-chesnel,64,0.0,-0.5,0.0,franchie,8,non
+boucheries-andre,21,0.0,-1.0,2.0,sous 30,10,non
+bonneterre,42,0.0,-1.0,2.0,franchie,10,non
+toupargel,127,0.0,0.0,1.0,franchie,26,oui
+casa-modena,29,0.0,-4.0,2.0,sous 30,7,non
+casino,630,0.0,0.0,0.0,franchie,40,oui
+cesar-moroni,30,0.0,-1.5,0.0,franchie,6,non
+cmi-carrefour-marchandises-internationales,30,0.0,-2.5,0.5,franchie,15,non
+citterio,97,0.0,-1.0,4.0,franchie,10,non
+claude-leger,34,0.0,-1.0,0.0,franchie,9,non
+comte-de-la-seynie,26,0.0,-1.0,1.0,sous 30,11,non
+belle-france,248,0.0,0.0,1.0,franchie,34,non
+volaille-francaise,19,0.0,-2.0,2.0,sous 30,6,oui
+aldi,191,0.0,0.0,1.0,franchie,34,oui
+la-vie-claire,60,0.0,-1.0,2.0,franchie,24,non
+rochambeau,80,0.0,-1.0,1.0,franchie,22,non
+larroque,15,0.0,-2.0,1.0,sous 30,8,non
+nous-anti-gaspi,15,0.0,-2.0,2.0,sous 30,9,oui
+pere-dodu,313,0.0,0.0,0.0,franchie,14,non
+intermarche,165,0.0,0.0,1.0,franchie,31,non
+jean-roze,233,0.0,-1.0,0.0,franchie,16,non
+royal-halal,29,0.0,-1.0,1.0,sous 30,8,oui
+royal-bernard,98,0.0,-1.0,0.5,franchie,12,oui
+kerets,29,0.0,-1.0,1.0,sous 30,10,non
+l-etal-du-volailler,664,0.0,-0.5,0.0,franchie,13,non
+la-belle-chaurienne,117,0.0,-1.0,1.0,franchie,18,non
+carrefour,1349,0.0,0.0,0.0,franchie,50,oui
+knorr,19,0.0,-3.0,1.0,sous 30,11,non
+pays-gourmand,33,0.0,-2.0,1.0,franchie,16,non
+revilla,17,0.0,-3.0,12.0,sous 30,3,non
+relais-gourmand,23,0.0,-2.0,1.0,sous 30,12,non
+le-vieux-chene,47,0.0,-2.0,1.0,franchie,13,non
+le-volvestre,22,0.0,-1.0,2.0,sous 30,8,non
+le-manoir-alexandre,31,0.0,-1.0,2.0,franchie,11,non
+le-gaulois,2727,0.0,0.0,1.0,franchie,23,non
+le-choix-du-charcutier,26,0.0,-1.0,1.0,sous 30,7,non
+le-pere-jean,21,0.0,-3.0,3.0,sous 30,9,non
+le-petit-cuisinier,24,0.0,-2.0,3.0,sous 30,8,non
+mix-buffet,52,0.0,-1.0,1.0,franchie,7,non
+le-marsigny,46,0.0,-2.0,1.0,franchie,14,non
+e-leclerc,37,0.0,-2.0,1.0,franchie,16,non
+lidl,420,0.0,0.0,0.0,franchie,39,oui
+les-bories,65,0.0,-1.0,1.0,franchie,16,non
+lionor,18,0.0,-1.5,2.5,sous 30,5,oui
+findus,37,0.0,-1.0,0.0,franchie,11,non
+fiorini,28,0.0,-1.0,1.5,sous 30,4,non
+franprix,142,0.0,0.0,1.0,franchie,24,non
+fumagalli,15,0.0,-3.0,11.0,sous 30,6,non
+dulano,130,0.0,-0.5,1.5,franchie,18,non
+les-saveurs-de-bourdette,27,0.0,-1.0,2.0,sous 30,10,non
+elpozo,69,0.0,-3.0,1.0,franchie,11,non
+groupe-casino,15,0.0,-2.0,0.0,sous 30,10,non
+porc-de-l-aveyron,26,0.0,0.0,0.0,sous 30,2,non
+garbit,32,0.0,-1.0,0.0,franchie,4,non
+ferial,47,0.0,0.0,2.0,franchie,11,non
+iglo,20,0.0,-1.0,2.0,sous 30,7,oui
+pierre-martinet,19,0.0,-2.0,2.0,sous 30,4,non
+netto,246,0.0,0.0,1.0,franchie,32,oui
+nature-bio,17,0.0,-2.0,3.0,sous 30,9,non
+panache-des-landes,22,0.0,-1.0,0.5,sous 30,4,non
+madern,15,0.0,-3.0,3.0,sous 30,5,non
+marie,112,0.0,-1.0,0.0,franchie,10,non
+maitre-coq,1039,0.0,0.0,0.0,franchie,19,oui
+metro,30,0.0,-2.0,1.5,franchie,14,non
+maison-riviere,88,0.0,-1.0,0.0,franchie,18,non
+migros,42,0.0,-1.0,3.5,franchie,17,non
+auchan,1122,0.0,0.0,0.0,franchie,45,non
+marque-repere,754,0.0,0.0,0.0,franchie,44,oui
+monoprix,466,0.0,0.0,0.0,franchie,40,non
+le-pre-aux-canards,21,0.0,-2.0,2.0,sous 30,6,non
+le-porc-francais,88,0.0,-1.0,1.0,franchie,11,non
+les-eleveurs-de-la-charentonne,28,0.0,-0.5,3.0,sous 30,15,non
+terrines-du-morvan,52,0.0,-2.0,1.0,franchie,13,non
+denner,16,0.0,-9.0,3.0,sous 30,9,non
+deluxe,133,0.0,-1.0,1.0,franchie,22,non
+agerria,16,0.0,-4.0,2.0,sous 30,7,non
+socopa,224,0.0,0.0,1.0,franchie,17,oui
+secret-d-eleveurs,25,0.0,-2.0,2.0,sous 30,9,non
+alain-martin,22,0.0,-1.0,2.5,sous 30,11,non
+wiltmann,18,0.0,-1.5,1.5,sous 30,5,non
+tallec,253,0.0,0.0,0.0,franchie,13,non
+sudreau,24,0.0,-1.0,1.0,sous 30,6,non
+tendre-et-plus,39,0.0,0.0,2.0,franchie,11,non
+saveur-d-auge,51,0.0,-1.0,0.0,franchie,12,non
+daunat,27,0.0,-1.0,1.0,sous 30,5,non
+st-clement,18,0.0,-2.5,1.5,sous 30,10,non
+cora,448,0.0,0.0,1.0,franchie,43,non
+corril,61,0.0,-2.0,1.0,franchie,11,non
+delhaize,105,0.0,-1.0,2.0,franchie,25,non
+la-cuisine-des-saveurs,22,0.5,-1.5,2.0,sous 30,8,non
+feyel,28,0.5,0.0,6.0,sous 30,8,non
+leclerc,86,0.5,0.0,2.0,franchie,24,non
+baton-rouge,16,0.5,0.0,2.0,sous 30,9,non
+zentz,22,0.5,-1.0,3.0,sous 30,5,non
+fratelli-beretta,30,0.5,-1.5,13.5,franchie,7,non
+le-bois-jumel,21,1.0,0.0,2.0,sous 30,7,non
+lartigue,17,1.0,-2.0,3.0,sous 30,10,non
+itineraire-de-nos-regions,29,1.0,-2.0,3.0,sous 30,11,non
+isali,41,1.0,1.0,2.0,franchie,5,oui
+petit-prix,24,1.0,1.0,2.0,sous 30,8,non
+la-grange,17,1.0,-1.0,1.0,sous 30,7,non
+jean-caby,44,1.0,0.0,2.0,franchie,7,non
+jean-floc-h,78,1.0,0.0,1.0,franchie,14,non
+andre-loussouarn,32,1.0,0.0,1.0,franchie,9,non
+orocbat,35,1.0,0.0,3.0,franchie,10,non
+hiruak,122,1.0,-2.0,4.5,franchie,9,non
+grand-jury,88,1.0,0.0,1.0,franchie,25,non
+le-cesarin,28,1.0,0.0,2.0,sous 30,3,non
+les-braserades,53,1.0,0.0,4.0,franchie,9,non
+noel,31,1.0,-4.0,14.0,franchie,7,non
+bahier,125,1.0,0.0,2.0,franchie,13,non
+bofrost,24,1.0,-2.0,2.0,sous 30,10,non
+tulip,26,1.0,-1.0,10.0,sous 30,9,oui
+treo,23,1.0,0.0,15.0,sous 30,8,non
+tesco,32,1.0,-1.5,5.0,franchie,16,non
+top-budget,44,1.0,0.0,5.0,franchie,18,non
+chef-select,39,1.0,0.0,4.0,franchie,10,non
+coop,54,1.0,-0.5,2.0,franchie,18,non
+cochonou,71,1.0,1.0,2.0,franchie,6,non
+toque-du-chef,126,1.0,1.0,2.0,franchie,20,non
+roches-blanches,39,1.0,1.0,2.0,franchie,4,non
+casa-ramon,43,1.0,0.0,1.0,franchie,8,oui
+charcupac,35,1.0,0.0,5.0,franchie,7,non
+charculor,39,1.0,1.0,3.0,franchie,13,non
+henri-raffin,79,1.0,1.0,2.0,franchie,13,non
+stoeffler,77,1.0,1.0,2.0,franchie,11,non
+delifin,18,1.0,-2.0,5.0,sous 30,9,non
+maison-papillon,17,1.0,0.0,3.0,sous 30,5,non
+monoprix-gourmet,42,1.0,1.0,4.0,franchie,13,non
+arnaud,37,1.0,1.0,2.0,franchie,7,non
+mix,21,1.0,0.0,3.0,sous 30,4,non
+maison-montfort,84,1.0,0.0,5.0,franchie,5,non
+lechef,70,1.0,0.0,2.0,franchie,16,non
+leader-price,670,1.0,0.0,1.0,franchie,44,oui
+prix-mini,61,1.0,0.0,2.0,franchie,23,non
+qualite-traiteur,18,1.0,-2.0,3.0,sous 30,5,non
+hod-lavan,23,1.0,0.0,4.0,sous 30,9,non
+ducs-de-gascogne,78,1.0,0.0,1.0,franchie,14,non
+louis-auvergne,24,1.0,1.0,1.5,sous 30,3,non
+maison-prunier,68,1.0,0.5,2.0,franchie,14,non
+agis,71,1.0,0.0,2.0,franchie,12,non
+aia,88,1.0,0.5,3.012,franchie,15,oui
+yarden,36,1.0,0.0,3.012,franchie,15,non
+despi,141,1.0,0.0,2.0,franchie,15,non
+sans-marque,134,1.0,0.5,2.0,franchie,34,oui
+ajinomoto,17,1.0,0.0,2.0,sous 30,6,non
+saveur-passion,33,1.0,-2.025,2.0,franchie,10,non
+saveurs-de-nos-regions,148,1.0,1.0,1.0,franchie,12,non
+maison-occitane,24,1.5,0.0,3.0,sous 30,9,non
+mainjolle,38,1.5,0.0,4.0,franchie,5,non
+itineraire-des-saveurs,74,1.5,0.0,4.0,franchie,17,non
+winny,27,2.0,0.0,7.0,sous 30,14,non
+bredial,21,2.0,-1.0,3.0,sous 30,4,non
+tous-les-jours,29,2.0,-1.0,7.0,sous 30,17,non
+bell,61,2.0,1.0,5.0,franchie,12,non
+biraben,58,2.0,0.5,3.0,franchie,18,non
+tlj,25,2.0,0.0,4.0,sous 30,10,non
+michel-ogier,15,2.0,0.0,4.0,sous 30,3,non
+maison-tino,18,2.0,0.0,3.0,sous 30,6,non
+mossieur-polette,18,2.0,1.0,5.0,sous 30,7,non
+metro-chef,37,2.0,-1.0,3.0,franchie,17,non
+metzger-muller,31,2.0,2.0,3.0,franchie,11,non
+montagne-noire,81,2.0,2.0,10.0,franchie,6,non
+auvernou,17,2.0,2.0,3.0,sous 30,2,non
+baton-de-berger,17,2.0,2.0,2.0,sous 30,2,non
+au-fume-vosgien,54,2.0,1.0,3.0,franchie,7,non
+berni,66,2.0,1.0,2.5,franchie,13,oui
+lou-gascoun,26,2.0,0.0,3.0,sous 30,9,non
+les-garibotes,18,2.0,-1.0,2.0,sous 30,8,non
+le-revelois,31,2.0,-1.0,2.0,franchie,12,non
+le-batistou,40,2.0,2.0,2.0,franchie,4,non
+oberti,64,2.0,0.0,10.0,franchie,9,non
+patrimoine-gourmand,39,2.0,0.0,4.0,franchie,14,non
+la-jasse,38,2.0,0.0,12.0,franchie,5,non
+jean-brunet,94,2.0,2.0,2.512,franchie,13,non
+maison-larzul,36,2.0,-0.5,6.0,franchie,11,non
+maison-milhau,83,2.0,2.0,12.0,franchie,7,non
+maistres-occitans,41,2.0,0.0,3.0,franchie,8,non
+maison-torres,62,2.0,1.0,3.0,franchie,11,non
+pierre-schmidt,43,2.0,1.0,3.0,franchie,12,non
+salaisons-du-maconnais,21,2.0,2.0,2.0,sous 30,3,non
+keesbo,17,2.0,2.0,2.0,sous 30,5,non
+justin-bridou,59,2.0,2.0,2.0,franchie,7,non
+eco,92,2.0,1.0,3.0,franchie,25,non
+espuna,68,2.0,-1.0,12.0,franchie,11,non
+terre-de-l-alpe,19,2.0,1.0,6.0,sous 30,8,non
+porcidou,16,2.0,1.0,3.0,sous 30,4,non
+gourmets-de-l-artois,40,2.0,0.0,4.5,franchie,8,non
+galibier,55,2.0,1.0,2.0,franchie,5,non
+guyader,65,2.0,-1.0,4.0,franchie,11,non
+gueze,37,2.0,1.0,7.0,franchie,10,non
+saveurs-des-mauges,71,2.0,0.0,3.0,franchie,14,non
+clos-saint-sozy,43,2.0,0.0,3.0,franchie,9,non
+charcuterie-cosme,50,2.0,1.0,3.0,franchie,12,non
+dia,81,2.0,0.0,4.0,franchie,24,non
+stephan,87,2.0,1.0,3.0,franchie,15,non
+simpl,19,2.0,-1.0,8.0,sous 30,12,non
+saveur-des-mauges,23,2.0,0.0,5.0,sous 30,9,non
+sodebo,81,2.0,1.0,4.0,franchie,8,non
+fleurons-de-lomagne,49,2.0,0.0,3.0,franchie,10,non
+iller,40,2.0,1.5,3.0,franchie,7,non
+grand-frais,28,2.0,0.5,5.0,sous 30,13,non
+festein-d-alsace,23,2.0,-1.0,3.0,sous 30,7,non
+volailles-champenoises,64,2.5,0.0,10.0,franchie,8,non
+fe-p-c,18,2.5,0.0,4.5,sous 30,8,non
+pouce,32,2.5,0.0,5.5,franchie,13,non
+secrets-du-val-d-argent,26,2.5,1.0,3.0,sous 30,6,non
+lustucru,16,2.5,0.0,4.0,sous 30,5,non
+u-saveurs,70,2.5,0.0,3.0,franchie,6,non
+jean-louis-amiotte,15,3.0,2.0,5.0,sous 30,4,non
+l-assiette-d-antoine,53,3.0,1.0,6.0,franchie,14,non
+thierry-schweitzer,30,3.0,1.0,5.0,franchie,7,non
+nos-regions-ont-du-talent,51,3.0,1.0,4.0,franchie,14,non
+lafitte,20,3.0,2.0,8.0,sous 30,9,non
+bien-vu,23,3.0,1.0,10.0,sous 30,15,non
+charles-antona,18,3.0,1.0,6.0,sous 30,9,non
+stemmelen,35,3.0,3.0,4.0,franchie,6,non
+domaine-de-gammareix,16,3.0,1.0,4.0,sous 30,6,non
+hoa-nam,18,3.0,1.5,12.0,sous 30,8,non
+id-halal,35,3.0,0.0,10.0,franchie,14,oui
+doux,17,3.0,1.0,7.0,sous 30,6,oui
+royal-bourbon,17,3.0,1.0,3.0,sous 30,2,non
+reflets-de-france,24,3.0,2.0,5.5,sous 30,8,non
+isla-mondial,76,3.0,1.0,8.5,franchie,22,oui
+of-tov,39,3.0,0.0,5.0,franchie,10,non
+le-flutiau,17,3.0,1.0,13.0,sous 30,5,non
+piquebroche,17,3.0,-4.0,11.0,sous 30,6,non
+roger-vidal,17,3.0,1.0,4.0,sous 30,8,non
+transgourmet,18,3.5,-2.0,10.5,sous 30,11,non
+prunier,18,3.5,1.5,4.5,sous 30,8,non
+carrefour-original,15,4.0,2.0,13.0,sous 30,3,non
+escal,47,4.0,3.0,4.0,franchie,2,non
+le-fleuron-de-la-reunion,18,4.0,0.0,8.0,sous 30,6,non
+maison-monterrat,18,4.0,4.0,6.0,sous 30,3,non
+philippe-wagner,23,4.0,0.0,4.0,sous 30,6,non
+oriental-viandes,85,4.0,2.0,8.5,franchie,31,oui
+vitasia,15,4.0,3.0,5.0,sous 30,3,non
+michel-bolard,21,4.0,2.0,4.0,sous 30,4,non
+loeul-et-piriot,77,4.0,2.0,5.0,franchie,3,non
+francaise-de-gastronomie,46,4.0,3.0,5.0,franchie,3,non
+isla-delice,183,4.0,2.0,10.0,franchie,32,oui
+saveurs-bressanes,17,4.0,-2.0,7.0,sous 30,9,non
+wassila,21,5.0,0.0,11.0,sous 30,12,oui
+boni,39,5.0,1.0,10.0,franchie,11,non
+petitgas,65,5.0,5.0,5.0,franchie,9,non
+pierre-laguilhon,46,5.0,3.0,5.0,franchie,12,non
+negroni,79,5.0,0.0,14.0,franchie,8,non
+ronsard,42,5.0,3.0,14.0,franchie,9,non
+tempe,43,5.0,2.0,6.0,franchie,10,non
+claviere,28,5.0,4.0,5.0,sous 30,5,non
+cipressi-in-chianti,15,5.0,0.0,9.0,sous 30,9,non
+reghalal,112,5.5,3.0,10.0,franchie,24,oui
+suntat,21,6.0,2.0,8.0,sous 30,10,oui
+jack-link-s,39,6.0,3.0,6.0,franchie,4,oui
+tendriade,73,6.0,5.0,7.0,franchie,9,non
+roland-monterrat,17,6.0,4.0,7.0,sous 30,4,non
+halal,20,6.0,0.0,10.0,sous 30,10,oui
+realvalle,29,7.0,-1.0,11.0,sous 30,6,non
+merle,35,8.0,2.0,9.0,franchie,5,non
+delpeyrat,194,8.0,5.0,10.0,franchie,15,non
+hunkar,16,8.0,0.0,11.0,sous 30,7,oui
+marion,21,8.0,8.0,10.0,sous 30,4,non
+al-jadid,21,8.0,-2.0,13.0,sous 30,12,oui
+frais-devant,31,9.0,1.0,12.0,franchie,7,non
+labeyrie,99,9.0,5.0,12.0,franchie,17,non
+peguet-savoie,24,9.5,-2.0,14.0,sous 30,4,non
+villani,55,10.0,0.0,15.0,franchie,7,non
+aoste,227,10.0,6.0,12.0,franchie,14,non
+boadas,29,10.0,8.0,11.0,sous 30,6,non
+arabi,44,11.0,8.0,12.0,franchie,13,oui
+argal,36,12.0,2.0,13.0,franchie,6,non
+serrano,26,12.0,5.0,13.0,sous 30,6,non
+simon,21,12.0,2.0,15.0,sous 30,8,non
+michel-dupuy,29,12.0,12.0,12.0,sous 30,5,non
+corte-del-gusto,31,12.0,3.0,15.0,franchie,6,non
+montorsi,31,12.0,0.0,16.0,franchie,7,non
+navidul,19,12.0,2.0,13.0,sous 30,4,non
+le-saloir-du-perigord,15,13.0,12.0,13.0,sous 30,2,non
+rosa-dell-angelo,20,13.5,0.0,16.0,sous 30,6,non
+italiamo,54,14.0,13.0,14.0,franchie,13,non
+volibon,15,15.0,10.0,16.0,sous 30,4,oui
