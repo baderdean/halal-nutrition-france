@@ -29,6 +29,10 @@ COLONNES_TEXTE = [
     "ingredients_analysis_tags", "additives_tags", "states_tags",
     "nutrient_levels_tags", "pnns_groups_1", "pnns_groups_2",
     "main_category", "nutriscore_grade", "image_url",
+    # Origine et lieu de fabrication : necessaires a la question
+    # « les produits halal fabriques en France sont-ils differents ? ».
+    "origins", "origins_tags", "manufacturing_places",
+    "manufacturing_places_tags", "emb_codes", "emb_codes_tags",
     "image_ingredients_url", "image_nutrition_url", "no_nutrition_data",
 ]
 COLONNES_NUM = [
@@ -50,7 +54,8 @@ NUTRIMENTS = [
 TAGS = [
     "categories_tags", "labels_tags", "countries_tags", "ingredients_tags",
     "ingredients_analysis_tags", "additives_tags", "brands_tags",
-    "states_tags", "nutrient_levels_tags",
+    "states_tags", "nutrient_levels_tags", "origins_tags",
+    "manufacturing_places_tags", "emb_codes_tags",
 ]
 
 
