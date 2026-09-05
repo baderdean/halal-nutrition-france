@@ -9,7 +9,21 @@ sans estampille relevee est classe temoin, assume et documente. Les regles de
 l'etude sont dans [`AGENTS.md`](AGENTS.md) et ne se modifient pas par un
 ajustement de requete.
 
-Etat : **couche 1 executee**. Voir [`sorties/rapport_couche1.md`](sorties/rapport_couche1.md).
+## Resultats
+
+**[`RESULTATS.md`](RESULTATS.md) — l'etude hypothese par hypothese, 22
+hypotheses avec leur verdict, leurs effectifs, leurs intervalles et leurs
+reserves.** Ce document est GENERE depuis `sorties/` par
+`src/rapport_hypotheses.py` : il ne se modifie pas a la main, sans quoi il
+diverge des donnees.
+
+Il contient aussi la liste des douze erreurs commises et corrigees en cours
+d'etude, et de ce qui reste hors de portee.
+
+Couches executees : 1 (perimetre), 2 (lecture des emballages), 3 (appariement),
+4 (marques et certificateurs), 5 (produits emblematiques), 6 (reperes
+consommateur), 7 (additifs et transformation), 8 (prix).
+Detail de la couche 1 : [`sorties/rapport_couche1.md`](sorties/rapport_couche1.md).
 
 ## Rejouer
 

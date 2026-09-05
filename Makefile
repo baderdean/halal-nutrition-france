@@ -10,7 +10,7 @@ SRC      := src
 
 .PHONY: install couche1 source france perimetre assertions analyse rapport \
         couche3 couche4 couche5 couche6 couche7 couche8 marques \
-        certificateurs classement halal emblematiques reperes additifs prix \
+        certificateurs classement halal emblematiques reperes additifs prix resultats \
         amorce figer propre
 
 install:
@@ -83,6 +83,10 @@ couche8: prix
 
 prix:
 	$(PY) $(SRC)/etape8_prix.py
+
+# RESULTATS.md est GENERE : ne relit que sorties/, jamais le dump.
+resultats:
+	$(PY) $(SRC)/rapport_hypotheses.py
 
 # A n'utiliser que pour acter volontairement un changement de dump ou de
 # perimetre. Jamais pour faire passer un pipeline rouge.

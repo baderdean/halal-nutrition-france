@@ -76,6 +76,15 @@ def main() -> int:
     if "prices.openfoodfacts.org" not in src8:
         echecs.append("etape8_prix.py : hote Open Prices absent")
 
+    # RESULTATS.md est genere : s'il a ete edite a la main, la regeneration
+    # l'ecrasera en silence. On verifie au moins qu'il porte son avertissement.
+    res = RACINE / "RESULTATS.md"
+    if res.exists() and "src/rapport_hypotheses.py" not in res.read_text(
+            encoding="utf-8"):
+        echecs.append("RESULTATS.md ne cite plus son generateur : il a "
+                      "probablement ete edite a la main, et la prochaine "
+                      "generation l'ecrasera")
+
     # Chaque variable d'environnement attendue par la config doit etre injectee
     # par le workflow. Un secret renomme d'un cote et pas de l'autre ne se voit
     # autrement qu'au runtime, apres deux minutes de couche 1.
