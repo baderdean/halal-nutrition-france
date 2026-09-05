@@ -891,6 +891,58 @@ fabricants qui formulent ainsi, chacun de son cote.
 - A strate fixee le tableau est partage : le rapport global tient en partie a l'assortiment. Cela nuance le resultat sans l'inverser — nulle part on n'observe le resserrement qu'une norme produirait.
 - Des explications sans intention restent ouvertes et non testees ici : contrainte technique de la substitution d'espece, marche plus etroit, recettes anciennes non reformulees quand le marche general reduisait le sel.
 
+### H28 — Sur une gamme halal, la dimension nutritionnelle pese moins dans le cahier des charges de la MARQUE
+
+**Verdict : ETABLI sur le perimetre, appuye par une marque sur trois**
+
+*Methode.* L'effort nutritionnel d'un industriel laisse une trace volontaire sur le paquet : Nutri-Score affiche, sel reduit, sans additif. Une famille TEMOIN de revendications non nutritionnelles — sans gluten, sans huile de palme, sans OGM — sert de falsification : si le halal revendiquait moins de TOUT, on mesurerait un emballage moins documente et non une posture. Newcombe, puis bootstrap sur la difference des deux ecarts.
+
+Prevalence des allegations d'emballage, ecart halal - temoin en points :
+
+| famille | halal | temoin | ecart | IC 95 % |
+|:--|--:|--:|--:|:-:|
+| effort_nutritionnel | 9.97 % | 22.28 % | **-12.30** | [-13.59 ; -10.86] |
+| autres_revendications | 13.04 % | 15.64 % | **-2.60** | [-4.05 ; -1.01] |
+| **difference des deux** | | | **-9.70** | [-11.62 ; -7.86] |
+
+**Le test decisif : dans une meme marque.**
+
+| marque | famille | n halal | n temoin | halal | temoin | ecart | IC 95 % | |
+|:--|:--|--:|--:|--:|--:|--:|:-:|:--|
+| aia | effort_nutritionnel | 20 | 68 | 0.0 % | 2.9 % | -2.9 | [-10.1 ; +13.3] | non etabli |
+| carrefour | effort_nutritionnel | 39 | 1332 | 53.9 % | 38.6 % | +15.3 | [-0.2 ; +30.1] | non etabli |
+| fleury-michon | effort_nutritionnel | 71 | 960 | 50.7 % | 63.9 % | -13.2 | [-24.9 ; -1.4] | etabli |
+| aia | autres_revendications | 20 | 68 | 25.0 % | 60.3 % | -35.3 | [-52.8 ; -10.4] | etabli |
+| carrefour | autres_revendications | 39 | 1332 | 28.2 % | 30.1 % | -1.9 | [-13.8 ; +13.8] | non etabli |
+| fleury-michon | autres_revendications | 71 | 960 | 42.2 % | 38.1 % | +4.1 | [-7.1 ; +16.1] | non etabli |
+
+**Le recul nutritionnel excede le recul general de 9,7
+points** [-11,6 ; -7,9]. Ces gammes revendiquent, mais moins
+la nutrition.
+
+A gamme egale, le recul de l'effort nutritionnel est etabli
+dans 8 gammes sur 10, celui de la famille temoin dans 4. Sur
+les plats cuisines et les preparations marinees, la gamme
+halal revendique DAVANTAGE sur la famille temoin et MOINS sur
+la nutrition : c'est le motif le plus net.
+
+Fleury Michon est le cas d'ecole : **-13,1 points**
+[-24,9 ; -1,4] d'effort nutritionnel sur sa gamme halal,
+quand la famille temoin y est a +4,1, non etabli. C'est la
+marque dont H8 montre que le produit halal est nutritionnellement
+IDENTIQUE au non halal : meme recette, moins de
+communication nutritionnelle.
+
+Cette hypothese ne contredit pas H27, elle s'y accorde : une
+contrainte nutritionnelle plus lache produit PLUS de
+dispersion, ce que H27 observe.
+
+*Reserves.*
+- **Trois marques seulement** atteignent 20 produits des deux cotes, et elles divergent : Fleury Michon appuie l'hypothese, Carrefour va en sens inverse (+15,3, non etabli), Aia n'informe pas. Le test le plus propre est aussi le moins fourni.
+- Une mention absente n'est pas une nutrition negligee : elle peut signifier un produit non reformule, ou un produit reformule dont on n'a pas juge utile de le dire.
+- Les labels d'Open Food Facts sont saisis par des contributeurs. La famille temoin controle cette saisie, elle ne l'annule pas.
+- **Ce test mesure ce qui est imprime, pas ce qui est decide.** Aucun cahier des charges n'a ete lu. Parler de posture reste une interpretation, et l'ecrire comme une intention prouvee serait une faute.
+
 ---
 
 ## 8. Erreurs commises et corrigees en cours d'etude

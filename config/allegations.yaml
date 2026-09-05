@@ -1,0 +1,42 @@
+# Allegations d'emballage — couche 12.
+#
+# Mesurer l'EFFORT NUTRITIONNEL declare par un industriel sur une gamme. Un
+# fabricant qui travaille la dimension nutritionnelle le dit sur le paquet :
+# il affiche le Nutri-Score, revendique un sel reduit, une absence
+# d'additifs. Ces mentions sont volontaires et coutent une reformulation ou
+# au moins un engagement.
+#
+# LA FAMILLE TEMOIN EST LA CLE DU TEST. Si le bras halal portait MOINS de
+# mentions de toutes sortes, on mesurerait la richesse de l'emballage ou
+# l'attention des contributeurs Open Food Facts, pas une posture. La famille
+# `autres_revendications` regroupe des mentions qui ne relevent PAS de la
+# nutrition — sans gluten, sans huile de palme, sans OGM. Elles s'adressent
+# aux memes clients, sur les memes paquets, saisies par les memes
+# contributeurs.
+#
+#   effort nutritionnel EN BAISSE et autres revendications A NIVEAU EGAL
+#     -> la nutrition est traitee differemment sur ce segment.
+#   les deux familles en baisse
+#     -> l'emballage halal est moins documente, et le test ne conclut rien.
+
+familles:
+  - nom: effort_nutritionnel
+    libelle: "Effort nutritionnel revendique"
+    codes: [en:nutriscore, en:nutriscore-grade-a, en:nutriscore-grade-b,
+            en:nutriscore-grade-c, en:nutriscore-grade-d, en:nutriscore-grade-e,
+            en:nutri-score-a-b, en:low-or-no-salt, en:low-salt,
+            en:reduced-salt, en:25-less-salt, en:no-added-salt,
+            en:low-or-no-fat, en:low-fat, en:reduced-fat,
+            en:low-or-no-sugars, en:no-added-sugar,
+            en:source-of-proteins, en:high-proteins,
+            en:no-additives, en:no-preservatives, en:without-sodium-nitrite,
+            en:no-nitrite, en:no-colorings, en:no-artificial-flavors,
+            en:no-flavour-enhancer, en:no-artificial-colors]
+
+  - nom: autres_revendications
+    libelle: "Autres revendications d'emballage (famille temoin)"
+    # Ni nutritionnelles ni sanitaires au sens du Nutri-Score : elles mesurent
+    # la propension du fabricant a revendiquer quelque chose sur son paquet.
+    codes: [en:no-gluten, en:no-palm-oil, en:no-lactose, en:no-gmos,
+            en:no-antibiotics, en:organic, en:fr-bio-01, en:made-in-france,
+            en:no-preservatives-fr]

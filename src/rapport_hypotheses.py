@@ -1100,6 +1100,82 @@ def bloc_marche() -> list[str]:
          "contrainte technique de la substitution d'espece, marche plus etroit, "
          "recettes anciennes non reformulees quand le marche general reduisait "
          "le sel."])
+    y1 = lire("y1_allegations")
+    corps = []
+    if y1 is not None and len(y1):
+        per = y1[y1.niveau == "perimetre"]
+        dif = y1[y1.niveau == "difference_des_ecarts"]
+        corps = ["Prevalence des allegations d'emballage, ecart halal - temoin "
+                 "en points :", "",
+                 "| famille | halal | temoin | ecart | IC 95 % |",
+                 "|:--|--:|--:|--:|:-:|"]
+        for r in per.itertuples():
+            corps.append(f"| {r.famille} | {r.pct_halal:.2f} % | "
+                         f"{r.pct_temoin:.2f} % | **{r.ecart_points:+.2f}** | "
+                         f"[{r.ic95_bas:+.2f} ; {r.ic95_haut:+.2f}] |")
+        if len(dif):
+            r = dif.iloc[0]
+            corps.append(f"| **difference des deux** | | | "
+                         f"**{r.ecart_points:+.2f}** | "
+                         f"[{r.ic95_bas:+.2f} ; {r.ic95_haut:+.2f}] |")
+        mq = y1[(y1.niveau == "marque")]
+        if len(mq):
+            corps += ["", "**Le test decisif : dans une meme marque.**", "",
+                      "| marque | famille | n halal | n temoin | halal | "
+                      "temoin | ecart | IC 95 % | |",
+                      "|:--|:--|--:|--:|--:|--:|--:|:-:|:--|"]
+            for r in mq.itertuples():
+                corps.append(
+                    f"| {r.cle} | {r.famille} | {r.n_halal} | {r.n_temoin} | "
+                    f"{r.pct_halal:.1f} % | {r.pct_temoin:.1f} % | "
+                    f"{r.ecart_points:+.1f} | [{r.ic95_bas:+.1f} ; "
+                    f"{r.ic95_haut:+.1f}] | "
+                    f"{'etabli' if r.etabli else 'non etabli'} |")
+    l += hypothese(
+        "H28", "Sur une gamme halal, la dimension nutritionnelle pese moins "
+               "dans le cahier des charges de la MARQUE",
+        "L'effort nutritionnel d'un industriel laisse une trace volontaire sur "
+        "le paquet : Nutri-Score affiche, sel reduit, sans additif. Une "
+        "famille TEMOIN de revendications non nutritionnelles — sans gluten, "
+        "sans huile de palme, sans OGM — sert de falsification : si le halal "
+        "revendiquait moins de TOUT, on mesurerait un emballage moins "
+        "documente et non une posture. Newcombe, puis bootstrap sur la "
+        "difference des deux ecarts.",
+        "ETABLI sur le perimetre, appuye par une marque sur trois",
+        corps + ["",
+                 "**Le recul nutritionnel excede le recul general de 9,7",
+                 "points** [-11,6 ; -7,9]. Ces gammes revendiquent, mais moins",
+                 "la nutrition.",
+                 "",
+                 "A gamme egale, le recul de l'effort nutritionnel est etabli",
+                 "dans 8 gammes sur 10, celui de la famille temoin dans 4. Sur",
+                 "les plats cuisines et les preparations marinees, la gamme",
+                 "halal revendique DAVANTAGE sur la famille temoin et MOINS sur",
+                 "la nutrition : c'est le motif le plus net.",
+                 "",
+                 "Fleury Michon est le cas d'ecole : **-13,1 points**",
+                 "[-24,9 ; -1,4] d'effort nutritionnel sur sa gamme halal,",
+                 "quand la famille temoin y est a +4,1, non etabli. C'est la",
+                 "marque dont H8 montre que le produit halal est nutritionnellement",
+                 "IDENTIQUE au non halal : meme recette, moins de",
+                 "communication nutritionnelle.",
+                 "",
+                 "Cette hypothese ne contredit pas H27, elle s'y accorde : une",
+                 "contrainte nutritionnelle plus lache produit PLUS de",
+                 "dispersion, ce que H27 observe."],
+        ["**Trois marques seulement** atteignent 20 produits des deux cotes, et "
+         "elles divergent : Fleury Michon appuie l'hypothese, Carrefour va en "
+         "sens inverse (+15,3, non etabli), Aia n'informe pas. Le test le plus "
+         "propre est aussi le moins fourni.",
+         "Une mention absente n'est pas une nutrition negligee : elle peut "
+         "signifier un produit non reformule, ou un produit reformule dont on "
+         "n'a pas juge utile de le dire.",
+         "Les labels d'Open Food Facts sont saisis par des contributeurs. La "
+         "famille temoin controle cette saisie, elle ne l'annule pas.",
+         "**Ce test mesure ce qui est imprime, pas ce qui est decide.** Aucun "
+         "cahier des charges n'a ete lu. Parler de posture reste une "
+         "interpretation, et l'ecrire comme une intention prouvee serait une "
+         "faute."])
     l += ["---", ""]
     return l
 
