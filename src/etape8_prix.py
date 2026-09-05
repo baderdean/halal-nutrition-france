@@ -199,8 +199,13 @@ def collecte_fenetres(taille: int, max_pages_fenetre: int = 400) -> list[dict]:
 
 
 def collecte_api(max_pages: int, taille: int) -> list[dict]:
-    """Pagination par numero de page. Plafonnee a 500 pages par le service :
-    ne sert que de repli si le parcours par identifiant echoue."""
+    """Pagination par numero de page. Voie principale.
+
+    Le plafond du service porte sur le NUMERO de page (la page 501 est
+    refusee), pas sur le decalage : a 1000 releves par page, les 307 197 de
+    la base tiennent en 308 pages. C'est ce que la premiere collecte a rate
+    en demandant 100 releves par page, ce qui butait a 50 000.
+    """
     lignes, page = [], 1
     while page <= max_pages:
         url = f"{API}?size={taille}&page={page}"
@@ -367,16 +372,24 @@ def main() -> int:
     if a.collecte:
         sonder()
         titre("Collecte par l'API paginee")
-        titre("Collecte par fenetres de dates")
-        lignes = collecte_fenetres(a.taille_page)
-        # Repli : mieux vaut 50 000 releves declares incomplets que zero.
-        if len(lignes) < 50000:
-            titre("Repli sur la pagination par numero de page")
-            print("Le parcours par fenetres n'a pas abouti. La pagination")
-            print("classique est PLAFONNEE a 500 pages par le service : ce qui")
-            print("suit sera un echantillon, pas la base entiere, et le journal")
-            print("de collecte le declarera comme tel.")
-            secours = collecte_api(min(a.max_pages, 500), a.taille_page)
+        # Le plafond porte sur le NUMERO de page, pas sur le decalage : la
+        # page 501 est refusee quelle que soit la taille. A 1000 releves par
+        # page, les 307 197 de la base tiennent en 308 pages, sous le
+        # plafond. C'est la solution simple, et j'ai perdu deux runs a
+        # chercher plus complique — un parcours par identifiant, que le
+        # service ignore, puis des fenetres mensuelles dont la borne
+        # superieure n'est pas honoree, si bien qu'elles se recouvrent toutes.
+        titre("Collecte par pagination, 1000 releves par page")
+        lignes = collecte_api(min(a.max_pages, 500), a.taille_page)
+        # Repli : si la base depassait un jour 500 000 releves, la pagination
+        # ne suffirait plus et les fenetres mensuelles, elles, passent a
+        # l'echelle. Lentes mais sans plafond.
+        if lignes and len(lignes) < 300000:
+            titre("Repli sur les fenetres mensuelles")
+            print("La pagination n'a pas rendu la base entiere. Les fenetres")
+            print("sont lentes — leur borne superieure n'est pas honoree, donc")
+            print("elles se recouvrent — mais elles ne butent sur aucun plafond.")
+            secours = collecte_fenetres(a.taille_page)
             if len(secours) > len(lignes):
                 lignes = secours
         if not lignes:
@@ -399,6 +412,8 @@ def main() -> int:
             "releves_collectes": len(lignes),
             "releves_du_perimetre": len(gardees),
             "collecte_complete": bool(total and len(lignes) >= total),
+            "taille_page": a.taille_page,
+            "plafond_pages_du_service": 500,
         }, indent=2) + "\n", encoding="utf-8")
         print(f"  -> {JOURNAL}")
         return 0
