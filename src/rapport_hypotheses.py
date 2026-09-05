@@ -1231,6 +1231,7 @@ def bloc_marche() -> list[str]:
          "Un site partage n'est pas une ligne de production partagee : un meme "
          "agrement peut couvrir des ateliers distincts."])
     l += bloc_h30()
+    l += bloc_h31()
     l += ["---", ""]
     return l
 
@@ -1362,6 +1363,170 @@ def bloc_h30() -> list[str]:
          "de ce qui en sort."])
 
 
+def bloc_h31() -> list[str]:
+    """H31 — MDD, industriel generaliste, specialiste du halal."""
+    fam = lire("f1_familles_marques")
+    cov = lire("f0_couverture")
+    t = lire("f2_familles_halal")
+    dif = lire("f2b_differences")
+    vm = lire("f2c_une_voix_par_marque")
+    sc = lire("f3_sans_carrefour")
+    ti = lire("f5b_temoin_par_marque")
+    if t is None or dif is None or fam is None:
+        return ["### H31 — Sortie absente : f2_familles_halal", ""]
+
+    lib = {"mdd": "MDD", "industriel": "industriel generaliste",
+           "specialiste_halal": "specialiste du halal"}
+    c = ["Trois familles, dont **deux se deduisent des donnees** et une seule",
+         "est declaree. Une marque appartenant a une enseigne ne se lit pas",
+         "dans une table de composition : la liste des MDD est donc declaree",
+         "dans `config/familles_marques.yaml`, chaque entree portant sa preuve",
+         "(le nom de l'enseigne, ou le champ `brand_owner` du dump — c'est ce",
+         "dernier qui rattache Wassila a Casino). Les deux autres familles se",
+         "separent sur la part halal du catalogue, au seuil de 50 % qui tombe",
+         "dans le plus grand vide de la distribution (26,3 % puis 57,1 %).",
+         ""]
+    c += ["| famille | marques | produits halal au catalogue | exemples |",
+          "|:--|--:|--:|:--|"]
+    for f_ in ["mdd", "industriel", "specialiste_halal"]:
+        g = fam[fam.famille == f_].sort_values(["n_halal", "marque"],
+                                               ascending=[False, True])
+        ex = ", ".join(g.marque.head(4))
+        c.append(f"| {lib[f_]} | {len(g)} | {int(g.n_halal.sum())} | {ex} |")
+    if cov is not None and len(cov) == 2:
+        a, b = cov.iloc[0], cov.iloc[1]
+        c += ["",
+              "**Couverture mesuree avant de comparer.** Les trois familles",
+              f"couvrent {int(a.n)} produits halal ; {int(b.n)} restent dehors,",
+              "sans marque saisie ou appartenant a une marque de moins de cinq",
+              "references halal. Les deux moities ont le **meme ecart median**",
+              f"({a.ecart_median:+.1f} contre {b.ecart_median:+.1f}) et un sel",
+              f"proche ({a.sel_median:.2f} contre {b.sel_median:.2f} g). La",
+              "moitie identifiable n'est donc pas un sous-ensemble choisi."]
+    ns = t[t.mesure == "nutriscore"]
+    sel = t[t.mesure == "sel"]
+    c += ["",
+          "**Ecart a la mediane de marche de la strate**, sur les seuls",
+          "produits halal de chaque famille. Negatif = mieux que le marche sur",
+          "le meme type de produit.", "",
+          "| famille | marques | produits | ecart median | IC 95 % | sel | "
+          "IC 95 % |", "|:--|--:|--:|--:|:--:|--:|:--:|"]
+    for f_ in ["mdd", "industriel", "specialiste_halal"]:
+        a = ns[ns.famille == f_]
+        b = sel[sel.famille == f_]
+        if not len(a):
+            continue
+        a, b = a.iloc[0], b.iloc[0]
+        c.append(f"| {lib[f_]} | {int(a.marques)} | {int(a.n)} | "
+                 f"{a.mediane:+.1f} | [{a.ic95_bas:+.1f} ; {a.ic95_haut:+.1f}] "
+                 f"| {b.mediane:+.2f} | [{b.ic95_bas:+.2f} ; "
+                 f"{b.ic95_haut:+.2f}] |")
+    c += ["",
+          "Les IC sont calcules par **bootstrap de grappes sur les marques**,",
+          "jamais sur les produits : deux references d'une meme marque ne sont",
+          "pas deux observations independantes (ICC de 0,304 a strate fixee,",
+          "couche 10). Avec 3 marques pour les MDD et 6 pour les industriels,",
+          "ces intervalles sont larges. C'est la precision reelle de la",
+          "comparaison.", "",
+          "**Aucune des six differences n'est etablie :**", "",
+          "| mesure | comparaison | difference | IC 95 % | verdict |",
+          "|:--|:--|--:|:--:|:--|"]
+    for r in dif.itertuples():
+        u = "pts" if r.mesure == "nutriscore" else "g"
+        c.append(f"| {r.mesure} | {lib[r.famille_a]} − {lib[r.famille_b]} | "
+                 f"{r.difference:+.2f} {u} | [{r.ic95_bas:+.2f} ; "
+                 f"{r.ic95_haut:+.2f}] | "
+                 f"{'ETABLI' if r.etabli else 'non etabli'} |")
+    c += ["",
+          "Le point le plus proche du seuil est MDD − specialiste sur le",
+          "Nutri-Score : **−3,00 [−6,00 ; +0,00]**. La borne haute touche zero",
+          "exactement. Compter cette ligne comme etablie serait lire un",
+          "intervalle comme un point, l'erreur n° 10 de la section 8."]
+    if vm is not None and len(vm):
+        c += ["",
+              "**Une voix par marque**, pour ne pas laisser Isla Delice et ses",
+              "182 references parler pour trente-deux marques :", "",
+              "| famille | marques | mediane des medianes | Q1 | Q3 | sel |",
+              "|:--|--:|--:|--:|--:|--:|"]
+        for r in vm.itertuples():
+            c.append(f"| {lib[r.famille]} | {int(r.marques)} | "
+                     f"{r.mediane_des_medianes:+.1f} | {r.q1:+.2f} | "
+                     f"{r.q3:+.2f} | {r.sel_mediane_des_medianes:+.2f} |")
+        c += ["",
+              "L'ordre des trois familles ne change pas, et l'ecart",
+              "interquartile de chaque famille recouvre celui des deux autres.",
+              "Le desaccord entre marques d'une meme famille est plus grand que",
+              "l'ecart entre familles."]
+    if sc is not None and len(sc):
+        m = sc[sc.famille == "mdd"]
+        if len(m):
+            m = m.iloc[0]
+            c += ["",
+                  "**Sans Carrefour**, la famille MDD tombe a "
+                  f"{int(m.marques)} marques et {int(m.n)} produits, sous la",
+                  f"regle des 30, avec une mediane de {m.mediane:+.2f}. La",
+                  "ligne « MDD » de cette etude est donc pour l'essentiel une",
+                  "ligne « Carrefour », et doit se lire ainsi."]
+    if ti is not None and len(ti):
+        c += ["",
+              "**Chaque marque comparee a son propre temoin** — la seule",
+              "lecture qui ne compare pas des entreprises differentes. Un",
+              "specialiste du halal n'a pas de version non halal : la ligne",
+              "n'existe pas pour lui, et Wassila non plus, dont le catalogue",
+              "est halal a 100 % bien qu'elle appartienne a une enseigne.", "",
+              "| famille | marque | n halal | n temoin | halal | temoin | "
+              "difference | regle des 30 |",
+              "|:--|:--|--:|--:|--:|--:|--:|:--|"]
+        for r in ti.itertuples():
+            c.append(f"| {lib[r.famille]} | {r.marque} | {int(r.n_halal)} | "
+                     f"{int(r.n_temoin)} | {r.ecart_halal:+.1f} | "
+                     f"{r.ecart_temoin:+.1f} | {r.difference:+.1f} | "
+                     f"{r.regle_30} |")
+        gros = ti[ti.regle_30 == "franchie"]
+        if len(gros):
+            noms = ", ".join(f"{r.marque} {r.difference:+.1f}"
+                             for r in gros.itertuples())
+            c += ["",
+                  "Deux cellules seulement franchissent la regle des 30 des",
+                  f"deux cotes : {noms}. Les autres sont decrites avec leur",
+                  "effectif et ne doivent pas etre lues comme un classement."]
+    return hypothese(
+        "H31", "Dans le halal, MDD, industriels et specialistes ne font pas la "
+        "meme qualite",
+        "Comparaison des trois familles sur leurs SEULS produits halal, a "
+        "l'ecart de la mediane de marche de la strate (sous-categorie x "
+        "espece). IC 95 % par bootstrap de grappes sur les marques (4 000 "
+        "tirages, graine 20260904). Une marque doit avoir au moins 5 produits "
+        "halal pour entrer : sans gamme, il n'y a pas de politique de marque "
+        "a lire.",
+        "NON ETABLI — l'ordre est constant (specialistes derriere, "
+        "industriels devant) mais aucune difference ne survit au bootstrap "
+        "de grappes",
+        c,
+        ["**La famille MDD est Carrefour.** Trois marques, dont une, Wassila, "
+         "sans temoin non halal. Retirer Carrefour fait passer la famille sous "
+         "la regle des 30.",
+         "**La famille industriel n'est pas homogene.** Fleury Michon (71 "
+         "produits halal, ecart 0,0) et Jack Link's (6 produits, ecart +4,5 "
+         "sur un creneau de viande sechee) y sont ranges ensemble parce que le "
+         "halal est minoritaire chez les deux. C'est ce que mesure "
+         "l'ecart interquartile publie.",
+         "**Specialiste du halal n'est pas une categorie commerciale unique.** "
+         "Suntat, Baktat, Hunkar et Yayla sont des marques d'epicerie turque "
+         "dont le catalogue est majoritairement tague halal : la regle des "
+         "50 % les range avec Isla Delice. Un decoupage par repertoire "
+         "culinaire donnerait une autre partition.",
+         "La moitie du bras halal reste hors familles, faute de marque saisie "
+         "ou de gamme. Sa composition est semblable (verifiee ci-dessus), ce "
+         "qui autorise la comparaison sans la rendre exhaustive.",
+         "Une seule strate sur 28 compte deux familles au-dessus de 30 "
+         "produits : la comparaison gamme par gamme n'est presque jamais "
+         "testable, et le tableau f4 est descriptif.",
+         "Ces familles decrivent une POSITION SUR LE MARCHE, lisible en rayon. "
+         "Elles ne disent rien de la halalite d'un produit, de la conformite "
+         "d'une entreprise, ni de qui la dirige."])
+
+
 def bloc_erreurs() -> list[str]:
     return [
         "## 8. Erreurs commises et corrigees en cours d'etude",
@@ -1439,6 +1604,12 @@ def bloc_ouvert() -> list[str]:
         "etablissements agrees du ministere de l'Agriculture, refuse par la "
         "politique de sortie reseau ; a rapatrier par un runner GitHub comme "
         "les prix |",
+        "| MDD contre specialistes | Ordre constant, aucune difference "
+        "etablie | Plus de MDD avec une gamme halal : 3 marques ne portent pas "
+        "une famille |",
+        "| « Specialiste du halal » comme categorie | Melange epicerie turque "
+        "et marques maghrebines | Un decoupage par repertoire culinaire, teste "
+        "contre celui par part de catalogue |",
         "| Classement des sites sur leur seul halal | Non fonde | Une "
         "dispersion intra-site qui ne depasse plus celle du temoin, ou "
         "beaucoup plus de produits par site |",
@@ -1464,6 +1635,7 @@ def bloc_ouvert() -> list[str]:
         "make couche12    # allegations d'emballage",
         "make couche13    # site partage ou site halal seul",
         "make couche14    # sites francais decodes depuis l'estampille",
+        "make couche15    # MDD, industriels, specialistes du halal",
         "python3 src/rapport_hypotheses.py   # regenere ce document",
         "```",
         "",

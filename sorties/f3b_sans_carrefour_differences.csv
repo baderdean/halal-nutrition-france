@@ -1,0 +1,4 @@
+mesure,famille_a,famille_b,difference,ic95_bas,ic95_haut,etabli
+nutriscore_sans_carrefour,mdd,industriel,1.25,-7.0,4.0,False
+nutriscore_sans_carrefour,mdd,specialiste_halal,-2.75,-7.0,2.0,False
+nutriscore_sans_carrefour,industriel,specialiste_halal,-4.0,-6.0,2.0,False

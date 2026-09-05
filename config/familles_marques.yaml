@@ -1,0 +1,79 @@
+# Familles de marques — couche 15.
+#
+# QUESTION POSEE : dans le halal, une marque de distributeur, un industriel
+# generaliste et un specialiste du halal font-ils la meme qualite
+# nutritionnelle ? Trois familles, comparees sur leurs SEULS produits halal.
+#
+# CE QUE CE FICHIER CLASSE : la POSITION D'UNE MARQUE SUR LE MARCHE, telle
+# qu'un client la lit en rayon. Rien d'autre. Il ne classe ni des personnes,
+# ni des consommateurs, ni un pays, et il ne dit rien de la halalite ni de la
+# conformite d'aucun produit.
+#
+# DEUX FAMILLES SUR TROIS SONT DEDUITES DES DONNEES, PAS DECLAREES ICI.
+#
+#   specialiste_halal   au moins 50 % du catalogue carne tague halal.
+#   industriel          moins de 50 %, et pas une marque de distributeur.
+#
+# Le seuil de 50 % n'est pas choisi : il tombe dans le plus grand vide de la
+# distribution des parts (26,3 % puis 57,1 %, un saut de 30,8 points, trois
+# fois le suivant). Le script le reverifie a chaque execution et echoue si un
+# futur dump comble ce vide. Le deplacer n'importe ou entre 27 % et 57 % ne
+# changerait l'appartenance d'aucune marque.
+#
+# SEULE LA TROISIEME FAMILLE EST DECLAREE, PARCE QU'ELLE N'EST PAS OBSERVABLE
+# DANS LES DONNEES NUTRITIONNELLES. Qu'une marque appartienne a une enseigne
+# ne se lit pas dans une table de composition. Chaque entree porte donc sa
+# preuve, et le type de preuve :
+#
+#   nom_enseigne   le nom de la marque EST celui de l'enseigne qui la vend.
+#                  Verifiable par n'importe qui en rayon.
+#   brand_owner    le champ `brand_owner` du dump nomme l'enseigne. C'est un
+#                  fait de la base, pas une deduction.
+#
+# Une marque absente de cette liste et dont la part halal est sous le seuil
+# est classee `industriel`. Si l'une d'elles est en realite une marque de
+# distributeur, elle est mal classee : ajouter l'entree ici, avec sa preuve.
+# Ne jamais deviner une appartenance capitalistique depuis un nom.
+
+exclusions:
+  # `sans-marque` est l'ABSENCE de marque saisie, pas une marque. La ranger
+  # dans une famille inventerait un acteur.
+  - sans-marque
+
+mdd:
+  - marque: carrefour
+    enseigne: Carrefour
+    preuve: nom_enseigne
+  - marque: carrefour-sensation
+    enseigne: Carrefour
+    preuve: nom_enseigne
+  - marque: lidl
+    enseigne: Lidl
+    preuve: nom_enseigne
+  - marque: aldi
+    enseigne: Aldi
+    preuve: nom_enseigne
+  - marque: auchan
+    enseigne: Auchan
+    preuve: nom_enseigne
+  - marque: leclerc
+    enseigne: E.Leclerc
+    preuve: nom_enseigne
+  - marque: marque-repere
+    enseigne: E.Leclerc
+    preuve: nom_enseigne
+  - marque: casino
+    enseigne: Casino
+    preuve: nom_enseigne
+  - marque: netto
+    enseigne: Intermarche
+    preuve: nom_enseigne
+  - marque: dia
+    enseigne: Dia
+    preuve: nom_enseigne
+  - marque: leader-price
+    enseigne: Leader Price
+    preuve: nom_enseigne
+  - marque: wassila
+    enseigne: Casino
+    preuve: brand_owner

@@ -12,7 +12,8 @@ SRC      := src
         couche3 couche4 couche5 couche6 couche7 couche8 marques \
         certificateurs classement halal emblematiques reperes additifs prix paires \
         etablissements homogeneite allegations resultats couche9 couche10 \
-        couche11 couche12 couche13 site couche14 sites amorce figer propre
+        couche11 couche12 couche13 site couche14 sites couche15 familles \
+        amorce figer propre
 
 install:
 	pip install -r requirements.txt
@@ -114,6 +115,11 @@ couche14: sites
 
 sites:
 	$(PY) $(SRC)/etape14_sites_france.py
+
+couche15: familles
+
+familles:
+	$(PY) $(SRC)/etape15_familles_marques.py
 
 # RESULTATS.md est GENERE : ne relit que sorties/, jamais le dump.
 resultats:

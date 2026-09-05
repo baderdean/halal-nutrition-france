@@ -1,0 +1,3 @@
+famille,marques,n_halal,n_temoin,ecart_halal,ecart_temoin,difference,ic95_bas,ic95_haut,etabli
+mdd,3,67,1727,1.0,0.0,1.0,-2.0,4.0,False
+industriel,6,108,1303,0.0,-2.0,2.0,-1.0,7.0,False

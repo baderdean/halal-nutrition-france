@@ -1,0 +1,7 @@
+mesure,famille,marques,n,mediane,ic95_bas,ic95_haut,regle_30
+nutriscore,mdd,3,67,1.0,-2.0,4.0,franchie
+nutriscore,industriel,6,108,0.0,0.0,5.0,franchie
+nutriscore,specialiste_halal,32,776,4.0,2.0,6.0,franchie
+sel,mdd,3,67,0.22,-0.08,0.49,franchie
+sel,industriel,6,109,0.0,-0.09,0.42,franchie
+sel,specialiste_halal,32,780,0.41,0.27,0.58,franchie

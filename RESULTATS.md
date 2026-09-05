@@ -1084,6 +1084,116 @@ coherence sur des effectifs plus larges.
 - L'estampille n'est saisie que sur une fraction des produits, et rien ne dit que cette fraction soit representative.
 - **Aucune de ces lignes ne dit quoi que ce soit du caractere halal d'un produit, ni de la conformite d'un site a une norme sanitaire ou religieuse.** Elles decrivent la composition nutritionnelle declaree de ce qui en sort.
 
+### H31 — Dans le halal, MDD, industriels et specialistes ne font pas la meme qualite
+
+**Verdict : NON ETABLI — l'ordre est constant (specialistes derriere, industriels devant) mais aucune difference ne survit au bootstrap de grappes**
+
+*Methode.* Comparaison des trois familles sur leurs SEULS produits halal, a l'ecart de la mediane de marche de la strate (sous-categorie x espece). IC 95 % par bootstrap de grappes sur les marques (4 000 tirages, graine 20260904). Une marque doit avoir au moins 5 produits halal pour entrer : sans gamme, il n'y a pas de politique de marque a lire.
+
+Trois familles, dont **deux se deduisent des donnees** et une seule
+est declaree. Une marque appartenant a une enseigne ne se lit pas
+dans une table de composition : la liste des MDD est donc declaree
+dans `config/familles_marques.yaml`, chaque entree portant sa preuve
+(le nom de l'enseigne, ou le champ `brand_owner` du dump — c'est ce
+dernier qui rattache Wassila a Casino). Les deux autres familles se
+separent sur la part halal du catalogue, au seuil de 50 % qui tombe
+dans le plus grand vide de la distribution (26,3 % puis 57,1 %).
+
+| famille | marques | produits halal au catalogue | exemples |
+|:--|--:|--:|:--|
+| MDD | 3 | 91 | carrefour, wassila, lidl |
+| industriel generaliste | 6 | 119 | fleury-michon, aia, socopa, jack-link-s |
+| specialiste du halal | 32 | 886 | isla-delice, reghalal, oriental-viandes, isla-mondial |
+
+**Couverture mesuree avant de comparer.** Les trois familles
+couvrent 951 produits halal ; 967 restent dehors,
+sans marque saisie ou appartenant a une marque de moins de cinq
+references halal. Les deux moities ont le **meme ecart median**
+(+2.0 contre +2.0) et un sel
+proche (2.00 contre 1.70 g). La
+moitie identifiable n'est donc pas un sous-ensemble choisi.
+
+**Ecart a la mediane de marche de la strate**, sur les seuls
+produits halal de chaque famille. Negatif = mieux que le marche sur
+le meme type de produit.
+
+| famille | marques | produits | ecart median | IC 95 % | sel | IC 95 % |
+|:--|--:|--:|--:|:--:|--:|:--:|
+| MDD | 3 | 67 | +1.0 | [-2.0 ; +4.0] | +0.22 | [-0.08 ; +0.49] |
+| industriel generaliste | 6 | 108 | +0.0 | [+0.0 ; +5.0] | +0.00 | [-0.09 ; +0.42] |
+| specialiste du halal | 32 | 776 | +4.0 | [+2.0 ; +6.0] | +0.41 | [+0.27 ; +0.58] |
+
+Les IC sont calcules par **bootstrap de grappes sur les marques**,
+jamais sur les produits : deux references d'une meme marque ne sont
+pas deux observations independantes (ICC de 0,304 a strate fixee,
+couche 10). Avec 3 marques pour les MDD et 6 pour les industriels,
+ces intervalles sont larges. C'est la precision reelle de la
+comparaison.
+
+**Aucune des six differences n'est etablie :**
+
+| mesure | comparaison | difference | IC 95 % | verdict |
+|:--|:--|--:|:--:|:--|
+| nutriscore | MDD − industriel generaliste | +1.00 pts | [-4.00 ; +3.50] | non etabli |
+| nutriscore | MDD − specialiste du halal | -3.00 pts | [-6.00 ; +0.00] | non etabli |
+| nutriscore | industriel generaliste − specialiste du halal | -4.00 pts | [-6.00 ; +2.00] | non etabli |
+| sel | MDD − industriel generaliste | +0.22 g | [-0.22 ; +0.49] | non etabli |
+| sel | MDD − specialiste du halal | -0.19 g | [-0.48 ; +0.09] | non etabli |
+| sel | industriel generaliste − specialiste du halal | -0.41 g | [-0.58 ; +0.07] | non etabli |
+
+Le point le plus proche du seuil est MDD − specialiste sur le
+Nutri-Score : **−3,00 [−6,00 ; +0,00]**. La borne haute touche zero
+exactement. Compter cette ligne comme etablie serait lire un
+intervalle comme un point, l'erreur n° 10 de la section 8.
+
+**Une voix par marque**, pour ne pas laisser Isla Delice et ses
+182 references parler pour trente-deux marques :
+
+| famille | marques | mediane des medianes | Q1 | Q3 | sel |
+|:--|--:|--:|--:|--:|--:|
+| MDD | 3 | +1.0 | -0.50 | +2.50 | +0.20 |
+| industriel generaliste | 6 | +0.5 | -1.88 | +3.62 | -0.01 |
+| specialiste du halal | 32 | +3.5 | +1.00 | +6.50 | +0.37 |
+
+L'ordre des trois familles ne change pas, et l'ecart
+interquartile de chaque famille recouvre celui des deux autres.
+Le desaccord entre marques d'une meme famille est plus grand que
+l'ecart entre familles.
+
+**Sans Carrefour**, la famille MDD tombe a 2 marques et 28 produits, sous la
+regle des 30, avec une mediane de +1.25. La
+ligne « MDD » de cette etude est donc pour l'essentiel une
+ligne « Carrefour », et doit se lire ainsi.
+
+**Chaque marque comparee a son propre temoin** — la seule
+lecture qui ne compare pas des entreprises differentes. Un
+specialiste du halal n'a pas de version non halal : la ligne
+n'existe pas pour lui, et Wassila non plus, dont le catalogue
+est halal a 100 % bien qu'elle appartienne a une enseigne.
+
+| famille | marque | n halal | n temoin | halal | temoin | difference | regle des 30 |
+|:--|:--|--:|--:|--:|--:|--:|:--|
+| industriel generaliste | doux | 4 | 13 | -2.5 | +1.0 | -3.5 | sous 30 |
+| MDD | lidl | 7 | 414 | -2.0 | +0.0 | -2.0 | sous 30 |
+| industriel generaliste | jack-link-s | 6 | 33 | +4.5 | +6.0 | -1.5 | sous 30 |
+| industriel generaliste | duc | 3 | 24 | -4.0 | -4.0 | +0.0 | sous 30 |
+| MDD | carrefour | 39 | 1313 | +1.0 | +0.0 | +1.0 | franchie |
+| industriel generaliste | socopa | 5 | 219 | +1.0 | +0.0 | +1.0 | sous 30 |
+| industriel generaliste | fleury-michon | 70 | 946 | +0.0 | -2.0 | +2.0 | franchie |
+| industriel generaliste | aia | 20 | 68 | +5.0 | +0.0 | +5.0 | sous 30 |
+
+Deux cellules seulement franchissent la regle des 30 des
+deux cotes : carrefour +1.0, fleury-michon +2.0. Les autres sont decrites avec leur
+effectif et ne doivent pas etre lues comme un classement.
+
+*Reserves.*
+- **La famille MDD est Carrefour.** Trois marques, dont une, Wassila, sans temoin non halal. Retirer Carrefour fait passer la famille sous la regle des 30.
+- **La famille industriel n'est pas homogene.** Fleury Michon (71 produits halal, ecart 0,0) et Jack Link's (6 produits, ecart +4,5 sur un creneau de viande sechee) y sont ranges ensemble parce que le halal est minoritaire chez les deux. C'est ce que mesure l'ecart interquartile publie.
+- **Specialiste du halal n'est pas une categorie commerciale unique.** Suntat, Baktat, Hunkar et Yayla sont des marques d'epicerie turque dont le catalogue est majoritairement tague halal : la regle des 50 % les range avec Isla Delice. Un decoupage par repertoire culinaire donnerait une autre partition.
+- La moitie du bras halal reste hors familles, faute de marque saisie ou de gamme. Sa composition est semblable (verifiee ci-dessus), ce qui autorise la comparaison sans la rendre exhaustive.
+- Une seule strate sur 28 compte deux familles au-dessus de 30 produits : la comparaison gamme par gamme n'est presque jamais testable, et le tableau f4 est descriptif.
+- Ces familles decrivent une POSITION SUR LE MARCHE, lisible en rayon. Elles ne disent rien de la halalite d'un produit, de la conformite d'une entreprise, ni de qui la dirige.
+
 ---
 
 ## 8. Erreurs commises et corrigees en cours d'etude
@@ -1126,6 +1236,8 @@ desormais mesuree et publiee AVANT chaque comparaison.
 | Electronarcose | Classification non etablie ici | Les cahiers des charges des organismes eux-memes |
 | Faconnage multi-marques | 3 etablissements mixtes seulement | Une meilleure saisie des estampilles, ou le registre public des agrements |
 | Nom des sites de production | 1 683 codes francais decodes en departement et commune, aucune entreprise nommee | Le registre des etablissements agrees du ministere de l'Agriculture, refuse par la politique de sortie reseau ; a rapatrier par un runner GitHub comme les prix |
+| MDD contre specialistes | Ordre constant, aucune difference etablie | Plus de MDD avec une gamme halal : 3 marques ne portent pas une famille |
+| « Specialiste du halal » comme categorie | Melange epicerie turque et marques maghrebines | Un decoupage par repertoire culinaire, teste contre celui par part de catalogue |
 | Classement des sites sur leur seul halal | Non fonde | Une dispersion intra-site qui ne depasse plus celle du temoin, ou beaucoup plus de produits par site |
 | Couscous et tajine halal | 1 sur 135, 2 sur 131 | Comprendre pourquoi : absence de certification, ou d'affichage |
 
@@ -1148,6 +1260,7 @@ make couche11    # homogeneite des deux bras
 make couche12    # allegations d'emballage
 make couche13    # site partage ou site halal seul
 make couche14    # sites francais decodes depuis l'estampille
+make couche15    # MDD, industriels, specialistes du halal
 python3 src/rapport_hypotheses.py   # regenere ce document
 ```
 

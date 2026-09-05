@@ -1,0 +1,9 @@
+famille,marque,n_halal,n_temoin,ecart_halal,ecart_temoin,difference,regle_30
+industriel,doux,4,13,-2.5,1.0,-3.5,sous 30
+mdd,lidl,7,414,-2.0,0.0,-2.0,sous 30
+industriel,jack-link-s,6,33,4.5,6.0,-1.5,sous 30
+industriel,duc,3,24,-4.0,-4.0,0.0,sous 30
+mdd,carrefour,39,1313,1.0,0.0,1.0,franchie
+industriel,socopa,5,219,1.0,0.0,1.0,sous 30
+industriel,fleury-michon,70,946,0.0,-2.0,2.0,franchie
+industriel,aia,20,68,5.0,0.0,5.0,sous 30
