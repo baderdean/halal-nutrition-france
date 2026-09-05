@@ -1,0 +1,63 @@
+name: Couche 14 — registre des etablissements agrees
+
+# Declenchement MANUEL. Ce workflow existe pour une seule raison : le runner
+# GitHub joint www.data.gouv.fr, que la politique de sortie reseau de
+# l'environnement de developpement refuse (CONNECT 403).
+#
+# L'estampille sanitaire donne le departement et la commune d'un site, jamais
+# le nom de l'entreprise. Seul le registre des etablissements agrees au titre
+# du reglement (CE) 853/2004, publie par le ministere de l'Agriculture, fait
+# ce lien.
+#
+# ETAPE 1 : `sonde`. Ne telecharge rien. Publie les jeux de donnees qui
+# repondent et l'URL de leurs ressources. La couche 8 a perdu deux heures
+# pour avoir devine des URL au lieu de sonder d'abord ; le telechargement ne
+# sera ecrit qu'une fois la sortie de cette sonde lue.
+#
+# Aucune cle, aucun secret : data.gouv.fr est ouvert et sous licence ouverte.
+on:
+  workflow_dispatch:
+    inputs:
+      etape:
+        description: "sonde = cherche le registre et publie les URL ; registre = telecharge"
+        required: true
+        default: "sonde"
+        type: choice
+        options: ["sonde", "registre"]
+
+permissions:
+  contents: read
+
+jobs:
+  registre:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Dependances
+        run: pip install -r requirements.txt
+
+      - name: Coherence config / code / workflow
+        run: python3 tests/test_coherence.py
+
+      - name: Sonde — ne telecharge rien
+        if: inputs.etape == 'sonde'
+        run: python3 src/etape14_sites_france.py --sonder-registre
+
+      - name: Telechargement du registre
+        if: inputs.etape == 'registre'
+        run: python3 src/etape14_sites_france.py --registre
+
+      # Le journal d'un job en cours n'est pas lisible : sans artefact, la
+      # sortie de la sonde ne serait consultable qu'a la fin du job.
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: couche14-registre
+          path: sorties/s4_sonde_registre.csv
+          if-no-files-found: warn

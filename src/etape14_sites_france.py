@@ -34,8 +34,11 @@ TROIS AVERTISSEMENTS AVANT DE CLASSER UN SITE.
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
+import urllib.error
+import urllib.request
 
 import numpy as np
 import pandas as pd
@@ -53,6 +56,85 @@ TIRAGES = 2000
 MOTIF_FR = re.compile(r"^fr-(\d{2})-(\d{3})-(\d{3})$")
 
 
+# --- Registre officiel des etablissements agrees ------------------------------
+#
+# Le code d'agrement ne nomme personne. Le ministere de l'Agriculture publie
+# la liste des etablissements agrees au titre du reglement (CE) 853/2004 :
+# numero d'agrement, raison sociale, commune, activites. C'est la seule
+# source qui transforme `fr-56-222-002` en une entreprise.
+#
+# Cet hote est refuse par la politique de sortie reseau de l'environnement de
+# developpement (CONNECT 403). La sonde tourne donc sur un runner GitHub, et
+# elle ne telecharge rien : elle publie ce qui repond et sous quel format,
+# pour que le telechargement soit ecrit ensuite sur des faits et non sur une
+# devinette d'URL. La couche 8 a coute deux heures pour avoir saute cette
+# etape.
+UA = "halal-nutrition-france/1.0 (etude nutritionnelle, contact via le depot)"
+RECHERCHES = [
+    "https://www.data.gouv.fr/api/1/datasets/?q=%C3%A9tablissements+agr%C3%A9%C3%A9s&page_size=8",
+    "https://www.data.gouv.fr/api/1/datasets/?q=agr%C3%A9ment+sanitaire&page_size=8",
+    "https://www.data.gouv.fr/api/1/datasets/?q=853%2F2004&page_size=8",
+]
+
+
+def _http(url: str, timeout: int = 60):
+    req = urllib.request.Request(url, headers={"User-Agent": UA,
+                                               "Accept": "application/json"})
+    return urllib.request.urlopen(req, timeout=timeout)
+
+
+def sonder_registre() -> int:
+    """Publie ce qui repond, sans rien telecharger ni rien conclure."""
+    titre("Sonde du registre des etablissements agrees")
+    print("Ne telecharge rien. Publie les jeux de donnees qui repondent et")
+    print("l'URL de leurs ressources, pour ecrire ensuite le telechargement")
+    print("sur des faits.\n")
+    trouve = []
+    for url in RECHERCHES:
+        print(f"  --- {url}")
+        try:
+            with _http(url, timeout=45) as r:
+                d = json.loads(r.read())
+        except urllib.error.HTTPError as e:
+            print(f"      {e.code} ({e.reason})")
+            continue
+        except Exception as e:                          # noqa: BLE001
+            print(f"      --- ({type(e).__name__}: {e})")
+            continue
+        for jeu in d.get("data", []):
+            org = (jeu.get("organization") or {}).get("name", "?")
+            print(f"      [{jeu.get('id')}] {jeu.get('title')}  ({org})")
+            for res in jeu.get("resources", [])[:6]:
+                print(f"          {res.get('format'):>6} "
+                      f"{res.get('filesize')} o  {res.get('title')}")
+                print(f"          {res.get('url')}")
+                trouve.append({"jeu": jeu.get("title"), "org": org,
+                               "format": res.get("format"),
+                               "titre": res.get("title"),
+                               "url": res.get("url")})
+    if trouve:
+        pd.DataFrame(trouve).to_csv(SORTIES / "s4_sonde_registre.csv",
+                                    index=False)
+        print(f"\n  {len(trouve)} ressources listees dans "
+              "sorties/s4_sonde_registre.csv.")
+        print("  RIEN n'est encore telecharge : le choix de la ressource se")
+        print("  fait a la lecture de ce fichier, pas ici.")
+    else:
+        print("\n  Aucune ressource. Soit l'hote est refuse depuis cette")
+        print("  machine, soit la recherche est mal formulee. Dans les deux")
+        print("  cas, ne pas deviner une URL : relancer la sonde.")
+    return 0
+
+
+def recuperer_registre() -> int:
+    titre("Telechargement du registre des etablissements agrees")
+    print("Pas encore ecrit. La sonde (--sonder-registre) doit d'abord tourner")
+    print("sur un runner GitHub et dire quelle ressource existe, sous quel")
+    print("format et a quelle URL. Ecrire ce telechargement avant est la")
+    print("meme erreur que la couche 8 a payee deux fois.")
+    return 1
+
+
 def decoder(code: str) -> dict | None:
     m = MOTIF_FR.match(code)
     if not m:
@@ -63,16 +145,17 @@ def decoder(code: str) -> dict | None:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--sonder-registre", action="store_true",
+                    dest="sonder_registre",
+                    help="cherche le registre des agrements, sans rien "
+                         "telecharger (runner GitHub)")
     ap.add_argument("--registre", action="store_true",
                     help="telecharge le registre des agrements (runner GitHub)")
     a = ap.parse_args()
+    if a.sonder_registre:
+        return sonder_registre()
     if a.registre:
-        titre("Registre officiel des etablissements agrees")
-        print("Non implemente : l'hote est refuse depuis l'environnement de")
-        print("developpement et le workflow qui l'appellerait n'existe pas")
-        print("encore. Le classement ci-dessous ne nomme donc aucune")
-        print("entreprise, seulement des codes et leur commune.")
-        return 0
+        return recuperer_registre()
 
     con = connexion()
     d = con.execute(f"""
