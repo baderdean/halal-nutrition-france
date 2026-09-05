@@ -1,0 +1,89 @@
+name: Couche 8 — prix Open Prices
+
+# Declenchement MANUEL. Ce workflow existe pour une seule raison : le runner
+# GitHub joint prices.openfoodfacts.org, que la politique de sortie reseau de
+# l'environnement de developpement refuse (CONNECT 403). Il collecte, commite
+# le releve, puis analyse.
+#
+# Aucune cle, aucun secret : Open Prices est ouvert et sous licence ODbL.
+on:
+  workflow_dispatch:
+    inputs:
+      etape:
+        description: "sonde = teste les points d'entree ; collecte = telecharge et commite"
+        required: true
+        default: "sonde"
+        type: choice
+        options: ["sonde", "collecte"]
+      max_pages:
+        description: "Pages d'API maximum (100 releves par page)"
+        required: true
+        default: "400"
+
+permissions:
+  contents: write
+
+jobs:
+  prix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Dependances
+        run: pip install -r requirements.txt
+
+      - name: Coherence config / code / workflow
+        run: python3 tests/test_coherence.py
+
+      # Sans rien telecharger : publie ce qui repond, et avec quel format.
+      - name: Sonde des points d'entree
+        run: python3 src/etape8_prix.py --sonder
+
+      - name: Collecte
+        if: inputs.etape == 'collecte'
+        run: python3 src/etape8_prix.py --collecte --max-pages "${{ inputs.max_pages }}"
+
+      # Le releve est versionne : sans cela l'analyse n'est pas rejouable, et
+      # l'environnement de developpement ne peut pas le recuperer lui-meme.
+      - name: Commit du releve
+        if: inputs.etape == 'collecte'
+        run: |
+          if [ ! -s donnees_prix/prix_open_prices.csv ]; then
+            echo "::error::aucun releve collecte, rien a commiter"
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add donnees_prix/prix_open_prices.csv
+          if git diff --cached --quiet; then
+            echo "releve identique au precedent, rien a commiter"
+          else
+            git commit \
+              -m "Releve Open Prices du $(date -u +%Y-%m-%d)" \
+              -m "Collecte automatique par le workflow couche8-prix. Source : Open Prices (Open Food Facts), licence ODbL. Aucune donnee de contributeur conservee."
+            git push
+          fi
+
+      # Demande le perimetre, donc la couche 1 complete.
+      - name: Couche 1 — dump, perimetre, assertions
+        if: inputs.etape == 'collecte'
+        run: make couche1
+
+      - name: Analyse des prix
+        if: inputs.etape == 'collecte'
+        run: python3 src/etape8_prix.py
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: couche8-prix
+          path: |
+            donnees_prix/prix_open_prices.csv
+            sorties/u0_couverture_prix.csv
+            sorties/u1_prix_par_gamme.csv
+          if-no-files-found: warn

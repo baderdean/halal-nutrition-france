@@ -63,6 +63,19 @@ def main() -> int:
         if nom and f'"{nom}"' not in wf:
             echecs.append(f"workflow : {nom} absent des choix de fournisseur")
 
+    # Couche 8 : les choix offerts par l'Action doivent exister comme options
+    # du script. Un renommage d'un cote seulement ne se verrait qu'au runtime,
+    # apres la couche 1 complete sur le runner.
+    wf8 = (RACINE / ".github" / "workflows" / "couche8-prix.yml").read_text()
+    src8 = (RACINE / "src" / "etape8_prix.py").read_text()
+    for option in ("--sonder", "--collecte", "--max-pages"):
+        if option not in src8:
+            echecs.append(f"etape8_prix.py : option {option} absente")
+        if option not in wf8 and option != "--max-pages":
+            echecs.append(f"workflow couche8 : {option} jamais appele")
+    if "prices.openfoodfacts.org" not in src8:
+        echecs.append("etape8_prix.py : hote Open Prices absent")
+
     # Chaque variable d'environnement attendue par la config doit etre injectee
     # par le workflow. Un secret renomme d'un cote et pas de l'autre ne se voit
     # autrement qu'au runtime, apres deux minutes de couche 1.

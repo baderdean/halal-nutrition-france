@@ -9,8 +9,9 @@ PY       := HNF_DATA=$(HNF_DATA) python3
 SRC      := src
 
 .PHONY: install couche1 source france perimetre assertions analyse rapport \
-        couche3 couche4 couche5 couche6 couche7 marques certificateurs \
-        classement halal emblematiques reperes additifs amorce figer propre
+        couche3 couche4 couche5 couche6 couche7 couche8 marques \
+        certificateurs classement halal emblematiques reperes additifs prix \
+        amorce figer propre
 
 install:
 	pip install -r requirements.txt
@@ -74,6 +75,14 @@ couche7: additifs
 
 additifs:
 	$(PY) $(SRC)/etape7_additifs_transformation.py
+
+# La COLLECTE des prix ne tourne pas ici : prices.openfoodfacts.org est refuse
+# par la politique de sortie reseau. Elle passe par le workflow couche8-prix.
+# Cette cible n'analyse que le releve deja commite.
+couche8: prix
+
+prix:
+	$(PY) $(SRC)/etape8_prix.py
 
 # A n'utiliser que pour acter volontairement un changement de dump ou de
 # perimetre. Jamais pour faire passer un pipeline rouge.
