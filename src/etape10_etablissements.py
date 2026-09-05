@@ -172,6 +172,10 @@ def main() -> int:
     e = (d.explode("emb_codes_tags")
            .rename(columns={"emb_codes_tags": "etablissement"}))
     e = e[e.etablissement.notna()]
+    # brands_tags peut etre vide : on garde la ligne, avec une marque
+    # nommee explicitement inconnue plutot qu'un vide silencieux.
+    e["marque"] = [str(x) if x is not None and x == x and str(x) != ""
+                   else "inconnue" for x in e.marque]
     avant = e.etablissement.nunique()
     e = e[e.etablissement.apply(utilisable)]
     e["etablissement"] = e.etablissement.apply(normaliser_etablissement)

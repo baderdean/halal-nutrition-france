@@ -1230,8 +1230,136 @@ def bloc_marche() -> list[str]:
          "sur une fraction, et rien ne dit qu'elle soit representative.",
          "Un site partage n'est pas une ligne de production partagee : un meme "
          "agrement peut couvrir des ateliers distincts."])
+    l += bloc_h30()
     l += ["---", ""]
     return l
+
+
+def bloc_h30() -> list[str]:
+    """H30 — les sites francais, decodes depuis l'estampille seule."""
+    pub = lire("s1b_sites_france_publiable")
+    brut = lire("s1_sites_france")
+    mrq = lire("classement_marques_complet")
+    cor = lire("s1c_correlation_halal_rang")
+    dep = lire("s2_departements")
+    hal = lire("s3_sites_halal")
+    if pub is None or not len(pub):
+        return ["### H30 — Sortie absente : s1b_sites_france_publiable", ""]
+
+    c = ["L'estampille ovale porte un code **FR dd.ddd.ddd CE** : pays,",
+         "departement, code INSEE de la commune, numero d'ordre de",
+         "l'etablissement dans cette commune. La geographie se lit donc sans",
+         "aucune source externe, et sans nommer personne.",
+         "",
+         "**Ce que le code ne donne pas** : le nom de l'entreprise. Il faut",
+         "pour cela le registre des etablissements agrees du ministere de",
+         "l'Agriculture, que la politique de sortie reseau de l'environnement",
+         "refuse. Aucun site n'est donc nomme ici. La colonne",
+         "`marque_dominante` nomme le premier CLIENT du site, ce qui n'est pas",
+         "la meme chose : un faconnier n'est pas sa marque.",
+         ""]
+    n_brut = len(brut) if brut is not None else 0
+    n_mer = int(brut.alerte_mer.sum()) if brut is not None else 0
+    c += [f"**{len(pub)} sites** classables apres deux filtres : au moins 30",
+          "produits (regle des 30) et aucun produit de la mer. Le classement",
+          f"brut en compte {n_brut}, dont {n_mer} signales `alerte_mer` : le "
+          "meme defaut residuel que le haut du classement des marques, conserve",
+          "en CSV pour etre verifiable plutot que fait disparaitre.",
+          "",
+          f"Etendue des ecarts medians : **{pub.ecart_median.min():+.1f} a "
+          f"{pub.ecart_median.max():+.1f}** points de Nutri-Score a composition",
+          "egale."]
+    if mrq is not None and "ecart_median" in mrq and "regle_30" in mrq:
+        m = mrq[mrq.regle_30 == "franchie"]
+        if len(m):
+            c += [f"A titre de comparaison, les {len(m)} marques d'au moins 30",
+                  f"produits s'etalent de {m.ecart_median.min():+.1f} a "
+                  f"{m.ecart_median.max():+.1f}. Les deux echelles ont donc une",
+                  "amplitude du meme ordre — ce qui ne dit pas laquelle cause",
+                  "l'autre, puisqu'un site majoritairement occupe par un client",
+                  "et ce client sont la meme chose mesuree deux fois."]
+    c += [""]
+    c += ["**Les 8 sites les mieux classes** (ecart a la mediane de marche de la",
+          "strate ; negatif = mieux) :", "",
+          "| code | dept | n | marques | dont halal | ecart | sel | 1er client | "
+          "part | sans lui |", "|:--|:--|--:|--:|--:|--:|--:|:--|--:|--:|"]
+    def ligne(r):
+        sans = "—" if pd.isna(r.ecart_sans_dominante) else f"{r.ecart_sans_dominante:+.1f}"
+        return (f"| `{r.etablissement}` | {r.departement} | {r.n} | "
+                f"{r.n_marques} | {r.n_halal} | {r.ecart_median:+.1f} | "
+                f"{r.sel_median:.2f} | {r.marque_dominante} | "
+                f"{r.part_dominante_pct:.0f} % | {sans} |")
+    for r in pub.head(8).itertuples():
+        c.append(ligne(r))
+    c += ["", "**Les 8 derniers** :", "",
+          "| code | dept | n | marques | dont halal | ecart | sel | 1er client | "
+          "part | sans lui |", "|:--|:--|--:|--:|--:|--:|--:|:--|--:|--:|"]
+    for r in pub.tail(8).itertuples():
+        c.append(ligne(r))
+    c += ["",
+          "La colonne **sans lui** retire le premier client et recalcule. Quand",
+          "l'ecart s'y effondre, il etait celui d'une marque et non d'une usine :",
+          "`fr-53-097-001` passe de -12,0 a +3,5 des qu'on retire son donneur",
+          "d'ordre principal. Quand il ne bouge pas, le site tient sur plusieurs",
+          "clients."]
+    if hal is not None and len(hal):
+        c += ["", "**Les sites qui sortent du halal**, description seule :", "",
+              "| code | n halal | marques | ecart median | sel |",
+              "|:--|--:|--:|--:|--:|"]
+        for r in hal.itertuples():
+            code = getattr(r, "et", getattr(r, "Index", ""))
+            c.append(f"| `{code}` | {r.n} | {r.n_marques} | "
+                     f"{r.ecart_median:+.1f} | {r.sel:.2f} |")
+    if cor is not None and len(cor):
+        r = cor.iloc[0]
+        c += ["",
+              "Correlation de rang entre le nombre de produits halal d'un site",
+              f"et son ecart : **rho = {r.rho:+.2f} [{r.ic95_bas:+.2f} ; "
+              f"{r.ic95_haut:+.2f}]** sur {int(r.n_sites)} sites. Positif,",
+              "IC excluant zero de justesse. Il dit que les sites tournes vers",
+              "le halal sont classes plus bas. Il ne dit pas pourquoi : ces",
+              "sites appartiennent a des specialistes et fabriquent leur propre",
+              "recette, le site et la marque n'y sont pas separables."]
+    if dep is not None and len(dep):
+        c += ["",
+              f"**Par departement**, {len(dep)} unites d'au moins 30 produits,",
+              f"ecarts medians de {dep.ecart_median.min():+.1f} a "
+              f"{dep.ecart_median.max():+.1f}. L'echelle departementale",
+              "n'a aucun sens industriel : elle sert uniquement de controle de",
+              "coherence sur des effectifs plus larges."]
+    return hypothese(
+        "H30", "Les sites de production francais sont identifiables et "
+        "classables depuis l'estampille",
+        "Decodage geographique du code d'agrement, puis classement des sites "
+        "sur l'ecart de leurs produits a la mediane de marche de leur strate "
+        "(sous-categorie x espece). Filtres : au moins 30 produits, aucun "
+        "produit de la mer. Le rho est un Spearman a IC bootstrap sur les "
+        "sites (2 000 tirages, graine 20260904).",
+        "ETABLI pour la geographie et le classement ; NON ETABLI pour "
+        "l'identite des entreprises ; NON TESTABLE pour un classement des "
+        "sites sur leur seule production halal",
+        c,
+        ["**Un site est juge sur les recettes de ses clients.** Un faconnier "
+         "execute un cahier des charges qu'il n'ecrit pas. Le classement porte "
+         "sur ce qui sort du site, jamais sur son savoir-faire.",
+         "Le creneau pese plus que le site : la couche 10 a mesure 72,5 % de "
+         "variance expliquee sur le Nutri-Score brut contre 30,4 % a strate "
+         "fixee. D'ou le classement sur l'ecart, jamais sur la note brute.",
+         "**Classer un site sur son seul halal serait mal fonde** : dispersion "
+         "intra-site de 7,82 dans le bras halal contre 5,55 dans le temoin, et "
+         "pouvoir explicatif du site de 0,168 contre 0,304 (couche 10). Le "
+         "tableau halal ci-dessus est descriptif et ne doit pas etre lu comme "
+         "un palmares.",
+         "29 sites publiables sur 162 sortent au moins un produit halal, 5 en "
+         "sortent au moins dix : la correlation repose sur cette poignee.",
+         "Un numero d'agrement couvre un etablissement, pas une ligne. Deux "
+         "ateliers du meme site partagent le meme code.",
+         "L'estampille n'est saisie que sur une fraction des produits, et rien "
+         "ne dit que cette fraction soit representative.",
+         "**Aucune de ces lignes ne dit quoi que ce soit du caractere halal "
+         "d'un produit, ni de la conformite d'un site a une norme sanitaire ou "
+         "religieuse.** Elles decrivent la composition nutritionnelle declaree "
+         "de ce qui en sort."])
 
 
 def bloc_erreurs() -> list[str]:
@@ -1306,6 +1434,14 @@ def bloc_ouvert() -> list[str]:
         "charges des organismes eux-memes |",
         "| Faconnage multi-marques | 3 etablissements mixtes seulement | Une "
         "meilleure saisie des estampilles, ou le registre public des agrements |",
+        "| Nom des sites de production | 1 683 codes francais decodes en "
+        "departement et commune, aucune entreprise nommee | Le registre des "
+        "etablissements agrees du ministere de l'Agriculture, refuse par la "
+        "politique de sortie reseau ; a rapatrier par un runner GitHub comme "
+        "les prix |",
+        "| Classement des sites sur leur seul halal | Non fonde | Une "
+        "dispersion intra-site qui ne depasse plus celle du temoin, ou "
+        "beaucoup plus de produits par site |",
         "| Couscous et tajine halal | 1 sur 135, 2 sur 131 | Comprendre "
         "pourquoi : absence de certification, ou d'affichage |",
         "",
@@ -1322,6 +1458,12 @@ def bloc_ouvert() -> list[str]:
         "make couche6     # reperes consommateur",
         "make couche7     # additifs et transformation",
         "make couche8     # prix (collecte via l'Action couche8-prix)",
+        "make couche9     # podiums et paires appariees",
+        "make couche10    # etablissements, variance intra-site",
+        "make couche11    # homogeneite des deux bras",
+        "make couche12    # allegations d'emballage",
+        "make couche13    # site partage ou site halal seul",
+        "make couche14    # sites francais decodes depuis l'estampille",
         "python3 src/rapport_hypotheses.py   # regenere ce document",
         "```",
         "",

@@ -984,6 +984,106 @@ recette revue a la baisse qu'un approvisionnement ailleurs.
 - L'estampille n'est saisie que sur 31 % du bras halal : ce test porte sur une fraction, et rien ne dit qu'elle soit representative.
 - Un site partage n'est pas une ligne de production partagee : un meme agrement peut couvrir des ateliers distincts.
 
+### H30 — Les sites de production francais sont identifiables et classables depuis l'estampille
+
+**Verdict : ETABLI pour la geographie et le classement ; NON ETABLI pour l'identite des entreprises ; NON TESTABLE pour un classement des sites sur leur seule production halal**
+
+*Methode.* Decodage geographique du code d'agrement, puis classement des sites sur l'ecart de leurs produits a la mediane de marche de leur strate (sous-categorie x espece). Filtres : au moins 30 produits, aucun produit de la mer. Le rho est un Spearman a IC bootstrap sur les sites (2 000 tirages, graine 20260904).
+
+L'estampille ovale porte un code **FR dd.ddd.ddd CE** : pays,
+departement, code INSEE de la commune, numero d'ordre de
+l'etablissement dans cette commune. La geographie se lit donc sans
+aucune source externe, et sans nommer personne.
+
+**Ce que le code ne donne pas** : le nom de l'entreprise. Il faut
+pour cela le registre des etablissements agrees du ministere de
+l'Agriculture, que la politique de sortie reseau de l'environnement
+refuse. Aucun site n'est donc nomme ici. La colonne
+`marque_dominante` nomme le premier CLIENT du site, ce qui n'est pas
+la meme chose : un faconnier n'est pas sa marque.
+
+**162 sites** classables apres deux filtres : au moins 30
+produits (regle des 30) et aucun produit de la mer. Le classement
+brut en compte 370, dont 20 signales `alerte_mer` : le meme defaut residuel que le haut du classement des marques, conserve
+en CSV pour etre verifiable plutot que fait disparaitre.
+
+Etendue des ecarts medians : **-12.0 a +15.0** points de Nutri-Score a composition
+egale.
+A titre de comparaison, les 230 marques d'au moins 30
+produits s'etalent de -15.0 a +14.0. Les deux echelles ont donc une
+amplitude du meme ordre — ce qui ne dit pas laquelle cause
+l'autre, puisqu'un site majoritairement occupe par un client
+et ce client sont la meme chose mesuree deux fois.
+
+**Les 8 sites les mieux classes** (ecart a la mediane de marche de la
+strate ; negatif = mieux) :
+
+| code | dept | n | marques | dont halal | ecart | sel | 1er client | part | sans lui |
+|:--|:--|--:|--:|--:|--:|--:|:--|--:|--:|
+| `fr-53-097-001` | 53 | 42 | 4 | 0 | -12.0 | 0.15 | l-etal-du-boucher | 67 % | +3.5 |
+| `fr-43-211-010` | 43 | 36 | 12 | 0 | -7.0 | 4.60 | saint-agaune | 42 % | -7.0 |
+| `fr-59-597-001` | 59 | 50 | 5 | 0 | -7.0 | 1.40 | fleury-michon | 84 % | — |
+| `fr-80-799-001` | 80 | 53 | 8 | 0 | -6.0 | 1.50 | inconnue | 77 % | -4.5 |
+| `fr-19-031-008` | 19 | 45 | 8 | 0 | -6.0 | 1.80 | carrefour | 64 % | -13.0 |
+| `fr-85-182-003` | 85 | 255 | 5 | 0 | -5.0 | 1.80 | fleury-michon | 98 % | — |
+| `fr-35-238-019` | 35 | 58 | 3 | 0 | -5.0 | 1.47 | maitre-jacques | 60 % | -13.0 |
+| `fr-67-218-001` | 67 | 101 | 2 | 0 | -4.0 | 1.80 | herta | 78 % | -7.0 |
+
+**Les 8 derniers** :
+
+| code | dept | n | marques | dont halal | ecart | sel | 1er client | part | sans lui |
+|:--|:--|--:|--:|--:|--:|--:|:--|--:|--:|
+| `fr-85-006-001` | 85 | 71 | 16 | 0 | +8.0 | 3.30 | petitgas | 41 % | +10.0 |
+| `fr-56-222-002` | 56 | 85 | 17 | 71 | +8.0 | 2.40 | reghalal | 32 % | +6.0 |
+| `fr-56-166-001` | 56 | 39 | 4 | 38 | +9.0 | 2.30 | isla-mondial | 92 % | — |
+| `fr-42-156-006` | 42 | 53 | 5 | 52 | +12.0 | 3.40 | isla-delice | 92 % | — |
+| `fr-11-262-047` | 11 | 97 | 29 | 0 | +13.0 | 4.70 | montagne-noire | 20 % | +12.5 |
+| `fr-40-261-001` | 40 | 34 | 9 | 0 | +13.0 | 2.70 | labeyrie | 35 % | +13.0 |
+| `fr-65-100-003` | 65 | 58 | 23 | 0 | +15.0 | 5.00 | carrefour | 38 % | +14.5 |
+| `fr-64-010-003` | 64 | 31 | 15 | 0 | +15.0 | 4.90 | carrefour | 19 % | +15.0 |
+
+La colonne **sans lui** retire le premier client et recalcule. Quand
+l'ecart s'y effondre, il etait celui d'une marque et non d'une usine :
+`fr-53-097-001` passe de -12,0 a +3,5 des qu'on retire son donneur
+d'ordre principal. Quand il ne bouge pas, le site tient sur plusieurs
+clients.
+
+**Les sites qui sortent du halal**, description seule :
+
+| code | n halal | marques | ecart median | sel |
+|:--|--:|--:|--:|--:|
+| `fr-85-051-003` | 32 | 2 | +0.0 | 1.80 |
+| `fr-88-218-001` | 12 | 4 | +0.0 | 1.84 |
+| `fr-69-135-001` | 21 | 8 | +2.0 | 3.00 |
+| `fr-61-096-018` | 13 | 3 | +3.0 | 1.20 |
+| `fr-22-277-004` | 12 | 3 | +7.0 | 1.45 |
+| `fr-41-053-002` | 10 | 5 | +8.0 | 2.28 |
+| `fr-56-222-002` | 71 | 11 | +9.0 | 2.40 |
+| `fr-56-166-001` | 38 | 3 | +9.0 | 2.33 |
+| `fr-89-013-001` | 20 | 2 | +11.5 | 2.48 |
+| `fr-42-156-006` | 52 | 4 | +12.5 | 3.40 |
+
+Correlation de rang entre le nombre de produits halal d'un site
+et son ecart : **rho = +0.17 [+0.02 ; +0.32]** sur 162 sites. Positif,
+IC excluant zero de justesse. Il dit que les sites tournes vers
+le halal sont classes plus bas. Il ne dit pas pourquoi : ces
+sites appartiennent a des specialistes et fabriquent leur propre
+recette, le site et la marque n'y sont pas separables.
+
+**Par departement**, 75 unites d'au moins 30 produits,
+ecarts medians de -4.0 a +5.0. L'echelle departementale
+n'a aucun sens industriel : elle sert uniquement de controle de
+coherence sur des effectifs plus larges.
+
+*Reserves.*
+- **Un site est juge sur les recettes de ses clients.** Un faconnier execute un cahier des charges qu'il n'ecrit pas. Le classement porte sur ce qui sort du site, jamais sur son savoir-faire.
+- Le creneau pese plus que le site : la couche 10 a mesure 72,5 % de variance expliquee sur le Nutri-Score brut contre 30,4 % a strate fixee. D'ou le classement sur l'ecart, jamais sur la note brute.
+- **Classer un site sur son seul halal serait mal fonde** : dispersion intra-site de 7,82 dans le bras halal contre 5,55 dans le temoin, et pouvoir explicatif du site de 0,168 contre 0,304 (couche 10). Le tableau halal ci-dessus est descriptif et ne doit pas etre lu comme un palmares.
+- 29 sites publiables sur 162 sortent au moins un produit halal, 5 en sortent au moins dix : la correlation repose sur cette poignee.
+- Un numero d'agrement couvre un etablissement, pas une ligne. Deux ateliers du meme site partagent le meme code.
+- L'estampille n'est saisie que sur une fraction des produits, et rien ne dit que cette fraction soit representative.
+- **Aucune de ces lignes ne dit quoi que ce soit du caractere halal d'un produit, ni de la conformite d'un site a une norme sanitaire ou religieuse.** Elles decrivent la composition nutritionnelle declaree de ce qui en sort.
+
 ---
 
 ## 8. Erreurs commises et corrigees en cours d'etude
@@ -1025,6 +1125,8 @@ desormais mesuree et publiee AVANT chaque comparaison.
 | Controle du fabricant | Une seule cellule | Des marques vendant les deux versions du meme produit |
 | Electronarcose | Classification non etablie ici | Les cahiers des charges des organismes eux-memes |
 | Faconnage multi-marques | 3 etablissements mixtes seulement | Une meilleure saisie des estampilles, ou le registre public des agrements |
+| Nom des sites de production | 1 683 codes francais decodes en departement et commune, aucune entreprise nommee | Le registre des etablissements agrees du ministere de l'Agriculture, refuse par la politique de sortie reseau ; a rapatrier par un runner GitHub comme les prix |
+| Classement des sites sur leur seul halal | Non fonde | Une dispersion intra-site qui ne depasse plus celle du temoin, ou beaucoup plus de produits par site |
 | Couscous et tajine halal | 1 sur 135, 2 sur 131 | Comprendre pourquoi : absence de certification, ou d'affichage |
 
 ---
@@ -1040,6 +1142,12 @@ make couche5     # produits emblematiques
 make couche6     # reperes consommateur
 make couche7     # additifs et transformation
 make couche8     # prix (collecte via l'Action couche8-prix)
+make couche9     # podiums et paires appariees
+make couche10    # etablissements, variance intra-site
+make couche11    # homogeneite des deux bras
+make couche12    # allegations d'emballage
+make couche13    # site partage ou site halal seul
+make couche14    # sites francais decodes depuis l'estampille
 python3 src/rapport_hypotheses.py   # regenere ce document
 ```
 
