@@ -47,6 +47,7 @@ from commun import (COMPLET, PERIMETRE, RACINE, SORTIES, borne, connexion,
 from etape5_produits_emblematiques import ic_diff
 
 PRIX = RACINE / "donnees_prix" / "prix_open_prices.csv"
+JOURNAL = RACINE / "donnees_prix" / "collecte.json"
 SEUIL = 30
 GRAINE = 20260904
 
@@ -73,6 +74,24 @@ def http(url: str, timeout: int = 60):
     return urllib.request.urlopen(req, timeout=timeout)
 
 
+# Le run du 2026-09-05 a bute sur un PLAFOND DE PAGINATION : l'API annonce
+# 307 196 releves mais renvoie 400 des la page 501, soit 50 000 releves au
+# plus. Une collecte par numero de page ne peut donc pas etre exhaustive, et
+# conclure « couverture insuffisante » sur 16 % de la base serait un faux
+# resultat negatif. Ces parametres sont sondes pour trouver un parcours par
+# CLE (keyset) qui ne depend pas du numero de page.
+SONDES_PAGINATION = [
+    ("plafond de page", f"{API}?size=1&page=501"),
+    ("tri par id", f"{API}?size=1&order_by=id"),
+    ("tri par -id", f"{API}?size=1&order_by=-id"),
+    ("filtre id__gte", f"{API}?size=1&id__gte=1000&order_by=id"),
+    ("filtre id__gt", f"{API}?size=1&id__gt=1000&order_by=id"),
+    ("filtre created__gte", f"{API}?size=1&created__gte=2025-01-01"),
+    ("filtre date__gte", f"{API}?size=1&date__gte=2025-01-01"),
+    ("taille 1000", f"{API}?size=1000"),
+]
+
+
 def sonder() -> None:
     """Publie ce qui repond depuis cette machine, sans rien conclure."""
     titre("Sonde des points d'entree Open Prices")
@@ -86,6 +105,20 @@ def sonder() -> None:
             print(f"  {e.code}  {url}  ({e.reason})")
         except Exception as e:                       # noqa: BLE001
             print(f"  ---  {url}  ({type(e).__name__}: {e})")
+
+    titre("Sonde du parcours : depasser le plafond de 500 pages")
+    for nom, url in SONDES_PAGINATION:
+        try:
+            with http(url, timeout=30) as r:
+                d = json.loads(r.read())
+                items = d.get("items", [])
+                ids = [i.get("id") for i in items[:2]]
+                print(f"  {r.status}  {nom:22s} total={d.get('total')} "
+                      f"ids={ids}")
+        except urllib.error.HTTPError as e:
+            print(f"  {e.code}  {nom:22s} ({e.reason})")
+        except Exception as e:                       # noqa: BLE001
+            print(f"  ---  {nom:22s} ({type(e).__name__}: {e})")
 
 
 def code_barres(releve: dict) -> str | None:
@@ -109,8 +142,50 @@ def codes_du_perimetre() -> set[str]:
         f"SELECT DISTINCT code FROM '{PERIMETRE}'").df().code.astype(str))
 
 
+def collecte_keyset(max_lots: int, taille: int) -> list[dict]:
+    """Parcours par identifiant croissant, insensible au plafond de pages.
+
+    Chaque lot demande les releves d'identifiant strictement superieur au
+    dernier vu, toujours en page 1. Le plafond de 500 pages ne s'applique
+    donc jamais. Si l'identifiant n'avance pas d'un lot a l'autre, le filtre
+    n'est pas honore par le service : on s'arrete plutot que de boucler sur
+    la meme page en croyant collecter.
+    """
+    lignes, dernier, lot = [], 0, 0
+    while lot < max_lots:
+        url = f"{API}?size={taille}&order_by=id&id__gt={dernier}"
+        try:
+            with http(url) as r:
+                d = json.loads(r.read())
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                print(f"    429 apres id {dernier}, pause 30 s")
+                time.sleep(30)
+                continue
+            print(f"    {e.code} apres id {dernier} : arret du parcours keyset")
+            return lignes
+        items = d.get("items", [])
+        if not items:
+            print(f"    fin du parcours a l'id {dernier}")
+            break
+        ids = [i.get("id") for i in items if i.get("id") is not None]
+        if not ids or max(ids) <= dernier:
+            print(f"    [ECHEC] l'identifiant n'avance pas (dernier={dernier}) :"
+                  f"\n    le filtre id__gt n'est pas honore. Arret.")
+            return lignes
+        lignes.extend(items)
+        dernier = max(ids)
+        lot += 1
+        if lot % 25 == 0 or lot == 1:
+            print(f"    lot {lot} : cumul {len(lignes)} / {d.get('total')} "
+                  f"(id {dernier})", flush=True)
+        time.sleep(0.15)
+    return lignes
+
+
 def collecte_api(max_pages: int, taille: int) -> list[dict]:
-    """Pagination de l'API. Lente mais sans surprise de format de dump."""
+    """Pagination par numero de page. Plafonnee a 500 pages par le service :
+    ne sert que de repli si le parcours par identifiant echoue."""
     lignes, page = [], 1
     while page <= max_pages:
         url = f"{API}?size={taille}&page={page}"
@@ -177,7 +252,18 @@ def analyser() -> int:
               f"(mode --collecte sur un runner GitHub), qui commite ce fichier.")
     p = pd.read_csv(PRIX, dtype={"product_code": str})
     titre("Couche 8 — prix au kilo")
-    print(f"{len(p)} releves de prix charges.\n")
+    print(f"{len(p)} releves de prix charges.")
+    if JOURNAL.exists():
+        j = json.loads(JOURNAL.read_text(encoding="utf-8"))
+        print(f"  Collecte du {j['date_collecte']} : {j['releves_collectes']} "
+              f"releves aspires\n  sur {j['total_annonce_par_api']} annonces "
+              f"par l'API, dont {j['releves_du_perimetre']} dans le\n  "
+              f"perimetre carne.")
+        if not j.get("collecte_complete"):
+            print("  [ATTENTION] COLLECTE INCOMPLETE. Une couverture faible "
+                  "ci-dessous ne\n  prouve alors rien : elle peut venir de la "
+                  "collecte et non du terrain.")
+    print()
 
     # Un prix en promotion ne dit rien du positionnement d'une gamme.
     avant = len(p)
@@ -266,11 +352,40 @@ def main() -> int:
     if a.collecte:
         sonder()
         titre("Collecte par l'API paginee")
-        lignes = collecte_api(a.max_pages, a.taille_page)
+        titre("Collecte, parcours par identifiant")
+        lignes = collecte_keyset(a.max_pages, a.taille_page)
+        # Repli : mieux vaut 50 000 releves declares incomplets que zero.
+        if len(lignes) < 50000:
+            titre("Repli sur la pagination par numero de page")
+            print("Le parcours par identifiant n'a pas abouti. La pagination")
+            print("classique est PLAFONNEE a 500 pages par le service : ce qui")
+            print("suit sera un echantillon, pas la base entiere, et la couche")
+            print("8 doit le declarer comme tel.")
+            secours = collecte_api(min(a.max_pages, 500), a.taille_page)
+            if len(secours) > len(lignes):
+                lignes = secours
         if not lignes:
             echec("aucun releve recupere. Voir la sonde ci-dessus.")
         titre("Filtrage sur le perimetre carne")
-        ecrire(filtrer_perimetre(lignes))
+        gardees = filtrer_perimetre(lignes)
+        ecrire(gardees)
+        # Sans ce journal, une collecte tronquee et une collecte complete
+        # rendent le meme CSV, et une couverture faible se lit a tort comme
+        # une absence de prix plutot que comme une collecte partielle.
+        total = None
+        try:
+            with http(f"{API}?size=1") as r:
+                total = json.loads(r.read()).get("total")
+        except Exception:                            # noqa: BLE001
+            pass
+        JOURNAL.write_text(json.dumps({
+            "date_collecte": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "total_annonce_par_api": total,
+            "releves_collectes": len(lignes),
+            "releves_du_perimetre": len(gardees),
+            "collecte_complete": bool(total and len(lignes) >= total),
+        }, indent=2) + "\n", encoding="utf-8")
+        print(f"  -> {JOURNAL}")
         return 0
     return analyser()
 
