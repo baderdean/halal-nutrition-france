@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
-"""Couche 5 — quatre produits que le lecteur reconnait.
+"""Couche 5 — dix produits que le lecteur reconnait.
 
 Les couches precedentes comparent des sous-categories. Personne n'achete une
 sous-categorie. Ici on compare le jambon au jambon, le cordon bleu au cordon
-bleu, le nugget au nugget, le saucisson au saucisson, entre trois bras :
-halal, kasher, et ni l'un ni l'autre.
+bleu, le steak hache au steak hache, entre trois bras : halal, kasher, et ni
+l'un ni l'autre.
+
+CES DIX PRODUITS SONT LES PLUS REFERENCES, PAS LES PLUS VENDUS. Open Food
+Facts ne contient aucune donnee de vente. Les appeler « top produits » serait
+faux : la base est alimentee par des contributeurs, et la frequence y mesure
+la presence dans la base, un proxy imparfait du rayon.
 
 DEUX LECTURES, jamais melangees, pour la meme raison qu'en couche 3.
 
@@ -323,6 +328,90 @@ def main() -> int:
         t.to_csv(SORTIES / f"p4_intra_marque_{var}.csv", index=False)
         garde.setdefault("intra", {})[var] = t
 
+    # ---- Substituts au porc : le halal change l'espece, pas la recette.
+    subs = [x["nom"] for x in cfg["produits"] if x.get("substitut_porc")]
+    if subs:
+        titre("Produits traditionnellement au porc : le substitut contre "
+              "l'original")
+        print("Pour ces produits la version halal est une SUBSTITUTION "
+              "D'ESPECE : de la\ndinde ou du boeuf a la place du porc. Deux "
+              "comparaisons distinctes, et\nl'ecart entre elles dit si c'est "
+              "le label ou l'espece qui agit.\n")
+        print("  substitut halal contre substitut NON halal de meme espece :")
+        print("      isole le label, l'espece etant deja changee des deux cotes")
+        print("  substitut halal contre l'ORIGINAL au porc :")
+        print("      ce que le client compare reellement en rayon\n")
+        lignes = []
+        for prod in subs:
+            g = d[d.produit == prod].copy()
+            # 'indetermine' n'est PAS un substitut : c'est une espece que la
+            # derivation n'atteint pas, et qui peut etre du porc. Elle est
+            # ecartee des deux cotes plutot que rangee d'office quelque part.
+            g["groupe"] = np.where(
+                g.espece == "indetermine", "espece non derivable",
+                np.where(g.bras3 == "halal",
+                         np.where(g.espece == "porc",
+                                  "halal classe porc (voir A7)",
+                                  "substitut halal"),
+                         np.where(g.espece == "porc", "original porc",
+                                  "substitut non halal")))
+            r = g.groupby("groupe").agg(
+                n=("nutriscore_score", "size"),
+                nutriscore=("nutriscore_score", "median"),
+                sel=("sel", "median"), ags=("ags", "median"),
+                proteines=("proteines", "median")).round(2)
+            print(f"  --- {libelles[prod]}")
+            print(r.to_string())
+            a = g[g.groupe == "substitut halal"]
+            for cible, lib in [("substitut non halal",
+                                "substitut halal - substitut non halal"),
+                               ("original porc",
+                                "substitut halal - original au porc")]:
+                b = g[g.groupe == cible]
+                if len(a) < SEUIL or len(b) < SEUIL:
+                    print(f"      {lib} : non testable "
+                          f"(n={len(a)} / {len(b)}, seuil {SEUIL})")
+                    continue
+                print(f"      {lib}  (n={len(a)} / {len(b)})")
+                for var, libv, _ in VARIABLES:
+                    ic = ic_diff(a[var].to_numpy(), b[var].to_numpy(), rng)
+                    if not ic:
+                        continue
+                    print(f"        {libv:30s} {ic[0]:+.2f}  "
+                          f"IC95 [{ic[1]:+.2f} ; {ic[2]:+.2f}]")
+                    lignes.append({"produit": prod, "comparaison": lib,
+                                   "variable": libv, "n_a": len(a),
+                                   "n_b": len(b), "ecart": round(ic[0], 2),
+                                   "ic95_bas": round(ic[1], 2),
+                                   "ic95_haut": round(ic[2], 2)})
+            print()
+        pd.DataFrame(lignes).to_csv(
+            SORTIES / "p7_substituts_porc.csv", index=False)
+
+    # ---- Classement des marques DANS chaque produit.
+    titre("Classement des marques, produit par produit")
+    print("Mediane du Nutri-Score continu sur ce seul produit. Une marque n'est")
+    print(f"listee qu'a partir de {SEUIL_MARQUE} produits ; sous {SEUIL} elle "
+          f"est decrite,\njamais testee. Le bras est indique : une marque du "
+          f"bras temoin n'a pas de\ngamme halal sur ce produit.\n")
+    cl = (d[d.marque.notna() & (d.marque != "")]
+          .groupby(["produit", "bras3", "marque"])
+          .agg(n=("nutriscore_score", "size"),
+               nutriscore=("nutriscore_score", "median"),
+               sel=("sel", "median"), proteines=("proteines", "median"))
+          .reset_index())
+    cl = cl[cl.n >= SEUIL_MARQUE].copy()
+    for c in ("nutriscore", "sel", "proteines"):
+        cl[c] = cl[c].round(2)
+    cl["regle_30"] = np.where(cl.n >= SEUIL, "franchie", "sous 30")
+    cl = cl.sort_values(["produit", "nutriscore"])
+    for prod, g in cl.groupby("produit"):
+        med = d[d.produit == prod].nutriscore_score.median()
+        print(f"  --- {libelles[prod]}   (mediane tous bras : {med:.0f})")
+        print(g.drop(columns=["produit"]).to_string(index=False))
+        print()
+    cl.to_csv(SORTIES / "p6_marques_par_produit.csv", index=False)
+
     # ---- Dispersion DANS le bras halal : l'ecart entre fabricants halal.
     titre("Dans le bras halal : l'ecart entre fabricants")
     print("Si l'ecart intra-marque est nul mais l'ecart entre marques halal")
@@ -349,7 +438,8 @@ def main() -> int:
     print("\nEcrit : sorties/rapport_produits_emblematiques.md,")
     print("        sorties/p0_effectifs_produits.csv, "
           "p1_especes_par_produit.csv,\n        p2_rayon_*.csv, p3_espece_*.csv, "
-          "p4_intra_marque_*.csv,\n        p5_marques_bras_halal.csv")
+          "p4_intra_marque_*.csv,\n        p5_marques_bras_halal.csv, "
+          "p6_marques_par_produit.csv,\n        p7_substituts_porc.csv")
     return 0
 
 

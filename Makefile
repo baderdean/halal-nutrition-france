@@ -9,8 +9,8 @@ PY       := HNF_DATA=$(HNF_DATA) python3
 SRC      := src
 
 .PHONY: install couche1 source france perimetre assertions analyse rapport \
-        couche3 couche4 couche5 marques certificateurs classement halal \
-        emblematiques amorce figer propre
+        couche3 couche4 couche5 couche6 marques certificateurs classement \
+        halal emblematiques reperes amorce figer propre
 
 install:
 	pip install -r requirements.txt
@@ -64,6 +64,11 @@ couche5: emblematiques
 # Demande le parquet de perimetre (make perimetre), pas seulement des CSV.
 emblematiques:
 	$(PY) $(SRC)/etape5_produits_emblematiques.py
+
+couche6: reperes
+
+reperes:
+	$(PY) $(SRC)/etape6_reperes_consommateur.py
 
 # A n'utiliser que pour acter volontairement un changement de dump ou de
 # perimetre. Jamais pour faire passer un pipeline rouge.

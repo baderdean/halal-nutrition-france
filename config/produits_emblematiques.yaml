@@ -1,9 +1,15 @@
 # Produits emblematiques — couche 5.
 #
 # Le lecteur n'achete pas une « sous-categorie charcuterie cuite ». Il achete
-# un jambon, un cordon bleu, des nuggets, un saucisson. Ce fichier definit ces
-# quatre produits par leurs categories OFF, pour une comparaison halal /
-# kasher / ni l'un ni l'autre a produit reellement identique.
+# un jambon, un cordon bleu, des nuggets, un saucisson. Ce fichier definit dix
+# produits par leurs categories OFF, pour une comparaison halal / kasher / ni
+# l'un ni l'autre a produit reellement identique.
+#
+# « LES PLUS COURANTS » VEUT DIRE LES PLUS REFERENCES, PAS LES PLUS VENDUS.
+# Open Food Facts est alimente par des contributeurs et ne contient aucune
+# donnee de vente. Le classement de frequence ci-dessous mesure la presence
+# dans la base, un proxy imparfait de la presence en rayon, et pas du tout un
+# volume de vente. Aucun de ces produits n'est presente comme « best-seller ».
 #
 # AFFECTATION ORDONNEE, PREMIER MATCH GAGNANT. L'ordre n'est pas cosmetique :
 #  - les plats a base de jambon (pizzas, salades piemontaises) portent aussi
@@ -31,12 +37,33 @@ produits:
            en:bayonne-ham, en:parma-ham, en:smoked-cured-hams,
            en:iberian-ham, en:black-forest-ham, en:coppa]
 
+  # substitut_porc : produit dont la version traditionnelle est au porc et
+  # dont la version halal est une substitution d'espece. Le drapeau declenche
+  # une comparaison supplementaire, substitut contre original.
+  - nom: mortadelle
+    libelle: "Mortadelle"
+    analyse: true
+    substitut_porc: true
+    tags: [en:mortadella, fr:mortadelles]
+
   - nom: saucisson_sec
     libelle: "Saucisson sec, salami, chorizo"
     analyse: true
+    substitut_porc: true
     tags: [en:cured-sausages, en:dry-sausages, en:salami, en:chorizo,
            en:turkey-salami, en:pork-salami, en:rosette-dry-sausage,
            en:beef-salami, en:dry-sausage-pure-pork]
+
+  - nom: merguez
+    libelle: "Merguez"
+    analyse: true
+    # Avant les saucisses : une merguez porte aussi en:sausages.
+    tags: [fr:merguez, en:merguez]
+
+  - nom: saucisse_volaille
+    libelle: "Saucisses de volaille (hors merguez)"
+    analyse: true
+    tags: [en:poultry-sausages, en:chicken-sausages, en:turkey-sausages]
 
   - nom: cordon_bleu
     libelle: "Cordon bleu"
@@ -51,6 +78,21 @@ produits:
     tags: [en:poultry-nuggets, en:chicken-nuggets, en:turkey-nuggets,
            fr:nuggets]
 
+  # Apres nuggets et cordons bleus, qui portent aussi en:breaded-chicken.
+  - nom: escalope_panee
+    libelle: "Escalopes et blancs panes (hors nuggets et cordons bleus)"
+    analyse: true
+    tags: [en:breaded-chicken, en:breaded-turkey, en:breaded-escalopes,
+           en:schnitzel, fr:escalopes-panees]
+
+  - nom: steak_hache
+    libelle: "Steak hache et viande hachee"
+    analyse: true
+    tags: [en:ground-steaks, en:ground-beef-steaks, en:ground-meat-preparations,
+           en:ground-beef-preparations, en:minced-beef-steak-with-20-fat,
+           en:frozen-ground-meat-preparations, en:frozen-ground-beef-steaks,
+           en:frozen-ground-beef-preparations, en:frozen-ground-steaks]
+
   # En dernier : en:hams est porte par beaucoup de produits deja captes.
   - nom: jambon_cuit
     libelle: "Jambon cuit (blanc, de volaille, a l'os)"
@@ -59,4 +101,13 @@ produits:
            en:braised-hams, en:white-smoked-hams, en:knuckle-of-ham-cooked,
            en:cooked-ham-of-superior-quality, en:white-hams-with-less-salt,
            en:french-hams, en:diced-ham, fr:jambons-cuits-a-l-ancienne,
-           fr:jambon-cuit-avec-couenne, en:turkey-hams, en:chicken-hams]
+           fr:jambon-cuit-avec-couenne, en:turkey-hams, en:chicken-hams,
+           en:cooked-chicken-breast-slices, en:cooked-turkey-breast-slices]
+
+  # Tout en dernier : une tranche de blanc de poulet CUIT est un jambon de
+  # volaille et doit avoir ete captee au-dessus. Ne reste ici que la decoupe.
+  - nom: blanc_de_poulet
+    libelle: "Blanc de poulet en decoupe (non pane, non cuit en tranches)"
+    analyse: true
+    tags: [en:chicken-breasts, en:turkey-breasts, en:turkey-cutlets,
+           fr:aiguillettes-de-poulet]

@@ -1,16 +1,34 @@
 produit,bras,n,mediane,regle_30,ecart_vs_temoin,ic95_bas,ic95_haut,testable
+blanc_de_poulet,halal,61,-1.0,franchie,5.0,0.0,6.0,True
+blanc_de_poulet,kasher,8,3.5,sous 30,,,,
+blanc_de_poulet,temoin,4725,-6.0,franchie,,,,
 cordon_bleu,halal,82,11.0,franchie,5.0,0.0,5.5,True
 cordon_bleu,kasher,1,4.0,sous 30,,,,
 cordon_bleu,temoin,534,6.0,franchie,,,,
-jambon_cuit,halal,251,13.0,franchie,2.0,1.0,3.0,True
-jambon_cuit,kasher,36,3.0,franchie,-8.0,-8.5,-8.0,True
-jambon_cuit,temoin,7054,11.0,franchie,,,,
+escalope_panee,halal,96,4.0,franchie,5.0,4.0,5.0,True
+escalope_panee,kasher,7,5.0,sous 30,,,,
+escalope_panee,temoin,786,-1.0,franchie,,,,
+jambon_cuit,halal,248,12.5,franchie,1.5,1.0,3.0,True
+jambon_cuit,kasher,36,3.0,franchie,-8.0,-8.0,-8.0,True
+jambon_cuit,temoin,7047,11.0,franchie,,,,
 jambon_sec,halal,3,23.0,sous 30,,,,
 jambon_sec,kasher,1,28.0,sous 30,,,,
 jambon_sec,temoin,2650,27.0,franchie,,,,
+merguez,halal,31,18.0,franchie,-3.0,-6.0,1.0,True
+merguez,kasher,1,12.0,sous 30,,,,
+merguez,temoin,443,21.0,franchie,,,,
+mortadelle,halal,33,18.0,franchie,-4.0,-6.0,-3.0,True
+mortadelle,kasher,1,15.0,sous 30,,,,
+mortadelle,temoin,261,22.0,franchie,,,,
 nugget,halal,85,5.0,franchie,1.0,0.0,2.0,True
 nugget,kasher,2,3.5,sous 30,,,,
 nugget,temoin,413,4.0,franchie,,,,
+saucisse_volaille,halal,129,17.0,franchie,4.0,3.0,6.0,True
+saucisse_volaille,kasher,11,15.0,sous 30,2.0,0.0,5.0,False
+saucisse_volaille,temoin,480,13.0,franchie,,,,
 saucisson_sec,halal,187,30.0,franchie,-4.0,-5.0,-3.0,True
 saucisson_sec,kasher,13,32.0,sous 30,-2.0,-4.0,-2.0,False
-saucisson_sec,temoin,5170,34.0,franchie,,,,
+saucisson_sec,temoin,5165,34.0,franchie,,,,
+steak_hache,halal,114,11.0,franchie,5.0,2.0,5.0,True
+steak_hache,kasher,10,9.5,sous 30,3.5,-0.5,8.0,False
+steak_hache,temoin,1231,6.0,franchie,,,,

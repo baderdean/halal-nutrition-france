@@ -12,10 +12,16 @@ Un ecart n'est affiche que si les deux cellules comparees franchissent 30.
 | produit | halal | kasher | ni l'un ni l'autre |
 |:--|--:|--:|--:|
 | Jambon sec et cru (Bayonne, Serrano, Parme, coppa) | 3 | 1 | 2660 |
-| Saucisson sec, salami, chorizo | 187 | 13 | 5186 |
+| Mortadelle | 33 | 1 | 263 |
+| Saucisson sec, salami, chorizo | 187 | 13 | 5181 |
+| Merguez | 31 | 1 | 444 |
+| Saucisses de volaille (hors merguez) | 129 | 11 | 484 |
 | Cordon bleu | 82 | 1 | 534 |
 | Nuggets | 85 | 2 | 414 |
-| Jambon cuit (blanc, de volaille, a l'os) | 253 | 36 | 7087 |
+| Escalopes et blancs panes (hors nuggets et cordons bleus) | 96 | 7 | 787 |
+| Steak hache et viande hachee | 116 | 10 | 1268 |
+| Jambon cuit (blanc, de volaille, a l'os) | 250 | 36 | 7080 |
+| Blanc de poulet en decoupe (non pane, non cuit en tranches) | 62 | 8 | 4740 |
 
 Le kasher ne franchit 30 que sur le jambon cuit. Partout ailleurs il est
 decrit et jamais teste : conclure sur 1 ou 2 produits n'est pas conclure.
@@ -27,21 +33,39 @@ melange le label et le changement d'espece qu'il impose.
 
 | produit | bras | n | mediane | ecart_vs_temoin | ic95_bas | ic95_haut |
 |:--|:--|--:|--:|--:|--:|--:|
+| blanc_de_poulet | halal | 61 | -1.0 | +5.00 | +0.00 | +6.00 |
+| blanc_de_poulet | kasher | 8 * | 3.5 |  |  |  |
+| blanc_de_poulet | temoin | 4725 | -6.0 |  |  |  |
 | cordon_bleu | halal | 82 | 11.0 | +5.00 | +0.00 | +5.50 |
 | cordon_bleu | kasher | 1 * | 4.0 |  |  |  |
 | cordon_bleu | temoin | 534 | 6.0 |  |  |  |
-| jambon_cuit | halal | 251 | 13.0 | +2.00 | +1.00 | +3.00 |
-| jambon_cuit | kasher | 36 | 3.0 | -8.00 | -8.50 | -8.00 |
-| jambon_cuit | temoin | 7054 | 11.0 |  |  |  |
+| escalope_panee | halal | 96 | 4.0 | +5.00 | +4.00 | +5.00 |
+| escalope_panee | kasher | 7 * | 5.0 |  |  |  |
+| escalope_panee | temoin | 786 | -1.0 |  |  |  |
+| jambon_cuit | halal | 248 | 12.5 | +1.50 | +1.00 | +3.00 |
+| jambon_cuit | kasher | 36 | 3.0 | -8.00 | -8.00 | -8.00 |
+| jambon_cuit | temoin | 7047 | 11.0 |  |  |  |
 | jambon_sec | halal | 3 * | 23.0 |  |  |  |
 | jambon_sec | kasher | 1 * | 28.0 |  |  |  |
 | jambon_sec | temoin | 2650 | 27.0 |  |  |  |
+| merguez | halal | 31 | 18.0 | -3.00 | -6.00 | +1.00 |
+| merguez | kasher | 1 * | 12.0 |  |  |  |
+| merguez | temoin | 443 | 21.0 |  |  |  |
+| mortadelle | halal | 33 | 18.0 | -4.00 | -6.00 | -3.00 |
+| mortadelle | kasher | 1 * | 15.0 |  |  |  |
+| mortadelle | temoin | 261 | 22.0 |  |  |  |
 | nugget | halal | 85 | 5.0 | +1.00 | +0.00 | +2.00 |
 | nugget | kasher | 2 * | 3.5 |  |  |  |
 | nugget | temoin | 413 | 4.0 |  |  |  |
+| saucisse_volaille | halal | 129 | 17.0 | +4.00 | +3.00 | +6.00 |
+| saucisse_volaille | kasher | 11 * | 15.0 |  |  |  |
+| saucisse_volaille | temoin | 480 | 13.0 |  |  |  |
 | saucisson_sec | halal | 187 | 30.0 | -4.00 | -5.00 | -3.00 |
 | saucisson_sec | kasher | 13 * | 32.0 |  |  |  |
-| saucisson_sec | temoin | 5170 | 34.0 |  |  |  |
+| saucisson_sec | temoin | 5165 | 34.0 |  |  |  |
+| steak_hache | halal | 114 | 11.0 | +5.00 | +2.00 | +5.00 |
+| steak_hache | kasher | 10 * | 9.5 |  |  |  |
+| steak_hache | temoin | 1231 | 6.0 |  |  |  |
 
 ## Lecture 2 — a espece egale
 
@@ -50,11 +74,16 @@ figurent ici.
 
 | produit | espece | bras | n | mediane | ecart_vs_temoin | ic95_bas | ic95_haut |
 |:--|:--|:--|--:|--:|--:|--:|--:|
+| blanc_de_poulet | poulet | halal | 54 | -5.0 | +1.00 | +0.00 | +6.00 |
 | cordon_bleu | dinde | halal | 37 | 11.0 | +0.00 | +0.00 | +5.00 |
-| jambon_cuit | dinde | halal | 85 | 14.0 | +12.00 | +11.00 | +13.00 |
-| jambon_cuit | poulet | halal | 137 | 12.0 | +10.00 | +9.00 | +10.00 |
-| nugget | poulet | halal | 64 | 5.0 | +2.00 | +0.00 | +6.50 |
+| escalope_panee | poulet | halal | 84 | 4.0 | +1.00 | +0.00 | +2.00 |
+| jambon_cuit | dinde | halal | 85 | 14.0 | +12.00 | +10.50 | +13.00 |
+| jambon_cuit | poulet | halal | 135 | 12.0 | +10.00 | +9.00 | +10.00 |
+| nugget | poulet | halal | 64 | 5.0 | +2.00 | +0.00 | +6.00 |
+| saucisse_volaille | poulet | halal | 49 | 18.0 | +4.00 | +2.00 | +6.00 |
+| saucisse_volaille | volaille_autre | halal | 71 | 16.0 | +5.00 | +4.00 | +13.00 |
 | saucisson_sec | indetermine | halal | 112 | 30.0 | -4.00 | -6.00 | -2.00 |
+| steak_hache | boeuf | halal | 109 | 11.0 | +5.00 | +2.00 | +5.00 |
 
 ## Lecture 3 — a marque et espece egales
 
@@ -75,9 +104,11 @@ label. Une seule cellule au monde le permet dans ces donnees.
 | jambon_cuit | reghalal | 27 | 13.0 | 2.4 | 18.0 |
 | jambon_cuit | isla-delice | 37 | 18.0 | 3.4 | 16.6 |
 | nugget | isla-delice | 10 | 0.0 | 1.25 | 10.8 |
+| saucisse_volaille | royal-halal | 13 | 13.0 | 1.7 | 17.0 |
 | saucisson_sec | isla-mondial | 13 | 32.0 | 3.6 | 22.1 |
 | saucisson_sec | oriental-viandes | 10 | 32.0 | 3.8 | 21.75 |
 | saucisson_sec | isla-delice | 18 | 34.5 | 4.4 | 27.7 |
+| steak_hache | isla-delice | 13 | 11.0 | 0.4 | 16.8 |
 
 ---
 

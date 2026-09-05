@@ -1,28 +1,41 @@
 produit,espece,bras,n,mediane,regle_30,ecart_vs_temoin,ic95_bas,ic95_haut,testable
+blanc_de_poulet,dinde,halal,8,19.0,sous 30,,,,
+blanc_de_poulet,dinde,kasher,7,16.0,sous 30,,,,
+blanc_de_poulet,dinde,temoin,988,24.0,franchie,,,,
+blanc_de_poulet,porc,temoin,3,25.0,sous 30,,,,
+blanc_de_poulet,poulet,halal,54,23.0,franchie,0.0,-1.0,0.0,True
+blanc_de_poulet,poulet,kasher,1,18.0,sous 30,,,,
+blanc_de_poulet,poulet,temoin,3748,23.0,franchie,,,,
 cordon_bleu,dinde,halal,37,12.0,franchie,-0.05,-1.0,0.0,True
 cordon_bleu,dinde,temoin,148,12.05,franchie,,,,
 cordon_bleu,indetermine,halal,25,12.2,sous 30,-1.5,-2.1,0.0,False
 cordon_bleu,indetermine,temoin,151,13.7,franchie,,,,
 cordon_bleu,porc,temoin,1,16.6,sous 30,,,,
-cordon_bleu,poulet,halal,15,13.0,sous 30,0.0,-2.0,4.0,False
+cordon_bleu,poulet,halal,15,13.0,sous 30,0.0,-2.0,1.7,False
 cordon_bleu,poulet,kasher,1,13.0,sous 30,,,,
 cordon_bleu,poulet,temoin,175,13.0,franchie,,,,
 cordon_bleu,volaille_autre,halal,5,12.0,sous 30,,,,
 cordon_bleu,volaille_autre,temoin,59,12.0,franchie,,,,
+escalope_panee,dinde,halal,12,15.0,sous 30,-7.0,-7.0,-7.0,False
+escalope_panee,dinde,kasher,3,16.0,sous 30,,,,
+escalope_panee,dinde,temoin,462,22.0,franchie,,,,
+escalope_panee,poulet,halal,84,15.0,franchie,-1.0,-1.35,0.05,True
+escalope_panee,poulet,kasher,4,12.5,sous 30,,,,
+escalope_panee,poulet,temoin,325,16.0,franchie,,,,
 jambon_cuit,boeuf,temoin,1,23.0,sous 30,,,,
-jambon_cuit,dinde,halal,85,16.0,franchie,-5.7,-6.0,-2.2,True
+jambon_cuit,dinde,halal,85,16.0,franchie,-5.7,-6.0,-2.7,True
 jambon_cuit,dinde,kasher,19,16.0,sous 30,-5.7,-6.0,-5.0,False
 jambon_cuit,dinde,temoin,161,21.7,franchie,,,,
 jambon_cuit,indetermine,halal,3,21.0,sous 30,,,,
 jambon_cuit,indetermine,kasher,1,21.0,sous 30,,,,
 jambon_cuit,indetermine,temoin,5634,21.0,franchie,,,,
-jambon_cuit,porc,temoin,567,21.0,franchie,,,,
-jambon_cuit,poulet,halal,138,18.0,franchie,-3.0,-3.0,-1.9,True
+jambon_cuit,porc,temoin,563,21.0,franchie,,,,
+jambon_cuit,poulet,halal,136,18.0,franchie,-3.0,-3.0,-1.9,True
 jambon_cuit,poulet,kasher,15,18.0,sous 30,-3.0,-4.0,-3.0,False
-jambon_cuit,poulet,temoin,689,21.0,franchie,,,,
-jambon_cuit,volaille_autre,halal,27,16.5,sous 30,-1.5,-5.0,1.8,False
+jambon_cuit,poulet,temoin,687,21.0,franchie,,,,
+jambon_cuit,volaille_autre,halal,26,16.65,sous 30,-1.35,-4.6,1.8,False
 jambon_cuit,volaille_autre,kasher,1,17.0,sous 30,,,,
-jambon_cuit,volaille_autre,temoin,35,18.0,franchie,,,,
+jambon_cuit,volaille_autre,temoin,34,18.0,franchie,,,,
 jambon_sec,boeuf,temoin,2,32.5,sous 30,,,,
 jambon_sec,cheval,temoin,1,23.0,sous 30,,,,
 jambon_sec,indetermine,halal,2,27.6,sous 30,,,,
@@ -31,17 +44,47 @@ jambon_sec,indetermine,temoin,2242,29.0,franchie,,,,
 jambon_sec,porc,temoin,408,27.0,franchie,,,,
 jambon_sec,volaille_autre,halal,1,32.2,sous 30,,,,
 jambon_sec,volaille_autre,temoin,7,30.0,sous 30,,,,
+merguez,agneau,halal,25,15.0,sous 30,1.0,-2.2,1.0,False
+merguez,agneau,temoin,383,14.0,franchie,,,,
+merguez,boeuf,halal,5,12.0,sous 30,,,,
+merguez,boeuf,kasher,1,14.9,sous 30,,,,
+merguez,boeuf,temoin,52,14.0,franchie,,,,
+merguez,dinde,temoin,2,17.0,sous 30,,,,
+merguez,porc,temoin,4,15.0,sous 30,,,,
+merguez,poulet,temoin,1,7.4,sous 30,,,,
+merguez,veau,halal,1,14.0,sous 30,,,,
+merguez,veau,temoin,2,14.25,sous 30,,,,
+mortadelle,boeuf,temoin,1,34.0,sous 30,,,,
+mortadelle,indetermine,halal,29,11.0,sous 30,-4.0,-5.0,-2.9,False
+mortadelle,indetermine,kasher,1,11.0,sous 30,,,,
+mortadelle,indetermine,temoin,219,15.0,franchie,,,,
+mortadelle,porc,temoin,42,15.6,franchie,,,,
+mortadelle,poulet,halal,1,11.7,sous 30,,,,
+mortadelle,volaille_autre,halal,3,13.0,sous 30,,,,
+mortadelle,volaille_autre,temoin,1,16.0,sous 30,,,,
 nugget,boeuf,temoin,1,13.0,sous 30,,,,
-nugget,dinde,halal,19,13.0,sous 30,0.0,-2.1,1.6,False
+nugget,dinde,halal,19,13.0,sous 30,0.0,-2.0,1.6,False
 nugget,dinde,temoin,12,13.0,sous 30,,,,
 nugget,indetermine,temoin,2,8.4,sous 30,,,,
 nugget,porc,temoin,1,5.0,sous 30,,,,
-nugget,poulet,halal,64,13.0,franchie,0.0,-0.7,0.5,True
+nugget,poulet,halal,64,13.0,franchie,0.0,-0.7,0.55,True
 nugget,poulet,kasher,2,13.5,sous 30,,,,
 nugget,poulet,temoin,392,13.0,franchie,,,,
 nugget,volaille_autre,halal,2,10.5,sous 30,,,,
 nugget,volaille_autre,temoin,6,11.5,sous 30,,,,
-saucisson_sec,boeuf,halal,10,23.85,sous 30,-7.15,-16.0,-0.75,False
+saucisse_volaille,boeuf,halal,1,9.1,sous 30,,,,
+saucisse_volaille,canard,temoin,16,16.0,sous 30,,,,
+saucisse_volaille,dinde,halal,8,12.3,sous 30,,,,
+saucisse_volaille,dinde,kasher,1,18.0,sous 30,,,,
+saucisse_volaille,dinde,temoin,15,15.0,sous 30,,,,
+saucisse_volaille,porc,temoin,4,15.0,sous 30,,,,
+saucisse_volaille,poulet,halal,49,12.4,franchie,-1.6,-3.0,-1.2,True
+saucisse_volaille,poulet,kasher,3,12.0,sous 30,,,,
+saucisse_volaille,poulet,temoin,132,14.0,franchie,,,,
+saucisse_volaille,volaille_autre,halal,71,13.7,franchie,-4.3,-5.7,-2.0,True
+saucisse_volaille,volaille_autre,kasher,7,11.0,sous 30,,,,
+saucisse_volaille,volaille_autre,temoin,317,18.0,franchie,,,,
+saucisson_sec,boeuf,halal,10,23.85,sous 30,-7.15,-16.0,-0.9,False
 saucisson_sec,boeuf,kasher,2,21.55,sous 30,,,,
 saucisson_sec,boeuf,temoin,16,31.0,sous 30,,,,
 saucisson_sec,canard,temoin,1,27.0,sous 30,,,,
@@ -51,11 +94,26 @@ saucisson_sec,dinde,kasher,2,17.0,sous 30,,,,
 saucisson_sec,dinde,temoin,18,21.0,sous 30,,,,
 saucisson_sec,indetermine,halal,112,20.25,franchie,-5.75,-7.9,-3.5,True
 saucisson_sec,indetermine,kasher,9,28.0,sous 30,,,,
-saucisson_sec,indetermine,temoin,4216,26.0,franchie,,,,
+saucisson_sec,indetermine,temoin,4214,26.0,franchie,,,,
 saucisson_sec,porc,halal,17,19.7,sous 30,-6.3,-14.0,1.0,False
-saucisson_sec,porc,temoin,909,26.0,franchie,,,,
+saucisson_sec,porc,temoin,906,26.0,franchie,,,,
 saucisson_sec,poulet,halal,5,11.2,sous 30,,,,
 saucisson_sec,poulet,temoin,3,31.0,sous 30,,,,
 saucisson_sec,veau,temoin,1,11.0,sous 30,,,,
 saucisson_sec,volaille_autre,halal,4,11.85,sous 30,,,,
 saucisson_sec,volaille_autre,temoin,20,26.0,sous 30,,,,
+steak_hache,agneau,halal,1,13.0,sous 30,,,,
+steak_hache,agneau,temoin,2,18.1,sous 30,,,,
+steak_hache,boeuf,halal,111,18.0,franchie,-1.0,-1.0,-1.0,True
+steak_hache,boeuf,kasher,8,16.5,sous 30,,,,
+steak_hache,boeuf,temoin,1072,19.0,franchie,,,,
+steak_hache,cheval,temoin,1,22.1,sous 30,,,,
+steak_hache,dinde,temoin,1,17.0,sous 30,,,,
+steak_hache,indetermine,halal,2,15.5,sous 30,,,,
+steak_hache,indetermine,kasher,2,14.2,sous 30,,,,
+steak_hache,indetermine,temoin,135,15.0,franchie,,,,
+steak_hache,porc,temoin,39,16.0,franchie,,,,
+steak_hache,poulet,halal,1,12.0,sous 30,,,,
+steak_hache,poulet,temoin,9,17.0,sous 30,,,,
+steak_hache,veau,halal,1,17.0,sous 30,,,,
+steak_hache,veau,temoin,9,17.5,sous 30,,,,

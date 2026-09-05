@@ -1,0 +1,36 @@
+# Repertoire culinaire — couche 6.
+#
+# CE QUE CE FICHIER CLASSE : des NOMS DE PRODUITS, par le vocabulaire culinaire
+# imprime sur l'emballage. Une merguez appartient au repertoire maghrebin comme
+# un jambon appartient au repertoire charcutier europeen : c'est une propriete
+# de la RECETTE, lisible par n'importe quel client.
+#
+# CE QUE CE FICHIER NE CLASSE PAS, ET NE DOIT JAMAIS SERVIR A CLASSER :
+#  - des personnes, des populations, des consommateurs ;
+#  - des entreprises. Isla Delice est une societe francaise ; le nom d'une
+#    marque ne dit pas son pays ni celui de ses dirigeants ;
+#  - un pays de fabrication. Une merguez fabriquee en Bretagne reste une
+#    merguez, et le repertoire n'est pas une origine.
+#
+# RESULTAT ETABLI, a lire avec le fichier : le repertoire est essentiellement
+# une redite de la GAMME de produit. Le repertoire maghrebin est a 78 % des
+# saucisses, le repertoire charcutier europeen a 83 % de la charcuterie. Une
+# fois la gamme fixee, les repertoires maghrebin et turc ne montrent plus rien.
+# Publier ce fichier sans ce controle produirait exactement l'affirmation que
+# l'etude doit rendre impossible.
+#
+# Motifs appliques sur product_name en minuscules, PREMIER MATCH GAGNANT.
+# Un produit non reconnu reste 'non classe' et n'est jamais force dans un
+# repertoire.
+
+repertoires:
+  - nom: maghrebin
+    motif: "merguez|kefta|kefte|mechoui|tajine|tagine|couscous|chorba|bourek|brick|harissa|makanek|maqanek"
+  - nom: turc
+    motif: "tavuk|sucuk|soudjouk|sudjuk|pastirma|basturma|doner|donner|kebab|kofte|kokorec|lahmacun|iskender|adana|pide|sujuk"
+  - nom: levantin
+    motif: "shawarma|chawarma|chich|chiche|taouk|kebbe|kibbe|falafel"
+  - nom: charcuterie europeenne
+    motif: "jambon|saucisson|chorizo|mortadelle|salami|bacon|lardon|pate|rillette|terrine|coppa|pancetta"
+  - nom: anglo-saxon industriel
+    motif: "nugget|cordon bleu|burger|steak hach|wings|tenders|crispy|finger"

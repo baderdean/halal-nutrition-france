@@ -1,6 +1,12 @@
 produit,halal,kasher,temoin,libelle
 jambon_sec,3,1,2660,"Jambon sec et cru (Bayonne, Serrano, Parme, coppa)"
-saucisson_sec,187,13,5186,"Saucisson sec, salami, chorizo"
+mortadelle,33,1,263,Mortadelle
+saucisson_sec,187,13,5181,"Saucisson sec, salami, chorizo"
+merguez,31,1,444,Merguez
+saucisse_volaille,129,11,484,Saucisses de volaille (hors merguez)
 cordon_bleu,82,1,534,Cordon bleu
 nugget,85,2,414,Nuggets
-jambon_cuit,253,36,7087,"Jambon cuit (blanc, de volaille, a l'os)"
+escalope_panee,96,7,787,Escalopes et blancs panes (hors nuggets et cordons bleus)
+steak_hache,116,10,1268,Steak hache et viande hachee
+jambon_cuit,250,36,7080,"Jambon cuit (blanc, de volaille, a l'os)"
+blanc_de_poulet,62,8,4740,"Blanc de poulet en decoupe (non pane, non cuit en tranches)"
