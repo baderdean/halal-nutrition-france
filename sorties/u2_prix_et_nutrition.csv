@@ -1,0 +1,5 @@
+sous_categorie,n_halal,n_temoin,ecart_prix_kg,prix_ic95_bas,prix_ic95_haut,ecart_nutriscore,ns_ic95_bas,ns_ic95_haut,verdict
+charcuterie_cuite,211,1637,1.44,0.68,2.02,0.0,-3.0,2.0,plus cher / non etabli
+charcuterie_seche,37,1045,5.28,-0.8,9.39,-6.0,-11.0,-1.0,non etabli / meilleur
+panes,49,538,-2.07,-3.42,-1.0,2.0,0.0,7.0,moins cher / non etabli
+saucisses,57,441,-3.9,-4.55,-3.03,0.0,0.0,1.0,moins cher / non etabli

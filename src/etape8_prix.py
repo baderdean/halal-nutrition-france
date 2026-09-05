@@ -231,13 +231,21 @@ def collecte_par_codes(codes: list[str], lot: int = 250) -> list[dict] | None:
               f"(total={d.get('total')}) : repli sur le balayage")
         return None
 
-    lignes = []
+    # Le controle a deux codes ne prouve rien sur un lot de 250 : une URL
+    # longue peut faire tomber le filtre cote service sans le dire. On mesure
+    # donc, lot par lot, la part des reponses qui appartient aux codes
+    # demandes, et le journal de collecte la publie.
+    lignes, dedans, recus_total = [], 0, 0
     for i in range(0, len(codes), lot):
         tranche = codes[i:i + lot]
+        attendus = set(tranche)
         url = f"{API}?size=1000&product_code__in={','.join(tranche)}"
         try:
             with http(url) as r:
-                lignes.extend(json.loads(r.read()).get("items", []))
+                recus = json.loads(r.read()).get("items", [])
+            recus_total += len(recus)
+            dedans += sum(1 for x in recus if code_barres(x) in attendus)
+            lignes.extend(recus)
         except urllib.error.HTTPError as e:
             if e.code == 429:
                 time.sleep(30)
@@ -247,6 +255,16 @@ def collecte_par_codes(codes: list[str], lot: int = 250) -> list[dict] | None:
             print(f"    lot {i // lot} / {len(codes) // lot} : cumul "
                   f"{len(lignes)}", flush=True)
         time.sleep(0.05)
+    taux = 100.0 * dedans / recus_total if recus_total else 0.0
+    print(f"  Filtre honore sur {taux:.1f} % des reponses "
+          f"({dedans} / {recus_total}).")
+    if taux < 90:
+        print("  [ATTENTION] Le filtre par liste n'a pas ete honore a cette "
+              "taille de lot.\n  La collecte n'est donc PAS ciblee : c'est un "
+              "balayage de la base, qu'il\n  faut declarer comme tel. Le "
+              "filtrage sur le perimetre reste correct,\n  seule la "
+              "description de la methode change.")
+    globals()["_TAUX_FILTRE"] = round(taux, 1)
     return lignes
 
 
@@ -323,7 +341,17 @@ def analyser() -> int:
         echec(f"{PRIX} absent. Lancer d'abord le workflow couche8-prix "
               f"(mode --collecte sur un runner GitHub), qui commite ce fichier.")
     p = pd.read_csv(PRIX, dtype={"product_code": str})
+    # La collecte ne deduplique pas : deux lots peuvent rendre le meme releve.
+    # Deux releves reellement identiques (meme produit, meme prix, meme jour,
+    # meme magasin) sont indiscernables d'un doublon technique, donc ecartes.
+    # C'est conservateur : on perd quelques vrais doublons plutot que de
+    # compter plusieurs fois le meme.
+    avant_dedup = len(p)
+    p = p.drop_duplicates()
     titre("Couche 8 — prix au kilo")
+    if avant_dedup != len(p):
+        print(f"{avant_dedup - len(p)} lignes identiques ecartees "
+              f"(doublons de collecte indiscernables de vrais doublons).")
     print(f"{len(p)} releves de prix charges.")
     if JOURNAL.exists():
         j = json.loads(JOURNAL.read_text(encoding="utf-8"))
@@ -331,10 +359,20 @@ def analyser() -> int:
               f"releves aspires\n  sur {j['total_annonce_par_api']} annonces "
               f"par l'API, dont {j['releves_du_perimetre']} dans le\n  "
               f"perimetre carne.")
-        if not j.get("collecte_complete"):
-            print("  [ATTENTION] COLLECTE INCOMPLETE. Une couverture faible "
-                  "ci-dessous ne\n  prouve alors rien : elle peut venir de la "
-                  "collecte et non du terrain.")
+        part = j.get("part_de_la_base_aspiree_pct")
+        if part is not None:
+            print(f"  Part de la base aspiree : {part} %.")
+        taux = j.get("filtre_par_codes_honore_pct")
+        if taux is not None and taux < 90:
+            print(f"  Le filtre par codes n'a ete honore que sur {taux} % des "
+                  f"reponses : la\n  collecte est un balayage de la base, pas "
+                  f"une interrogation ciblee. Cela\n  ne biaise pas le "
+                  f"resultat — le filtrage sur le perimetre se fait ensuite —\n"
+                  f"  mais la methode n'est pas celle que le nom suggere.")
+        if part is not None and part < 90:
+            print("  [ATTENTION] Moins de 90 % de la base aspiree. Une "
+                  "couverture faible\n  ci-dessous peut venir de la collecte "
+                  "et non du terrain.")
     print()
 
     # Un prix en promotion ne dit rien du positionnement d'une gamme.
@@ -404,7 +442,56 @@ def analyser() -> int:
     if not lignes:
         print("  Aucune gamme n'atteint le seuil des deux cotes.")
     pd.DataFrame(lignes).to_csv(SORTIES / "u1_prix_par_gamme.csv", index=False)
-    print("\nEcrit : sorties/u0_couverture_prix.csv, u1_prix_par_gamme.csv")
+    # ---- Le prix explique-t-il l'ecart nutritionnel ?
+    titre("Prix et nutrition cote a cote, sur les MEMES produits")
+    print("L'explication la plus banale de l'ecart nutritionnel serait que le")
+    print("halal se vend sur un segment de prix plus bas. Elle se teste en")
+    print("mettant les deux ecarts en regard, sur les seuls produits qui ont")
+    print("un prix. Un ecart de prix POSITIF avec un ecart de Nutri-Score")
+    print("positif ruine l'explication : le produit est a la fois plus cher")
+    print("et moins bon.\n")
+    lignes2 = []
+    for sc, g in j.groupby("sous_categorie"):
+        a, b = g[g.bras == "halal"], g[g.bras == "temoin"]
+        if len(a) < SEUIL or len(b) < SEUIL:
+            continue
+        rp = ic_diff(a.prix_kg.to_numpy(), b.prix_kg.to_numpy(), rng)
+        rn = ic_diff(a.ns.to_numpy(float), b.ns.to_numpy(float), rng)
+        if not rp or not rn:
+            continue
+        # Le verdict se lit sur les INTERVALLES, pas sur le point : un ecart
+        # de +0.0 dont l'intervalle contient zero ne dit ni mieux ni moins
+        # bien, et le ranger d'un cote serait inventer un resultat.
+        def sens(r, mieux_si_negatif=True):
+            if r[1] > 0:
+                return "plus cher" if not mieux_si_negatif else "moins bon"
+            if r[2] < 0:
+                return "moins cher" if not mieux_si_negatif else "meilleur"
+            return "non etabli"
+
+        vp = sens(rp, mieux_si_negatif=False)
+        vn = sens(rn)
+        verdict = f"{vp} / {vn}"
+        print(f"  {sc:22s} prix {rp[0]:+6.2f} EUR/kg [{rp[1]:+.2f} ; {rp[2]:+.2f}]"
+              f"   Nutri-Score {rn[0]:+5.1f} [{rn[1]:+.1f} ; {rn[2]:+.1f}]"
+              f"   {verdict}")
+        lignes2.append({"sous_categorie": sc, "n_halal": len(a),
+                        "n_temoin": len(b),
+                        "ecart_prix_kg": round(rp[0], 2),
+                        "prix_ic95_bas": round(rp[1], 2),
+                        "prix_ic95_haut": round(rp[2], 2),
+                        "ecart_nutriscore": round(rn[0], 1),
+                        "ns_ic95_bas": round(rn[1], 1),
+                        "ns_ic95_haut": round(rn[2], 1),
+                        "verdict": verdict})
+    pd.DataFrame(lignes2).to_csv(SORTIES / "u2_prix_et_nutrition.csv",
+                                 index=False)
+    print("\n  Ces ecarts nutritionnels portent sur le SOUS-ENSEMBLE des")
+    print("  produits ayant un prix releve, pas sur le perimetre entier : ils")
+    print("  ne remplacent pas ceux des couches 3 et 6.")
+
+    print("\nEcrit : sorties/u0_couverture_prix.csv, u1_prix_par_gamme.csv,")
+    print("        sorties/u2_prix_et_nutrition.csv")
     return 0
 
 
@@ -468,6 +555,9 @@ def main() -> int:
             "releves_collectes": len(lignes),
             "releves_du_perimetre": len(gardees),
             "collecte_complete": bool(total and len(lignes) >= total),
+            "part_de_la_base_aspiree_pct": (
+                round(100.0 * len(lignes) / total, 1) if total else None),
+            "filtre_par_codes_honore_pct": globals().get("_TAUX_FILTRE"),
             "taille_page": a.taille_page,
             "plafond_pages_du_service": 500,
         }, indent=2) + "\n", encoding="utf-8")

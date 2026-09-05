@@ -1,0 +1,5 @@
+sous_categorie,n_halal,n_temoin,prix_kg_halal,prix_kg_temoin,ecart,ic95_bas,ic95_haut,etabli
+charcuterie_cuite,211,1637,17.39,15.95,1.44,0.69,2.02,True
+charcuterie_seche,37,1045,25.2,19.92,5.28,-0.78,9.44,False
+panes,49,538,10.36,12.42,-2.07,-3.45,-1.0,True
+saucisses,57,441,7.66,11.56,-3.9,-4.55,-3.03,True
