@@ -1,6 +1,6 @@
 variable,ecart,ic95_bas,ic95_haut
 Nutri-Score,0.0,-1.0,1.0
-sel,0.2,-0.1,0.4
-AGS,-1.5,-1.9,-0.52
+sel,0.2,-0.05,0.4
+AGS,-1.5,-1.9,-0.6
 proteines,-0.3,-2.0,2.0
 "Nutri-Score, charcuterie_cuite",-1.0,-2.5,2.0

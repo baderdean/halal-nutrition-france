@@ -1,0 +1,22 @@
+test,strate,n_a,n_b,ecart,ic95_bas,ic95_haut
+phosphates -> proteines,autres_carnes,481,5436,-4.0,-4.8,-3.0
+phosphates -> proteines,charcuterie_cuite,697,5728,-4.0,-4.4,-4.0
+phosphates -> proteines,charcuterie_seche,331,2608,-9.4,-10.4,-8.25
+phosphates -> proteines,decoupes,56,1579,-2.9,-5.0,-2.0
+phosphates -> proteines,panes,391,807,-3.0,-4.0,-2.5
+phosphates -> proteines,plats_cuisines,1006,5704,-0.4,-0.6,-0.1
+phosphates -> proteines,preparations_marinees,96,709,-0.4,-2.0,0.0
+phosphates -> proteines,rillettes_pates_mousses,44,2174,-1.45,-2.75,1.0
+phosphates -> proteines,saucisses,607,1801,-2.6,-3.0,-2.0
+"halal-temoin proteines, phosphates=False",autres_carnes,58,5378,-1.0,-3.0,0.0
+"halal-temoin proteines, phosphates=True",autres_carnes,57,424,0.8,-1.7,1.8
+"halal-temoin proteines, phosphates=False",charcuterie_cuite,104,5624,-1.0,-1.9,0.0
+"halal-temoin proteines, phosphates=True",charcuterie_cuite,144,553,-1.0,-2.0,-0.5
+"halal-temoin proteines, phosphates=False",charcuterie_seche,68,2540,-5.18,-7.85,-2.35
+"halal-temoin proteines, phosphates=True",charcuterie_seche,68,263,-1.3,-5.0,0.65
+"halal-temoin proteines, phosphates=False",panes,53,754,-2.45,-3.2,-0.3
+"halal-temoin proteines, phosphates=True",panes,62,329,0.0,-1.0,1.0
+"halal-temoin proteines, phosphates=False",plats_cuisines,64,5640,-1.4,-2.15,0.1
+"halal-temoin proteines, phosphates=False",saucisses,42,1759,0.8,0.0,2.0
+"halal-temoin proteines, phosphates=True",saucisses,96,511,-0.7,-1.3,0.1
+"halal-temoin proteines, phosphates=False",viande_hachee,62,690,-2.0,-3.0,-1.0

@@ -1,3 +1,3 @@
 groupe,n,median,q1,q3,diff_vs_halal_sans_label_france,ic95_bas,ic95_haut,regle_30
-halal_sans_label_france,1850,3.2,1.2,6.1,,,,franchie
-halal_france_visible,109,1.7,0.6,4.2,-1.5,-1.9,-0.52,franchie
+halal_sans_label_france,1845,3.2,1.2,6.1,,,,franchie
+halal_france_visible,109,1.7,0.6,4.2,-1.5,-1.9,-0.55,franchie

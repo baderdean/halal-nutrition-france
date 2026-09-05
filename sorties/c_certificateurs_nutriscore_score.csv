@@ -1,6 +1,6 @@
 groupe,n,ecart_median,ic95_bas,ic95_haut,strates,distingue_du_marche
-SFCVH — Grande Mosquee de Paris,102,0.0,0.0,0.0,22,non
+SFCVH — Grande Mosquee de Paris,102,0.0,0.0,0.0,25,non
 AVS — A Votre Service,142,2.0,1.0,7.0,25,oui
-halal SANS certificateur,1248,2.0,2.0,3.0,45,oui
-ARGML — Grande Mosquee de Lyon,157,4.0,2.0,9.0,29,oui
-Mosquee d'Evry-Courcouronnes,221,5.0,4.0,7.0,36,oui
+halal SANS certificateur,1247,2.0,2.0,2.0,48,oui
+ARGML — Grande Mosquee de Lyon,157,4.0,1.0,8.0,30,oui
+Mosquee d'Evry-Courcouronnes,221,5.0,3.0,7.0,38,oui

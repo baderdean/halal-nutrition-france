@@ -1,16 +1,16 @@
 rang,rang_min,rang_max,marque_affichee,type,n,n_tagues,pct_tague,ecart_median,ic95_bas,ic95_haut,regle_30,strates_couvertes,marque
-1,1,6,Fleury Michon,generaliste faisant du halal,70,75.0,6.9,0.0,0.0,0.0,franchie,12,fleury-michon
-2,1,8,Royal Halal,marque halal,29,30.0,100.0,0.0,-1.0,1.0,sous 30,8,royal-halal
-3,1,14,Id Halal,marque halal,35,38.0,100.0,3.0,0.0,10.0,franchie,14,id-halal
-4,2,13,carrefour,generaliste faisant du halal,39,61.0,2.1,3.0,1.0,7.0,franchie,20,carrefour
-5,2,14,Isla Mondial,marque halal,74,78.0,97.5,3.0,1.0,9.0,franchie,22,isla-mondial
-6,3,14,Oriental viandes,marque halal,80,85.0,93.4,4.0,2.0,8.5,franchie,31,oriental-viandes
-7,3,14,Isla Délice,marque halal,181,190.0,99.0,4.0,2.0,10.0,franchie,32,isla-delice
-8,3,13,"Aia, Montorsi",generaliste faisant du halal,20,21.0,22.6,5.0,3.0,7.5,sous 30,7,aia
-9,1,15,Wassila,marque halal,21,22.0,100.0,5.0,0.0,12.0,sous 30,12,wassila
-10,3,14,Reghalal,marque halal,97,129.0,87.8,6.0,4.0,10.0,franchie,23,reghalal
-11,1,15,Al Jadid,marque halal,19,22.0,91.7,6.0,-3.0,13.0,sous 30,11,al-jadid
-12,1,14,halal,marque halal,19,23.0,95.8,6.0,0.0,10.0,sous 30,10,halal
+1,1,7,Fleury Michon,generaliste faisant du halal,70,75.0,6.9,0.0,0.0,0.0,franchie,13,fleury-michon
+2,1,8,Royal HALAL,marque halal,29,30.0,100.0,0.0,-1.0,1.0,sous 30,8,royal-halal
+3,1,14,carrefour,generaliste faisant du halal,39,61.0,2.1,1.0,0.0,8.0,franchie,22,carrefour
+4,2,14,Isla Mondial,marque halal,74,78.0,97.5,2.5,1.0,8.5,franchie,22,isla-mondial
+5,1,14,ID-Halal,marque halal,35,38.0,100.0,3.0,0.0,10.0,franchie,14,id-halal
+6,3,14,Oriental Viandes,marque halal,80,85.0,93.4,4.0,2.0,8.0,franchie,31,oriental-viandes
+7,1,15,Wassila,marque halal,21,22.0,100.0,4.0,0.0,12.0,sous 30,12,wassila
+8,3,14,Isla Délice,marque halal,181,190.0,99.0,4.0,2.0,9.0,franchie,33,isla-delice
+9,3,13,AIA,generaliste faisant du halal,20,21.0,22.6,5.0,3.0,7.5,sous 30,7,aia
+10,3,14,Réghalal,marque halal,97,129.0,87.8,6.0,3.0,10.0,franchie,24,reghalal
+11,1,15,Al Jadid,marque halal,19,22.0,91.7,6.0,-3.0,12.0,sous 30,11,al-jadid
+12,1,14,Halal,marque halal,19,23.0,95.8,6.0,0.0,10.0,sous 30,10,halal
 13,3,14,suntat,marque halal,21,25.0,100.0,6.0,2.0,8.0,sous 30,10,suntat
-14,5,15,arabi,marque halal,43,48.0,98.0,11.0,7.875,12.0,franchie,13,arabi
+14,4,15,Arabi,marque halal,43,48.0,98.0,11.0,7.875,12.0,franchie,13,arabi
 15,12,15,Volibon,marque halal,15,15.0,100.0,15.0,12.0,16.0,sous 30,4,volibon

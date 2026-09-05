@@ -25,7 +25,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-from commun import COMPLET, PERIMETRE, SORTIES, connexion, titre
+from commun import COMPLET, PERIMETRE, SORTIES, borne, connexion, titre
 from etape4_marques import GRAINE, N_BOOT, N_SOLIDE, ic_mediane
 
 N_MIN = 30          # un label sous 30 produits n'est pas classe
@@ -39,9 +39,8 @@ def main() -> int:
     rng = np.random.default_rng(GRAINE)
     d = con.execute(f"""
         SELECT bras, sous_categorie, espece, labels_tags,
-               CASE WHEN salt_100g BETWEEN 0 AND 100 THEN salt_100g END AS sel,
-               CASE WHEN proteins_100g BETWEEN 0 AND 100
-                    THEN proteins_100g END AS proteines,
+               {borne('salt_100g', 'sel')},
+               {borne('proteins_100g', 'proteines')},
                nutriscore_score
         FROM '{PERIMETRE}' WHERE ({COMPLET})
     """).df()

@@ -5,8 +5,8 @@
 # changement de perimetre ou de code.
 effectifs:
   autres_carnes:
-    halal: 436
-    temoin: 22194
+    halal: 435
+    temoin: 22193
   charcuterie_cuite:
     halal: 379
     temoin: 15180
@@ -14,8 +14,8 @@ effectifs:
     halal: 260
     temoin: 6935
   decoupes:
-    halal: 391
-    temoin: 13885
+    halal: 233
+    temoin: 11357
   foie_gras:
     halal: 1
     temoin: 85
@@ -24,7 +24,10 @@ effectifs:
     temoin: 2482
   plats_cuisines:
     halal: 164
-    temoin: 12253
+    temoin: 12235
+  preparations_marinees:
+    halal: 154
+    temoin: 2491
   rillettes_pates_mousses:
     halal: 40
     temoin: 6600

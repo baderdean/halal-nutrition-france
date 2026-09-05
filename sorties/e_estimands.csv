@@ -1,9 +1,9 @@
 estimand,variable,n_strates,n_halal_apparies,diff_ponderee,ic95_bas,ic95_haut
-E1_total,sel,9,1959,0.288,0.263,0.345
-E1_total,ags,9,1958,-0.984,-1.206,-0.761
-E1_total,proteines,9,1959,-3.025,-3.35,-2.696
-E1_total,nutriscore_score,9,1946,0.765,0.379,1.71
-E2_direct,sel,13,1275,0.552,0.507,0.615
-E2_direct,ags,13,1275,0.41,0.293,0.587
-E2_direct,proteines,13,1275,-2.928,-3.168,-2.48
-E2_direct,nutriscore_score,13,1269,7.041,5.893,7.31
+E1_total,sel,10,1947,0.222,0.196,0.296
+E1_total,ags,10,1953,-1.08,-1.273,-0.874
+E1_total,proteines,10,1954,-2.708,-3.002,-2.378
+E1_total,nutriscore_score,10,1945,0.904,0.405,1.803
+E2_direct,sel,14,1270,0.485,0.44,0.557
+E2_direct,ags,14,1274,0.393,0.278,0.527
+E2_direct,proteines,14,1274,-2.56,-2.819,-2.149
+E2_direct,nutriscore_score,14,1268,7.243,5.887,7.468

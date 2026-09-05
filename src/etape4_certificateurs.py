@@ -22,7 +22,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-from commun import COMPLET, PERIMETRE, SORTIES, charger, connexion, titre
+from commun import COMPLET, PERIMETRE, SORTIES, borne, charger, connexion, titre
 from etape4_marques import GRAINE, N_SOLIDE, ic_mediane
 
 N_MIN = 30
@@ -83,11 +83,9 @@ def main() -> int:
     d = con.execute(f"""
         SELECT sous_categorie, espece, labels_tags, tag_halal,
                regexp_replace(brands_tags[1], '^[a-z]{{2}}:', '') AS marque,
-               CASE WHEN salt_100g BETWEEN 0 AND 100 THEN salt_100g END AS sel,
-               CASE WHEN saturated_fat_100g BETWEEN 0 AND 100
-                    THEN saturated_fat_100g END AS ags,
-               CASE WHEN proteins_100g BETWEEN 0 AND 100
-                    THEN proteins_100g END AS proteines,
+               {borne('salt_100g', 'sel')},
+               {borne('saturated_fat_100g', 'ags')},
+               {borne('proteins_100g', 'proteines')},
                nutriscore_score
         FROM '{PERIMETRE}' WHERE ({COMPLET})""").df()
     d["strate"] = d.sous_categorie + " / " + d.espece

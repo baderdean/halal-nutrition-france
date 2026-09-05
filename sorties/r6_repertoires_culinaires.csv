@@ -1,8 +1,8 @@
 sous_categorie,repertoire,n,n_reference,ecart,ic95_bas,ic95_haut,etabli
-autres_carnes,turc,34,240,-1.5,-3.5,1.0,False
-autres_carnes,anglo-saxon industriel,49,240,-8.0,-10.0,-1.0,True
+autres_carnes,turc,34,239,-1.5,-3.5,1.0,False
+autres_carnes,anglo-saxon industriel,49,239,-8.0,-10.0,-1.0,True
 charcuterie_cuite,charcuterie europeenne,79,259,3.0,1.0,3.0,True
 charcuterie_seche,charcuterie europeenne,162,66,5.5,0.5,7.0,True
 panes,anglo-saxon industriel,200,90,-1.5,-6.0,5.0,False
-saucisses,maghrebin,32,182,1.0,-2.0,4.0,False
+saucisses,maghrebin,32,182,1.0,-2.5,4.0,False
 viande_hachee,anglo-saxon industriel,49,53,3.0,-3.0,4.0,False

@@ -1,13 +1,13 @@
 variable,groupe,n,ecart_median,ic95_bas,ic95_haut
 Nutri-Score en score continu,certificateur etranger,39,12.0,8.0,13.0
-Nutri-Score en score continu,certificateur francais,631,3.0,2.0,4.0
-Nutri-Score en score continu,sans certificateur,1248,2.0,2.0,3.0
-sel pour 100 g,certificateur etranger,39,0.58,0.3,1.0
-sel pour 100 g,certificateur francais,637,0.37,0.3,0.4
-sel pour 100 g,sans certificateur,1255,0.322,0.3,0.4
+Nutri-Score en score continu,certificateur francais,631,2.0,2.0,4.0
+Nutri-Score en score continu,sans certificateur,1247,2.0,2.0,2.0
+sel pour 100 g,certificateur etranger,39,0.59,0.3,1.0
+sel pour 100 g,certificateur francais,637,0.35,0.29,0.4
+sel pour 100 g,sans certificateur,1243,0.3,0.21,0.35
 AGS pour 100 g,certificateur etranger,39,1.3,0.6,2.6
-AGS pour 100 g,certificateur francais,636,0.15,0.0,0.4
-AGS pour 100 g,sans certificateur,1255,0.2,0.05,0.3
+AGS pour 100 g,certificateur francais,636,0.12,0.0,0.4
+AGS pour 100 g,sans certificateur,1250,0.2,0.0,0.3
 proteines pour 100 g,certificateur etranger,39,3.5,2.0,4.0
-proteines pour 100 g,certificateur francais,637,2.1,2.0,3.0
-proteines pour 100 g,sans certificateur,1255,2.0,1.4,2.0
+proteines pour 100 g,certificateur francais,637,2.1,2.0,2.8
+proteines pour 100 g,sans certificateur,1250,1.8,1.2,2.0

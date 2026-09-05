@@ -48,7 +48,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-from commun import COMPLET, PERIMETRE, SORTIES, charger, connexion, titre
+from commun import COMPLET, PERIMETRE, SORTIES, borne, charger, connexion, titre
 
 SEUIL = 30          # regle des 30
 SEUIL_MARQUE = 15   # intra-marque : sous ce seuil, decrit et jamais teste
@@ -254,11 +254,9 @@ def main() -> int:
                          {liste_sql(q['labels_kasher'])})) > 0 THEN 'kasher'
                     ELSE 'temoin' END AS bras3,
                regexp_replace(brands_tags[1], '^[a-z]{{2}}:', '') AS marque,
-               CASE WHEN salt_100g BETWEEN 0 AND 100 THEN salt_100g END AS sel,
-               CASE WHEN saturated_fat_100g BETWEEN 0 AND 100
-                    THEN saturated_fat_100g END AS ags,
-               CASE WHEN proteins_100g BETWEEN 0 AND 100
-                    THEN proteins_100g END AS proteines,
+               {borne('salt_100g', 'sel')},
+               {borne('saturated_fat_100g', 'ags')},
+               {borne('proteins_100g', 'proteines')},
                nutriscore_score, nutriscore_grade
         FROM '{PERIMETRE}'
         WHERE ({COMPLET})

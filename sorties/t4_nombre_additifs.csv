@@ -1,0 +1,11 @@
+niveau,cle,n_halal,n_temoin,ecart,ic95_bas,ic95_haut
+gamme,autres_carnes,115,5802,3.0,2.0,4.0
+gamme,charcuterie_cuite,248,6177,3.0,2.0,3.0
+gamme,charcuterie_seche,136,2803,2.0,1.0,2.0
+gamme,decoupes,35,1600,0.0,0.0,1.0
+gamme,panes,115,1083,1.0,0.0,2.0
+gamme,plats_cuisines,83,6627,1.0,0.0,2.0
+gamme,preparations_marinees,37,768,1.0,0.0,2.0
+gamme,saucisses,138,2270,2.0,1.5,2.5
+gamme,viande_hachee,62,691,0.0,0.0,0.0
+marque x gamme x espece,fleury-michon / charcuterie_cuite / poulet,23,112,0.0,0.0,0.0

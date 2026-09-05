@@ -78,6 +78,28 @@ def liste(colonne: str) -> str:
 
 # Completude nutritionnelle : les cinq champs necessaires a toute comparaison
 # nutritionnelle de la couche 1 et au FSAm-NPS des couches suivantes.
+# Bornes de PLAUSIBILITE, plus serrees que les bornes physiques 0-100.
+#
+# 481 produits du perimetre portent plus de 10 g de sel pour 100 g : une
+# saucisse a 100 g de sel, une bresaola a 98 g. Ce sont des erreurs de saisie
+# et des melanges d'assaisonnement, pas des aliments. La charcuterie la plus
+# salee du marche plafonne vers 7 g. Le seuil est pose a 15 g : large, mais
+# il ecarte l'impossible.
+#
+# Les analyses de cette etude travaillent en MEDIANE, donc ces valeurs ne
+# changeaient presque rien ; elles cassent en revanche toute moyenne et tout
+# maximum. La borne est declaree ici plutot que repetee dans huit requetes.
+BORNES = {"salt_100g": 15.0, "saturated_fat_100g": 100.0,
+          "proteins_100g": 100.0, "sugars_100g": 100.0, "fat_100g": 100.0}
+
+
+def borne(colonne: str, alias: str | None = None) -> str:
+    """Expression SQL d'une colonne nutritionnelle bornee, avec son alias."""
+    maxi = BORNES[colonne]
+    a = f" AS {alias}" if alias else ""
+    return f"CASE WHEN {colonne} BETWEEN 0 AND {maxi} THEN {colonne} END{a}"
+
+
 COMPLET = (
     "energy_kcal_100g IS NOT NULL AND saturated_fat_100g IS NOT NULL "
     "AND sugars_100g IS NOT NULL AND salt_100g IS NOT NULL "

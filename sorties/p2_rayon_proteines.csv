@@ -17,16 +17,16 @@ jambon_sec,temoin,2660,28.4,franchie,,,,
 merguez,halal,31,14.2,franchie,0.2,-2.2,1.0,True
 merguez,kasher,1,14.9,sous 30,,,,
 merguez,temoin,444,14.0,franchie,,,,
-mortadelle,halal,33,11.0,franchie,-4.0,-4.6,-3.0,True
+mortadelle,halal,33,11.0,franchie,-4.0,-5.0,-3.0,True
 mortadelle,kasher,1,11.0,sous 30,,,,
 mortadelle,temoin,263,15.0,franchie,,,,
-nugget,halal,85,13.0,franchie,0.0,-0.98,0.6,True
+nugget,halal,85,13.0,franchie,0.0,-1.0,0.6,True
 nugget,kasher,2,13.5,sous 30,,,,
 nugget,temoin,414,13.0,franchie,,,,
-saucisse_volaille,halal,129,12.8,franchie,-3.2,-4.6,-3.0,True
+saucisse_volaille,halal,129,12.8,franchie,-3.2,-4.42,-3.0,True
 saucisse_volaille,kasher,11,11.0,sous 30,-5.0,-6.0,-3.0,False
 saucisse_volaille,temoin,484,16.0,franchie,,,,
-saucisson_sec,halal,187,19.6,franchie,-6.4,-7.2,-4.0,True
+saucisson_sec,halal,187,19.6,franchie,-6.4,-7.2,-4.6,True
 saucisson_sec,kasher,13,28.0,sous 30,2.0,-8.0,2.4,False
 saucisson_sec,temoin,5181,26.0,franchie,,,,
 steak_hache,halal,116,18.0,franchie,-1.0,-2.0,-1.0,True

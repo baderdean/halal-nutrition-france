@@ -41,6 +41,17 @@ exclusions_categories:
   # du Sud-Ouest, pas des criquets : les exclure supprimerait 23 produits
   # carnes legitimes.
   - en:insects
+  # Aides culinaires : un fond de veau a 22 g de sel pour 100 g n'est pas un
+  # produit carne consomme tel quel, c'est un exhausteur dilue a la cuisson.
+  # Les laisser fausse toute lecture du sel. 5 halal et 168 temoin, releves
+  # par la couche 6 avant correction.
+  - en:bouillons
+  - en:broths
+  - en:stock-cubes
+  - en:soups
+  - en:culinary-aids
+  - fr:fonds-de-sauce
+  - fr:fonds-de-veau
 exclusions_labels:
   - en:vegan
   - en:vegetarian
@@ -106,15 +117,26 @@ sous_categories:
     tags: [en:meals-with-meat, en:poultry-meals, en:meals-with-chicken,
            en:beef-dishes, en:microwave-meals, en:poultry-sandwiches,
            en:chicken-sandwiches, en:chicken-nems, en:meals]
+  # La strate « decoupes » melangeait la decoupe crue et la preparation
+  # marinee ou cuite, dans des proportions qui different entre les bras : le
+  # bras halal y est majoritairement de la preparation, le temoin
+  # majoritairement du blanc de poulet cru. L'ecart de sel qu'on y lisait
+  # etait pour partie un ecart de FORME de produit, pas de label. Les deux
+  # formes sont donc separees. La preparation passe EN PREMIER : un produit
+  # portant les deux familles de tags est une preparation.
+  - nom: preparations_marinees
+    libelle: "Preparations marinees, cuites ou assaisonnees a base de decoupes"
+    tags: [en:chicken-preparations, en:turkey-preparations,
+           en:beef-preparations, en:cooked-chicken, en:cooked-poultries,
+           en:marinated-meats, fr:lamelles-de-kebab,
+           fr:allumettes-de-volaille, en:chicken-wings]
+
   - nom: decoupes
-    libelle: "Decoupes et preparations non transformees (blancs, cuisses, steaks)"
-    tags: [en:chicken-breasts, en:chicken-thighs, en:chicken-wings,
+    libelle: "Decoupes crues (blancs, cuisses, steaks, non assaisonnes)"
+    tags: [en:chicken-breasts, en:chicken-thighs,
            en:turkey-cutlets, en:turkey-breasts, en:turkey-thighs, en:steaks,
-           en:beef-steaks, en:cooked-chicken, en:cooked-poultries,
-           en:frozen-steaks, en:frozen-meats, en:chicken-preparations,
-           en:turkey-preparations, en:beef-preparations,
-           fr:aiguillettes-de-poulet, fr:allumettes-de-volaille,
-           fr:lamelles-de-kebab]
+           en:beef-steaks, en:frozen-steaks, en:frozen-meats,
+           fr:aiguillettes-de-poulet]
   - nom: autres_carnes
     libelle: "Autres produits carnes : categorie OFF ne descendant pas sous l'espece"
     tags: []          # bucket residuel, capte tout le reste du perimetre

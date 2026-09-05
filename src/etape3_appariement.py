@@ -33,7 +33,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-from commun import COMPLET, PERIMETRE, SORTIES, connexion, titre
+from commun import COMPLET, PERIMETRE, SORTIES, borne, connexion, titre
 
 SEUIL = 30
 GRAINE = 20260904
@@ -96,11 +96,9 @@ def main() -> int:
     rng = np.random.default_rng(GRAINE)
     d = con.execute(f"""
         SELECT bras, sous_categorie, espece,
-          CASE WHEN salt_100g BETWEEN 0 AND 100 THEN salt_100g END AS sel,
-          CASE WHEN saturated_fat_100g BETWEEN 0 AND 100
-               THEN saturated_fat_100g END AS ags,
-          CASE WHEN proteins_100g BETWEEN 0 AND 100
-               THEN proteins_100g END AS proteines,
+          {borne('salt_100g', 'sel')},
+          {borne('saturated_fat_100g', 'ags')},
+          {borne('proteins_100g', 'proteines')},
           nutriscore_score
         FROM '{PERIMETRE}' WHERE ({COMPLET})
     """).df()

@@ -1,11 +1,11 @@
 {
   "volumetrie": {
-    "n_perimetre": 90398,
-    "n_halal": 2387,
-    "n_temoin": 88011,
-    "n_complet": 70344,
-    "n_halal_complet": 1960,
-    "n_temoin_complet": 68384
+    "n_perimetre": 90337,
+    "n_halal": 2382,
+    "n_temoin": 87955,
+    "n_complet": 70288,
+    "n_halal_complet": 1955,
+    "n_temoin_complet": 68333
   },
   "strates_retenues": [
     "autres_carnes",
@@ -13,18 +13,19 @@
     "panes",
     "saucisses",
     "charcuterie_seche",
-    "decoupes",
     "plats_cuisines",
+    "preparations_marinees",
     "viande_hachee",
+    "decoupes",
     "rillettes_pates_mousses"
   ],
   "strates_ecartees": [
     "foie_gras"
   ],
   "nutriscore": {
-    "n_note_halal": 1956,
-    "n_note_temoin": 70341,
-    "pct_DE_halal": 67.0,
+    "n_note_halal": 1955,
+    "n_note_temoin": 70319,
+    "pct_DE_halal": 67.1,
     "pct_DE_temoin": 56.7,
     "sature": false
   },
@@ -44,24 +45,24 @@
     "verdict": "inexploitable_couverture"
   },
   "additifs": {
-    "n_codes_distincts": 282,
+    "n_codes_distincts": 281,
     "n_codes_couvrant_99pct": 112
   },
   "nova4": {
     "pct_halal": 90.9,
     "pct_temoin": 71.9,
-    "n_note_halal": 1010,
-    "n_note_temoin": 31728
+    "n_note_halal": 1008,
+    "n_note_temoin": 31680
   },
   "couverture_image": {
     "halal": {
-      "n": 2387,
+      "n": 2382,
       "pct_photo_face": 98.3,
       "pct_photo_ingredients": 56.9,
       "pct_au_moins_une": 99.7
     },
     "temoin": {
-      "n": 88011,
+      "n": 87955,
       "pct_photo_face": 94.2,
       "pct_photo_ingredients": 56.7,
       "pct_au_moins_une": 96.3
@@ -69,11 +70,11 @@
   },
   "sel_ensemble": {
     "sous_categorie": "_ensemble_",
-    "n_halal": 1960,
-    "n_temoin": 68383,
+    "n_halal": 1955,
+    "n_temoin": 68332,
     "sel_median_halal": 1.8,
     "sel_q1_halal": 1.2,
-    "sel_q3_halal": 2.6,
+    "sel_q3_halal": 2.58,
     "sel_median_temoin": 1.5,
     "sel_q1_temoin": 0.85,
     "sel_q3_temoin": 2.0,
@@ -83,31 +84,32 @@
     "testable_regle_30": true
   },
   "sel_strates": {
-    "n_testables": 9,
-    "n_ic_excluant_zero": 7,
-    "n_halal_plus_sale": 6
+    "n_testables": 10,
+    "n_ic_excluant_zero": 8,
+    "n_halal_plus_sale": 7
   },
   "dispersion_vs_ecart": {
-    "n_strates": 9,
+    "n_strates": 10,
     "ratio_min": 2.1,
     "ratio_max": Infinity,
-    "ratio_median": 5.8,
-    "n_strates_dispersion_dominante": 9,
+    "ratio_median": 5.9,
+    "n_strates_dispersion_dominante": 10,
     "par_strate": {
-      "autres_carnes": 5.9,
+      "autres_carnes": 6.0,
       "charcuterie_cuite": 3.3,
       "charcuterie_seche": 4.1,
-      "decoupes": 2.1,
+      "decoupes": 9.5,
       "panes": 5.9,
       "plats_cuisines": 5.8,
+      "preparations_marinees": 2.1,
       "rillettes_pates_mousses": Infinity,
       "saucisses": 4.3,
       "viande_hachee": 53.0
     }
   },
   "transformation": {
-    "n_strates_halal_plus_transforme": 9,
-    "n_strates_comparees": 10,
-    "ecart_median_points_nova4": 11.5
+    "n_strates_halal_plus_transforme": 10,
+    "n_strates_comparees": 11,
+    "ecart_median_points_nova4": 10.6
   }
 }

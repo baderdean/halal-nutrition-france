@@ -1,0 +1,37 @@
+# Additifs suivis — couche 7.
+#
+# Liste FERMEE et motivee. On ne teste pas 400 additifs pour retenir ceux qui
+# ressortent : trois familles sont declarees a l'avance, chacune parce qu'une
+# hypothese precise la designe.
+#
+# La couverture d'additives_tags depend du parsing de la liste d'ingredients
+# par Open Food Facts. Un produit sans liste d'ingredients saisie apparait
+# sans additif, ce qui n'est pas la meme chose que sans additif. La couche 7
+# mesure et publie cette couverture par bras AVANT toute prevalence : une
+# couverture qui differe entre les bras invaliderait toute comparaison.
+
+familles:
+  - nom: phosphates
+    libelle: "Phosphates (retention d'eau)"
+    # Hypothese : les phosphates retiennent l'eau. Un produit plus hydrate a
+    # moins de proteines au 100 g, plus de sel rapporte a la matiere seche et
+    # un moins bon Nutri-Score. C'est exactement le profil observe sur le
+    # jambon halal. Si l'hypothese tient, l'ecart mesure n'est pas « plus
+    # sale » mais « plus hydrate », ce qui n'est pas la meme affirmation.
+    codes: [en:e450, en:e451, en:e452, en:e339, en:e340, en:e341, en:e343]
+
+  - nom: nitrites_nitrates
+    libelle: "Nitrites et nitrates (salaison)"
+    # Sujet de sante publique en France depuis l'avis ANSES de 2022 et la loi
+    # de 2023 sur la reduction des nitrites en charcuterie. La question « la
+    # charcuterie halal a-t-elle suivi la baisse » n'a pas de reponse ici :
+    # le dump est une photo, sans historique de reformulation. On mesure donc
+    # la PREVALENCE a une date, jamais une trajectoire.
+    codes: [en:e249, en:e250, en:e251, en:e252]
+
+  - nom: exhausteurs
+    libelle: "Exhausteurs de gout (glutamates)"
+    # Un exhausteur compense une matiere premiere moins savoureuse. Sa
+    # presence est un indice de formulation, pas un risque sanitaire etabli.
+    codes: [en:e620, en:e621, en:e622, en:e623, en:e624, en:e625, en:e627,
+            en:e631, en:e635]

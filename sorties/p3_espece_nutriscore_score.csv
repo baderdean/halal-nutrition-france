@@ -23,7 +23,7 @@ escalope_panee,poulet,halal,84,4.0,franchie,1.0,0.0,2.0,True
 escalope_panee,poulet,kasher,4,5.5,sous 30,,,,
 escalope_panee,poulet,temoin,325,3.0,franchie,,,,
 jambon_cuit,boeuf,temoin,1,21.0,sous 30,,,,
-jambon_cuit,dinde,halal,85,14.0,franchie,12.0,10.5,13.0,True
+jambon_cuit,dinde,halal,85,14.0,franchie,12.0,11.0,13.0,True
 jambon_cuit,dinde,kasher,19,3.0,sous 30,1.0,0.0,1.0,False
 jambon_cuit,dinde,temoin,160,2.0,franchie,,,,
 jambon_cuit,indetermine,halal,3,11.0,sous 30,,,,
@@ -67,7 +67,7 @@ nugget,dinde,halal,19,5.0,sous 30,-0.5,-7.5,5.5,False
 nugget,dinde,temoin,12,5.5,sous 30,,,,
 nugget,indetermine,temoin,2,5.0,sous 30,,,,
 nugget,porc,temoin,1,12.0,sous 30,,,,
-nugget,poulet,halal,64,5.0,franchie,2.0,0.0,6.0,True
+nugget,poulet,halal,64,5.0,franchie,2.0,0.0,7.0,True
 nugget,poulet,kasher,2,3.5,sous 30,,,,
 nugget,poulet,temoin,391,3.0,franchie,,,,
 nugget,volaille_autre,halal,2,2.0,sous 30,,,,

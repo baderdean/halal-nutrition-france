@@ -20,7 +20,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-from commun import COMPLET, PERIMETRE, SORTIES, charger, connexion, titre
+from commun import COMPLET, PERIMETRE, SORTIES, borne, charger, connexion, titre
 
 SEUIL = 30
 GRAINE = 20260904
@@ -79,9 +79,8 @@ def main() -> int:
         SELECT *,
           len(list_intersect(labels_tags, {fr})) > 0 AS france_visible,
           len(list_intersect(labels_tags, {ks})) > 0 AS kasher,
-          CASE WHEN salt_100g BETWEEN 0 AND 100 THEN salt_100g END AS sel,
-          CASE WHEN saturated_fat_100g BETWEEN 0 AND 100
-               THEN saturated_fat_100g END AS ags,
+          {borne('salt_100g', 'sel')},
+          {borne('saturated_fat_100g', 'ags')},
           ({COMPLET}) AS complet
         FROM {p}
     """)

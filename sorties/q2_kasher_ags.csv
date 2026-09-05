@@ -1,4 +1,4 @@
 bras3,n,median,q1,q3,diff_vs_temoin,ic95_bas,ic95_haut,regle_30
-temoin,68230,3.5,1.5,8.4,,,,franchie
-halal,1956,3.2,1.17,6.0,-0.3,-0.6,-0.1,franchie
+temoin,68179,3.5,1.5,8.4,,,,franchie
+halal,1951,3.2,1.17,6.0,-0.3,-0.6,-0.1,franchie
 kasher,153,1.0,0.5,6.0,-2.5,-2.8,-1.5,franchie

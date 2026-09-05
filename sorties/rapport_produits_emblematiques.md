@@ -77,9 +77,9 @@ figurent ici.
 | blanc_de_poulet | poulet | halal | 54 | -5.0 | +1.00 | +0.00 | +6.00 |
 | cordon_bleu | dinde | halal | 37 | 11.0 | +0.00 | +0.00 | +5.00 |
 | escalope_panee | poulet | halal | 84 | 4.0 | +1.00 | +0.00 | +2.00 |
-| jambon_cuit | dinde | halal | 85 | 14.0 | +12.00 | +10.50 | +13.00 |
+| jambon_cuit | dinde | halal | 85 | 14.0 | +12.00 | +11.00 | +13.00 |
 | jambon_cuit | poulet | halal | 135 | 12.0 | +10.00 | +9.00 | +10.00 |
-| nugget | poulet | halal | 64 | 5.0 | +2.00 | +0.00 | +6.00 |
+| nugget | poulet | halal | 64 | 5.0 | +2.00 | +0.00 | +7.00 |
 | saucisse_volaille | poulet | halal | 49 | 18.0 | +4.00 | +2.00 | +6.00 |
 | saucisse_volaille | volaille_autre | halal | 71 | 16.0 | +5.00 | +4.00 | +13.00 |
 | saucisson_sec | indetermine | halal | 112 | 30.0 | -4.00 | -6.00 | -2.00 |

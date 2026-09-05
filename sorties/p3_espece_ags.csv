@@ -55,7 +55,7 @@ merguez,poulet,temoin,1,1.2,sous 30,,,,
 merguez,veau,halal,1,9.0,sous 30,,,,
 merguez,veau,temoin,2,9.75,sous 30,,,,
 mortadelle,boeuf,temoin,1,1.3,sous 30,,,,
-mortadelle,indetermine,halal,29,5.0,sous 30,-4.0,-5.3,-3.5,False
+mortadelle,indetermine,halal,29,5.0,sous 30,-4.0,-5.29,-3.5,False
 mortadelle,indetermine,kasher,1,5.0,sous 30,,,,
 mortadelle,indetermine,temoin,219,9.0,franchie,,,,
 mortadelle,porc,temoin,42,8.9,franchie,,,,
@@ -67,7 +67,7 @@ nugget,dinde,halal,19,3.5,sous 30,0.5,-0.7,1.1,False
 nugget,dinde,temoin,12,3.0,sous 30,,,,
 nugget,indetermine,temoin,2,3.0,sous 30,,,,
 nugget,porc,temoin,1,2.1,sous 30,,,,
-nugget,poulet,halal,64,2.2,franchie,0.3,-0.3,0.55,True
+nugget,poulet,halal,64,2.2,franchie,0.3,-0.3,0.56,True
 nugget,poulet,kasher,2,1.65,sous 30,,,,
 nugget,poulet,temoin,392,1.9,franchie,,,,
 nugget,volaille_autre,halal,2,2.1,sous 30,,,,
@@ -84,18 +84,18 @@ saucisse_volaille,poulet,temoin,132,4.65,franchie,,,,
 saucisse_volaille,volaille_autre,halal,71,5.4,franchie,2.7,2.1,3.3,True
 saucisse_volaille,volaille_autre,kasher,7,6.0,sous 30,,,,
 saucisse_volaille,volaille_autre,temoin,317,2.7,franchie,,,,
-saucisson_sec,boeuf,halal,10,13.05,sous 30,4.5,0.0,6.95,False
+saucisson_sec,boeuf,halal,10,13.05,sous 30,4.5,-0.05,6.9,False
 saucisson_sec,boeuf,kasher,2,9.3,sous 30,,,,
 saucisson_sec,boeuf,temoin,16,8.55,sous 30,,,,
 saucisson_sec,canard,temoin,1,14.0,sous 30,,,,
 saucisson_sec,cheval,temoin,2,7.2,sous 30,,,,
-saucisson_sec,dinde,halal,39,9.8,franchie,0.55,-1.6,4.6,False
+saucisson_sec,dinde,halal,39,9.8,franchie,0.55,-1.6,4.7,False
 saucisson_sec,dinde,kasher,2,6.5,sous 30,,,,
 saucisson_sec,dinde,temoin,18,9.25,sous 30,,,,
 saucisson_sec,indetermine,halal,112,12.85,franchie,0.85,-1.55,2.0,True
 saucisson_sec,indetermine,kasher,9,9.9,sous 30,,,,
 saucisson_sec,indetermine,temoin,4214,12.0,franchie,,,,
-saucisson_sec,porc,halal,17,13.1,sous 30,0.3,-6.25,4.0,False
+saucisson_sec,porc,halal,17,13.1,sous 30,0.3,-6.3,4.2,False
 saucisson_sec,porc,temoin,906,12.8,franchie,,,,
 saucisson_sec,poulet,halal,5,7.36,sous 30,,,,
 saucisson_sec,poulet,temoin,3,7.3,sous 30,,,,
