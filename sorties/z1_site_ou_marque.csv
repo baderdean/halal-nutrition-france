@@ -1,0 +1,20 @@
+niveau,cle,variable,n_partage,n_halal_seul,ecart,ic95_bas,ic95_haut,etabli
+global,,ecart Nutri-Score,98,391,-4.0,-6.0,-0.5,True
+global,,sel g/100 g,98,391,-0.3,-0.5,-0.2,True
+marque,aia,ecart,10,0,,,,
+marque,arabi,ecart,0,19,,,,
+marque,carrefour,ecart,8,31,-8.5,,,
+marque,dounia-halal,ecart,0,6,,,,
+marque,fleury-michon,ecart,28,0,,,,
+marque,halal,ecart,0,6,,,,
+marque,id-halal,ecart,0,10,,,,
+marque,isla-delice,ecart,0,75,,,,
+marque,isla-mondial,ecart,0,36,,,,
+marque,kenza-halal,ecart,0,5,,,,
+marque,mahdia,ecart,0,9,,,,
+marque,medina-halal,ecart,0,9,,,,
+marque,oriental-viandes,ecart,0,24,,,,
+marque,reghalal,ecart,25,18,9.0,,,
+marque,sans-marque,ecart,1,5,4.75,,,
+marque,suntat,ecart,0,7,,,,
+marque,volibon,ecart,0,9,,,,

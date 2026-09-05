@@ -6,19 +6,24 @@
 # d'additifs. Ces mentions sont volontaires et coutent une reformulation ou
 # au moins un engagement.
 #
-# LA FAMILLE TEMOIN EST LA CLE DU TEST. Si le bras halal portait MOINS de
-# mentions de toutes sortes, on mesurerait la richesse de l'emballage ou
-# l'attention des contributeurs Open Food Facts, pas une posture. La famille
-# `autres_revendications` regroupe des mentions qui ne relevent PAS de la
-# nutrition — sans gluten, sans huile de palme, sans OGM. Elles s'adressent
-# aux memes clients, sur les memes paquets, saisies par les memes
-# contributeurs.
+# POURQUOI UNE SECONDE LISTE DE MENTIONS.
 #
-#   effort nutritionnel EN BAISSE et autres revendications A NIVEAU EGAL
-#     -> la nutrition est traitee differemment sur ce segment.
-#   les deux familles en baisse
-#     -> l'emballage halal est moins documente, et le test ne conclut rien.
-
+# On compte les mentions nutritionnelles sur les paquets : 10 % cote halal,
+# 22 % cote non halal. Une objection evidente ruinerait ce chiffre : et si les
+# fiches des produits halal etaient simplement MOINS REMPLIES ? Emballage plus
+# sommaire, ou contributeurs moins minutieux sur ces produits. L'ecart ne
+# dirait alors rien de la nutrition, seulement de la completude des fiches.
+#
+# Pour departager, on prend une seconde liste de mentions qui n'ont RIEN a
+# voir avec la nutrition : sans gluten, sans huile de palme, sans OGM. Memes
+# paquets, memes contributeurs, mais aucun rapport avec la qualite
+# nutritionnelle.
+#
+#   Si les produits halal en portent aussi beaucoup moins
+#     -> les fiches halal sont moins remplies, et on n'apprend rien.
+#   S'ils en portent autant ou plus, mais moins de mentions nutritionnelles
+#     -> ce qui manque est SPECIFIQUEMENT nutritionnel.
+#
 familles:
   - nom: effort_nutritionnel
     libelle: "Effort nutritionnel revendique"

@@ -903,7 +903,7 @@ Prevalence des allegations d'emballage, ecart halal - temoin en points :
 |:--|--:|--:|--:|:-:|
 | effort_nutritionnel | 9.97 % | 22.28 % | **-12.30** | [-13.59 ; -10.86] |
 | autres_revendications | 13.04 % | 15.64 % | **-2.60** | [-4.05 ; -1.01] |
-| **difference des deux** | | | **-9.70** | [-11.62 ; -7.86] |
+| **difference des deux** | | | **-9.70** | [-11.63 ; -7.89] |
 
 **Le test decisif : dans une meme marque.**
 
@@ -942,6 +942,47 @@ dispersion, ce que H27 observe.
 - Une mention absente n'est pas une nutrition negligee : elle peut signifier un produit non reformule, ou un produit reformule dont on n'a pas juge utile de le dire.
 - Les labels d'Open Food Facts sont saisis par des contributeurs. La famille temoin controle cette saisie, elle ne l'annule pas.
 - **Ce test mesure ce qui est imprime, pas ce qui est decide.** Aucun cahier des charges n'a ete lu. Parler de posture reste une interpretation, et l'ecrire comme une intention prouvee serait une faute.
+
+### H29 — L'ecart tient au changement de SITE de fabrication
+
+**Verdict : ETABLI sur le sel, NON ETABLI sur le Nutri-Score, et le motif ne tient pas dans toutes les marques**
+
+*Methode.* Pour chaque produit halal, on regarde si son etablissement sert aussi a la production non halal de la MEME marque. Comparaison a composition egale, ecart a la mediane de marche de la strate.
+
+Produits halal, selon que leur etablissement sert AUSSI a la production non halal de la meme marque :
+
+| variable | n site partage | n site halal seul | ecart | IC 95 % | |
+|:--|--:|--:|--:|:-:|:--|
+| ecart Nutri-Score | 98 | 391 | -4.00 | [-6.00 ; -0.50] | etabli |
+| sel g/100 g | 98 | 391 | -0.30 | [-0.50 ; -0.20] | etabli |
+
+**A l'interieur d'une marque** — seule lecture qui echappe au confondant :
+
+| marque | n partage | n halal seul | difference |
+|:--|--:|--:|--:|
+| carrefour | 8 | 31 | -8.5 |
+| reghalal | 25 | 18 | +9.0 |
+| sans-marque | 1 | 5 | +4.8 |
+
+Sur un site partage, le halal est a **1,8 g de sel** et un
+ecart de **+1,0** ; sur un site qui ne sert qu'au halal, 2,0 g
+et **+5,0**.
+
+**Carrefour est l'illustration nette** : sa gamme halal sort
+majoritairement de sites qu'il n'emploie pas pour le reste, et
+c'est la que l'ecart se creuse (+9,0 sur 31 produits). Sur les
+sites qu'il partage, l'ecart s'efface presque (+0,5 sur 8).
+Cela reinterprete son mauvais classement de H24 : moins une
+recette revue a la baisse qu'un approvisionnement ailleurs.
+
+**Reghalal montre l'inverse** : +10,0 sur site partage contre
++1,0 sur site halal seul. Le motif n'est donc pas general.
+
+*Reserves.*
+- **Confondant assume et non resolu** : les sites partages appartiennent surtout aux generalistes, qui font mieux par ailleurs. Comparer les deux groupes revient en partie a comparer des generalistes a des specialistes. Le detail par marque est publie pour cette raison.
+- Seules 3 marques ont assez de produits des deux cotes, et elles ne disent pas la meme chose.
+- L'estampille n'est saisie que sur 31 % du bras halal : ce test porte sur une fraction, et rien ne dit qu'elle soit representative.
+- Un site partage n'est pas une ligne de production partagee : un meme agrement peut couvrir des ateliers distincts.
 
 ---
 

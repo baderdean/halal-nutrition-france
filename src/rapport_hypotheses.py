@@ -1176,6 +1176,60 @@ def bloc_marche() -> list[str]:
          "cahier des charges n'a ete lu. Parler de posture reste une "
          "interpretation, et l'ecrire comme une intention prouvee serait une "
          "faute."])
+    z1 = lire("z1_site_ou_marque")
+    corps = []
+    if z1 is not None and len(z1):
+        gl = z1[z1.niveau == "global"]
+        corps = ["Produits halal, selon que leur etablissement sert AUSSI a la "
+                 "production non halal de la meme marque :", "",
+                 "| variable | n site partage | n site halal seul | ecart | "
+                 "IC 95 % | |", "|:--|--:|--:|--:|:-:|:--|"]
+        for r in gl.itertuples():
+            corps.append(f"| {r.variable} | {r.n_partage} | {r.n_halal_seul} | "
+                         f"{r.ecart:+.2f} | [{r.ic95_bas:+.2f} ; "
+                         f"{r.ic95_haut:+.2f}] | "
+                         f"{'etabli' if r.etabli else 'non etabli'} |")
+        mq = z1[(z1.niveau == "marque") & z1.ecart.notna()]
+        if len(mq):
+            corps += ["", "**A l'interieur d'une marque** — seule lecture qui "
+                      "echappe au confondant :", "",
+                      "| marque | n partage | n halal seul | difference |",
+                      "|:--|--:|--:|--:|"]
+            for r in mq.itertuples():
+                corps.append(f"| {r.cle} | {r.n_partage} | {r.n_halal_seul} | "
+                             f"{r.ecart:+.1f} |")
+    l += hypothese(
+        "H29", "L'ecart tient au changement de SITE de fabrication",
+        "Pour chaque produit halal, on regarde si son etablissement sert aussi "
+        "a la production non halal de la MEME marque. Comparaison a "
+        "composition egale, ecart a la mediane de marche de la strate.",
+        "ETABLI sur le sel, NON ETABLI sur le Nutri-Score, et le motif ne tient "
+        "pas dans toutes les marques",
+        corps + ["",
+                 "Sur un site partage, le halal est a **1,8 g de sel** et un",
+                 "ecart de **+1,0** ; sur un site qui ne sert qu'au halal, 2,0 g",
+                 "et **+5,0**.",
+                 "",
+                 "**Carrefour est l'illustration nette** : sa gamme halal sort",
+                 "majoritairement de sites qu'il n'emploie pas pour le reste, et",
+                 "c'est la que l'ecart se creuse (+9,0 sur 31 produits). Sur les",
+                 "sites qu'il partage, l'ecart s'efface presque (+0,5 sur 8).",
+                 "Cela reinterprete son mauvais classement de H24 : moins une",
+                 "recette revue a la baisse qu'un approvisionnement ailleurs.",
+                 "",
+                 "**Reghalal montre l'inverse** : +10,0 sur site partage contre",
+                 "+1,0 sur site halal seul. Le motif n'est donc pas general."],
+        ["**Confondant assume et non resolu** : les sites partages "
+         "appartiennent surtout aux generalistes, qui font mieux par ailleurs. "
+         "Comparer les deux groupes revient en partie a comparer des "
+         "generalistes a des specialistes. Le detail par marque est publie pour "
+         "cette raison.",
+         "Seules 3 marques ont assez de produits des deux cotes, et elles ne "
+         "disent pas la meme chose.",
+         "L'estampille n'est saisie que sur 31 % du bras halal : ce test porte "
+         "sur une fraction, et rien ne dit qu'elle soit representative.",
+         "Un site partage n'est pas une ligne de production partagee : un meme "
+         "agrement peut couvrir des ateliers distincts."])
     l += ["---", ""]
     return l
 

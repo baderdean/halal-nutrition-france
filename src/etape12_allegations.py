@@ -11,17 +11,20 @@ Nutri-Score, revendique un sel reduit, une absence d'additifs. Ces mentions
 sont volontaires et coutent une reformulation, ou au moins un engagement.
 Leur frequence mesure un effort declare.
 
-LA FAMILLE TEMOIN FAIT LE TEST. Si le bras halal portait moins de mentions de
-TOUTES sortes, on mesurerait la richesse de l'emballage ou l'attention des
-contributeurs, pas une posture. Les « autres revendications » — sans gluten,
-sans huile de palme, sans OGM — s'adressent aux memes clients, sur les memes
-paquets, saisies par les memes contributeurs, et ne relevent pas de la
-nutrition.
+POURQUOI UNE SECONDE LISTE. On compte les mentions nutritionnelles : 10 % des
+produits halal en portent, 22 % des non halal. Une objection evidente
+ruinerait ce chiffre : et si les fiches halal etaient simplement MOINS
+REMPLIES ? L'ecart ne dirait alors rien de la nutrition.
 
-  effort en baisse ET famille temoin a niveau egal
-      -> la nutrition est traitee differemment sur ce segment ;
-  les deux en baisse
-      -> l'emballage halal est moins documente, et rien n'est conclu.
+Pour departager, une seconde liste de mentions sans rapport avec la
+nutrition : sans gluten, sans huile de palme, sans OGM. Memes paquets, memes
+contributeurs.
+
+  halal aussi bas sur cette seconde liste
+      -> les fiches halal sont moins remplies, on n'apprend rien ;
+  halal a niveau egal ou superieur sur cette seconde liste, mais plus bas sur
+  la nutrition
+      -> ce qui manque est specifiquement nutritionnel.
 
 Ce que ce script ne peut pas faire : lire un cahier des charges. Il mesure ce
 qui est imprime, pas ce qui est decide. Une mention absente peut signifier un
@@ -139,10 +142,10 @@ def main() -> int:
     pd.DataFrame(lignes).to_csv(SORTIES / "y1_allegations.csv", index=False)
 
     titre("LECTURE — l'ecart nutritionnel excede-t-il l'ecart general ?")
-    print("Les deux familles peuvent reculer ensemble si l'emballage halal est")
-    print("moins documente. Ce qui signe une POSTURE, c'est que le recul")
-    print("nutritionnel EXCEDE le recul general. On teste donc la difference")
-    print("des deux ecarts, par bootstrap sur les produits.\n")
+    print("Les fiches halal peuvent etre un peu moins remplies sur TOUT. Ce")
+    print("qui compte est donc l'ECART ENTRE LES DEUX ECARTS : le deficit")
+    print("nutritionnel depasse-t-il le deficit general ? Bootstrap sur les")
+    print("produits.\n")
     rng = np.random.default_rng(20260904)
     a, b = d[d.bras == "halal"], d[d.bras == "temoin"]
     ea = a.effort_nutritionnel.to_numpy(bool)
