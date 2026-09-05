@@ -257,18 +257,19 @@ Jambon cuit de volaille, dans le bras halal :
 
 | marque | n | Nutri-Score | sel | proteines |
 |:--|--:|--:|--:|--:|
-| fleury-michon | 51 | +2.0 | 1.80 | 21.0 |
-| carrefour | 10 | +12.0 | 2.30 | 20.0 |
-| isla-mondial | 16 | +12.0 | 2.40 | 19.1 |
-| reghalal | 27 | +13.0 | 2.40 | 18.0 |
-| isla-delice | 37 | +18.0 | 3.40 | 16.6 |
+| fleury-michon | 54 | +2.0 | 1.80 | 21.0 |
+| carrefour | 12 | +12.0 | 2.30 | 20.0 |
+| isla-mondial | 28 | +13.0 | 2.40 | 18.9 |
+| reghalal | 33 | +13.0 | 2.50 | 18.0 |
+| arabi | 12 | +14.5 | 2.50 | 11.1 |
+| isla-delice | 54 | +18.0 | 3.40 | 15.6 |
 
 **Le meme produit, chez le meme fabricant, a la meme
 espece** :
 
 | produit | marque | espece | n halal | n temoin | ecart | IC 95 % |
 |:--|:--|:--|--:|--:|--:|:-:|
-| jambon_cuit | fleury-michon | poulet | 32 | 159 | +0.00 | [+0.00 ; +0.00] |
+| jambon_cuit | fleury-michon | poulet | 34 | 164 | +0.00 | [+0.00 ; +0.00] |
 
 L'ecart de 10 a 12 points mesure a espece egale ne survit pas
 au controle du fabricant. Il vient de la dispersion DANS le
@@ -653,12 +654,12 @@ subsiste et il est plus net que l'ecart moyen de la gamme.
 | Mortadelle | 33 | +18.0 | +22.0 | -4.0 | [-6.00 ; -3.00] |
 | Saucisson sec, salami, chorizo | 187 | +30.0 | +34.0 | -4.0 | [-5.00 ; -3.00] |
 | Merguez | 31 | +18.0 | +21.0 | -3.0 | [-6.00 ; +1.00] |
+| Jambon cuit (blanc, de volaille, a l'os) | 324 | +14.0 | +13.0 | +1.0 | [+0.00 ; +2.00] |
 | Nuggets | 85 | +5.0 | +4.0 | +1.0 | [+0.00 ; +2.00] |
-| Jambon cuit (blanc, de volaille, a l'os) | 248 | +12.5 | +11.0 | +1.5 | [+1.00 ; +3.00] |
+| Blanc de poulet en decoupe (non pane, non cuit en tranches) | 59 | -2.0 | -6.0 | +4.0 | [+0.00 ; +6.00] |
 | Saucisses de volaille (hors merguez) | 129 | +17.0 | +13.0 | +4.0 | [+3.00 ; +6.00] |
-| Blanc de poulet en decoupe (non pane, non cuit en tranches) | 61 | -1.0 | -6.0 | +5.0 | [+0.00 ; +6.00] |
 | Escalopes et blancs panes (hors nuggets et cordons bleus) | 96 | +4.0 | -1.0 | +5.0 | [+4.00 ; +5.00] |
-| Cordon bleu | 82 | +11.0 | +6.0 | +5.0 | [+0.00 ; +5.50] |
+| Cordon bleu | 82 | +11.0 | +6.0 | +5.0 | [+0.00 ; +5.00] |
 | Steak hache et viande hachee | 114 | +11.0 | +6.0 | +5.0 | [+2.00 ; +5.00] |
 | Jambon sec et cru (Bayonne, Serrano, Parme, coppa) | 3 | +23.0 | +27.0 | non testable | — |
 
@@ -683,13 +684,13 @@ definition. C'est un resultat, pas une donnee manquante.
 | produit | comparaison | variable | n | ecart | IC 95 % |
 |:--|:--|:--|:--|--:|:-:|
 | saucisson_sec | substitut halal - substitut non halal | Nutri-Score en score continu | 58/65 | +0.00 | [-3.00 ; +2.00] |
-| saucisson_sec | substitut halal - substitut non halal | sel g/100 g | 58/65 | -0.38 | [-0.70 ; -0.00] |
-| saucisson_sec | substitut halal - substitut non halal | AGS g/100 g | 58/65 | -0.20 | [-1.30 ; +3.00] |
-| saucisson_sec | substitut halal - substitut non halal | proteines g/100 g | 58/65 | -6.00 | [-8.00 ; -2.20] |
+| saucisson_sec | substitut halal - substitut non halal | sel g/100 g | 58/65 | -0.38 | [-0.70 ; +0.00] |
+| saucisson_sec | substitut halal - substitut non halal | AGS g/100 g | 58/65 | -0.20 | [-1.30 ; +2.75] |
+| saucisson_sec | substitut halal - substitut non halal | proteines g/100 g | 58/65 | -6.00 | [-8.00 ; -2.10] |
 | saucisson_sec | substitut halal - original au porc | Nutri-Score en score continu | 58/906 | -4.00 | [-5.50 ; -3.00] |
 | saucisson_sec | substitut halal - original au porc | sel g/100 g | 58/906 | -0.68 | [-0.80 ; -0.30] |
-| saucisson_sec | substitut halal - original au porc | AGS g/100 g | 58/906 | -3.00 | [-4.10 ; -0.50] |
-| saucisson_sec | substitut halal - original au porc | proteines g/100 g | 58/906 | -7.00 | [-8.00 ; -4.75] |
+| saucisson_sec | substitut halal - original au porc | AGS g/100 g | 58/906 | -3.00 | [-4.15 ; -0.30] |
+| saucisson_sec | substitut halal - original au porc | proteines g/100 g | 58/906 | -7.00 | [-8.00 ; -4.65] |
 
 Le substitut halal et le substitut non halal de meme espece
 sont **indiscernables** sur le Nutri-Score. Contre l'original

@@ -1,4 +1,8 @@
 code,nom,marque,produit,espece,bras,ns,grade,sel,proteines,regle
+00002974,Filet de poulet rôti,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+00003001,Filet de poulet extra tendre thym citron,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.3,22.0,decoupe_crue
+0037600132602,Oven Roasted Deli Turkey,Hormel Natural Choice,blanc_de_poulet,dinde,temoin,11.0,d,2.05357142857143,19.6428571428571,decoupe_crue
+0203213018439,Filet de poulet basquaise,,blanc_de_poulet,poulet,temoin,1.0,b,1.2,14.0,decoupe_crue
 00815949,Oven Roasted Turkey Breast,Trader Joe's,blanc_de_poulet,dinde,temoin,3.0,c,1.875,21.4285714285714,decoupe_crue
 0081669013006,Hähnchen-Filetinis,Bofrost,blanc_de_poulet,poulet,temoin,0.0,a,1.3,20.5,decoupe_crue
 0211629025842,Filets de poulet rôti,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
@@ -95,10 +99,24 @@ code,nom,marque,produit,espece,bras,ns,grade,sel,proteines,regle
 0211791040285,Filets de poulets,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
 0217637028271,Filets Rôtis de Poulet,Père Dodu,blanc_de_poulet,poulet,temoin,1.0,b,1.3,25.0,decoupe_crue
 0217638025521,La Belle Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,21.0,e,15.0,24.0,decoupe_crue
-00002974,Filet de poulet rôti,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
-00003001,Filet de poulet extra tendre thym citron,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.3,22.0,decoupe_crue
-0037600132602,Oven Roasted Deli Turkey,Hormel Natural Choice,blanc_de_poulet,dinde,temoin,11.0,d,2.05357142857143,19.6428571428571,decoupe_crue
-0203213018439,Filet de poulet basquaise,,blanc_de_poulet,poulet,temoin,1.0,b,1.2,14.0,decoupe_crue
+0226280019420,Filets de poulet avec peau saumurés et rôtis,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+0226280024738,Filets de poulets avec peau saumurés et rotis,Carrefour,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+0226280025193,Filets de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+0226280027883,Filets de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+0226280028675,Filets de poulet avec peau,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+0226280029986,Filets de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+0226280031033,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+0226280035420,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+0226280041261,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+0226280042374,Filets de poulet rôtis,Carrefour Original,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+0256600035823,Filets de poulet rôti,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
+0256600045525,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
+0276601047496,Filets de poulet roti,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+20067854,Hähnchenbrustfilet Teilstück,Metzgerfrisch,blanc_de_poulet,poulet,temoin,30.0,e,2.16,,decoupe_crue
+20642631,Blanc de dinde,,blanc_de_poulet,dinde,temoin,4.0,c,1.86,14.6,decoupe_crue
+20670382,Filet de poulet en lanieres,,blanc_de_poulet,poulet,temoin,11.0,d,2.1,21.0,decoupe_crue
+20821159,Chicken fillets,El Tequiti Lidl,blanc_de_poulet,poulet,temoin,2.0,b,1.6725,20.7,decoupe_crue
+20830427,Delikatessen Hähnchenbrust,Dulano,blanc_de_poulet,poulet,temoin,2.0,b,1.7,21.0,decoupe_crue
 0217827045460,Escalope de Dinde et Chapelure Croustillante,Le Gaulois,blanc_de_poulet,dinde,temoin,1.0,b,1.5,21.0,decoupe_crue
 0217966016468,Aiguillettes de poulet grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
 0217966017656,Aiguillettes de Poulet Grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
@@ -143,28 +161,6 @@ code,nom,marque,produit,espece,bras,ns,grade,sel,proteines,regle
 2200606039369,Filets de poulet rotis,Monoprix,blanc_de_poulet,poulet,temoin,0.0,a,1.1000000238419,25.0,decoupe_crue
 2200606044011,Filets roti de poulet,Monoprix,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
 2200606054713,Filets rôti de poulet,Monoprix,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
-0226280019420,Filets de poulet avec peau saumurés et rôtis,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
-0226280024738,Filets de poulets avec peau saumurés et rotis,Carrefour,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
-0226280025193,Filets de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
-0226280027883,Filets de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
-0226280028675,Filets de poulet avec peau,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
-0226280029986,Filets de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
-0226280031033,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
-0226280035420,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
-0226280041261,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
-0226280042374,Filets de poulet rôtis,Carrefour Original,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
-0256600035823,Filets de poulet rôti,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
-0256600045525,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
-0276601047496,Filets de poulet roti,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
-20067854,Hähnchenbrustfilet Teilstück,Metzgerfrisch,blanc_de_poulet,poulet,temoin,30.0,e,2.16,,decoupe_crue
-20642631,Blanc de dinde,,blanc_de_poulet,dinde,temoin,4.0,c,1.86,14.6,decoupe_crue
-20670382,Filet de poulet en lanieres,,blanc_de_poulet,poulet,temoin,11.0,d,2.1,21.0,decoupe_crue
-20821159,Chicken fillets,El Tequiti Lidl,blanc_de_poulet,poulet,temoin,2.0,b,1.6725,20.7,decoupe_crue
-20830427,Delikatessen Hähnchenbrust,Dulano,blanc_de_poulet,poulet,temoin,2.0,b,1.7,21.0,decoupe_crue
-2225025027162,Filet et cuisse de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
-2225025031886,Filet de cuisse de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
-2225025043568,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
-2278954024665,Aiguillette de poulet tandoori,GIFFAUD,blanc_de_poulet,poulet,temoin,3.0,c,1.5,25.0,decoupe_crue
 2205618003230,Filet de poulet,Delhaize,blanc_de_poulet,poulet,temoin,1.0,b,1.2000000476837,22.0,decoupe_crue
 2205620002894,Filet de poulet aux herbes,,blanc_de_poulet,poulet,temoin,8.0,c,1.6000000238419,1.2000000476837,decoupe_crue
 2205621003258,Filet de poulet Curry,Delhaize,blanc_de_poulet,poulet,temoin,1.0,b,1.3999999761581,18.0,decoupe_crue
@@ -176,6 +172,20 @@ code,nom,marque,produit,espece,bras,ns,grade,sel,proteines,regle
 2232752028072,Poêlée de filet de poulet Tikka curry,Les prêts à cuisiner du volailler,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,22.0,decoupe_crue
 2334855010333,Aiguillettes de poulet crue thym/citron sous ATM,,blanc_de_poulet,poulet,temoin,2.0,b,1.7,19.0,decoupe_crue
 2381822018724,Aiguillettes de poulet roties,,blanc_de_poulet,poulet,temoin,0.0,a,1.4,25.0,decoupe_crue
+2225025027162,Filet et cuisse de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2225025031886,Filet de cuisse de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2225025043568,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2278954024665,Aiguillette de poulet tandoori,GIFFAUD,blanc_de_poulet,poulet,temoin,3.0,c,1.5,25.0,decoupe_crue
+2463498031228,Filet de poulet rôti,,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
+2463498032218,Filet de poulet rôti,,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
+2463498034045,filet de poulet rôti halal,,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
+2463498034243,Filets de poulet Rôti,Réghalal,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
+2463498034441,Filets de poulet rôti,,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
+2463498035035,Filet de poulet rôti,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,22.0,decoupe_crue
+2463498036865,Filet de poulet rôti,,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
+2463498041784,Filets de poulet rôti,Réghalal,blanc_de_poulet,poulet,halal,2.0,b,1.7,22.0,decoupe_crue
+2463498044150,Filet de poulet rôti avec peau,Réghalal,blanc_de_poulet,poulet,temoin,0.0,a,1.2,22.0,decoupe_crue
+2463498049599,Filet de poulet roti,,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
 2434855045721,Aiguillette de poulet au Thym et saveur citron,,blanc_de_poulet,poulet,temoin,-1.0,a,1.18,21.4,decoupe_crue
 2434855060748,Aiguillettes de Poulet Crues Marinées Thym-Citron,,blanc_de_poulet,poulet,temoin,-1.0,a,1.19,21.0,decoupe_crue
 2434873072617,Filets de poulet marinés tomate origan,Saveur d'été,blanc_de_poulet,poulet,temoin,1.0,b,1.6,21.3,decoupe_crue
@@ -187,16 +197,11 @@ code,nom,marque,produit,espece,bras,ns,grade,sel,proteines,regle
 27067048,Filet De Poulet Pane,,blanc_de_poulet,poulet,temoin,5.0,c,1.2,13.0,decoupe_crue
 27068403,Filet de poulet nature,,blanc_de_poulet,poulet,temoin,1.0,b,1.6,22.0,decoupe_crue
 27081648,Gebratene Hähnchenbrustfiletstücke,DELIFIN,blanc_de_poulet,poulet,temoin,3.0,c,2.0,23.0,decoupe_crue
-2463498031228,Filet de poulet rôti,,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
-2463498032218,Filet de poulet rôti,,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
-2463498034045,filet de poulet rôti halal,,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
-2463498034243,Filets de poulet Rôti,Réghalal,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
-2463498034441,Filets de poulet rôti,,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
-2463498035035,Filet de poulet rôti,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,22.0,decoupe_crue
-2463498036865,Filet de poulet rôti,,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
-2463498041784,Filets de poulet rôti,Réghalal,blanc_de_poulet,poulet,halal,2.0,b,1.7,22.0,decoupe_crue
-2463498044150,Filet de poulet rôti avec peau,Réghalal,blanc_de_poulet,poulet,temoin,0.0,a,1.2,22.0,decoupe_crue
-2463498049599,Filet de poulet roti,,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
+29130627,Filet de poulet doré au four,,blanc_de_poulet,poulet,temoin,3.0,c,1.84,22.5,decoupe_crue
+3180050136533,Filet de poulet nature,,blanc_de_poulet,poulet,temoin,3.0,c,1.9,22.3,decoupe_crue
+3180050136540,Filet de poulet mariné aux épices provençales,,blanc_de_poulet,poulet,temoin,3.0,c,2.0,23.0,decoupe_crue
+3222476444264,Aiguillettes de poulet rôties,Casino,blanc_de_poulet,poulet,temoin,1.0,b,1.6,29.0,decoupe_crue
+3235660890334,Émincés de filets de poulet,,blanc_de_poulet,poulet,temoin,1.0,b,1.5,24.0,decoupe_crue
 2860119026500,Filet de poulet,"Marque Repère, Volandrie",blanc_de_poulet,poulet,temoin,-1.0,a,1.1,21.0,decoupe_crue
 2860129036933,Escalopes de dinde,"Marque Repère, Volandry",blanc_de_poulet,dinde,temoin,-1.0,a,1.2,23.0,decoupe_crue
 2860181019486,Escalope de dinde,Volandrie,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
@@ -204,23 +209,6 @@ code,nom,marque,produit,espece,bras,ns,grade,sel,proteines,regle
 2953533905305,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
 3222477765061,Aiguillettes de poulet,Casino,blanc_de_poulet,poulet,temoin,1.0,b,1.6,29.0,decoupe_crue
 3230890007798,2 filets de poulet rôti,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
-29130627,Filet de poulet doré au four,,blanc_de_poulet,poulet,temoin,3.0,c,1.84,22.5,decoupe_crue
-3180050136533,Filet de poulet nature,,blanc_de_poulet,poulet,temoin,3.0,c,1.9,22.3,decoupe_crue
-3180050136540,Filet de poulet mariné aux épices provençales,,blanc_de_poulet,poulet,temoin,3.0,c,2.0,23.0,decoupe_crue
-3222476444264,Aiguillettes de poulet rôties,Casino,blanc_de_poulet,poulet,temoin,1.0,b,1.6,29.0,decoupe_crue
-3235660890334,Émincés de filets de poulet,,blanc_de_poulet,poulet,temoin,1.0,b,1.5,24.0,decoupe_crue
-3230890038945,Aiguillette de poulet thym citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
-3230890040757,Aiguilles de poulet panées,Maître CoQ,blanc_de_poulet,poulet,temoin,2.0,b,1.2,17.0,decoupe_crue
-3230890050022,Filet de poulet,Maître CoQ,blanc_de_poulet,poulet,temoin,2.0,b,1.1,16.0,decoupe_crue
-3230890051739,Chicken ribs party,Maître CoQ,blanc_de_poulet,poulet,temoin,2.0,b,1.1,21.0,decoupe_crue
-3230890138591,Émincés de filet de poulet roti,Maître CoQ,blanc_de_poulet,poulet,temoin,12.0,d,2.3,24.0,decoupe_crue
-3230890737169,Petits emincés de filet de poulet rôti,Maître CoQ,blanc_de_poulet,poulet,temoin,12.0,d,2.325,24.0,decoupe_crue
-3230890875137,Petits filets de poulet croustillant surgelés,Maître CoQ,blanc_de_poulet,poulet,temoin,4.0,c,1.1,16.0,decoupe_crue
-3234510433080,Filet de poulet en croute,,blanc_de_poulet,poulet,temoin,17.0,d,1.8,15.0,decoupe_crue
-3254560190580,Brochettes de filet poulet au thyn saveur citron,Auchan,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,18.0,decoupe_crue
-3254560346734,Aiguillettes de poulet roties,Auchan,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,26.0,decoupe_crue
-3254560346826,Filets de Poulet Rôtis,Auchan,blanc_de_poulet,poulet,temoin,0.0,a,1.1000000238419,26.0,decoupe_crue
-3254560414433,Filets de poulet au paprika,Auchan,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,22.0,decoupe_crue
 3250391424474,ROTI DE FILET DE POULET CUIT 450g,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.3,17.0,decoupe_crue
 3250391471379,Rôti de filet de poulet cuit 450g GRM,"Nett, Netto",blanc_de_poulet,poulet,temoin,3.0,c,1.9,18.0,decoupe_crue
 3250391532346,Escalopes extra-fines de Dinde Marinade Tomate & Basilic,Volaé,blanc_de_poulet,dinde,temoin,-1.0,a,1.04,24.0,decoupe_crue
@@ -234,6 +222,25 @@ code,nom,marque,produit,espece,bras,ns,grade,sel,proteines,regle
 3256225735075,"Filet de poulet rôti, barquette, 190g",U,blanc_de_poulet,poulet,temoin,0.0,a,1.2,26.0,decoupe_crue
 3258225775075,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,26.0,decoupe_crue
 3263851498618,Filets de poulet facln rotissoire,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,25.0,decoupe_crue
+3230890038945,Aiguillette de poulet thym citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+3230890040757,Aiguilles de poulet panées,Maître CoQ,blanc_de_poulet,poulet,temoin,2.0,b,1.2,17.0,decoupe_crue
+3230890050022,Filet de poulet,Maître CoQ,blanc_de_poulet,poulet,temoin,2.0,b,1.1,16.0,decoupe_crue
+3230890051739,Chicken ribs party,Maître CoQ,blanc_de_poulet,poulet,temoin,2.0,b,1.1,21.0,decoupe_crue
+3230890138591,Émincés de filet de poulet roti,Maître CoQ,blanc_de_poulet,poulet,temoin,12.0,d,2.3,24.0,decoupe_crue
+3230890737169,Petits emincés de filet de poulet rôti,Maître CoQ,blanc_de_poulet,poulet,temoin,12.0,d,2.325,24.0,decoupe_crue
+3230890875137,Petits filets de poulet croustillant surgelés,Maître CoQ,blanc_de_poulet,poulet,temoin,4.0,c,1.1,16.0,decoupe_crue
+3234510433080,Filet de poulet en croute,,blanc_de_poulet,poulet,temoin,17.0,d,1.8,15.0,decoupe_crue
+3254560190580,Brochettes de filet poulet au thyn saveur citron,Auchan,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,18.0,decoupe_crue
+3254560346734,Aiguillettes de poulet roties,Auchan,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,26.0,decoupe_crue
+3254560346826,Filets de Poulet Rôtis,Auchan,blanc_de_poulet,poulet,temoin,0.0,a,1.1000000238419,26.0,decoupe_crue
+3254560414433,Filets de poulet au paprika,Auchan,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,22.0,decoupe_crue
+3287680016638,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,25.0,decoupe_crue
+3439496310206,Émincés de filet de poulet,Aro,blanc_de_poulet,poulet,temoin,0.0,a,1.4,21.0,decoupe_crue
+3439496310329,Émincés de filets de poulet,Aro,blanc_de_poulet,poulet,temoin,2.0,b,1.7,19.0,decoupe_crue
+3439496424187,AIGUILLETTES DE POULET PANÉES CORN FLAKES,METRO Chef,blanc_de_poulet,poulet,temoin,1.0,b,1.0825,16.0,decoupe_crue
+3499150317125,TRANCHETTE DE FILET DE POULET CUIT ROTI SURGELE,Rest'or chef,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,21.0,decoupe_crue
+3499150339301,Plaisir de volaile,Restor Chef,blanc_de_poulet,poulet,temoin,1.0,b,1.4299999475479,20.0,decoupe_crue
+3508100200070,Aiguillette de poulet rotie à la méditerranéenne,,blanc_de_poulet,poulet,temoin,2.0,b,1.1,8.5,decoupe_crue
 3266980001858,Emincés de filet de poulet rôti,Le gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
 3266980003883,Aiguillettes de poulet rôties,,blanc_de_poulet,poulet,temoin,1.0,b,1.6,29.0,decoupe_crue
 3266980011475,Blanc de dinde,Réghalal,blanc_de_poulet,dinde,halal,15.0,d,2.9,16.0,decoupe_crue
@@ -263,15 +270,6 @@ code,nom,marque,produit,espece,bras,ns,grade,sel,proteines,regle
 3276280089173,Filets de poulet marinés cumin paprika,Royal Bernard,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,21.0,decoupe_crue
 3276288261090,Cubes de filets de poulet marinés à la taïlandaise,,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,20.0,decoupe_crue
 3283440000091,Aiguillettes de poulet thym citron s/atm,Le gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.4,22.0,decoupe_crue
-3287680016638,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,25.0,decoupe_crue
-3439496310206,Émincés de filet de poulet,Aro,blanc_de_poulet,poulet,temoin,0.0,a,1.4,21.0,decoupe_crue
-3439496310329,Émincés de filets de poulet,Aro,blanc_de_poulet,poulet,temoin,2.0,b,1.7,19.0,decoupe_crue
-3439496424187,AIGUILLETTES DE POULET PANÉES CORN FLAKES,METRO Chef,blanc_de_poulet,poulet,temoin,1.0,b,1.0825,16.0,decoupe_crue
-3499150317125,TRANCHETTE DE FILET DE POULET CUIT ROTI SURGELE,Rest'or chef,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,21.0,decoupe_crue
-3499150339301,Plaisir de volaile,Restor Chef,blanc_de_poulet,poulet,temoin,1.0,b,1.4299999475479,20.0,decoupe_crue
-3508100200070,Aiguillette de poulet rotie à la méditerranéenne,,blanc_de_poulet,poulet,temoin,2.0,b,1.1,8.5,decoupe_crue
-3296560000872,Filet de poulet facon hache,,blanc_de_poulet,poulet,temoin,-1.0,a,1.179,21.7,decoupe_crue
-3459860005767,Blanc de dinde goût fumé,Isla Mondial,blanc_de_poulet,dinde,halal,12.0,d,2.4,20.7,decoupe_crue
 3564700713310,Escalopes de dinde extra tendres certifiées x 2,"Marque Repère, Volandry",blanc_de_poulet,dinde,temoin,-1.0,a,1.2,23.0,decoupe_crue
 3596710464852,Filets de poulet rôtis,Auchan,blanc_de_poulet,poulet,temoin,0.0,a,1.4,26.0,decoupe_crue
 3663513047831,Blanc de dinde supérieur,,blanc_de_poulet,dinde,temoin,2.0,b,1.7,21.0,decoupe_crue
@@ -280,6 +278,23 @@ code,nom,marque,produit,espece,bras,ns,grade,sel,proteines,regle
 3760177215764,Aiguillettes de poulet,Aide lis,blanc_de_poulet,poulet,temoin,3.0,c,1.32,15.2,decoupe_crue
 3760258220694,Lamelle filet de poulet roti,,blanc_de_poulet,poulet,temoin,3.0,c,2.0,19.0,decoupe_crue
 3760383400190,Aiguilette de poulet,,blanc_de_poulet,poulet,halal,11.0,d,1.6,17.6,decoupe_crue
+3296560000872,Filet de poulet facon hache,,blanc_de_poulet,poulet,temoin,-1.0,a,1.179,21.7,decoupe_crue
+3459860005767,Blanc de dinde goût fumé,Isla Mondial,blanc_de_poulet,dinde,halal,12.0,d,2.4,20.7,decoupe_crue
+4011364719169,Escalopes de dinde marinées au Paprika,Aldi,blanc_de_poulet,dinde,temoin,0.0,a,1.3,21.0,decoupe_crue
+4056489202899,Médaillons de poulet à l'espagnole,L'étal du volailler,blanc_de_poulet,poulet,temoin,0.0,a,1.2775,21.0,decoupe_crue
+4335619019850,Emincés de filet de poulet à la Mexicaine,L'etal Du Volailler,blanc_de_poulet,poulet,temoin,2.0,b,1.3,20.0,decoupe_crue
+5014759002692,Gilbert's Roast Turkey Breast,Gilbert's Kosher Foods,blanc_de_poulet,dinde,temoin,11.0,d,2.1625,20.1,decoupe_crue
+5400112268919,Émincés de filet de poulet saveur indienne,Delhaize,blanc_de_poulet,poulet,temoin,0.0,a,1.3,22.0,decoupe_crue
+5400112268933,Filet de poulet bbq,Delhaize,blanc_de_poulet,poulet,temoin,0.0,a,1.4,19.0,decoupe_crue
+5400112268957,Filet de poulet thym et citron,Delhaize,blanc_de_poulet,poulet,temoin,0.0,a,1.3,28.0,decoupe_crue
+5400112268964,Filet de poulet César,Delhaize,blanc_de_poulet,poulet,temoin,0.0,a,1.3,26.0,decoupe_crue
+5400112492758,Filet de poulet,Delhaize,blanc_de_poulet,poulet,temoin,11.0,d,1.8999999761581,17.0,decoupe_crue
+5411761283031,Morceaux de poulets,,blanc_de_poulet,poulet,temoin,11.0,d,2.0999999046326,21.0,decoupe_crue
+5901664003695,Emince de filet de poulet halal cuit tikka surgele,,blanc_de_poulet,poulet,halal,11.0,d,2.1,21.0,decoupe_crue
+5901687982885,Emincé de filet de poulet rotis,,blanc_de_poulet,poulet,temoin,3.0,c,1.6599999666214,16.0,decoupe_crue
+5901687982922,Émincé de filet de poulet nature surgelé,,blanc_de_poulet,poulet,temoin,3.0,c,1.66,16.0,decoupe_crue
+61110120,Filet de poulet rôti congelé,Sans marque,blanc_de_poulet,poulet,temoin,1.0,b,1.3,25.0,decoupe_crue
+8436021417152,Aiguillettes de poulet panées barbecue,,blanc_de_poulet,poulet,temoin,1.0,b,1.1,19.3,decoupe_crue
 3560070447282,Filet de Poulet Rôti,Carrefour,blanc_de_poulet,poulet,temoin,0.0,a,1.3,26.0,decoupe_crue
 3560070484027,Filets de poulet Rôtis Traités en salaison,Carrefour,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
 3560070499243,Filets De Poulets,Carrefour,blanc_de_poulet,poulet,temoin,3.0,c,1.94,23.0,decoupe_crue
@@ -296,28 +311,6 @@ code,nom,marque,produit,espece,bras,ns,grade,sel,proteines,regle
 3700158734129,Filet de poulet,,blanc_de_poulet,poulet,temoin,20.0,e,2.7,8.1,decoupe_crue
 3700593406087,Insudiet Aiguillettes De Poulet,Insudiet,blanc_de_poulet,poulet,temoin,2.0,b,1.2,13.1,decoupe_crue
 3701004821093,Filets de poulet saumurés à 20%,Ronsard,blanc_de_poulet,poulet,temoin,3.0,c,1.94,23.0,decoupe_crue
-4011364719169,Escalopes de dinde marinées au Paprika,Aldi,blanc_de_poulet,dinde,temoin,0.0,a,1.3,21.0,decoupe_crue
-4056489202899,Médaillons de poulet à l'espagnole,L'étal du volailler,blanc_de_poulet,poulet,temoin,0.0,a,1.2775,21.0,decoupe_crue
-4335619019850,Emincés de filet de poulet à la Mexicaine,L'etal Du Volailler,blanc_de_poulet,poulet,temoin,2.0,b,1.3,20.0,decoupe_crue
-5014759002692,Gilbert's Roast Turkey Breast,Gilbert's Kosher Foods,blanc_de_poulet,dinde,temoin,11.0,d,2.1625,20.1,decoupe_crue
-5400112268919,Émincés de filet de poulet saveur indienne,Delhaize,blanc_de_poulet,poulet,temoin,0.0,a,1.3,22.0,decoupe_crue
-5400112268933,Filet de poulet bbq,Delhaize,blanc_de_poulet,poulet,temoin,0.0,a,1.4,19.0,decoupe_crue
-5400112268957,Filet de poulet thym et citron,Delhaize,blanc_de_poulet,poulet,temoin,0.0,a,1.3,28.0,decoupe_crue
-5400112268964,Filet de poulet César,Delhaize,blanc_de_poulet,poulet,temoin,0.0,a,1.3,26.0,decoupe_crue
-5400112492758,Filet de poulet,Delhaize,blanc_de_poulet,poulet,temoin,11.0,d,1.8999999761581,17.0,decoupe_crue
-5411761283031,Morceaux de poulets,,blanc_de_poulet,poulet,temoin,11.0,d,2.0999999046326,21.0,decoupe_crue
-5901664003695,Emince de filet de poulet halal cuit tikka surgele,,blanc_de_poulet,poulet,halal,11.0,d,2.1,21.0,decoupe_crue
-5901687982885,Emincé de filet de poulet rotis,,blanc_de_poulet,poulet,temoin,3.0,c,1.6599999666214,16.0,decoupe_crue
-5901687982922,Émincé de filet de poulet nature surgelé,,blanc_de_poulet,poulet,temoin,3.0,c,1.66,16.0,decoupe_crue
-61110120,Filet de poulet rôti congelé,Sans marque,blanc_de_poulet,poulet,temoin,1.0,b,1.3,25.0,decoupe_crue
-8436021417152,Aiguillettes de poulet panées barbecue,,blanc_de_poulet,poulet,temoin,1.0,b,1.1,19.3,decoupe_crue
-3760116240314,Filet de poulet Classe A,,blanc_de_poulet,poulet,temoin,-1.0,a,1.03,17.5,decoupe_crue
-3760116241373,Filet de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.8,24.2,decoupe_crue
-3760116247900,Émincés de Poulet,Délices & Snacks,blanc_de_poulet,poulet,temoin,3.0,c,1.7,16.0,decoupe_crue
-4056489039631,Filet de poulet mariné au thym citron,L'etal Du Volailler,blanc_de_poulet,poulet,temoin,11.0,d,2.2,20.3,decoupe_crue
-4056489039815,Filets de poulet marinés au citron thym,L'etal Du Volailler,blanc_de_poulet,poulet,temoin,0.0,a,1.3,22.0,decoupe_crue
-4056489040194,Filets de poulet marinés au thym citron,"L'Étal du Volailler, Lidl",blanc_de_poulet,poulet,temoin,-1.0,a,1.2,22.0,decoupe_crue
-5400101028340,Carrefour Classic' Filet de Poulet,Carrefour Classic,blanc_de_poulet,poulet,temoin,1.0,b,1.5,21.0,decoupe_crue
 8410320266895,Pechuga de pollo al ajillo,Campofrio,blanc_de_poulet,poulet,temoin,11.0,d,2.2,19.0,decoupe_crue
 6312130764399,Burger de filet de poulet,,blanc_de_poulet,poulet,halal,2.0,b,1.14,13.0,decoupe_crue
 7290003289509,Blanc de dinde braisée,,blanc_de_poulet,dinde,temoin,4.0,c,2.0,16.0,decoupe_crue
@@ -334,6 +327,13 @@ code,nom,marque,produit,espece,bras,ns,grade,sel,proteines,regle
 8436000464771,L'Original Filet de Poulet en Saumure,Nobles,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,26.0,decoupe_crue
 8436000465716,Pechuga de pollo al natural,Aldelis,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,26.0,decoupe_crue
 84802934,2 filets poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+3760116240314,Filet de poulet Classe A,,blanc_de_poulet,poulet,temoin,-1.0,a,1.03,17.5,decoupe_crue
+3760116241373,Filet de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.8,24.2,decoupe_crue
+3760116247900,Émincés de Poulet,Délices & Snacks,blanc_de_poulet,poulet,temoin,3.0,c,1.7,16.0,decoupe_crue
+4056489039631,Filet de poulet mariné au thym citron,L'etal Du Volailler,blanc_de_poulet,poulet,temoin,11.0,d,2.2,20.3,decoupe_crue
+4056489039815,Filets de poulet marinés au citron thym,L'etal Du Volailler,blanc_de_poulet,poulet,temoin,0.0,a,1.3,22.0,decoupe_crue
+4056489040194,Filets de poulet marinés au thym citron,"L'Étal du Volailler, Lidl",blanc_de_poulet,poulet,temoin,-1.0,a,1.2,22.0,decoupe_crue
+5400101028340,Carrefour Classic' Filet de Poulet,Carrefour Classic,blanc_de_poulet,poulet,temoin,1.0,b,1.5,21.0,decoupe_crue
 0202800026635,Filets de poulet rôti,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
 0202800029063,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
 0202800030441,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue

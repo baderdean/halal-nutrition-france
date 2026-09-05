@@ -168,6 +168,30 @@ def main() -> int:
         lib.loc[lib.nom.str.contains(r["motif"], regex=True, na=False),
                 "repertoire"] = r["nom"]
 
+    # Le repertoire maghrebin du bras halal est a 78 % des saucisses. Ce n'est
+    # PAS que le repertoire se reduise aux saucisses : le couscous et le tajine
+    # existent en rayon, ils sont ranges en plats cuisines, et ils ne portent
+    # presque jamais d'estampille halal. Mesurer le taux d'etiquetage par
+    # repertoire evite de confondre « ce que le rayon halal contient » avec
+    # « ce que la cuisine maghrebine est ».
+    tous = d.copy()
+    tous["repertoire"] = "non classe"
+    for r in reversed(rep):
+        tous.loc[tous.nom.str.contains(r["motif"], regex=True, na=False),
+                 "repertoire"] = r["nom"]
+    tx = (tous.assign(halal=tous.tag_halal)
+              .groupby("repertoire")
+              .agg(n_total=("halal", "size"), n_halal=("halal", "sum")))
+    tx["pct_halal"] = (100 * tx.n_halal / tx.n_total).round(1)
+    print("  Taux d'estampille halal par repertoire, perimetre entier :")
+    print("   " + tx.to_string().replace("\n", "\n   "))
+    print("\n  Lecture : le repertoire maghrebin du bras halal est domine par")
+    print("  les saucisses, mais ce n'est pas que la cuisine maghrebine s'y")
+    print("  reduise. Le couscous et le tajine sont bien dans le perimetre et")
+    print("  bien ranges en plats cuisines — ils ne portent simplement presque")
+    print("  jamais d'estampille halal.\n")
+    tx.to_csv(SORTIES / "r7_etiquetage_par_repertoire.csv")
+
     print("  Composition en gammes de chaque repertoire, bras halal (%) :")
     comp = (pd.crosstab(lib.repertoire, lib.sous_categorie, normalize="index")
               .mul(100).round(0))
@@ -247,7 +271,8 @@ def main() -> int:
     comp.to_csv(SORTIES / "r5_defauts_perimetre.csv")
 
     print("\nEcrit : sorties/r1_gammes_halal.csv, r2_marque_x_gamme_halal.csv,")
-    print("        sorties/r6_repertoires_culinaires.csv,")
+    print("        sorties/r6_repertoires_culinaires.csv, "
+          "r7_etiquetage_par_repertoire.csv,")
     print("        r3_marque_rangs_croises.csv, r4_origine_france.csv,")
     print("        r5_defauts_perimetre.csv")
     return 0

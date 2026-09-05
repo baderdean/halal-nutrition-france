@@ -243,6 +243,120 @@ def main() -> int:
     print(f"  {int((sures.ecart > 0).sum())} defavorables au halal et "
           f"{int((sures.ecart < 0).sum())} favorables.")
 
+    # ---- Livrable lisible, avec les EAN.
+    md = ["# Produits nommes — codes-barres",
+          "",
+          "Genere par `src/etape9_podiums.py`. **Trois niveaux de solidite, du",
+          "plus sur au moins sur. Ne pas les melanger.**",
+          "",
+          "Les valeurs nutritionnelles sont DECLAREES par le fabricant et",
+          "saisies par des contributeurs Open Food Facts. Elles ne sont pas",
+          "dosees. Un produit nomme ici peut avoir change de recette depuis la",
+          "saisie, ou avoir ete mal saisi.",
+          "",
+          "## Niveau 1 — paires appariees (le plus sur)",
+          "",
+          "Meme marque, meme nom, meme gamme, meme espece : le fabricant vend le",
+          "meme produit en deux versions. La comparaison ne depend pas de la",
+          "qualite des categories Open Food Facts, qui est le point faible de",
+          "tout le reste.",
+          "",
+          f"{len(sures)} paires comparables : {int((sures.ecart == 0).sum())} "
+          f"identiques, {int((sures.ecart > 0).sum())} defavorables au halal, "
+          f"{int((sures.ecart < 0).sum())} favorables.",
+          "",
+          "### Defavorables au halal",
+          "",
+          "| marque | produit | EAN halal | EAN non halal | Nutri-Score halal | "
+          "non halal | ecart | sel halal | sel non halal |",
+          "|:--|:--|:--|:--|--:|--:|--:|--:|--:|"]
+    for r in sures[sures.ecart > 0].itertuples():
+        md.append(f"| {r.marque} | {r.produit} | `{r.code_halal}` | "
+                  f"`{r.code_temoin}` | {r.ns_halal:+.1f} | {r.ns_temoin:+.1f} "
+                  f"| **{r.ecart:+.1f}** | {r.sel_halal:.2f} | "
+                  f"{r.sel_temoin:.2f} |")
+    md += ["", "### Favorables au halal ou identiques", "",
+           "| marque | produit | EAN halal | EAN non halal | Nutri-Score halal "
+           "| non halal | ecart | sel halal | sel non halal |",
+           "|:--|:--|:--|:--|--:|--:|--:|--:|--:|"]
+    for r in sures[sures.ecart <= 0].itertuples():
+        md.append(f"| {r.marque} | {r.produit} | `{r.code_halal}` | "
+                  f"`{r.code_temoin}` | {r.ns_halal:+.1f} | {r.ns_temoin:+.1f} "
+                  f"| {r.ecart:+.1f} | {r.sel_halal:.2f} | {r.sel_temoin:.2f} |")
+    md += ["",
+           "**Une paire n'est pas un test.** La plupart reposent sur une",
+           "reference de chaque cote : c'est une observation, pas une mesure",
+           "avec un intervalle.",
+           "",
+           "## Niveau 2 — candidats contre le marche (a verifier)",
+           "",
+           "Comparateur : meme produit emblematique, meme espece, bras temoin,",
+           f"au moins {SEUIL_REF} produits. Le `percentile` situe le produit",
+           "halal dans cette distribution ; 100 = pire que tous les temoins.",
+           "",
+           "**Ces lignes ne sont pas un palmares.** Le comparateur vient des",
+           "categories Open Food Facts, et trois tentatives ont chacune produit",
+           "une comparaison truquee : des allumettes de poulet fumees comparees",
+           "a du filet cru, des cachir cuits comparés a du saucisson sec, des",
+           "lardons de dinde compares a du jambon cuit. Avant de nommer un",
+           "produit, verifier :",
+           "",
+           "1. le produit est-il l'aliment que sa categorie annonce ;",
+           "2. le comparateur est-il le meme aliment ;",
+           "3. la valeur est-elle plausible, ou est-ce une erreur de saisie.",
+           "",
+           "### Les plus eloignes vers le haut (moins bons)",
+           "",
+           "| EAN | produit | marque | comparateur | n ref | grade | "
+           "Nutri-Score | ref | ecart | percentile | sel | sel ref |",
+           "|:--|:--|:--|:--|--:|:-:|--:|--:|--:|--:|--:|--:|"]
+    for r in pires.itertuples():
+        md.append(f"| `{r.code}` | {r.nom} | {r.marque} | {r.produit} / "
+                  f"{r.espece} | {r.n_ref} | {str(r.grade).upper()} | "
+                  f"{r.ns:+.1f} | {r.ns_ref:+.1f} | **{r.ecart:+.1f}** | "
+                  f"{r.percentile:.1f} | {r.sel:.2f} | {r.sel_ref:.2f} |")
+    md += ["", "### Les plus eloignes vers le bas (meilleurs)", "",
+           "| EAN | produit | marque | comparateur | n ref | grade | "
+           "Nutri-Score | ref | ecart | percentile | sel | sel ref |",
+           "|:--|:--|:--|:--|--:|:-:|--:|--:|--:|--:|--:|--:|"]
+    for r in meilleurs.itertuples():
+        md.append(f"| `{r.code}` | {r.nom} | {r.marque} | {r.produit} / "
+                  f"{r.espece} | {r.n_ref} | {str(r.grade).upper()} | "
+                  f"{r.ns:+.1f} | {r.ns_ref:+.1f} | **{r.ecart:+.1f}** | "
+                  f"{r.percentile:.1f} | {r.sel:.2f} | {r.sel_ref:.2f} |")
+    md += ["", "## Niveau 3 — ecartes, et pourquoi", "",
+           "Ces produits ne sont PAS mauvais : ils sont incomparables en",
+           "l'etat. Les publier comme mauvais serait une erreur.",
+           ""]
+    if len(faux):
+        md += [f"### Sel invraisemblable (> {SEL_INVRAISEMBLABLE} g/100 g)", "",
+               "Au-dela de ce seuil c'est une erreur de saisie, pas un produit.",
+               "",
+               "| EAN | produit | marque | sel declare |",
+               "|:--|:--|:--|--:|"]
+        for r in faux.itertuples():
+            md.append(f"| `{r.code}` | {r.nom} | {r.marque} | "
+                      f"{r.sel:.2f} |")
+    if ecartes:
+        e = pd.concat(ecartes)
+        eh = e[e.bras == "halal"]
+        md += ["", "### Forme incoherente avec la categorie", "",
+               "Une decoupe crue ne porte pas 2 a 3 g de sel. Ces produits sont",
+               "cuits ou tranches, mais leur categorie Open Food Facts ne le dit",
+               "pas : les comparer a du filet cru serait truquer la comparaison",
+               "a leur detriment.",
+               "",
+               f"{len(eh)} produits halal concernes. Extrait :", "",
+               "| EAN | produit | marque | sel |", "|:--|:--|:--|--:|"]
+        for r in eh.head(15).itertuples():
+            md.append(f"| `{r.code}` | {r.nom} | {r.marque} | {r.sel:.2f} |")
+    md += ["", "---", "",
+           "Les marques et produits nommes le sont sur la foi d'une base",
+           "collaborative. Rien ici ne dit quoi que ce soit de la halalite, de",
+           "la conformite ou de la securite sanitaire d'un produit.", ""]
+    (SORTIES / "rapport_produits_nommes.md").write_text(
+        "\n".join(md) + "\n", encoding="utf-8")
+
     titre("AVANT DE NOMMER UN SEUL DE CES PRODUITS")
     print("Chaque ligne demande trois verifications qu'aucun script ne fait :")
     print("  1. le produit est-il bien l'aliment que sa categorie annonce ;")
@@ -253,8 +367,10 @@ def main() -> int:
     print("extraordinaire. Publier cette liste telle quelle reviendrait a")
     print("accuser des articles nommes sur la foi d'une base collaborative.")
 
-    print("\nEcrit : sorties/v0_forme_incoherente.csv, v1_candidats_pires.csv,")
-    print("        v2_candidats_meilleurs.csv")
+    print("\nEcrit : sorties/rapport_produits_nommes.md,")
+    print("        v0_forme_incoherente.csv, v1_candidats_pires.csv,")
+    print("        v2_candidats_meilleurs.csv, v3_sel_invraisemblable.csv,")
+    print("        v4_paires_appariees.csv")
     return 0
 
 
