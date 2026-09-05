@@ -65,7 +65,7 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add donnees_prix/prix_open_prices.csv
+          git add donnees_prix/prix_open_prices.csv donnees_prix/collecte.json
           if git diff --cached --quiet; then
             echo "releve identique au precedent, rien a commiter"
           else

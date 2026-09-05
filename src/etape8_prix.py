@@ -142,44 +142,59 @@ def codes_du_perimetre() -> set[str]:
         f"SELECT DISTINCT code FROM '{PERIMETRE}'").df().code.astype(str))
 
 
-def collecte_keyset(max_lots: int, taille: int) -> list[dict]:
-    """Parcours par identifiant croissant, insensible au plafond de pages.
+def mois(depuis: str = "2023-01") -> list[tuple[str, str]]:
+    """Fenetres mensuelles de `depuis` a aujourd'hui, bornes incluses."""
+    an, m = (int(x) for x in depuis.split("-"))
+    fin = time.gmtime()
+    out = []
+    while (an, m) <= (fin.tm_year, fin.tm_mon):
+        an2, m2 = (an + 1, 1) if m == 12 else (an, m + 1)
+        out.append((f"{an:04d}-{m:02d}-01", f"{an2:04d}-{m2:02d}-01"))
+        an, m = an2, m2
+    return out
 
-    Chaque lot demande les releves d'identifiant strictement superieur au
-    dernier vu, toujours en page 1. Le plafond de 500 pages ne s'applique
-    donc jamais. Si l'identifiant n'avance pas d'un lot a l'autre, le filtre
-    n'est pas honore par le service : on s'arrete plutot que de boucler sur
-    la meme page en croyant collecter.
+
+def collecte_fenetres(taille: int, max_pages_fenetre: int = 400) -> list[dict]:
+    """Parcours par FENETRES DE DATES, pour contourner le plafond de pages.
+
+    La sonde du 2026-09-05 a etabli trois choses :
+      - la page 501 est refusee (400), quel que soit `size` ;
+      - `id__gte` et `id__gt` sont IGNORES : id__gte=1000 renvoie l'id 1.
+        Un parcours par cle sur l'identifiant est donc impossible ;
+      - `date__gte` est honore (307 197 releves au total, 236 431 depuis
+        2025-01-01) et `size=1000` est accepte.
+
+    On decoupe donc par mois. Chaque mois tient tres en dessous du plafond,
+    et les releves sont dedupliques par identifiant : si `date__lte` n'etait
+    pas honore, les fenetres se recouvriraient sans fausser le resultat, au
+    prix d'un peu de temps.
     """
-    lignes, dernier, lot = [], 0, 0
-    while lot < max_lots:
-        url = f"{API}?size={taille}&order_by=id&id__gt={dernier}"
-        try:
-            with http(url) as r:
-                d = json.loads(r.read())
-        except urllib.error.HTTPError as e:
-            if e.code == 429:
-                print(f"    429 apres id {dernier}, pause 30 s")
-                time.sleep(30)
-                continue
-            print(f"    {e.code} apres id {dernier} : arret du parcours keyset")
-            return lignes
-        items = d.get("items", [])
-        if not items:
-            print(f"    fin du parcours a l'id {dernier}")
-            break
-        ids = [i.get("id") for i in items if i.get("id") is not None]
-        if not ids or max(ids) <= dernier:
-            print(f"    [ECHEC] l'identifiant n'avance pas (dernier={dernier}) :"
-                  f"\n    le filtre id__gt n'est pas honore. Arret.")
-            return lignes
-        lignes.extend(items)
-        dernier = max(ids)
-        lot += 1
-        if lot % 25 == 0 or lot == 1:
-            print(f"    lot {lot} : cumul {len(lignes)} / {d.get('total')} "
-                  f"(id {dernier})", flush=True)
-        time.sleep(0.15)
+    vus, lignes = set(), []
+    for debut, fin in mois():
+        page = 1
+        while page <= max_pages_fenetre:
+            url = (f"{API}?size={taille}&page={page}"
+                   f"&date__gte={debut}&date__lt={fin}")
+            try:
+                with http(url) as r:
+                    d = json.loads(r.read())
+            except urllib.error.HTTPError as e:
+                if e.code == 429:
+                    print(f"    429 sur {debut}, pause 30 s")
+                    time.sleep(30)
+                    continue
+                print(f"    {e.code} sur {debut} page {page} : fenetre "
+                      f"abandonnee")
+                break
+            items = d.get("items", [])
+            if not items:
+                break
+            neufs = [i for i in items if i.get("id") not in vus]
+            vus.update(i.get("id") for i in items)
+            lignes.extend(neufs)
+            page += 1
+            time.sleep(0.1)
+        print(f"    {debut} : cumul {len(lignes)}", flush=True)
     return lignes
 
 
@@ -343,7 +358,7 @@ def main() -> int:
     ap.add_argument("--sonder", action="store_true",
                     help="teste les points d'entree sans rien telecharger")
     ap.add_argument("--max-pages", type=int, default=4000)
-    ap.add_argument("--taille-page", type=int, default=100)
+    ap.add_argument("--taille-page", type=int, default=1000)
     a = ap.parse_args()
 
     if a.sonder:
@@ -352,15 +367,15 @@ def main() -> int:
     if a.collecte:
         sonder()
         titre("Collecte par l'API paginee")
-        titre("Collecte, parcours par identifiant")
-        lignes = collecte_keyset(a.max_pages, a.taille_page)
+        titre("Collecte par fenetres de dates")
+        lignes = collecte_fenetres(a.taille_page)
         # Repli : mieux vaut 50 000 releves declares incomplets que zero.
         if len(lignes) < 50000:
             titre("Repli sur la pagination par numero de page")
-            print("Le parcours par identifiant n'a pas abouti. La pagination")
+            print("Le parcours par fenetres n'a pas abouti. La pagination")
             print("classique est PLAFONNEE a 500 pages par le service : ce qui")
-            print("suit sera un echantillon, pas la base entiere, et la couche")
-            print("8 doit le declarer comme tel.")
+            print("suit sera un echantillon, pas la base entiere, et le journal")
+            print("de collecte le declarera comme tel.")
             secours = collecte_api(min(a.max_pages, 500), a.taille_page)
             if len(secours) > len(lignes):
                 lignes = secours
