@@ -812,6 +812,45 @@ independantes, meme resultat.
 - `emb-ddddd`, l'ancien code, designe une COMMUNE et non une usine : 6 832 produits ecartes plutot que fusionnes a tort.
 - Un site mal classe le serait sur les recettes que ses donneurs d'ordre lui commandent : un fabricant a facon execute un cahier des charges. D'ou le retrait de la marque dominante dans le classement.
 
+### H26 — L'usine explique la qualite nutritionnelle
+
+**Verdict : ETABLI dans le temoin, NON ETABLI dans le halal**
+
+*Methode.* Decomposition de la variance a un facteur. Sur le Nutri-Score BRUT l'ICC melange le CRENEAU du site et son SAVOIR-FAIRE ; sur l'ecart a la mediane de la strate, le creneau est neutralise. IC par bootstrap de grappes.
+
+Part de la variance du Nutri-Score qui separe les groupes (ICC), avec IC par bootstrap de grappes — on retire des usines entieres, pas des produits :
+
+| bras | groupe | variable | ICC | IC 95 % | groupes | n | sigma intra |
+|:--|:--|:--|--:|:-:|--:|--:|--:|
+| temoin | etablissement | brut | 0.725 | [0.68 ; 0.76] | 683 | 18647 | 5.61 |
+| temoin | etablissement | ecart | 0.304 | [0.26 ; 0.35] | 683 | 18647 | 5.55 |
+| temoin | marque | brut | 0.463 | [0.36 ; 0.56] | 445 | 14897 | 7.91 |
+| temoin | marque | ecart | 0.153 | [0.11 ; 0.20] | 445 | 14897 | 6.16 |
+| halal | etablissement | brut | 0.511 | [0.32 ; 0.67] | 23 | 362 | 5.99 |
+| halal | etablissement | ecart | 0.168 | [0.06 ; 0.27] | 23 | 362 | 7.82 |
+| halal | marque | brut | 0.173 | [0.04 ; 0.31] | 17 | 341 | 6.98 |
+| halal | marque | ecart | 0.100 | [0.01 ; 0.22] | 17 | 341 | 7.85 |
+
+**Le creneau pese plus que le savoir-faire.** Dans le temoin,
+l'etablissement explique 72,5 % de la variance brute mais
+30,4 % une fois la strate fixee : 42 points sur 72 tenaient a
+ce que le site fabrique, pas a comment il le fabrique.
+
+**L'usine explique deux fois plus que la marque** : 0,304
+contre 0,153 a composition egale, intervalles disjoints. Qui
+fabrique compte davantage que le nom sur l'emballage.
+
+**Mais pas dans le halal.** L'ICC y tombe a 0,168
+[0,06 ; 0,27] et l'ecart-type INTRA site monte a 7,82 contre
+5,55 au temoin : dans un meme site, les produits halal varient
+PLUS que les non halal. Designer un site comme bon ou mauvais
+eleve sur sa production halal serait donc mal fonde.
+
+*Reserves.*
+- 23 etablissements et 362 produits cote halal : les intervalles y sont larges et se recouvrent avec ceux du temoin. La comparaison des deux ICC est indicative, pas etablie.
+- L'ICC depend du decoupage en strates : un decoupage plus fin absorberait davantage de creneau et abaisserait encore l'ICC sur l'ecart.
+- Une variance intra plus grande peut venir d'un assortiment halal plus heterogene au sein du site, pas d'une conduite de fabrication moins reguliere. Les donnees ne separent pas les deux.
+
 ---
 
 ## 8. Erreurs commises et corrigees en cours d'etude

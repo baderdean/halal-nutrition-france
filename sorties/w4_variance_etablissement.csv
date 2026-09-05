@@ -1,0 +1,9 @@
+bras,groupe,variable,icc,ic95_bas,ic95_haut,groupes,n,ecart_type_intra
+temoin,etablissement,brut,0.725,0.683,0.761,683,18647,5.61
+temoin,etablissement,ecart,0.304,0.256,0.349,683,18647,5.55
+temoin,marque,brut,0.463,0.357,0.558,445,14897,7.91
+temoin,marque,ecart,0.153,0.108,0.199,445,14897,6.16
+halal,etablissement,brut,0.511,0.322,0.671,23,362,5.99
+halal,etablissement,ecart,0.168,0.058,0.272,23,362,7.82
+halal,marque,brut,0.173,0.04,0.312,17,341,6.98
+halal,marque,ecart,0.1,0.005,0.218,17,341,7.85

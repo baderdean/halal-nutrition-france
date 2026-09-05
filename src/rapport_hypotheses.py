@@ -991,6 +991,51 @@ def bloc_marche() -> list[str]:
          "Un site mal classe le serait sur les recettes que ses donneurs "
          "d'ordre lui commandent : un fabricant a facon execute un cahier des "
          "charges. D'ou le retrait de la marque dominante dans le classement."])
+    w4 = lire("w4_variance_etablissement")
+    corps = []
+    if w4 is not None and len(w4):
+        corps = ["Part de la variance du Nutri-Score qui separe les groupes "
+                 "(ICC), avec IC par bootstrap de grappes — on retire des "
+                 "usines entieres, pas des produits :", "",
+                 "| bras | groupe | variable | ICC | IC 95 % | groupes | n | "
+                 "sigma intra |",
+                 "|:--|:--|:--|--:|:-:|--:|--:|--:|"]
+        for r in w4.itertuples():
+            corps.append(
+                f"| {r.bras} | {r.groupe} | {r.variable} | {r.icc:.3f} | "
+                f"[{r.ic95_bas:.2f} ; {r.ic95_haut:.2f}] | {r.groupes} | "
+                f"{r.n} | {r.ecart_type_intra:.2f} |")
+    l += hypothese(
+        "H26", "L'usine explique la qualite nutritionnelle",
+        "Decomposition de la variance a un facteur. Sur le Nutri-Score BRUT "
+        "l'ICC melange le CRENEAU du site et son SAVOIR-FAIRE ; sur l'ecart a "
+        "la mediane de la strate, le creneau est neutralise. IC par bootstrap "
+        "de grappes.",
+        "ETABLI dans le temoin, NON ETABLI dans le halal",
+        corps + ["",
+                 "**Le creneau pese plus que le savoir-faire.** Dans le temoin,",
+                 "l'etablissement explique 72,5 % de la variance brute mais",
+                 "30,4 % une fois la strate fixee : 42 points sur 72 tenaient a",
+                 "ce que le site fabrique, pas a comment il le fabrique.",
+                 "",
+                 "**L'usine explique deux fois plus que la marque** : 0,304",
+                 "contre 0,153 a composition egale, intervalles disjoints. Qui",
+                 "fabrique compte davantage que le nom sur l'emballage.",
+                 "",
+                 "**Mais pas dans le halal.** L'ICC y tombe a 0,168",
+                 "[0,06 ; 0,27] et l'ecart-type INTRA site monte a 7,82 contre",
+                 "5,55 au temoin : dans un meme site, les produits halal varient",
+                 "PLUS que les non halal. Designer un site comme bon ou mauvais",
+                 "eleve sur sa production halal serait donc mal fonde."],
+        ["23 etablissements et 362 produits cote halal : les intervalles y sont "
+         "larges et se recouvrent avec ceux du temoin. La comparaison des deux "
+         "ICC est indicative, pas etablie.",
+         "L'ICC depend du decoupage en strates : un decoupage plus fin "
+         "absorberait davantage de creneau et abaisserait encore l'ICC sur "
+         "l'ecart.",
+         "Une variance intra plus grande peut venir d'un assortiment halal plus "
+         "heterogene au sein du site, pas d'une conduite de fabrication moins "
+         "reguliere. Les donnees ne separent pas les deux."])
     l += ["---", ""]
     return l
 

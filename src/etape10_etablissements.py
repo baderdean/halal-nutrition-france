@@ -63,6 +63,86 @@ def normaliser_etablissement(code: str) -> str:
     return re.sub(r"-(ec|ue|ce)$", "", code)
 
 
+def icc(df: pd.DataFrame, cle: str, val: str, n_min: int = 5):
+    """Part de la variance de `val` qui separe les groupes `cle`.
+
+    Decomposition a un facteur : variance INTER groupes sur variance totale.
+    Proche de 1, connaitre le groupe suffit a predire le produit ; proche de
+    0, deux produits d'un meme groupe different autant que deux produits pris
+    au hasard.
+
+    Le point de la couche : sur le Nutri-Score BRUT elle melange le CRENEAU du
+    site (un salaisonnier ne fait pas de la decoupe) et son SAVOIR-FAIRE. Sur
+    l'ecart a la mediane de la strate, le creneau est neutralise.
+    """
+    tailles = df.groupby(cle)[val].size()
+    s = df[df[cle].isin(tailles[tailles >= n_min].index)]
+    if s[cle].nunique() < 5:
+        return None
+    moy = s.groupby(cle)[val].mean()
+    n = s.groupby(cle)[val].size()
+    ddl_b, ddl_w = len(moy) - 1, len(s) - len(moy)
+    if ddl_b <= 0 or ddl_w <= 0:
+        return None
+    msb = float((n * (moy - s[val].mean()) ** 2).sum()) / ddl_b
+    msw = float(((s[val] - s[cle].map(moy)) ** 2).sum()) / ddl_w
+    n0 = (n.sum() - (n ** 2).sum() / n.sum()) / ddl_b
+    var_b = max(0.0, (msb - msw) / n0)
+    return {"icc": var_b / (var_b + msw), "groupes": len(moy),
+            "n": int(n.sum()), "ecart_type_intra": float(np.sqrt(msw))}
+
+
+def _icc_de_stats(n, som, somcar):
+    """ICC calculee depuis les statistiques par groupe, sans reconstruire les
+    donnees. Indispensable pour le bootstrap : rebatir un DataFrame a chaque
+    tirage coutait des minutes par variable."""
+    k = len(n)
+    ntot = n.sum()
+    if k < 2 or ntot <= k:
+        return None
+    moy = som / n
+    grand = som.sum() / ntot
+    msb = float((n * (moy - grand) ** 2).sum()) / (k - 1)
+    ssw = float((somcar - som ** 2 / n).sum())
+    msw = ssw / (ntot - k)
+    if msw <= 0:
+        return None
+    n0 = (ntot - (n ** 2).sum() / ntot) / (k - 1)
+    var_b = max(0.0, (msb - msw) / n0)
+    return var_b / (var_b + msw)
+
+
+def icc_boot(df, cle, val, rng, n_boot: int = 400, n_min: int = 5):
+    """IC de l'ICC par bootstrap DE GRAPPES.
+
+    On retire des GROUPES entiers, pas des produits : l'incertitude porte sur
+    l'echantillon d'usines observees, pas sur celui de leurs references. Un
+    bootstrap ordinaire, en retirant des produits, ferait croire a une
+    precision que 23 etablissements ne donnent pas.
+    """
+    base = icc(df, cle, val, n_min)
+    if base is None:
+        return None
+    g = df.dropna(subset=[val]).groupby(cle)[val]
+    st = pd.DataFrame({"n": g.size(), "som": g.sum(),
+                       "somcar": g.apply(lambda x: float((x ** 2).sum()))})
+    st = st[st.n >= n_min]
+    n = st.n.to_numpy(float)
+    som = st.som.to_numpy(float)
+    somcar = st.somcar.to_numpy(float)
+    k = len(n)
+    vals = []
+    for _ in range(n_boot):
+        i = rng.integers(0, k, k)
+        r = _icc_de_stats(n[i], som[i], somcar[i])
+        if r is not None:
+            vals.append(r)
+    if len(vals) >= 50:
+        base["ic95_bas"] = float(np.percentile(vals, 2.5))
+        base["ic95_haut"] = float(np.percentile(vals, 97.5))
+    return base
+
+
 def main() -> int:
     con = connexion()
     rng = np.random.default_rng(GRAINE)
@@ -193,9 +273,51 @@ def main() -> int:
     print("  la production est concentree sur une marque est juge sur cette")
     print("  marque, pas sur son savoir-faire.")
 
+    # ---- 4. L'usine explique-t-elle quelque chose ?
+    titre("4. L'USINE EXPLIQUE-T-ELLE LA QUALITE ?")
+    print("Un faconnier ne se contente pas d'executer : il se positionne sur")
+    print("un creneau. La question est donc double. Le site explique-t-il la")
+    print("qualite, et cette explication est-elle son CRENEAU ou son")
+    print("SAVOIR-FAIRE ?")
+    print()
+    print("  ICC sur le Nutri-Score BRUT  = creneau + savoir-faire")
+    print("  ICC sur l'ECART a la strate  = savoir-faire seul")
+    print()
+    print("Et si la dispersion INTRA site est aussi grande en halal qu'en")
+    print("temoin, parler d'un effet site sur le halal n'a pas de sens.")
+    print()
+    lignes4 = []
+    entete4 = ("  {:8s} {:14s} {:7s} {:>6s} {:>15s} {:>8s} {:>6s} {:>12s}"
+               .format("bras", "groupe", "variable", "ICC", "IC 95 %",
+                       "groupes", "n", "sigma intra"))
+    print(entete4)
+    for bras in ("temoin", "halal"):
+        sous = ev[ev.bras == bras]
+        for cle, lib in (("etablissement", "etablissement"),
+                         ("marque", "marque")):
+            for val, lv in (("ns", "brut"), ("ecart", "ecart")):
+                r = icc_boot(sous, cle, val, rng)
+                if not r:
+                    print("  {:8s} {:14s} {:7s} {:>6s}  effectifs insuffisants"
+                          .format(bras, lib, lv, "-"))
+                    continue
+                ici = ("[{:.2f} ; {:.2f}]".format(r["ic95_bas"], r["ic95_haut"])
+                       if "ic95_bas" in r else "-")
+                print("  {:8s} {:14s} {:7s} {:6.3f} {:>15s} {:8d} {:6d} {:12.2f}"
+                      .format(bras, lib, lv, r["icc"], ici, r["groupes"],
+                              r["n"], r["ecart_type_intra"]))
+                lignes4.append({"bras": bras, "groupe": lib, "variable": lv,
+                                "icc": round(r["icc"], 3),
+                                "ic95_bas": round(r.get("ic95_bas", float("nan")), 3),
+                                "ic95_haut": round(r.get("ic95_haut", float("nan")), 3),
+                                "groupes": r["groupes"], "n": r["n"],
+                                "ecart_type_intra": round(r["ecart_type_intra"], 2)})
+    pd.DataFrame(lignes4).to_csv(SORTIES / "w4_variance_etablissement.csv",
+                                 index=False)
+
     print("\nEcrit : sorties/w0_couverture_estampille.csv, "
           "w1_usines_multimarques.csv,\n        w2_intra_etablissement.csv, "
-          "w3_classement_etablissements.csv")
+          "w3_classement_etablissements.csv,\n        w4_variance_etablissement.csv")
     return 0
 
 
