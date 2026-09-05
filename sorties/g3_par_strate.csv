@@ -1,0 +1,12 @@
+strate,n_halal,n_temoin,prix_halal,prix_temoin,surcout,testable
+charcuterie_cuite / poulet,28,56,17.57,16.02,1.55,False
+charcuterie_cuite / dinde,20,14,15.62,14.31,1.31,False
+panes / dinde,17,25,10.2,12.72,-2.53,False
+charcuterie_seche / indetermine,10,243,16.19,20.76,-4.58,False
+preparations_marinees / poulet,9,45,14.72,12.36,2.36,False
+viande_hachee / boeuf,8,122,13.96,17.48,-3.52,False
+charcuterie_cuite / indetermine,7,306,7.5,20.71,-13.21,False
+charcuterie_seche / porc,6,113,23.03,21.44,1.59,False
+saucisses / indetermine,6,143,6.22,12.05,-5.83,False
+panes / poulet,5,108,9.99,10.98,-0.99,False
+plats_cuisines / boeuf,5,274,17.62,9.03,8.59,False

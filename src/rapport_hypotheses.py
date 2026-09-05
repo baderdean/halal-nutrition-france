@@ -795,8 +795,155 @@ def bloc_prix() -> list[str]:
          "Il suffit en revanche a ecarter l'explication par le prix la ou elle "
          "etait la plus plausible, et cette gamme est celle ou l'ecart "
          "nutritionnel est le mieux documente."])
+    l += bloc_h32()
     l += ["---", ""]
     return l
+
+
+def bloc_h32() -> list[str]:
+    """H32 — le surcout halal en rayon, et la borne qu'il pose."""
+    g0 = lire("g0_couverture_prix")
+    g1 = lire("g1_surcout_global")
+    g2 = lire("g2_borne")
+    g3 = lire("g3_par_strate")
+    g4 = lire("g4_intra_marque")
+    if g1 is None or not len(g1) or g2 is None or not len(g2):
+        return ["### H32 — Sortie absente : g1_surcout_global", ""]
+    r, b = g1.iloc[0], g2.iloc[0]
+
+    c = ["La question se dedouble, et ce depot ne peut en traiter qu'une "
+         "moitie.",
+         "",
+         "1. **Y a-t-il un surcout en rayon ?** Mesurable ici.",
+         "2. **Le cout de l'abattage rituel et de la certification "
+         "l'explique-t-il ?**",
+         "   Non mesurable ici, et rien dans ce depot ne s'en approche. Open "
+         "Food",
+         "   Facts est une base de composition et d'etiquetage : elle ne "
+         "contient ni",
+         "   cout d'abattage, ni redevance de certification, ni marge, ni prix "
+         "de",
+         "   cession industriel. Y repondre demanderait les comptabilites des",
+         "   abattoirs, les grilles tarifaires des organismes certificateurs, "
+         "et les",
+         "   conditions commerciales entre industriels et enseignes. Aucune de "
+         "ces",
+         "   trois sources n'est publique, et ce depot n'en contient aucun "
+         "chiffre.",
+         ""]
+    if g0 is not None and len(g0):
+        c += ["**Couverture, a lire avant tout chiffre de prix.**", "",
+              "| bras | produits avec prix utilisable | produits | couverture |",
+              "|:--|--:|--:|--:|"]
+        for x in g0.itertuples():
+            c.append(f"| {x.bras} | {int(x.avec_prix)} | "
+                     f"{int(x.produits)} | {x.couverture_pct:.2f} % |")
+        c += ["",
+              "Ces effectifs sont plus bas que ceux de H18 (205 produits halal). "
+              "H18",
+              "compte les produits APPARIES a un prix, H32 ceux REELLEMENT",
+              "UTILISABLES, apres le filtre de grammage : la difference est "
+              "faite",
+              "d'articles qui ont un prix mais pas de prix au kilo."]
+    c += ["",
+          "**Prix au kilo, a composition egale** — ecart au prix median de "
+          "marche",
+          "de la strate (sous-categorie x espece), les deux bras confondus au",
+          "denominateur. IC 95 % par bootstrap de grappes sur les marques.", "",
+          "| bras | produits | marques | prix median | ecart median |",
+          "|:--|--:|--:|--:|--:|",
+          f"| halal | {int(r.n_halal)} | {int(r.marques_halal)} | "
+          f"{r.prix_median_halal:.2f} EUR/kg | {r.surcout:+.2f} |",
+          f"| temoin | {int(r.n_temoin)} | — | {r.prix_median_temoin:.2f} "
+          f"EUR/kg | +0.00 |",
+          "",
+          f"**Surcout halal : {r.surcout:+.2f} EUR/kg "
+          f"[{r.ic95_bas:+.2f} ; {r.ic95_haut:+.2f}], "
+          f"{'ETABLI' if r.etabli else 'NON ETABLI'}.**",
+          "Le point estime va dans le sens inverse de la question : sur les",
+          "produits releves, le halal est legerement MOINS cher que le marche a",
+          "composition egale. L'intervalle contient zero, il n'y a donc ni",
+          "surcout ni sous-cout etabli.",
+          "",
+          "### La borne, qui est la reponse reellement disponible", "",
+          "Meme sans connaitre le cout d'abattage, les prix bornent ce qu'un tel",
+          "cout peut avoir repercute en rayon.", "",
+          f"- Prix de reference du temoin : **{b.prix_reference_temoin_kg:.2f} "
+          "EUR/kg**.",
+          f"- Surcout compatible avec les donnees : **au plus "
+          f"{b.borne_haute_surcout_kg:+.2f} EUR/kg**, soit "
+          f"{b.borne_haute_pct:+.1f} %",
+          "  du prix de reference.",
+          "",
+          "**Lecture.** Toute repercussion en rayon superieure a cette borne est",
+          "refutee par ces donnees, quel que soit le cout reel en amont. Une",
+          "repercussion inferieure reste possible et n'est pas mesurable ici :",
+          "elle serait noyee dans la dispersion des prix. Avec 138 produits",
+          "halal releves, la couche n'a pas la puissance de voir moins.",
+          "",
+          "**Ce que la borne ne dit pas.** Un cout d'abattage peut exister sans",
+          "arriver au consommateur : absorbe par la marge, compense par le",
+          "creneau, ou reporte sur d'autres references. Un prix n'est pas un",
+          "cout. L'absence de surcout en rayon ne refute pas un surcout en",
+          "amont ; elle dit qu'il n'arrive pas au consommateur sous forme de",
+          "prix, ou qu'il est trop petit pour se voir ici."]
+    if g3 is not None and len(g3):
+        c += ["", "**Gamme par gamme**, descriptif : aucune strate n'atteint",
+              "30 produits des deux cotes.", "",
+              "| strate | n halal | n temoin | prix halal | prix temoin | "
+              "surcout |", "|:--|--:|--:|--:|--:|--:|"]
+        for x in g3.head(8).itertuples():
+            c.append(f"| {x.strate} | {int(x.n_halal)} | {int(x.n_temoin)} | "
+                     f"{x.prix_halal:.2f} | {x.prix_temoin:.2f} | "
+                     f"{x.surcout:+.2f} |")
+        c += ["",
+              "Les signes vont dans les deux sens : la charcuterie cuite de",
+              "volaille est plus chere en halal, les panes et la viande hachee",
+              "moins chers. Aucune de ces lignes n'est testable."]
+    if g4 is not None and len(g4):
+        c += ["", "**Le seul controle propre : la meme marque des deux cotes.**",
+              "Des qu'on sort d'une marque, on compare des entreprises",
+              "differentes, avec des couts et des positionnements differents.",
+              "", "| marque | n halal | n temoin | prix halal | prix temoin | "
+              "surcout | regle des 30 |",
+              "|:--|--:|--:|--:|--:|--:|:--|"]
+        for x in g4.itertuples():
+            c.append(f"| {x.marque} | {int(x.n_halal)} | {int(x.n_temoin)} | "
+                     f"{x.prix_halal:.2f} | {x.prix_temoin:.2f} | "
+                     f"{x.surcout:+.2f} | {x.regle_30} |")
+        c += ["",
+              "**Aucune ne franchit la regle des 30 des deux cotes.** Fleury",
+              "Michon, la mieux dotee, montre +1,19 EUR/kg sur 11 produits halal",
+              "contre 114 temoin : une description, pas un test. C'est la limite",
+              "la plus serieuse de cette couche, et elle ne se resout pas par le",
+              "calcul — il faut plus de releves de prix."]
+    return hypothese(
+        "H32", "Le cout de l'abattage rituel explique un surcout du halal en "
+        "rayon",
+        "Deux temps. D'abord mesurer le surcout en rayon : prix au kilo par "
+        "produit (median de ses releves), ecart au prix median de marche de la "
+        "strate, IC 95 % par bootstrap de grappes sur les marques (4 000 "
+        "tirages, graine 20260904). Ensuite en deduire la borne haute de ce "
+        "qu'une repercussion de cout peut valoir sans etre visible.",
+        "NON TESTABLE sur la cause ; NON ETABLI sur l'effet — aucun surcout "
+        "halal n'est mesurable en rayon, et les donnees excluent seulement une "
+        "repercussion superieure a la borne publiee",
+        c,
+        ["**Le depot ne contient aucun chiffre de cout** : ni abattage, ni "
+         "certification, ni marge. La premiere moitie de la question est hors "
+         "de portee de cette source, et aucun raffinement statistique n'y "
+         "changera rien.",
+         "**Un prix n'est pas un cout.** Un prix de vente se fixe sur un "
+         "positionnement, une elasticite et une negociation d'enseigne, pas sur "
+         "une comptabilite analytique.",
+         "Les prix viennent d'un releve benevole couvrant moins de 10 % du bras "
+         "halal. Rien ne garantit que les produits releves ressemblent aux "
+         "autres.",
+         "Le controle intra-marque, seul a isoler la certification, ne franchit "
+         "la regle des 30 dans aucune marque.",
+         "La borne est une borne SUPERIEURE sur une repercussion en rayon, pas "
+         "une mesure du cout d'abattage. La confondre avec un cout serait "
+         "l'erreur exacte que cette hypothese cherche a empecher."])
 
 
 def bloc_produits() -> list[str]:
@@ -1604,6 +1751,12 @@ def bloc_ouvert() -> list[str]:
         "etablissements agrees du ministere de l'Agriculture, refuse par la "
         "politique de sortie reseau ; a rapatrier par un runner GitHub comme "
         "les prix |",
+        "| Cout de l'abattage et de la certification | Hors de portee de "
+        "cette source, definitivement | Les comptabilites d'abattoirs et les "
+        "grilles tarifaires des certificateurs. Aucune n'est publique |",
+        "| Surcout halal en rayon | Non etabli, borne haute a +1,39 EUR/kg | "
+        "Un releve de prix systematique : 138 produits halal ne permettent pas "
+        "de voir moins |",
         "| MDD contre specialistes | Ordre constant, aucune difference "
         "etablie | Plus de MDD avec une gamme halal : 3 marques ne portent pas "
         "une famille |",
@@ -1636,6 +1789,7 @@ def bloc_ouvert() -> list[str]:
         "make couche13    # site partage ou site halal seul",
         "make couche14    # sites francais decodes depuis l'estampille",
         "make couche15    # MDD, industriels, specialistes du halal",
+        "make couche16    # surcout halal en rayon, et la borne",
         "python3 src/rapport_hypotheses.py   # regenere ce document",
         "```",
         "",

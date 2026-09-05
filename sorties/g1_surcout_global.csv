@@ -1,0 +1,2 @@
+mesure,n_halal,n_temoin,marques_halal,prix_median_halal,prix_median_temoin,surcout,ic95_bas,ic95_haut,etabli
+ecart_prix_kg,138,3100,23,14.14,13.34,-0.38,-2.04,1.39,False
