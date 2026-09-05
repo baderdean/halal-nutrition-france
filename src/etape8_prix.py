@@ -89,6 +89,16 @@ SONDES_PAGINATION = [
     ("filtre created__gte", f"{API}?size=1&created__gte=2025-01-01"),
     ("filtre date__gte", f"{API}?size=1&date__gte=2025-01-01"),
     ("taille 1000", f"{API}?size=1000"),
+    # Le balayage complet bute sur le decalage profond : la page 300 met
+    # plusieurs secondes. Or on ne veut pas la base entiere, seulement les
+    # 90 337 codes du perimetre. Si le service accepte une LISTE de codes,
+    # 900 requetes ciblees remplacent 308 pages de plus en plus lentes.
+    ("liste product_code__in",
+     f"{API}?size=10&product_code__in=3263670455014,3263670790214"),
+    ("liste code__in",
+     f"{API}?size=10&code__in=3263670455014,3263670790214"),
+    ("code unique",
+     f"{API}?size=10&product_code=3263670455014"),
 ]
 
 
@@ -195,6 +205,48 @@ def collecte_fenetres(taille: int, max_pages_fenetre: int = 400) -> list[dict]:
             page += 1
             time.sleep(0.1)
         print(f"    {debut} : cumul {len(lignes)}", flush=True)
+    return lignes
+
+
+def collecte_par_codes(codes: list[str], lot: int = 100) -> list[dict] | None:
+    """Interroge l'API par lots de codes-barres du perimetre.
+
+    Evite le decalage profond : chaque requete est un filtre selectif, pas un
+    saut de 300 000 lignes. Rend None si le service n'honore pas le filtre,
+    ce qui se detecte en demandant deux codes precis et en verifiant que la
+    reponse ne contient qu'eux — un filtre ignore renverrait toute la base et
+    se lirait a tort comme une couverture excellente.
+    """
+    sonde = f"{API}?size=10&product_code__in={codes[0]},{codes[1]}"
+    try:
+        with http(sonde) as r:
+            d = json.loads(r.read())
+    except Exception as e:                           # noqa: BLE001
+        print(f"  filtre par liste indisponible ({type(e).__name__}) : "
+              f"repli sur le balayage")
+        return None
+    rendus = {code_barres(i) for i in d.get("items", [])}
+    if not rendus or not rendus <= {codes[0], codes[1]}:
+        print(f"  le filtre product_code__in n'est pas honore "
+              f"(total={d.get('total')}) : repli sur le balayage")
+        return None
+
+    lignes = []
+    for i in range(0, len(codes), lot):
+        tranche = codes[i:i + lot]
+        url = f"{API}?size=1000&product_code__in={','.join(tranche)}"
+        try:
+            with http(url) as r:
+                lignes.extend(json.loads(r.read()).get("items", []))
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                time.sleep(30)
+                continue
+            print(f"    {e.code} sur le lot {i // lot} : ignore")
+        if (i // lot) % 50 == 0:
+            print(f"    lot {i // lot} / {len(codes) // lot} : cumul "
+                  f"{len(lignes)}", flush=True)
+        time.sleep(0.05)
     return lignes
 
 
@@ -379,8 +431,12 @@ def main() -> int:
         # chercher plus complique — un parcours par identifiant, que le
         # service ignore, puis des fenetres mensuelles dont la borne
         # superieure n'est pas honoree, si bien qu'elles se recouvrent toutes.
-        titre("Collecte par pagination, 1000 releves par page")
-        lignes = collecte_api(min(a.max_pages, 500), a.taille_page)
+        titre("Collecte ciblee sur les codes-barres du perimetre")
+        codes = sorted(codes_du_perimetre())
+        lignes = collecte_par_codes(codes) or []
+        if not lignes:
+            titre("Collecte par pagination, 1000 releves par page")
+            lignes = collecte_api(min(a.max_pages, 500), a.taille_page)
         # Repli : si la base depassait un jour 500 000 releves, la pagination
         # ne suffirait plus et les fenetres mensuelles, elles, passent a
         # l'echelle. Lentes mais sans plafond.
