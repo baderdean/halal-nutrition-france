@@ -26,7 +26,7 @@ on:
         options: ["sonde", "registre"]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   registre:
@@ -48,6 +48,24 @@ jobs:
       - name: Sonde — ne telecharge rien
         if: inputs.etape == 'sonde'
         run: python3 src/etape14_sites_france.py --sonder-registre
+
+      # Le journal d'un job n'est lisible qu'a la fin, et l'artefact est
+      # servi par un hote que l'environnement de developpement ne joint pas.
+      # Commiter la sortie de la sonde est le seul moyen de la relire.
+      - name: Commit de la sortie de sonde
+        if: inputs.etape == 'sonde'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sorties/s4_sonde_registre.csv sorties/s5_index_dgal.csv
+          if git diff --cached --quiet; then
+            echo "sonde identique a la precedente, rien a commiter"
+          else
+            git commit \
+              -m "Sortie de sonde du registre, $(date -u +%Y-%m-%d)" \
+              -m "Collecte automatique par le workflow couche14-registre. Source : listes officielles de la DGAL et catalogue data.gouv.fr, licence ouverte. Aucun telechargement de registre."
+            git push
+          fi
 
       - name: Telechargement du registre
         if: inputs.etape == 'registre'
