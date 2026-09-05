@@ -77,6 +77,15 @@ UA = "halal-nutrition-france/1.0 (etude nutritionnelle, contact via le depot)"
 #      escargots et l'entreposage, jamais la viande. La requete contenant
 #      « 853/2004 » ne ramenait rien : la barre oblique cassait la recherche.
 # Les requetes ci-dessous visent les listes de produits d'origine animale.
+# Le deuxieme passage (run 33989901558) a trouve les jeux qui correspondent
+# exactement aux sous-categories du perimetre — produits a base de viande,
+# preparations de viandes, viandes hachees — mais l'API de RECHERCHE n'expose
+# pas les ressources de tous les jeux. D'ou un second temps : rappeler chaque
+# jeu par son identifiant, ce qui rend la liste complete de ses fichiers.
+MOTIF_VIANDE = re.compile(
+    r"viande|abattoir|charcuterie|volaille|gibier|boyaux|preparations de",
+    re.IGNORECASE)
+
 RECHERCHES = [
     "https://www.data.gouv.fr/api/1/datasets/?q=%C3%A9tablissements+agr%C3%A9%C3%A9s+viande&page_size=10",
     "https://www.data.gouv.fr/api/1/datasets/?q=%C3%A9tablissements+agr%C3%A9%C3%A9s+produits+origine+animale&page_size=10",
@@ -98,7 +107,7 @@ def sonder_registre() -> int:
     print("Ne telecharge rien. Publie les jeux de donnees qui repondent et")
     print("l'URL de leurs ressources, pour ecrire ensuite le telechargement")
     print("sur des faits.\n")
-    trouve = []
+    trouve, jeux_viande = [], {}
     for url in RECHERCHES:
         print(f"  --- {url}")
         try:
@@ -112,6 +121,8 @@ def sonder_registre() -> int:
             continue
         for jeu in d.get("data", []):
             org = (jeu.get("organization") or {}).get("name", "?")
+            if MOTIF_VIANDE.search(jeu.get("title") or ""):
+                jeux_viande[jeu.get("id")] = jeu.get("title")
             print(f"      [{jeu.get('id')}] {jeu.get('title')}  ({org})")
             for res in jeu.get("resources", [])[:6]:
                 print(f"          {res.get('format'):>6} "
@@ -121,9 +132,34 @@ def sonder_registre() -> int:
                                "format": res.get("format"),
                                "titre": res.get("title"),
                                "url": res.get("url")})
+    if jeux_viande:
+        print("\n  --- Second temps : les jeux dont le titre parle de viande,")
+        print("      rappeles un par un pour obtenir leurs fichiers.")
+        for jid, titre_jeu in sorted(jeux_viande.items()):
+            url = f"https://www.data.gouv.fr/api/1/datasets/{jid}/"
+            try:
+                with _http(url, timeout=45) as r:
+                    d = json.loads(r.read())
+            except urllib.error.HTTPError as e:
+                print(f"      {e.code} {jid} ({e.reason})")
+                continue
+            except Exception as e:                      # noqa: BLE001
+                print(f"      --- {jid} ({type(e).__name__}: {e})")
+                continue
+            print(f"\n      [{jid}] {titre_jeu}")
+            for res in d.get("resources", []):
+                print(f"          {str(res.get('format')):>6}  "
+                      f"{res.get('title')}")
+                print(f"          {res.get('url')}")
+                trouve.append({"jeu": titre_jeu, "org": "DGAL",
+                               "format": res.get("format"),
+                               "titre": res.get("title"),
+                               "url": res.get("url")})
+
     if trouve:
-        pd.DataFrame(trouve).to_csv(SORTIES / "s4_sonde_registre.csv",
-                                    index=False)
+        pd.DataFrame(trouve).drop_duplicates(subset=["url"]).sort_values(
+            ["jeu", "url"]).to_csv(SORTIES / "s4_sonde_registre.csv",
+                                   index=False)
         print(f"\n  {len(trouve)} ressources listees dans "
               "sorties/s4_sonde_registre.csv.")
         print("  RIEN n'est encore telecharge : le choix de la ressource se")
