@@ -1,0 +1,4 @@
+sous_categorie,bande,n_halal,n_temoin,testable,prix_halal,prix_temoin,ecart_nutriscore,ns_ic95_bas,ns_ic95_haut,ecart_sel,sel_ic95_bas,sel_ic95_haut,etabli
+charcuterie_cuite,bas,17,222,False,,,,,,,,,
+charcuterie_cuite,moyen,40,198,True,17.19,16.82,4.0,3.0,8.0,0.86,0.55,1.05,True
+charcuterie_cuite,haut,8,231,False,,,,,,,,,

@@ -391,6 +391,7 @@ def analyser() -> int:
                CASE WHEN product_quantity BETWEEN 10 AND 5000
                     THEN product_quantity END AS format_g,
                {borne('salt_100g', 'sel')},
+               {borne('proteins_100g', 'proteines')},
                nutriscore_score AS ns
         FROM '{PERIMETRE}' WHERE ({COMPLET})
     """).df()
@@ -418,7 +419,20 @@ def analyser() -> int:
     j = j[(j.prix_kg > 0.5) & (j.prix_kg < 200)]      # bornes de plausibilite
     print(f"\n  {len(j)} releves exploitables apres grammage et bornes.")
 
-    titre("Prix au kilo, a gamme egale")
+    # L'UNITE D'ANALYSE EST LE PRODUIT, PAS LE RELEVE.
+    #
+    # Un produit peut porter 68 releves de prix : autant de passages en
+    # magasin, pas 68 produits. Comparer des releves donne le poids d'une
+    # gamme aux articles les plus photographies et fait franchir la regle des
+    # 30 a des cellules qui ne comptent que quinze produits. La premiere
+    # version de cette couche faisait exactement cela, et trois de ses quatre
+    # ecarts « etablis » ne survivent pas a la correction.
+    j = (j.groupby(["code", "sous_categorie", "espece", "bras", "marque",
+                    "ns", "sel", "proteines"], dropna=False)
+           .prix_kg.median().reset_index())
+    print(f"  {len(j)} PRODUITS distincts apres agregation des releves.")
+
+    titre("Prix au kilo, a gamme egale (un point par produit)")
     rng = np.random.default_rng(GRAINE)
     lignes = []
     for sc, g in j.groupby("sous_categorie"):
@@ -490,9 +504,118 @@ def analyser() -> int:
     print("  produits ayant un prix releve, pas sur le perimetre entier : ils")
     print("  ne remplacent pas ceux des couches 3 et 6.")
 
+    # ---- Q1 : dans un bras, le moins cher est-il le moins bon ?
+    titre("Q1 — le moins cher est-il le moins bon, DANS un meme bras ?")
+    print("Correlation de rang entre prix au kilo et Nutri-Score continu, a")
+    print("gamme egale. Un rho POSITIF signifie que plus cher va avec MOINS")
+    print("bon ; negatif, que plus cher va avec meilleur. IC par bootstrap.\n")
+    lignes3 = []
+    for sc, g in j.groupby("sous_categorie"):
+        for bras in ("halal", "temoin"):
+            sous = g[g.bras == bras]
+            if len(sous) < SEUIL:
+                continue
+            r = spearman_boot(sous.prix_kg, sous.ns, rng)
+            if not r:
+                continue
+            etabli = "etabli" if (r[1] > 0 or r[2] < 0) else "non etabli"
+            print(f"  {sc:22s} {bras:7s} n={len(sous):4d}  rho {r[0]:+.3f} "
+                  f"[{r[1]:+.3f} ; {r[2]:+.3f}]  {etabli}")
+            lignes3.append({"sous_categorie": sc, "bras": bras, "n": len(sous),
+                            "rho": round(r[0], 3), "ic95_bas": round(r[1], 3),
+                            "ic95_haut": round(r[2], 3),
+                            "etabli": etabli == "etabli"})
+    pd.DataFrame(lignes3).to_csv(SORTIES / "u3_gradient_prix_qualite.csv",
+                                 index=False)
+
+    print("\n  Detail par tercile de prix, bras halal :\n")
+    for sc, g in j.groupby("sous_categorie"):
+        h = g[g.bras == "halal"]
+        if len(h) < SEUIL:
+            continue
+        h = h.assign(bande=pd.qcut(h.prix_kg, 3,
+                                   labels=["bas", "moyen", "haut"]))
+        t = (h.groupby("bande", observed=True)
+              .agg(n=("ns", "size"), prix_kg=("prix_kg", "median"),
+                   nutriscore=("ns", "median"), sel=("sel", "median"),
+                   proteines=("proteines", "median")).round(2))
+        print(f"  {sc}")
+        print("   " + t.to_string().replace("\n", "\n   "))
+        t.to_csv(SORTIES / f"u4_terciles_halal_{sc}.csv")
+
+    # ---- Q2 : a prix egal, le halal reste-t-il moins bon ?
+    titre("Q2 — a PRIX EGAL, le halal reste-t-il moins bon ?")
+    print("Terciles de prix calcules sur la gamme entiere, les deux bras")
+    print("confondus, puis comparaison halal / temoin DANS chaque bande. Si")
+    print("l'ecart disparait a prix egal, il etait un corollaire du prix ; s'il")
+    print("survit, le prix ne l'explique pas.\n")
+    lignes4 = []
+    for sc, g in j.groupby("sous_categorie"):
+        if (g.bras == "halal").sum() < SEUIL:
+            continue
+        g = g.assign(bande=pd.qcut(g.prix_kg, 3,
+                                   labels=["bas", "moyen", "haut"]))
+        print(f"  {sc}")
+        for b in ["bas", "moyen", "haut"]:
+            a = g[(g.bande == b) & (g.bras == "halal")]
+            c = g[(g.bande == b) & (g.bras == "temoin")]
+            if len(a) < SEUIL or len(c) < SEUIL:
+                print(f"    bande {b:6s} n={len(a):3d}/{len(c):4d}  "
+                      f"sous le seuil de {SEUIL} : decrit, jamais teste")
+                lignes4.append({"sous_categorie": sc, "bande": b,
+                                "n_halal": len(a), "n_temoin": len(c),
+                                "testable": False})
+                continue
+            rn = ic_diff(a.ns.to_numpy(float), c.ns.to_numpy(float), rng)
+            rs = ic_diff(a.sel.to_numpy(float), c.sel.to_numpy(float), rng)
+            etabli = "etabli" if (rn[1] > 0 or rn[2] < 0) else "non etabli"
+            print(f"    bande {b:6s} n={len(a):3d}/{len(c):4d}  prix halal "
+                  f"{a.prix_kg.median():5.2f} contre {c.prix_kg.median():5.2f}"
+                  f"   Nutri-Score {rn[0]:+.1f} [{rn[1]:+.1f} ; {rn[2]:+.1f}] "
+                  f"{etabli}   sel {rs[0]:+.2f} [{rs[1]:+.2f} ; {rs[2]:+.2f}]")
+            lignes4.append({"sous_categorie": sc, "bande": b,
+                            "n_halal": len(a), "n_temoin": len(c),
+                            "prix_halal": round(a.prix_kg.median(), 2),
+                            "prix_temoin": round(c.prix_kg.median(), 2),
+                            "ecart_nutriscore": round(rn[0], 1),
+                            "ns_ic95_bas": round(rn[1], 1),
+                            "ns_ic95_haut": round(rn[2], 1),
+                            "ecart_sel": round(rs[0], 2),
+                            "sel_ic95_bas": round(rs[1], 2),
+                            "sel_ic95_haut": round(rs[2], 2),
+                            "testable": True, "etabli": etabli == "etabli"})
+    pd.DataFrame(lignes4).to_csv(SORTIES / "u5_a_prix_egal.csv", index=False)
+
     print("\nEcrit : sorties/u0_couverture_prix.csv, u1_prix_par_gamme.csv,")
-    print("        sorties/u2_prix_et_nutrition.csv")
+    print("        u2_prix_et_nutrition.csv, u3_gradient_prix_qualite.csv,")
+    print("        u4_terciles_halal_*.csv, u5_a_prix_egal.csv")
     return 0
+
+
+def spearman_boot(x, y, rng, n_boot: int = 4000):
+    """Correlation de rang de Spearman, avec IC 95 % par bootstrap.
+
+    Le rang plutot que la valeur : la relation prix / qualite n'a aucune
+    raison d'etre lineaire, et une poignee de produits de luxe suffirait a
+    dicter un coefficient de Pearson.
+    """
+    x = np.asarray(x, float)
+    y = np.asarray(y, float)
+    m = ~(np.isnan(x) | np.isnan(y))
+    x, y = x[m], y[m]
+    if len(x) < 10:
+        return None
+
+    def rho(a, b):
+        ra = pd.Series(a).rank().to_numpy()
+        rb = pd.Series(b).rank().to_numpy()
+        return float(np.corrcoef(ra, rb)[0, 1])
+
+    bs = np.empty(n_boot)
+    for i in range(n_boot):
+        k = rng.integers(0, len(x), len(x))
+        bs[i] = rho(x[k], y[k])
+    return rho(x, y), float(np.percentile(bs, 2.5)), float(np.percentile(bs, 97.5))
 
 
 def main() -> int:

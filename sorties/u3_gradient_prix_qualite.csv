@@ -1,0 +1,12 @@
+sous_categorie,bras,n,rho,ic95_bas,ic95_haut,etabli
+autres_carnes,temoin,339,0.32,0.215,0.417,True
+charcuterie_cuite,halal,65,-0.115,-0.353,0.132,False
+charcuterie_cuite,temoin,651,0.133,0.047,0.214,True
+charcuterie_seche,temoin,375,0.005,-0.106,0.12,False
+decoupes,temoin,45,0.088,-0.177,0.351,False
+panes,temoin,188,-0.158,-0.298,-0.01,True
+plats_cuisines,temoin,1074,0.116,0.056,0.176,True
+preparations_marinees,temoin,61,-0.204,-0.475,0.081,False
+rillettes_pates_mousses,temoin,240,-0.227,-0.351,-0.093,True
+saucisses,temoin,213,0.307,0.165,0.432,True
+viande_hachee,temoin,134,-0.585,-0.685,-0.458,True
