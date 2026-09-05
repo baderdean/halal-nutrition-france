@@ -208,7 +208,7 @@ def collecte_fenetres(taille: int, max_pages_fenetre: int = 400) -> list[dict]:
     return lignes
 
 
-def collecte_par_codes(codes: list[str], lot: int = 100) -> list[dict] | None:
+def collecte_par_codes(codes: list[str], lot: int = 250) -> list[dict] | None:
     """Interroge l'API par lots de codes-barres du perimetre.
 
     Evite le decalage profond : chaque requete est un filtre selectif, pas un
@@ -243,7 +243,7 @@ def collecte_par_codes(codes: list[str], lot: int = 100) -> list[dict] | None:
                 time.sleep(30)
                 continue
             print(f"    {e.code} sur le lot {i // lot} : ignore")
-        if (i // lot) % 50 == 0:
+        if (i // lot) % 20 == 0:
             print(f"    lot {i // lot} / {len(codes) // lot} : cumul "
                   f"{len(lignes)}", flush=True)
         time.sleep(0.05)
