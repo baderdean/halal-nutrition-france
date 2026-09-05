@@ -1,0 +1,423 @@
+etablissement,n,n_marques,n_halal,ecart_median,marque_dominante,part_dominante_pct,ecart_sans_dominante,n_sans_dominante,regle_30
+fr-29-046-500,14,6,0,-16.5,connetable,28.6,-16.5,10,sous 30
+fr-29-046-514,20,8,0,-16.0,petit-navire,40.0,-16.0,12,sous 30
+fr-56-186-004,11,1,0,-15.0,la-belle-iloise,100.0,,0,sous 30
+fr-84-080-002,21,11,0,-15.0,carrefour,14.3,-14.0,18,sous 30
+fr-14-738-042,13,6,0,-14.0,cap-ocean,38.5,,8,sous 30
+fr-14-762-106,14,5,0,-14.0,l-etal-du-boucher,64.3,,5,sous 30
+es-26-00322-cc,26,3,0,-13.5,panzani,88.5,,3,sous 30
+fr-53-097-001,42,3,0,-13.0,l-etal-du-boucher,66.7,2.5,14,franchie
+it-701-l,11,3,0,-12.0,panzani,63.6,,4,sous 30
+fr-84-029-002,21,7,0,-12.0,carrefour,47.6,-11.0,11,sous 30
+fr-65-452-001,15,2,0,-9.0,maison-ader,20.0,-15.0,12,sous 30
+it-d627x,13,2,0,-9.0,citterio,92.3,,1,sous 30
+fr-21-231-005,19,9,0,-8.0,antoine-sabatier,26.3,-8.0,14,sous 30
+fr-22-182-005,11,6,1,-7.0,l-ile-bleue,18.2,,9,sous 30
+fr-29-039-512,15,4,0,-7.0,les-mouettes-d-arvor,66.7,,5,sous 30
+fr-80-799-001,53,7,0,-7.0,salaison-du-terroir,7.5,-10.0,49,franchie
+fr-59-597-001,50,4,0,-7.0,fleury-michon,84.0,,8,franchie
+fr-67-127-001,22,6,0,-6.5,bruno-siebert,36.4,-7.5,14,sous 30
+fr-43-211-010,36,12,0,-6.0,saint-agaune,41.7,-6.0,21,franchie
+fr-10-362-003,13,3,0,-6.0,jean-roze,53.8,,6,sous 30
+fr-43-268-017,10,2,0,-6.0,manet-freres,40.0,,6,sous 30
+fr-56-069-005,19,7,0,-6.0,groix-nature,63.2,,7,sous 30
+fr-21-464-002,10,4,0,-6.0,antoine-sabatier,20.0,,8,sous 30
+fr-19-031-008,45,7,0,-6.0,carrefour,64.4,-13.0,16,franchie
+fr-35-238-019,58,2,0,-6.0,maitre-jacques,60.3,-13.0,23,franchie
+fr-02-514-001,10,5,0,-5.5,carrefour,60.0,,4,sous 30
+fr-33-038-007,10,0,0,-5.0,,100.0,,0,sous 30
+fr-85-182-003,255,4,0,-5.0,fleury-michon,97.6,,6,franchie
+de-nw-20028,14,8,0,-4.5,boucherie-st-clement,35.7,,9,sous 30
+fr-42-305-004,39,12,0,-4.0,tradival,28.2,-2.5,28,franchie
+de-ni-11021,12,4,0,-4.0,l-etal-du-volailler,75.0,,3,sous 30
+fr-53-130-001,15,8,3,-4.0,l-etal-du-volailler,13.3,-4.0,13,sous 30
+fr-30-233-001,14,3,0,-4.0,l-etal-du-volailler,28.6,-4.0,10,sous 30
+fr-44-079-002,19,7,0,-4.0,conserverie-des-saveurs,36.8,-4.0,12,sous 30
+fr-44-003-002,12,6,0,-4.0,u,33.3,,8,sous 30
+fr-53-048-002,10,4,1,-4.0,auchan,30.0,,7,sous 30
+fr-79-195-003,296,11,0,-4.0,la-nouvelle-agriculture,65.2,-4.0,103,franchie
+fr-05-092-001,20,3,0,-4.0,rostain,75.0,,5,sous 30
+fr-03-236-001,25,5,0,-4.0,volae,24.0,-4.0,19,sous 30
+fr-85-084-001,81,9,0,-4.0,maitre-coq,65.4,-4.0,28,franchie
+fr-69-028-001,25,4,0,-4.0,les-delices-de-lyon,60.0,-5.0,10,sous 30
+fr-72-168-001,27,3,0,-4.0,loue,63.0,-4.0,10,sous 30
+fr-64-024-003,45,1,0,-4.0,hiruak,84.4,,0,franchie
+fr-67-218-001,101,2,0,-4.0,herta,78.2,-7.0,22,franchie
+fr-21-295-001,11,4,0,-4.0,ets-roux,45.5,,6,sous 30
+fr-87-065-001,202,29,0,-4.0,madrange,44.6,-4.0,112,franchie
+fr-85-164-001,11,4,0,-4.0,gastromer,36.4,,7,sous 30
+fr-71-056-001,40,9,0,-4.0,le-gaulois,40.0,-6.0,24,franchie
+fr-89-069-001,40,10,5,-4.0,duc,22.5,-4.0,31,franchie
+fr-32-107-030,11,3,0,-4.0,volae,63.6,,4,sous 30
+fr-31-091-010,11,3,0,-3.5,sovivo,36.4,,7,sous 30
+fr-38-341-005,43,8,0,-3.0,madrange,76.7,-3.5,10,franchie
+fr-33-036-007,34,2,0,-3.0,maison-clemens,11.8,-3.0,30,franchie
+fr-56-140-006,73,16,0,-3.0,carrefour,28.8,-2.0,52,franchie
+fr-79-246-002,41,10,0,-3.0,madrange,78.0,,9,franchie
+fr-79-195-001,50,16,0,-3.0,nature-de-france,12.0,-2.0,44,franchie
+fr-43-177-003,27,2,0,-3.0,salaisons-massardier,7.4,-2.0,25,sous 30
+fr-26-347-022,61,7,0,-3.0,jean-roze,47.5,-2.0,32,franchie
+fr-71-004-001,10,7,0,-3.0,fourchettes-co,30.0,,7,sous 30
+fr-80-751-001,10,3,0,-3.0,terroir-cheri-de-mon-canard,10.0,,9,sous 30
+fr-72-090-011,15,7,0,-3.0,carrefour,26.7,-2.0,11,sous 30
+fr-14-762-026,20,7,0,-3.0,amand-terroir,10.0,-3.0,18,sous 30
+it-2008-s,20,1,0,-3.0,gardani,100.0,,0,sous 30
+fr-01-405-004,25,2,0,-3.0,la-bresse,32.0,-3.0,17,sous 30
+fr-76-159-003,41,14,0,-3.0,tripes-paillard,31.7,-3.0,28,franchie
+fr-12-052-009,28,7,0,-3.0,maison-serrault,17.9,-3.0,23,sous 30
+fr-85-082-005,13,2,0,-3.0,les-delices-de-clobert,23.1,-3.0,10,sous 30
+it-955-l,26,4,0,-2.5,golfera,80.8,,5,sous 30
+de-ev-3,10,10,0,-2.0,mcennedy,10.0,,9,sous 30
+uk-in003,13,3,0,-2.0,marks-spencer,69.2,,4,sous 30
+fr-83-054-001,17,7,0,-2.0,madern,41.2,-2.0,10,sous 30
+fr-85-154-001,17,5,3,-2.0,camille-poiraud,11.8,-2.0,15,sous 30
+fr-16-015-015,10,1,0,-2.0,maitre-cochon,50.0,,0,sous 30
+fr-19-031-003,13,4,0,-2.0,bledina,61.5,,5,sous 30
+fr-87-085-006,13,5,0,-2.0,monoprix,46.2,,7,sous 30
+fr-15-187-012,40,18,0,-2.0,carrefour,30.0,-2.0,28,franchie
+fr-85-222-003,40,15,0,-2.0,la-cuisine-d-oceane,30.0,-1.5,28,franchie
+fr-61-077-012,17,1,0,-2.0,comte-de-bellou,23.5,,0,sous 30
+fr-67-144-001,31,3,0,-2.0,moritz,54.8,-2.0,14,franchie
+fr-72-039-003,45,1,0,-2.0,charcuterie-ruel,100.0,,0,franchie
+fr-11-076-050,25,13,0,-2.0,jean-larnaudie,16.0,-1.0,21,sous 30
+fr-12-052-003,65,23,0,-2.0,raynal-et-roquelaure,18.5,-2.0,53,franchie
+fr-77-438-001,35,12,0,-2.0,william-saurin,51.4,0.0,17,franchie
+fr-11-076-006,55,13,0,-2.0,la-belle-chaurienne,40.0,-2.0,33,franchie
+fr-72-264-005,11,1,1,-2.0,charal,100.0,,0,sous 30
+fr-45-147-004,43,10,0,-2.0,tradival,25.6,-5.0,32,franchie
+fr-32-132-023,11,4,0,-2.0,comtesse-du-barry,63.6,,4,sous 30
+fr-38-449-003,22,3,0,-2.0,popy,36.4,-0.5,14,sous 30
+it-1253-l,13,3,3,-2.0,carrefour,69.2,,4,sous 30
+fr-01-224-001,28,5,0,-2.0,le-pere-benoit,39.3,-2.0,17,sous 30
+fr-59-526-101,12,4,0,-1.5,les-mijotes-de-l-abbaye,41.7,,7,sous 30
+fr-28-027-005,68,5,0,-1.5,le-cochon-de-marzan,19.1,-2.0,55,franchie
+fr-42-094-002,15,6,0,-1.5,l-etal-du-boucher,26.7,-1.0,11,sous 30
+fr-84-007-006,12,0,0,-1.5,,100.0,,0,sous 30
+es-10-01699-ge,16,5,0,-1.5,espuna,68.8,,5,sous 30
+it-639-l,11,2,0,-1.5,citterio,90.9,,1,sous 30
+fr-95-018-022,56,1,0,-1.0,charles-keller,14.3,,0,franchie
+fr-03-094-007,18,4,0,-1.0,picard,55.6,,8,sous 30
+de-rp-03001,126,10,0,-1.0,saint-alby,72.2,-1.0,35,franchie
+fr-95-280-001,73,14,0,-1.0,madrange,31.5,-4.0,50,franchie
+fr-14-752-010,224,16,6,-1.0,tendre-plus,63.8,1.0,81,franchie
+fr-14-630-043,65,11,0,-1.0,picard,46.2,0.0,35,franchie
+fr-85-059-004,130,15,0,-1.0,bioporc,32.3,0.0,88,franchie
+de-th-ev-3045,56,15,0,-1.0,carrefour,30.4,-0.5,39,franchie
+fr-43-190-003,26,15,0,-1.0,l-etal-du-boucher,15.4,-1.0,22,sous 30
+fr-29-269-020,97,24,0,-1.0,carrefour,23.7,-1.0,74,franchie
+fr-11-076-009,72,10,0,-1.0,maison-riviere,73.6,-1.0,19,franchie
+fr-77-208-001,12,5,0,-1.0,carrefour,41.7,,7,sous 30
+fr-35-297-003,74,9,0,-1.0,monique-ranou,29.7,-1.0,52,franchie
+fr-35-223-001,10,1,0,-1.0,fleury-michon,100.0,,0,sous 30
+fr-79-005-001,43,14,0,-1.0,marie,44.2,-1.0,24,franchie
+fr-12-202-001,65,19,1,-1.0,william-saurin,44.6,-1.0,36,franchie
+fr-38-051-001,46,11,0,-1.0,carrefour,23.9,-1.0,35,franchie
+fr-37-276-031,18,5,0,-1.0,le-pere-champain,11.1,-1.0,16,sous 30
+fr-35-124-007,15,2,0,-1.0,kerven,26.7,-1.0,11,sous 30
+fr-35-136-002,18,4,0,-1.0,jean-roze,55.6,,8,sous 30
+fr-29-247-022,270,36,1,-1.0,monique-ranou,24.8,0.0,203,franchie
+fr-35-196-001,115,17,0,-1.0,brient,15.7,-1.0,97,franchie
+fr-35-162-009,40,7,0,-1.0,biocoop,77.5,,9,franchie
+fr-35-139-001,44,14,0,-1.0,monique-ranou,20.5,0.0,35,franchie
+fr-29-097-020,113,30,0,-1.0,carrefour,15.9,-1.0,95,franchie
+fr-29-233-001,107,13,0,-1.0,bigard,48.6,-1.5,55,franchie
+fr-29-225-001,143,10,0,-1.0,henaff,85.3,0.0,21,franchie
+fr-29-188-020,59,18,0,-1.0,picard,30.5,-1.0,41,franchie
+fr-80-318-001,39,15,0,-1.0,l-etal-du-boucher,17.9,-2.0,32,franchie
+fr-80-798-003,110,4,0,-1.0,domaine-picard,50.9,-1.0,54,franchie
+fr-84-007-020,103,26,0,-1.0,carrefour,20.4,-1.0,82,franchie
+fr-84-029-001,77,19,4,-1.0,zapetti,44.2,0.0,43,franchie
+fr-25-357-050,33,2,0,-1.0,aux-produits-saugets,6.1,-1.0,31,franchie
+fr-22-182-001,44,16,0,-1.0,carrefour,22.7,0.0,34,franchie
+fr-56-091-002,21,8,0,-1.0,leader-price,52.4,-0.5,10,sous 30
+fr-56-094-013,34,1,0,-1.0,charcuterie-du-blavet,20.6,,0,franchie
+fr-49-323-032,62,16,0,-1.0,u,17.7,0.0,51,franchie
+fr-29-236-010,26,8,1,-1.0,carrefour,34.6,0.0,17,sous 30
+fr-29-058-020,16,2,0,-1.0,picard,81.2,,3,sous 30
+fr-28-280-028,10,8,1,-1.0,zapetti,20.0,,8,sous 30
+fr-44-131-008,30,19,0,-1.0,l-atelier-collet,13.3,-1.0,26,franchie
+fr-47-326-015,33,4,0,-1.0,lucien-georgelin,81.8,,6,franchie
+fr-44-190-005,76,29,2,-1.0,paul-louise,21.1,-1.0,60,franchie
+fr-50-127-004,11,1,0,-1.0,les-charcuteries-de-la-trappe,63.6,,0,sous 30
+fr-49-099-002,158,11,1,-1.0,charal,82.3,-2.0,28,franchie
+fr-53-107-002,17,1,0,-1.0,les-gorronnaises,17.6,,0,sous 30
+fr-57-463-001,37,4,0,-1.0,charal,91.9,,3,franchie
+fr-47-032-001,13,4,0,-1.0,bigard,61.5,,5,sous 30
+fr-66-172-001,51,3,0,-1.0,mainjolle,25.5,-1.0,38,franchie
+fr-67-180-007,12,2,0,-1.0,zentz,75.0,,3,sous 30
+fr-07-259-002,14,3,0,-1.0,mamie-chazel,35.7,,9,sous 30
+lu-12,13,9,2,-1.0,toupargel,30.8,,9,sous 30
+fr-85-222-009,35,13,0,-1.0,la-cuisine-d-oceane,42.9,-1.0,20,franchie
+fr-22-046-001,241,18,1,-1.0,marque-repere,54.4,-1.0,110,franchie
+fr-62-506-002,10,1,0,-1.0,le-porcilin,10.0,,0,sous 30
+fr-87-187-003,32,12,0,-1.0,comte-de-la-seynie,34.4,-1.0,21,franchie
+fr-59-225-104,15,3,0,-1.0,charal,80.0,,3,sous 30
+fr-58-079-005,18,4,0,-1.0,morvan-charcuteries-salaisons,11.1,-4.0,16,sous 30
+fr-22-007-001,70,17,0,-1.0,mere-lalie,48.6,-0.5,36,franchie
+fr-72-264-003,53,10,0,-1.0,marie,62.3,-1.0,20,franchie
+fr-07-204-003,12,3,0,-0.5,teyssier,41.7,,7,sous 30
+fr-36-231-017,12,5,0,-0.5,merveilles-d-asie,33.3,,8,sous 30
+fr-29-075-020,10,2,0,-0.5,picard,70.0,,3,sous 30
+fr-56-017-002,24,4,7,-0.5,carrefour,29.2,-1.0,17,sous 30
+it-x6n4x,12,4,0,-0.5,la-felinese,75.0,,3,sous 30
+fr-47-252-001,38,12,4,-0.5,marque-repere,21.1,-1.0,30,franchie
+fr-13-083-001,33,8,0,-0.5,bigard,48.5,0.0,17,franchie
+fr-35-152-002,29,3,0,-0.5,clermont,48.3,0.0,15,sous 30
+fr-50-074-001,19,7,0,0.0,les-marmites-d-augustine,31.6,0.0,13,sous 30
+fr-22-364-008,63,11,0,0.0,marque-repere,47.6,0.0,33,franchie
+fr-22-136-007,48,12,0,0.0,carrefour,33.3,0.5,32,franchie
+fr-26-088-011,15,5,2,0.0,royal-bernard,40.0,,9,sous 30
+fr-56-075-003,17,11,0,0.0,mix-buffet,17.6,0.0,14,sous 30
+fr-80-025-001,15,4,0,0.0,conserverie-st-christophe,53.3,,7,sous 30
+fr-24-328-002,28,14,0,0.0,amaury,17.9,0.0,23,sous 30
+fr-29-020-020,36,12,0,0.0,marie,44.4,0.0,20,franchie
+fr-81-144-022,29,11,0,0.0,cesar-moroni,37.9,0.5,18,sous 30
+fr-10-297-001,39,15,0,0.0,gilbert-lemelle,12.8,0.0,34,franchie
+fr-76-400-001,45,12,1,0.0,emile-vanel,11.1,0.0,40,franchie
+fr-35-360-005,51,5,0,0.0,jean-roze,51.0,1.0,25,franchie
+fr-44-102-002,12,1,0,0.0,piveteau,16.7,,0,sous 30
+fr-56-033-008,34,8,0,0.0,bonval,50.0,2.0,17,franchie
+fr-69-259-002,15,2,0,0.0,pere-anselme,13.3,0.0,13,sous 30
+fr-47-323-329,35,11,0,0.0,marque-repere,20.0,0.0,28,franchie
+fr-84-054-001,23,9,4,0.0,socopa,47.8,0.0,12,sous 30
+es-10-01962-ge,10,9,0,0.0,del-pais,20.0,,8,sous 30
+es-10-01934-ge,15,9,0,0.0,noel,26.7,0.0,11,sous 30
+es-10-01672-mu,14,2,0,0.0,elpozo,92.9,,1,sous 30
+fr-24-439-004,11,2,0,0.0,le-clos-des-saveurs,18.2,,9,sous 30
+fr-29-125-020,23,1,0,0.0,andre-loussouarn,47.8,,0,sous 30
+fr-79-049-006,10,2,0,0.0,charcuterie-daniel-bernier,40.0,,6,sous 30
+fr-42-334-001,25,12,0,0.0,carrefour,16.0,0.0,21,sous 30
+fr-79-179-002,29,8,0,0.0,la-nouvelle-agriculture,41.4,0.0,17,sous 30
+fr-88-218-001,12,4,12,0.0,oriental-viandes,66.7,,4,sous 30
+fr-18-033-033,11,4,1,0.0,monoprix,63.6,,4,sous 30
+fr-18-159-001,21,6,0,0.0,avon-ragobert,33.3,0.5,14,sous 30
+fr-59-032-001,11,2,0,0.0,le-patureur,90.9,,1,sous 30
+fr-56-109-001,45,7,0,0.0,saveurs-de-nos-regions,24.4,-6.5,34,franchie
+fr-56-261-001,82,15,0,0.0,pere-dodu,67.1,1.0,27,franchie
+fr-72-331-001,169,28,0,0.0,bahier,29.6,0.0,119,franchie
+fr-68-066-003,17,2,0,0.0,charcuterie-artisanale,5.9,1.5,16,sous 30
+fr-56-225-001,43,5,0,0.0,marque-repere,41.9,0.0,25,franchie
+fr-56-151-001,17,2,0,0.0,picard,94.1,,1,sous 30
+fr-62-865-007,36,7,0,0.0,le-petit-cuisinier,27.8,0.0,26,franchie
+fr-62-767-005,131,3,0,0.0,herta,72.5,0.0,36,franchie
+fr-19-073-002,12,1,0,0.0,charal,100.0,,0,sous 30
+fr-22-067-001,11,3,0,0.0,charal,72.7,,3,sous 30
+fr-64-139-002,13,1,0,0.0,le-vieux-chene,92.3,,0,sous 30
+fr-61-181-001,30,1,0,0.0,les-eleveurs-de-la-charentonne,43.3,,0,franchie
+fr-72-054-002,31,6,0,0.0,bordeau-chesnel,67.7,0.0,10,franchie
+fr-72-132-002,33,7,0,0.0,carrefour,51.5,0.5,16,franchie
+fr-72-080-002,142,32,2,0.0,socopa,39.4,0.0,86,franchie
+fr-14-752-020,273,43,0,0.0,u,17.2,-1.0,226,franchie
+fr-85-051-003,116,2,32,0.0,fleury-michon,94.8,,6,franchie
+fr-14-514-023,13,1,0,0.0,saveur-d-auge,100.0,,0,sous 30
+fr-01-451-003,13,4,0,0.0,marie,61.5,,5,sous 30
+fr-38-193-001,10,1,0,0.0,saucissons-moiroud,20.0,,0,sous 30
+fr-35-004-002,30,7,0,0.0,brient,33.3,-0.5,20,franchie
+fr-14-431-022,13,11,0,0.0,carrefour,15.4,0.0,11,sous 30
+fr-12-056-001,15,7,0,0.0,les-garibotes,40.0,,9,sous 30
+it-272-l,12,6,0,0.0,fiorucci,41.7,,7,sous 30
+it-160-l,12,2,0,0.0,raspini,91.7,,1,sous 30
+it-648-l,11,3,0,0.0,citterio,72.7,,3,sous 30
+fr-13-074-001,53,15,0,0.0,aoste,11.3,0.0,47,franchie
+fr-02-617-001,72,20,0,0.0,panzani,26.4,0.0,53,franchie
+fr-01-053-015,35,10,0,0.0,saveurs-bressanes,31.4,-1.5,24,franchie
+it-444-l,22,11,0,0.0,casa-modena,36.4,-0.5,14,sous 30
+it-1482-l,31,3,0,0.0,rovagnati,93.5,,2,franchie
+fr-85-140-001,64,2,0,0.0,fleury-michon,96.9,,2,franchie
+fr-85-154-002,148,12,0,0.0,fleury-michon,79.1,0.0,31,franchie
+fr-85-215-001,113,9,0,0.0,maitre-coq,69.0,0.0,35,franchie
+fr-87-085-003,120,22,0,0.0,madrange,50.0,0.5,60,franchie
+fr-61-096-020,35,12,3,0.0,monoprix,17.1,0.0,29,franchie
+fr-72-386-002,20,3,0,0.0,bordeau-chesnel,80.0,,4,sous 30
+de-ev-42,28,20,0,0.0,carrefour,10.7,0.0,25,sous 30
+it-n3a5j,12,7,0,0.0,del-zoppo,50.0,,6,sous 30
+fr-85-086-001,59,18,1,0.0,monoprix,15.3,0.0,50,franchie
+fr-47-091-011,50,10,0,0.0,lechef,44.0,0.0,28,franchie
+fr-72-175-001,53,12,3,0.0,monoprix,39.6,0.5,32,franchie
+it-892-l,13,6,0,0.0,picard,46.2,,7,sous 30
+it-302-l,58,7,0,0.2,negroni,56.9,0.5,25,franchie
+es-10-01865-ge,10,7,4,0.2,casa-ramon,30.0,,7,sous 30
+it-1550-l,12,7,0,0.5,beretta,41.7,,7,sous 30
+fr-59-183-003,10,4,0,0.5,casino,50.0,,5,sous 30
+de-nw-20158,11,8,0,0.5,dulano,36.4,,7,sous 30
+it-n5u7e,21,7,0,0.5,aia,38.1,-1.0,13,sous 30
+fr-67-008-001,11,5,0,0.5,iller,27.3,,8,sous 30
+fr-29-174-020,21,5,0,0.5,maison-larzul,47.6,-10.0,11,sous 30
+fr-24-053-001,26,3,1,0.5,finesse-de-veau,15.4,0.0,22,sous 30
+fr-32-147-024,21,4,0,1.0,ducs-de-gascogne,61.9,,8,sous 30
+fr-07-338-001,15,8,0,1.0,aoste,40.0,,9,sous 30
+fr-44-014-001,56,22,1,1.0,pere-dodu,26.8,1.0,41,franchie
+fr-14-069-022,13,9,0,1.0,carrefour,30.8,,9,sous 30
+fr-12-063-025,149,23,0,1.0,despi,28.9,1.5,106,franchie
+fr-12-301-002,26,4,0,1.0,porc-de-l-aveyron,42.3,12.0,15,sous 30
+fr-12-300-005,30,14,0,1.0,auchan,23.3,1.0,23,franchie
+fr-24-520-004,12,2,0,1.0,charcuterie-vaux,16.7,1.0,10,sous 30
+fr-69-238-010,69,23,0,1.0,carrefour,39.1,1.0,42,franchie
+fr-01-336-001,29,13,1,1.0,marque-repere,20.7,0.5,23,sous 30
+fr-85-065-001,62,14,0,1.0,maitre-coq,48.4,0.0,32,franchie
+fr-62-907-002,45,4,0,1.0,gourmets-de-l-artois,57.8,2.0,19,franchie
+fr-67-348-008,47,8,0,1.0,auchan,57.4,2.0,20,franchie
+fr-67-348-002,88,19,0,1.0,stoeffler,59.1,1.0,36,franchie
+fr-51-649-002,38,13,1,1.0,carrefour,21.1,0.5,30,franchie
+fr-22-321-008,36,14,4,1.0,picard,8.3,1.0,33,franchie
+fr-56-078-001,14,7,1,1.0,jean-roze,50.0,,7,sous 30
+fr-56-010-001,125,30,0,1.0,carrefour,20.8,1.0,99,franchie
+fr-49-239-001,41,5,0,1.0,saveurs-des-mauges,46.3,0.0,22,franchie
+fr-25-346-020,12,3,0,1.0,les-fumets-comtois,33.3,,8,sous 30
+fr-22-225-001,138,29,0,1.0,stephan,47.1,0.0,73,franchie
+fr-81-124-012,44,6,0,1.0,maison-milhau,75.0,2.0,11,franchie
+fr-81-003-003,19,3,0,1.0,charcuterie-serres,26.3,4.5,14,sous 30
+fr-29-051-020,50,14,0,1.0,madrange,28.0,1.5,36,franchie
+fr-29-004-023,222,15,0,1.0,tallec,40.5,1.0,132,franchie
+fr-69-238-001,13,5,0,1.0,aoste,30.8,,9,sous 30
+fr-22-093-001,235,44,1,1.0,madrange,20.0,1.0,188,franchie
+fr-43-262-001,48,4,0,1.0,louis-auvergne,16.7,1.0,40,franchie
+fr-79-329-004,91,4,0,1.0,loeul-et-piriot,81.3,-2.0,17,franchie
+fr-41-106-001,15,7,0,1.0,kitchen-diet,20.0,1.0,12,sous 30
+fr-59-527-001,34,12,0,1.0,jean-caby,50.0,1.0,17,franchie
+fr-63-427-001,58,25,0,1.0,carrefour,17.2,1.0,48,franchie
+fr-60-341-011,23,5,0,1.0,les-braserades,47.8,1.0,12,sous 30
+fr-67-529-001,27,12,0,1.0,pierre-schmidt,29.6,3.0,19,sous 30
+fr-69-027-063,51,3,0,1.0,boucheries-andre,37.3,1.0,32,franchie
+fr-58-199-001,16,2,0,1.0,terrines-du-morvan,81.2,,3,sous 30
+fr-47-159-001,16,3,0,1.0,maison-torres,87.5,,2,sous 30
+fr-59-526-002,14,5,0,1.0,st-gery,28.6,1.0,10,sous 30
+fr-57-032-001,170,36,0,1.0,carrefour,22.4,1.0,132,franchie
+fr-72-264-002,719,44,0,1.0,le-gaulois,56.9,1.0,310,franchie
+fr-57-160-001,17,1,0,1.0,charculor,82.4,,0,sous 30
+fr-71-076-001,34,7,0,1.0,chambade,11.8,1.0,30,franchie
+fr-72-090-007,43,6,0,1.0,maison-prunier,53.5,1.0,20,franchie
+fr-88-160-450,12,1,2,1.0,progalor,8.3,,0,sous 30
+fr-64-161-002,11,4,0,1.0,labeyrie,63.6,,4,sous 30
+fr-87-001-001,61,22,0,1.0,arnaud,24.6,0.0,46,franchie
+fr-85-233-001,47,18,0,1.0,maitre-coq,42.6,1.0,27,franchie
+fr-65-375-001,50,21,0,1.0,jean-brunet,24.0,1.0,38,franchie
+fr-88-465-001,14,1,0,1.0,au-fume-vosgien,85.7,,0,sous 30
+fr-76-681-001,10,3,0,1.5,le-tonquay,10.0,,9,sous 30
+fr-42-165-006,70,21,0,1.5,les-extra-fines-du-forez,14.3,1.5,60,franchie
+fr-73-006-003,20,11,0,1.5,carrefour,20.0,2.0,16,sous 30
+fr-88-470-033,14,2,0,1.5,pierrat,14.3,1.0,12,sous 30
+fr-69-043-005,12,2,0,1.5,randy,83.3,,2,sous 30
+fr-12-063-026,12,4,0,1.8,la-jasse,8.3,2.0,11,sous 30
+it-68-l,13,2,0,2.0,villani,76.9,,3,sous 30
+fr-03-315-001,31,13,4,2.0,leader-price,32.3,2.0,21,franchie
+fr-07-110-002,28,12,0,2.0,debroas,10.7,2.0,25,sous 30
+fr-04-112-004,10,3,0,2.0,sechoir-des-alpes,40.0,,6,sous 30
+fr-68-166-001,25,4,0,2.0,tempe,72.0,,7,sous 30
+fr-67-008-002,21,9,0,2.0,iller,42.9,2.5,12,sous 30
+fr-67-348-009,29,1,0,2.0,thierry-schweitzer,41.4,,0,sous 30
+fr-01-249-003,90,29,4,2.0,u,22.2,1.5,70,franchie
+fr-74-007-002,11,0,0,2.0,,100.0,,0,sous 30
+fr-73-215-001,63,7,0,2.0,galibier,41.3,1.0,37,franchie
+fr-71-157-028,21,12,0,2.0,l-etal-du-boucher,19.0,1.5,17,sous 30
+fr-72-181-005,55,4,0,2.0,charcuterie-cosme,80.0,1.0,11,franchie
+fr-60-463-013,13,8,0,2.0,cora,38.5,,8,sous 30
+fr-56-246-008,156,15,0,2.0,monique-ranou,11.5,2.0,138,franchie
+fr-56-174-003,10,8,1,2.0,volae,30.0,,7,sous 30
+fr-61-169-002,40,3,1,2.0,charal,90.0,,4,franchie
+fr-69-135-001,27,11,21,2.0,medina-halal,33.3,3.0,18,sous 30
+fr-69-204-003,12,4,0,2.0,lustucru,41.7,,7,sous 30
+fr-56-081-001,20,4,1,2.0,l-etal-du-volailler,65.0,,7,sous 30
+fr-55-545-002,115,24,6,2.0,berni,34.8,2.0,75,franchie
+fr-43-211-009,55,12,0,2.0,monique-ranou,34.5,3.5,36,franchie
+fr-44-180-004,170,35,0,2.0,auchan,21.2,2.0,134,franchie
+fr-56-017-001,45,8,0,2.0,ronsard,24.4,1.5,34,franchie
+fr-71-350-001,43,17,0,2.0,salaisons-du-maconnais,30.2,2.0,30,franchie
+fr-74-104-001,17,2,0,2.0,mont-charvin,11.8,2.0,15,sous 30
+fr-76-159-001,31,10,0,2.0,roches-blanches,45.2,2.0,17,franchie
+fr-35-068-002,23,5,1,2.0,tendriade,69.6,,7,sous 30
+fr-74-042-001,13,4,5,2.0,l-etal-du-boucher,7.7,2.0,12,sous 30
+fr-42-129-001,53,20,0,2.0,justin-bridou,15.1,2.0,45,franchie
+fr-81-083-001,27,10,0,2.0,montagne-noire,44.4,2.0,15,sous 30
+fr-42-200-001,16,3,0,2.0,le-batistou,50.0,,8,sous 30
+fr-42-170-001,12,8,0,2.0,carrefour,33.3,,8,sous 30
+fr-25-411-050,14,7,0,2.0,morteau-saucisse,21.4,2.0,11,sous 30
+fr-22-272-028,74,10,0,2.0,u,23.0,2.0,57,franchie
+fr-85-215-003,39,15,0,2.0,picard,10.3,2.0,35,franchie
+fr-19-275-008,10,3,0,2.0,auvernou,60.0,,4,sous 30
+be-b912,38,5,2,2.0,isali,71.1,2.0,11,franchie
+fr-32-079-030,15,7,0,2.0,itineraire-de-nos-regions,20.0,1.5,12,sous 30
+fr-25-039-050,13,9,0,2.0,jean-louis-amiotte,15.4,2.0,11,sous 30
+fr-34-090-002,17,2,0,2.0,les-braserades,64.7,,6,sous 30
+fr-84-106-001,12,1,0,2.0,gueze,75.0,,0,sous 30
+fr-69-201-002,16,3,0,2.5,michel-ogier,68.8,,5,sous 30
+fr-29-160-020,20,2,0,2.5,bredial,95.0,,1,sous 30
+fr-29-018-020,25,15,0,3.0,dia,20.0,1.0,20,sous 30
+fr-24-034-001,17,3,0,3.0,domaine-de-gammareix,58.8,,7,sous 30
+fr-25-240-005,14,1,0,3.0,salaison-renaudot,7.1,,0,sous 30
+fr-41-238-001,46,8,5,3.0,l-etal-du-volailler,56.5,3.5,20,franchie
+fr-39-198-004,39,13,0,3.0,claviere,43.6,2.0,22,franchie
+fr-08-048-002,11,6,0,3.0,demoizet,36.4,,7,sous 30
+it-0-4-m,13,3,3,3.0,aia,76.9,,3,sous 30
+fr-67-226-002,13,2,0,3.0,metzger-muller,92.3,,1,sous 30
+it-0-851-m,16,2,3,3.0,aia,87.5,,2,sous 30
+fr-44-026-009,16,5,0,3.0,maison-quillard-fils,31.2,-3.0,11,sous 30
+fr-62-194-002,11,6,0,3.0,vasseur,18.2,,9,sous 30
+de-ni-10021,11,2,0,3.0,l-etal-du-volailler,90.9,,1,sous 30
+fr-12-063-028,20,7,0,3.5,la-jasse,30.0,6.0,14,sous 30
+fr-70-093-001,30,8,1,3.5,philippe-wagner,13.3,4.0,26,franchie
+fr-61-096-018,35,8,13,3.5,volae,20.0,3.0,28,franchie
+fr-42-305-003,22,2,0,3.5,despi,31.8,4.0,15,sous 30
+fr-53-121-001,12,1,1,3.5,l-etal-du-volailler,16.7,,0,sous 30
+fr-69-243-004,50,16,0,4.0,auchan,30.0,4.0,35,franchie
+fr-44-072-002,65,30,3,4.0,carrefour,15.4,4.0,55,franchie
+fr-67-482-004,19,8,0,4.0,escal,42.1,5.0,11,sous 30
+it-1321-l,11,2,0,4.0,corte-del-gusto,81.8,,2,sous 30
+fr-25-493-050,14,3,0,4.0,romanzini,14.3,3.5,12,sous 30
+fr-26-337-021,11,2,1,4.0,tendriade,81.8,,2,sous 30
+fr-42-175-001,55,16,0,4.0,merle,27.3,3.0,40,franchie
+fr-40-281-001,31,13,0,4.0,delpeyrat,32.3,5.0,21,franchie
+fr-22-388-001,44,9,0,4.0,marque-repere,54.5,5.0,20,franchie
+fr-89-029-002,17,7,0,4.0,carrefour,23.5,4.0,13,sous 30
+fr-39-475-003,44,17,0,4.5,michel-bolard,22.7,4.0,34,franchie
+fr-77-053-006,20,7,0,4.8,frais-devant,50.0,2.2,10,sous 30
+fr-65-304-002,47,7,0,5.0,maison-montfort,59.6,6.0,19,franchie
+fr-97-416-003,16,3,0,5.0,le-fleuron-de-la-reunion,68.8,,5,sous 30
+fr-21-200-001,15,11,0,5.0,marque-repere,20.0,5.0,12,sous 30
+fr-43-262-002,16,8,0,5.0,carrefour,25.0,4.5,12,sous 30
+fr-14-167-021,21,10,1,5.0,carrefour,23.8,5.0,16,sous 30
+fr-07-338-002,30,7,0,5.0,gueze,40.0,7.0,18,franchie
+fr-46-128-002,17,6,0,5.0,maistres-occitans,23.5,4.0,13,sous 30
+fr-38-012-001,223,39,0,5.5,aoste,35.0,1.0,145,franchie
+be-b255,11,8,0,6.0,saint-alby,27.3,,8,sous 30
+fr-12-195-007,25,8,0,6.0,carrefour,8.0,6.0,23,sous 30
+fr-01-159-002,53,21,0,6.0,roland-monterrat,18.9,6.0,43,franchie
+fr-22-300-001,13,1,0,6.0,l-uzelaise,7.7,,0,sous 30
+fr-22-277-004,13,2,12,7.0,oriental-viandes,38.5,,8,sous 30
+fr-85-217-004,19,11,0,7.0,toque-du-chef,15.8,7.0,16,sous 30
+fr-54-265-024,21,4,0,8.0,marion,61.9,,8,sous 30
+fr-56-010-003,12,1,0,8.0,intermarche,8.3,,0,sous 30
+fr-85-006-001,71,15,0,8.0,petitgas,40.8,9.5,42,franchie
+fr-41-053-002,12,4,10,8.0,aljadid,41.7,,7,sous 30
+fr-56-222-002,85,16,71,8.0,reghalal,31.8,6.0,58,franchie
+de-ni-10045,17,10,0,8.0,lidl,17.6,8.0,14,sous 30
+it-754-l,12,3,0,9.0,salumificio-san-carlo,83.3,,2,sous 30
+fr-56-166-001,39,3,38,9.0,isla-mondial,92.3,,3,franchie
+fr-81-124-068,18,4,0,9.0,oberti,44.4,9.0,10,sous 30
+fr-2b-332-001,19,4,0,9.0,carrefour,57.9,,8,sous 30
+fr-79-049-002,28,16,0,10.0,hereford,25.0,11.0,21,sous 30
+fr-2b-042-001,10,1,0,10.0,fontana,10.0,,0,sous 30
+fr-35-223-002,17,3,0,10.0,atelier-de-l-argoat,29.4,9.5,12,sous 30
+fr-73-065-717,20,4,0,10.0,terre-de-l-alpe,10.0,11.0,18,sous 30
+it-h360t,20,5,0,11.0,parmacotto,75.0,,5,sous 30
+fr-38-336-001,10,3,0,11.0,le-graton-lyonnais,60.0,,4,sous 30
+fr-89-013-001,20,1,20,11.5,arabi,95.0,,0,sous 30
+fr-65-286-002,11,10,1,12.0,u,9.1,12.0,10,sous 30
+es-10-13604-ge,15,9,0,12.0,carrefour,26.7,9.0,11,sous 30
+fr-42-156-006,53,5,52,12.5,isla-delice,92.5,,4,franchie
+fr-64-513-004,15,11,0,13.0,casino,26.7,13.0,11,sous 30
+es-10-20053-cr,10,7,0,13.0,carrefour,20.0,,8,sous 30
+fr-11-262-047,97,28,0,13.0,montagne-noire,19.6,12.5,78,franchie
+fr-64-510-003,29,8,0,13.0,michel-dupuy,44.8,13.0,16,sous 30
+fr-40-261-001,34,8,0,13.0,labeyrie,35.3,13.0,22,franchie
+de-ni-33333,21,11,0,14.0,dulano,23.8,14.0,16,sous 30
+fr-24-381-001,25,7,0,14.0,le-saloir-du-perigord,52.0,14.0,12,sous 30
+fr-69-270-001,14,8,0,14.0,maison-bolard,21.4,13.0,11,sous 30
+it-h5h5g,33,8,0,15.0,negroni,33.3,4.5,22,franchie
+it-1157-l,11,2,0,15.0,citterio,90.9,,1,sous 30
+fr-65-100-003,58,22,0,15.0,carrefour,37.9,14.5,36,franchie
+it-335-l,15,7,0,15.0,carrefour,33.3,14.5,10,sous 30
+fr-64-010-003,31,14,0,15.0,carrefour,19.4,15.0,25,franchie
+it-1907-l,48,10,0,15.0,villani,27.1,15.0,35,franchie
+it-607-l,16,4,0,15.0,corte-del-gusto,56.2,,7,sous 30
+fr-40-020-002,12,7,0,23.0,delpeyrat,41.7,,7,sous 30

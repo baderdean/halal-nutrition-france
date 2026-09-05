@@ -707,7 +707,114 @@ rejoint H14.
 
 ---
 
-## 7. Erreurs commises et corrigees en cours d'etude
+## 7. Ce que le rayon halal contient, et qui le fabrique
+
+### H23 — Le rayon halal couvre la cuisine maghrebine
+
+**Verdict : REFUTE**
+
+*Methode.* Taux d'estampille halal par repertoire culinaire, sur le perimetre entier et non sur le seul bras halal.
+
+Part des produits d'un repertoire portant une estampille halal, sur le perimetre entier :
+
+| repertoire | produits | dont halal | taux |
+|:--|--:|--:|--:|
+| turc | 172 | 93 | 54.1 % |
+| anglo-saxon industriel | 1717 | 329 | 19.2 % |
+| levantin | 69 | 6 | 8.7 % |
+| maghrebin | 848 | 41 | 4.8 % |
+| non classe | 48613 | 1195 | 2.5 % |
+| charcuterie europeenne | 18869 | 291 | 1.5 % |
+
+Le repertoire maghrebin du bras halal est a 78 % des
+saucisses. Ce n'est pas que la cuisine maghrebine s'y
+reduise : le couscous et le tajine sont bien dans le
+perimetre et bien ranges en plats cuisines. **Sur 135
+couscous, UN SEUL porte une estampille halal ; sur 131
+tajines, deux.**
+
+Le contraste avec le repertoire turc, estampille a 54 %, est
+le resultat : deux cuisines, deux pratiques d'etiquetage.
+
+*Reserves.*
+- Ce taux mesure l'ETIQUETAGE, pas la halalite : un couscous sans mention peut etre halal sans le dire.
+- Aucune cause n'est etablie. Le fabricant peut ne pas certifier, ou certifier sans l'afficher.
+
+### H24 — Chez un meme fabricant, la version halal differe de la version non halal
+
+**Verdict : REFUTE dans la majorite des cas**
+
+*Methode.* Paires appariees sur marque, nom normalise, gamme et espece. Deux filtres de plausibilite declares en config ecartent les erreurs de saisie et les produits dont la forme contredit leur categorie.
+
+29 paires comparables : **15 identiques**, 9 defavorables au halal, 5 favorables.
+
+| marque | produit | EAN halal | EAN non halal | ecart |
+|:--|:--|:--|:--|--:|
+| carrefour | blanc dinde fum | `3560070503735` | `3560071013837` | +10.0 |
+| carrefour | merguez volaille | `3560070569212` | `3560070756568` | +7.0 |
+| carrefour | blanc poulet | `3560071488086` | `3560071449605` | +3.0 |
+| carrefour | saucisses volaille | `3560070569182` | `3560070756629` | +3.0 |
+| duc | aiguillettes poulet | `225019031955` | `3531940163007` | +2.0 |
+| isla-mondial | blanc poulet | `15825889` | `3459860005750` | +1.0 |
+| fleury-michon | blanc poulet | `3095759626011` | `6636074` | +1.0 |
+| leader-price | nuggets poulet | `3255790616581` | `3263859581916` | +1.0 |
+| jack-link-s | beef jerky sweet hot | `4251097403106` | `4251097402918` | +0.5 |
+| carrefour | saucisson sec | `3700141402790` | `3560071014681` | -2.0 |
+| carrefour | filets poulet | `3560070486892` | `3270190209614` | -4.0 |
+| herta | lardons fum s | `3512690003379` | `7613036113281` | -4.0 |
+| fleury-michon | fleury michon | `3095752586015` | `3095757119010` | -5.0 |
+| fleury-michon | blanc poulet fum | `3095759627018` | `3095759625014` | -8.5 |
+
+Detail complet, avec les codes-barres et les trois niveaux de
+solidite : `sorties/rapport_produits_nommes.md`.
+
+Le motif le plus net est Carrefour, defavorable sur quatre
+produits transformes et neutre ou favorable sur la decoupe
+crue — le meme motif que les couches 3 et 7.
+
+*Reserves.*
+- **Une paire n'est pas un test** : la plupart reposent sur une reference de chaque cote. C'est une observation, pas une mesure avec un intervalle.
+- Le palmares contre le marche n'est PAS publiable : trois tentatives ont chacune produit une comparaison truquee au detriment du produit halal, faute d'un comparateur fiable dans les categories.
+
+### H25 — L'estampille sanitaire permet d'observer le fabricant
+
+**Verdict : ETABLI comme methode, NON TESTABLE faute d'effectifs**
+
+*Methode.* L'estampille ovale identifie l'ETABLISSEMENT agree, pas la marque : une usine qui fabrique pour dix marques porte le meme code sur les dix. Comparaison halal / temoin au sein d'un meme etablissement, a gamme egale.
+
+| bras | produits | avec estampille |
+|:--|--:|--:|
+| halal | 1955 | 31.2 % |
+| temoin | 68333 | 33.6 % |
+
+427 etablissements a 10 produits ou plus. **3 seulement en fabriquent des deux bras.**
+
+Les gros faconniers multi-marques du rayon carne — jusqu'a
+45 marques sur un site — ne produisent presque pas de halal.
+
+| etablissement | gamme | n halal | n temoin | ecart | IC 95 % |
+|:--|:--|--:|--:|--:|:-:|
+| `fr-85-051-003` | charcuterie_cuite | 24 | 70 | +0.0 | [+0.00 ; +1.00] |
+
+La methode fonctionne et l'identifiant est **visible par le
+consommateur**, ce que la marque de distributeur ne dit
+jamais. Mais le rayon halal et l'industrie du faconnage
+multi-marques ne se recouvrent presque pas dans ces donnees.
+
+La seule cellule disponible va dans le meme sens que celle de
+H8 : **+0.0 de Nutri-Score et +0.00 g de sel**, halal contre
+temoin, dans le meme etablissement. Deux observations
+independantes, meme resultat.
+
+*Reserves.*
+- L'estampille est un fait d'emballage, mais sa saisie dans Open Food Facts est facultative : 31 % du bras halal, 34 % du temoin.
+- 24 produits halal : sous le seuil de 30, donc decrit et jamais teste.
+- `emb-ddddd`, l'ancien code, designe une COMMUNE et non une usine : 6 832 produits ecartes plutot que fusionnes a tort.
+- Un site mal classe le serait sur les recettes que ses donneurs d'ordre lui commandent : un fabricant a facon execute un cahier des charges. D'ou le retrait de la marque dominante dans le classement.
+
+---
+
+## 8. Erreurs commises et corrigees en cours d'etude
 
 Elles sont listees parce qu'un lecteur doit pouvoir juger de la
 fiabilite du reste, et parce que chacune a failli produire une
@@ -734,7 +841,7 @@ desormais mesuree et publiee AVANT chaque comparaison.
 
 ---
 
-## 8. Ce qui reste ouvert
+## 9. Ce qui reste ouvert
 
 | sujet | etat | ce qu'il faudrait |
 |:--|:--|:--|
@@ -745,6 +852,8 @@ desormais mesuree et publiee AVANT chaque comparaison.
 | Prix | Une seule gamme testable | Un relevé de prix systematique, pas benevole |
 | Controle du fabricant | Une seule cellule | Des marques vendant les deux versions du meme produit |
 | Electronarcose | Classification non etablie ici | Les cahiers des charges des organismes eux-memes |
+| Faconnage multi-marques | 3 etablissements mixtes seulement | Une meilleure saisie des estampilles, ou le registre public des agrements |
+| Couscous et tajine halal | 1 sur 135, 2 sur 131 | Comprendre pourquoi : absence de certification, ou d'affichage |
 
 ---
 

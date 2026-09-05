@@ -144,6 +144,32 @@ bug. Convention de balisage dans les rapports :
 - `[INFERENCE]` : deduit d'un fait par un raisonnement explicite et faillible.
 - `[HYPOTHESE]` : non teste par ce depot, a verifier dans une couche ulterieure.
 
+## Documentation au fil de l'eau — obligatoire
+
+Un resultat qui n'existe que dans une conversation n'existe pas. Tout resultat
+etabli, refute ou declare non testable est documente DANS LE DEPOT, dans le
+meme mouvement que le calcul qui le produit, jamais « plus tard ».
+
+Concretement, pour chaque resultat :
+
+1. le calcul vit dans un script de `src/`, pas dans une commande jetable ;
+2. ses chiffres sortent dans `sorties/`, en CSV ;
+3. il porte un numero d'hypothese et un verdict dans `RESULTATS.md`, via
+   `src/rapport_hypotheses.py` ;
+4. le message de commit dit ce qui a ete etabli, avec ses chiffres, et ce que
+   le resultat aurait ete sans la correction si une correction a eu lieu.
+
+RESULTATS.md est GENERE. Il ne se redige pas a la main : trois corrections de
+cette etude ont deja renverse un resultat publie, et un document tape a la
+main aurait garde les anciens chiffres. `tests/test_coherence.py` echoue s'il
+ne cite plus son generateur.
+
+Une erreur corrigee se documente au meme titre qu'un resultat, dans le tableau
+des erreurs de RESULTATS.md, avec l'affirmation fausse qu'elle aurait produite.
+Deux des erreurs deja recensees allaient dans le sens du resultat attendu :
+c'est la raison pour laquelle la couverture des donnees est mesuree et publiee
+AVANT chaque comparaison.
+
 ## Ecarts aux specs deja actes
 
 - **Source.** Les specs prevoyaient `food.parquet` sur HuggingFace. L'hote
