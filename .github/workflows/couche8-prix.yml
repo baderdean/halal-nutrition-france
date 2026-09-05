@@ -44,6 +44,12 @@ jobs:
       - name: Sonde des points d'entree
         run: python3 src/etape8_prix.py --sonder
 
+      # AVANT la collecte : le filtre sur les codes-barres du perimetre en
+      # depend. Sans lui on commiterait l'integralite d'Open Prices.
+      - name: Couche 1 — dump, perimetre, assertions
+        if: inputs.etape == 'collecte'
+        run: make couche1
+
       - name: Collecte
         if: inputs.etape == 'collecte'
         run: python3 src/etape8_prix.py --collecte --max-pages "${{ inputs.max_pages }}"
@@ -68,11 +74,6 @@ jobs:
               -m "Collecte automatique par le workflow couche8-prix. Source : Open Prices (Open Food Facts), licence ODbL. Aucune donnee de contributeur conservee."
             git push
           fi
-
-      # Demande le perimetre, donc la couche 1 complete.
-      - name: Couche 1 — dump, perimetre, assertions
-        if: inputs.etape == 'collecte'
-        run: make couche1
 
       - name: Analyse des prix
         if: inputs.etape == 'collecte'

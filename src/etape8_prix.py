@@ -53,6 +53,10 @@ GRAINE = 20260904
 # Points d'entree candidats, essayes dans l'ordre. Le service a change de
 # forme plusieurs fois ; plutot que d'en deviner un et d'echouer en silence,
 # on les sonde tous et on publie ce qui repond.
+# Sonde du 2026-09-05 depuis un runner GitHub : les quatre points de dump
+# repondent 404, l'API paginee et /status repondent 200. La collecte passe
+# donc par l'API. La liste est conservee : si un dump apparait, la sonde le
+# verra sans qu'on ait a y penser.
 CANDIDATS_DUMP = [
     "https://prices.openfoodfacts.org/data/dump/prices.csv.gz",
     "https://prices.openfoodfacts.org/data/prices.csv.gz",
@@ -82,6 +86,27 @@ def sonder() -> None:
             print(f"  {e.code}  {url}  ({e.reason})")
         except Exception as e:                       # noqa: BLE001
             print(f"  ---  {url}  ({type(e).__name__}: {e})")
+
+
+def code_barres(releve: dict) -> str | None:
+    """Le code peut etre au premier niveau ou sous l'objet produit.
+
+    La sonde a montre la forme {"id":..,"product":{"code":"154151..."}}. Se
+    fier au seul champ de premier niveau ferait rejeter tous les releves en
+    silence, ce qui ressemblerait a « Open Prices ne couvre pas nos produits ».
+    """
+    c = releve.get("product_code")
+    if not c:
+        prod = releve.get("product") or {}
+        c = prod.get("code") if isinstance(prod, dict) else None
+    return str(c) if c else None
+
+
+def codes_du_perimetre() -> set[str]:
+    """Les codes a retenir. Sans ce filtre on commiterait tout Open Prices."""
+    con = connexion()
+    return set(con.execute(
+        f"SELECT DISTINCT code FROM '{PERIMETRE}'").df().code.astype(str))
 
 
 def collecte_api(max_pages: int, taille: int) -> list[dict]:
@@ -124,11 +149,26 @@ def ecrire(lignes: list[dict]) -> None:
     with open(PRIX, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=champs, extrasaction="ignore")
         w.writeheader()
+        garde = 0
         for l in lignes:
-            if not l.get("product_code"):
+            code = code_barres(l)
+            if not code:
                 continue          # releve de produit en vrac, sans code-barres
-            w.writerow({c: l.get(c) for c in champs})
+            ligne = {c: l.get(c) for c in champs}
+            ligne["product_code"] = code
+            w.writerow(ligne)
+            garde += 1
+    print(f"  {garde} releves avec code-barres retenus sur {len(lignes)}.")
     print(f"  -> {PRIX} ({sum(1 for _ in open(PRIX)) - 1} lignes)")
+
+
+def filtrer_perimetre(lignes: list[dict]) -> list[dict]:
+    codes = codes_du_perimetre()
+    print(f"  {len(codes)} codes-barres dans le perimetre carne.")
+    gardees = [l for l in lignes if code_barres(l) in codes]
+    print(f"  {len(gardees)} releves sur {len(lignes)} portent un produit du "
+          f"perimetre.")
+    return gardees
 
 
 def analyser() -> int:
@@ -216,7 +256,7 @@ def main() -> int:
                     help="telecharge depuis Open Prices (runner GitHub)")
     ap.add_argument("--sonder", action="store_true",
                     help="teste les points d'entree sans rien telecharger")
-    ap.add_argument("--max-pages", type=int, default=400)
+    ap.add_argument("--max-pages", type=int, default=4000)
     ap.add_argument("--taille-page", type=int, default=100)
     a = ap.parse_args()
 
@@ -229,7 +269,8 @@ def main() -> int:
         lignes = collecte_api(a.max_pages, a.taille_page)
         if not lignes:
             echec("aucun releve recupere. Voir la sonde ci-dessus.")
-        ecrire(lignes)
+        titre("Filtrage sur le perimetre carne")
+        ecrire(filtrer_perimetre(lignes))
         return 0
     return analyser()
 
