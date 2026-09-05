@@ -1,0 +1,10 @@
+sous_categorie,n_halal,n_temoin,format_halal_g,format_temoin_g,ecart_g,ic95_bas,ic95_haut,etabli
+autres_carnes,203,5439,400,300,100,0,150,False
+charcuterie_cuite,272,6432,160,177,-17,-20,18,False
+charcuterie_seche,144,2870,150,180,-30,-68,-8,True
+decoupes,36,979,800,370,430,157,648,True
+panes,170,1084,800,360,440,400,500,True
+plats_cuisines,97,7069,350,370,-20,-71,160,False
+preparations_marinees,55,678,800,450,350,-20,400,False
+saucisses,137,2266,400,334,66,10,70,True
+viande_hachee,81,738,800,400,400,320,400,True

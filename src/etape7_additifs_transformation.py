@@ -271,9 +271,62 @@ def main() -> int:
               "pas disponible ici.")
     pd.DataFrame(lignes4).to_csv(SORTIES / "t4_nombre_additifs.csv", index=False)
 
+    # ---- 5. Format de vente. CE N'EST PAS UN PRIX.
+    titre("5. FORMAT DE VENTE — le seul angle d'achat disponible")
+    print("Le prix au kilo n'est pas dans ces donnees : l'export plat d'Open")
+    print("Food Facts ne contient aucune colonne de prix, et le service Open")
+    print("Prices est hors d'atteinte de la politique reseau de cet")
+    print("environnement. Le format de vente en est le plus proche parent")
+    print("disponible, et il ne le remplace pas : un grand format se vend")
+    print("d'ordinaire moins cher au kilo, mais ce lien n'est pas verifiable")
+    print("ici. Ce qui suit est un FAIT sur les grammages, pas une mesure de")
+    print("prix.\n")
+    q = con.execute(f"""
+        SELECT sous_categorie,
+               CASE WHEN tag_halal THEN 'halal' ELSE 'temoin' END AS bras,
+               -- Bornes de plausibilite : sous 10 g c'est une portion mal
+               -- saisie, au-dela de 5 kg c'est un colis de gros.
+               CASE WHEN product_quantity BETWEEN 10 AND 5000
+                    THEN product_quantity END AS format_g
+        FROM '{PERIMETRE}' WHERE ({COMPLET})
+    """).df()
+    couv = (100 * q.groupby("bras").format_g.apply(lambda x: x.notna().mean()))
+    print("  Couverture du grammage par bras (%) :")
+    print("   " + couv.round(1).to_string().replace("\n", "\n   "))
+    dcouv = abs(couv["halal"] - couv["temoin"])
+    print(f"\n  [ATTENTION] {dcouv:.1f} points d'ecart de couverture, plus que "
+          f"sur les additifs.\n  Le grammage n'est renseigne que sur une "
+          f"fraction des produits, et pas la\n  meme fraction dans les deux "
+          f"bras. Ce qui suit est une BORNE, pas une\n  mesure.\n")
+    qq = q[q.format_g.notna()]
+    lignes5 = []
+    for sc, g in qq.groupby("sous_categorie"):
+        a, b = g[g.bras == "halal"], g[g.bras == "temoin"]
+        if len(a) < SEUIL or len(b) < SEUIL:
+            continue
+        r = ic_diff(a.format_g.to_numpy(), b.format_g.to_numpy(), rng)
+        if not r:
+            continue
+        etabli = "etabli" if (r[1] > 0 or r[2] < 0) else "non etabli"
+        print(f"    {sc:24s} halal {a.format_g.median():5.0f} g  temoin "
+              f"{b.format_g.median():5.0f} g   ecart {r[0]:+6.0f} g "
+              f"[{r[1]:+6.0f} ; {r[2]:+6.0f}]  {etabli}")
+        lignes5.append({"sous_categorie": sc, "n_halal": len(a),
+                        "n_temoin": len(b),
+                        "format_halal_g": round(a.format_g.median()),
+                        "format_temoin_g": round(b.format_g.median()),
+                        "ecart_g": round(r[0]), "ic95_bas": round(r[1]),
+                        "ic95_haut": round(r[2]), "etabli": etabli == "etabli"})
+    pd.DataFrame(lignes5).to_csv(SORTIES / "t5_format_vente.csv", index=False)
+    print("\n  Les formats halal sont plus GRANDS la ou l'ecart est etabli :")
+    print("  panes, viande hachee et decoupes autour de 800 g contre 360 a")
+    print("  400 g. Seule la charcuterie seche est vendue plus petite. Cela")
+    print("  contredit l'idee d'un rayon halal vendu en petits formats de")
+    print("  niche, sans rien dire du prix au kilo, qui reste non teste.")
+
     print("\nEcrit : sorties/t0_couverture_additifs.csv, "
           "t1_prevalence_additifs.csv,\n        t2_hydratation.csv, t3_nova.csv, "
-          "t4_nombre_additifs.csv")
+          "t4_nombre_additifs.csv,\n        t5_format_vente.csv")
     return 0
 
 
