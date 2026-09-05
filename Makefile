@@ -10,8 +10,8 @@ SRC      := src
 
 .PHONY: install couche1 source france perimetre assertions analyse rapport \
         couche3 couche4 couche5 couche6 couche7 couche8 marques \
-        certificateurs classement halal emblematiques reperes additifs prix resultats \
-        amorce figer propre
+        certificateurs classement halal emblematiques reperes additifs prix paires \
+        resultats couche9 amorce figer propre
 
 install:
 	pip install -r requirements.txt
@@ -83,6 +83,11 @@ couche8: prix
 
 prix:
 	$(PY) $(SRC)/etape8_prix.py
+
+couche9: paires
+
+paires:
+	$(PY) $(SRC)/etape9_podiums.py
 
 # RESULTATS.md est GENERE : ne relit que sorties/, jamais le dump.
 resultats:

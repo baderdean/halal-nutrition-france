@@ -1,0 +1,11 @@
+code,nom,marque,produit,espece,bras,ns,grade,sel,proteines,n_ref,ns_ref,sel_ref,proteines_ref,ecart,percentile
+3459860004364,Saucisson à l'ail fumé,Isla Mondial,saucisson_sec,indetermine,halal,12.0,d,2.2,11.0,4208,34.0,4.4,26.0,-22.0,0.6
+8416820004364,Saucisson à l'ail,,saucisson_sec,indetermine,halal,12.0,d,2.2,11.0,4208,34.0,4.4,26.0,-22.0,0.6
+3760114530073,Mortadelle fumé,Essafa Halal,mortadelle,indetermine,halal,1.0,b,1.28,23.0,219,22.0,2.325,15.0,-21.0,0.0
+3436598132637,Cachir SoKid's au fromage,Oriental Viandes,saucisson_sec,indetermine,halal,13.0,d,1.9,12.3,4208,34.0,4.4,26.0,-21.0,0.8
+4260467592043,Birbeli Salam,Destan,saucisson_sec,indetermine,halal,13.0,d,2.4,9.1,4208,34.0,4.4,26.0,-21.0,0.8
+3760114530363,Chorizo les gourmets,Al Jadid,saucisson_sec,porc,halal,14.0,d,2.36,19.1,906,34.0,4.4,26.0,-20.0,0.8
+3760114530882,Chorizo pur boeuf,Al Jadid,saucisson_sec,indetermine,halal,14.0,d,2.36,19.1,4208,34.0,4.4,26.0,-20.0,1.0
+3512690000095,"Sauciss Delice Fume,",Isla delice,saucisson_sec,porc,halal,14.0,d,2.0,9.1,906,34.0,4.4,26.0,-20.0,0.8
+3512690002686,Saveur'délice goût boeuf piquant,Isla Délice,saucisson_sec,indetermine,halal,15.0,d,2.19,8.49,4208,34.0,4.4,26.0,-19.0,1.5
+3512690004390,Cachir,Isla delice,saucisson_sec,indetermine,halal,15.0,d,2.4,8.8,4208,34.0,4.4,26.0,-19.0,1.5

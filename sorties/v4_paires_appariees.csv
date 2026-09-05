@@ -1,0 +1,33 @@
+marque,produit,gamme,espece,n_halal,n_temoin,code_halal,code_temoin,ns_halal,ns_temoin,ecart,sel_halal,sel_temoin,prot_halal,prot_temoin,meme_recette
+jack-link-s,beef jerky original,charcuterie_seche,boeuf,1,2,4251097406756,0017082877628,29.0,17.5,11.5,4.91875,2.9714285714285698,35.0,22.85714285714285,False
+carrefour,blanc dinde fum,charcuterie_cuite,dinde,1,1,3560070503735,3560071013837,12.0,2.0,10.0,2.3,1.7,23.0,22.0,True
+carrefour,merguez volaille,saucisses,agneau,1,2,3560070569212,3560070756568,15.0,8.0,7.0,1.8,1.65,15.0,15.5,True
+carrefour,blanc poulet,charcuterie_cuite,poulet,1,5,3560071488086,3560071449605,3.0,0.0,3.0,1.9,1.3,20.0,22.0,True
+carrefour,saucisses volaille,saucisses,volaille_autre,1,4,3560070569182,3560070756629,15.0,12.0,3.0,1.7,2.0,17.0,16.0,True
+duc,aiguillettes poulet,decoupes,poulet,2,1,0225019031955,3531940163007,-4.0,-6.0,2.0,0.25375000000000003,0.1,26.15,23.4,True
+isla-mondial,blanc poulet,charcuterie_cuite,poulet,6,1,15825889,3459860005750,12.0,11.0,1.0,2.1,2.1625,19.1,18.5,True
+fleury-michon,blanc poulet,charcuterie_cuite,poulet,15,33,3095759626011,06636074,2.0,1.0,1.0,1.8,1.5,21.0,21.0,True
+leader-price,nuggets poulet,panes,poulet,1,3,3255790616581,3263859581916,13.0,12.0,1.0,1.62,1.2999999523163,13.0,10.5,True
+jack-link-s,beef jerky sweet hot,charcuterie_seche,boeuf,2,1,4251097403106,4251097402918,24.5,24.0,0.5,3.15,3.0,36.9,35.0,True
+bongou,magret canard fum entier s v,autres_carnes,canard,1,1,3665902203019,3665902203002,27.0,27.0,0.0,2.7,2.7,17.8,17.8,True
+carrefour,poulet cuit fum,autres_carnes,poulet,1,1,3560070649594,0276382062589,0.0,0.0,0.0,1.1,1.1,22.0,22.0,True
+fleury-michon,blanc dinde,charcuterie_cuite,dinde,4,4,3095757228019,3302749746025,2.0,2.0,0.0,1.75,1.7,22.0,22.0,True
+berni,salami dinde,charcuterie_seche,dinde,1,1,3264057554542,3264057554061,16.0,16.0,0.0,1.3,1.2999999523163,27.0,27.0,True
+bongou,magret canard fum tranch s v,autres_carnes,canard,1,1,3665902203026,3665902201381,27.0,27.0,0.0,2.7,2.7,17.8,17.8,True
+aldi,filets poulet,decoupes,poulet,1,2,3531940601004,2167705005346,-6.0,-6.0,0.0,0.1175,0.09809999999999999,23.0,23.0,True
+socopa,steak hach fa on bouch re,viande_hachee,boeuf,1,2,3039050337238,3039050330161,7.0,7.0,0.0,0.22,0.22,18.0,18.0,True
+seara,chicken nuggets,panes,poulet,1,1,7894904572205,7894904218929,2.0,2.0,0.0,0.5,0.6,14.0,13.0,True
+duc,filets poulet,decoupes,poulet,1,2,3531940200009,3531940160006,-6.0,-6.0,0.0,0.1,0.10000000074506,23.4,23.4,True
+fleury-michon,blanc poulet,charcuterie_cuite,volaille_autre,1,1,3095752622010,3095756799015,2.0,2.0,0.0,1.8,1.8,21.0,21.0,True
+fleury-michon,blanc poulet sel,charcuterie_cuite,poulet,1,5,3095758403019,3302740075025,0.0,0.0,0.0,1.3999999761581,1.4,22.0,21.0,True
+fleury-michon,filet poulet r ti,charcuterie_cuite,poulet,1,15,3095757199012,3302740057502,2.0,2.0,0.0,1.8,1.7,22.0,23.0,True
+foo-seng,nems au poulet,plats_cuisines,poulet,1,1,3760195545515,3760195541524,7.0,7.0,0.0,1.27,1.27,8.2,8.2,True
+klein-karoo,pav filet d autruche pr grill,autres_carnes,indetermine,1,1,6008123006187,6008123005203,-3.0,-3.0,0.0,0.8,0.8,23.1,23.1,True
+volaille-francaise,filets poulet,decoupes,poulet,1,1,3531940369003,2600497071040,-6.0,-6.0,0.0,0.1075,0.1,23.4,24.0,True
+carrefour,saucisson sec,charcuterie_seche,porc,1,1,3700141402790,3560071014681,32.0,34.0,-2.0,3.6,4.7,26.0,25.0,True
+fleury-michon,tranches poulet,charcuterie_cuite,poulet,1,1,3302740100697,3302740100635,-2.0,0.0,-2.0,0.807513167317704,0.59,22.5996354166667,5.9,False
+carrefour,filets poulet,decoupes,poulet,2,6,3560070486892,3270190209614,-6.0,-2.0,-4.0,0.14,0.55,30.1,26.95,True
+herta,lardons fum s,charcuterie_cuite,porc,1,1,3512690003379,7613036113281,16.0,20.0,-4.0,2.6,2.2,17.5,17.0,True
+fleury-michon,fleury michon,charcuterie_cuite,indetermine,1,1,3095752586015,3095757119010,2.0,7.0,-5.0,1.775,1.8,21.0,22.0,True
+fleury-michon,blanc poulet fum,charcuterie_cuite,poulet,3,2,3095759627018,3095759625014,2.0,10.5,-8.5,1.8,2.775,22.0,21.5,True
+guru-food,poulet tikka massala,plats_cuisines,poulet,1,1,8436595260123,8437019892227,13.0,34.0,-21.0,1.04,3.12,10.0,31.2,False

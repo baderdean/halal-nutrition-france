@@ -1,16 +1,16 @@
 produit,bras,n,mediane,regle_30,ecart_vs_temoin,ic95_bas,ic95_haut,testable
-blanc_de_poulet,halal,61,-1.0,franchie,5.0,0.0,6.0,True
+blanc_de_poulet,halal,59,-2.0,franchie,4.0,0.0,6.0,True
 blanc_de_poulet,kasher,8,3.5,sous 30,,,,
-blanc_de_poulet,temoin,4725,-6.0,franchie,,,,
-cordon_bleu,halal,82,11.0,franchie,5.0,0.0,5.5,True
+blanc_de_poulet,temoin,4722,-6.0,franchie,,,,
+cordon_bleu,halal,82,11.0,franchie,5.0,0.0,5.0,True
 cordon_bleu,kasher,1,4.0,sous 30,,,,
 cordon_bleu,temoin,534,6.0,franchie,,,,
 escalope_panee,halal,96,4.0,franchie,5.0,4.0,5.0,True
 escalope_panee,kasher,7,5.0,sous 30,,,,
 escalope_panee,temoin,786,-1.0,franchie,,,,
-jambon_cuit,halal,248,12.5,franchie,1.5,1.0,3.0,True
-jambon_cuit,kasher,36,3.0,franchie,-8.0,-8.0,-8.0,True
-jambon_cuit,temoin,7047,11.0,franchie,,,,
+jambon_cuit,halal,324,14.0,franchie,1.0,0.0,2.0,True
+jambon_cuit,kasher,38,3.0,franchie,-10.0,-10.0,-9.0,True
+jambon_cuit,temoin,11052,13.0,franchie,,,,
 jambon_sec,halal,3,23.0,sous 30,,,,
 jambon_sec,kasher,1,28.0,sous 30,,,,
 jambon_sec,temoin,2650,27.0,franchie,,,,

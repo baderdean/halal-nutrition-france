@@ -1,0 +1,11 @@
+code,nom,marque,produit,espece,bras,ns,grade,sel,proteines,n_ref,ns_ref,sel_ref,proteines_ref,ecart,percentile
+3760238430785,Delice de poulet,Arabi,jambon_cuit,poulet,halal,27.0,e,6.0,27.0,723,2.0,1.8,21.0,25.0,100.0
+3222475503979,Lardons de dinde fumés halal,Wassila,jambon_cuit,dinde,halal,26.0,e,3.5,18.0,191,2.0,1.78,21.0,24.0,99.5
+3760059780106,Burgers de dinde épicés,Mahdia,escalope_panee,dinde,halal,18.0,d,2.4,13.2,464,-3.0,0.78,22.0,21.0,99.6
+3266980474065,Lardons de volaille fumés au bois de hêtre,Réghalal,jambon_cuit,dinde,halal,22.0,e,2.66,19.0,191,2.0,1.78,21.0,20.0,99.0
+5411431834006,Blanc de poulet mechouia,,jambon_cuit,poulet,halal,22.0,e,3.5,17.0,723,2.0,1.8,21.0,20.0,99.3
+8711659430057,Tranchés goût bœuf piquant,Sibel,jambon_cuit,poulet,halal,22.0,e,2.5,11.6,723,2.0,1.8,21.0,20.0,99.3
+3760114535207,Délicr de poulet,Al Jadid,jambon_cuit,poulet,halal,21.0,e,5.0,30.1,723,2.0,1.8,21.0,19.0,98.8
+3700483801060,Chorizo dinde halal,Mosaic,jambon_cuit,dinde,halal,21.0,e,3.24,27.0,191,2.0,1.78,21.0,19.0,97.4
+3276447824005,"Allumettes de Dinde, Halal",Médina Halal,jambon_cuit,dinde,halal,20.0,e,3.7,13.0,191,2.0,1.78,21.0,18.0,97.4
+4047187001358,Selam hindi dilim,,jambon_cuit,indetermine,halal,30.0,e,3.3,18.0,6820,12.0,1.9,20.485,18.0,99.2

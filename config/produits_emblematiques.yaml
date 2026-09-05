@@ -20,6 +20,23 @@
 #
 # Date de figeage : 2026-09-04. Dump : voir config/source.yaml.
 
+# Regle de PLAUSIBILITE DE FORME.
+#
+# Certains produits sont sous-taggues dans Open Food Facts : « Blanc de dinde »
+# de Reghalal ne porte que en:turkey-breasts, rien qui dise qu'il est cuit et
+# tranche. Ses 2,90 g de sel pour 100 g le disent, eux : une decoupe crue en
+# porte 0,15 a 0,25. Comparer ce produit a du filet cru serait une comparaison
+# truquee, au detriment du produit halal.
+#
+# Un produit range en decoupe crue dont le sel depasse ce seuil est donc
+# declare de forme incoherente avec sa categorie, ecarte des comparaisons
+# produit a produit, et publie a part. Ce n'est pas un jugement sur le
+# produit : c'est le constat que sa categorie OFF ne decrit pas ce qu'il est.
+plausibilite_forme:
+  decoupe_crue:
+    produits: [blanc_de_poulet]
+    sel_max_g_100g: 1.0
+
 produits:
   # Sort du champ. Present uniquement pour absorber les categories parasites
   # avant les regles suivantes ; jamais analyse.
@@ -102,7 +119,14 @@ produits:
            en:cooked-ham-of-superior-quality, en:white-hams-with-less-salt,
            en:french-hams, en:diced-ham, fr:jambons-cuits-a-l-ancienne,
            fr:jambon-cuit-avec-couenne, en:turkey-hams, en:chicken-hams,
-           en:cooked-chicken-breast-slices, en:cooked-turkey-breast-slices]
+           en:cooked-chicken-breast-slices, en:cooked-turkey-breast-slices,
+           # Ajoutes apres coup : « Allumettes de poulet fumees » et « Jambon
+           # de dinde » portent une categorie de charcuterie ET
+           # en:chicken-breasts. Sans ces tags ici, le premier match gagnant
+           # les envoyait dans blanc_de_poulet, ou ils etaient compares a du
+           # filet cru a 0,15 g de sel. Ce sont des produits cuits.
+           fr:charcuteries-cuites, fr:charcuteries-diverses,
+           fr:allumettes-de-volaille, fr:allumettes-de-poulet]
 
   # Tout en dernier : une tranche de blanc de poulet CUIT est un jambon de
   # volaille et doit avoir ete captee au-dessus. Ne reste ici que la decoupe.

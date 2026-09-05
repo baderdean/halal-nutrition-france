@@ -8,5 +8,5 @@ cordon_bleu,82,1,534,Cordon bleu
 nugget,85,2,414,Nuggets
 escalope_panee,96,7,787,Escalopes et blancs panes (hors nuggets et cordons bleus)
 steak_hache,116,10,1268,Steak hache et viande hachee
-jambon_cuit,250,36,7080,"Jambon cuit (blanc, de volaille, a l'os)"
-blanc_de_poulet,62,8,4740,"Blanc de poulet en decoupe (non pane, non cuit en tranches)"
+jambon_cuit,327,38,11092,"Jambon cuit (blanc, de volaille, a l'os)"
+blanc_de_poulet,60,8,4737,"Blanc de poulet en decoupe (non pane, non cuit en tranches)"

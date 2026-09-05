@@ -20,8 +20,8 @@ Un ecart n'est affiche que si les deux cellules comparees franchissent 30.
 | Nuggets | 85 | 2 | 414 |
 | Escalopes et blancs panes (hors nuggets et cordons bleus) | 96 | 7 | 787 |
 | Steak hache et viande hachee | 116 | 10 | 1268 |
-| Jambon cuit (blanc, de volaille, a l'os) | 250 | 36 | 7080 |
-| Blanc de poulet en decoupe (non pane, non cuit en tranches) | 62 | 8 | 4740 |
+| Jambon cuit (blanc, de volaille, a l'os) | 327 | 38 | 11092 |
+| Blanc de poulet en decoupe (non pane, non cuit en tranches) | 60 | 8 | 4737 |
 
 Le kasher ne franchit 30 que sur le jambon cuit. Partout ailleurs il est
 decrit et jamais teste : conclure sur 1 ou 2 produits n'est pas conclure.
@@ -33,18 +33,18 @@ melange le label et le changement d'espece qu'il impose.
 
 | produit | bras | n | mediane | ecart_vs_temoin | ic95_bas | ic95_haut |
 |:--|:--|--:|--:|--:|--:|--:|
-| blanc_de_poulet | halal | 61 | -1.0 | +5.00 | +0.00 | +6.00 |
+| blanc_de_poulet | halal | 59 | -2.0 | +4.00 | +0.00 | +6.00 |
 | blanc_de_poulet | kasher | 8 * | 3.5 |  |  |  |
-| blanc_de_poulet | temoin | 4725 | -6.0 |  |  |  |
-| cordon_bleu | halal | 82 | 11.0 | +5.00 | +0.00 | +5.50 |
+| blanc_de_poulet | temoin | 4722 | -6.0 |  |  |  |
+| cordon_bleu | halal | 82 | 11.0 | +5.00 | +0.00 | +5.00 |
 | cordon_bleu | kasher | 1 * | 4.0 |  |  |  |
 | cordon_bleu | temoin | 534 | 6.0 |  |  |  |
 | escalope_panee | halal | 96 | 4.0 | +5.00 | +4.00 | +5.00 |
 | escalope_panee | kasher | 7 * | 5.0 |  |  |  |
 | escalope_panee | temoin | 786 | -1.0 |  |  |  |
-| jambon_cuit | halal | 248 | 12.5 | +1.50 | +1.00 | +3.00 |
-| jambon_cuit | kasher | 36 | 3.0 | -8.00 | -8.00 | -8.00 |
-| jambon_cuit | temoin | 7047 | 11.0 |  |  |  |
+| jambon_cuit | halal | 324 | 14.0 | +1.00 | +0.00 | +2.00 |
+| jambon_cuit | kasher | 38 | 3.0 | -10.00 | -10.00 | -9.00 |
+| jambon_cuit | temoin | 11052 | 13.0 |  |  |  |
 | jambon_sec | halal | 3 * | 23.0 |  |  |  |
 | jambon_sec | kasher | 1 * | 28.0 |  |  |  |
 | jambon_sec | temoin | 2650 | 27.0 |  |  |  |
@@ -74,11 +74,13 @@ figurent ici.
 
 | produit | espece | bras | n | mediane | ecart_vs_temoin | ic95_bas | ic95_haut |
 |:--|:--|:--|--:|--:|--:|--:|--:|
-| blanc_de_poulet | poulet | halal | 54 | -5.0 | +1.00 | +0.00 | +6.00 |
+| blanc_de_poulet | poulet | halal | 53 | -5.0 | +1.00 | +0.00 | +6.00 |
 | cordon_bleu | dinde | halal | 37 | 11.0 | +0.00 | +0.00 | +5.00 |
 | escalope_panee | poulet | halal | 84 | 4.0 | +1.00 | +0.00 | +2.00 |
-| jambon_cuit | dinde | halal | 85 | 14.0 | +12.00 | +11.00 | +13.00 |
-| jambon_cuit | poulet | halal | 135 | 12.0 | +10.00 | +9.00 | +10.00 |
+| jambon_cuit | dinde | halal | 99 | 14.0 | +12.00 | +11.00 | +13.00 |
+| jambon_cuit | indetermine | halal | 33 | 17.0 | +5.00 | +2.00 | +6.00 |
+| jambon_cuit | poulet | halal | 150 | 12.0 | +10.00 | +10.00 | +11.00 |
+| jambon_cuit | volaille_autre | halal | 39 | 17.0 | +0.00 | -2.00 | +1.00 |
 | nugget | poulet | halal | 64 | 5.0 | +2.00 | +0.00 | +7.00 |
 | saucisse_volaille | poulet | halal | 49 | 18.0 | +4.00 | +2.00 | +6.00 |
 | saucisse_volaille | volaille_autre | halal | 71 | 16.0 | +5.00 | +4.00 | +13.00 |
@@ -92,17 +94,18 @@ label. Une seule cellule au monde le permet dans ces donnees.
 
 | produit | marque | espece | n halal | n temoin | mediane halal | mediane temoin | ecart | IC 95 % |
 |:--|:--|:--|--:|--:|--:|--:|--:|:-:|
-| jambon_cuit | fleury-michon | poulet | 32 | 159 | 2.0 | 2.0 | +0.00 | [+0.00 ; +0.00] |
+| jambon_cuit | fleury-michon | poulet | 34 | 164 | 2.0 | 2.0 | +0.00 | [+0.00 ; +0.00] |
 
 ## L'ecart entre fabricants, a l'interieur du bras halal
 
 | produit | marque | n | Nutri-Score | sel | proteines |
 |:--|:--|--:|--:|--:|--:|
-| jambon_cuit | fleury-michon | 51 | 2.0 | 1.8 | 21.0 |
-| jambon_cuit | carrefour | 10 | 12.0 | 2.3 | 20.0 |
-| jambon_cuit | isla-mondial | 16 | 12.0 | 2.4 | 19.1 |
-| jambon_cuit | reghalal | 27 | 13.0 | 2.4 | 18.0 |
-| jambon_cuit | isla-delice | 37 | 18.0 | 3.4 | 16.6 |
+| jambon_cuit | fleury-michon | 54 | 2.0 | 1.8 | 21.0 |
+| jambon_cuit | carrefour | 12 | 12.0 | 2.3 | 20.0 |
+| jambon_cuit | isla-mondial | 28 | 13.0 | 2.4 | 18.9 |
+| jambon_cuit | reghalal | 33 | 13.0 | 2.5 | 18.0 |
+| jambon_cuit | arabi | 12 | 14.5 | 2.5 | 11.1 |
+| jambon_cuit | isla-delice | 54 | 18.0 | 3.4 | 15.55 |
 | nugget | isla-delice | 10 | 0.0 | 1.25 | 10.8 |
 | saucisse_volaille | royal-halal | 13 | 13.0 | 1.7 | 17.0 |
 | saucisson_sec | isla-mondial | 13 | 32.0 | 3.6 | 22.1 |

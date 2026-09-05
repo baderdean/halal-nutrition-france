@@ -16,7 +16,7 @@ blanc_de_poulet,temoin,volae,124,-6.0,0.13,23.0,franchie
 blanc_de_poulet,temoin,volandrie,47,-6.0,0.18,24.0,franchie
 blanc_de_poulet,temoin,le-gaulois,1330,-2.0,1.0,23.0,franchie
 blanc_de_poulet,temoin,carrefour,24,-1.0,0.65,25.0,sous 30
-blanc_de_poulet,temoin,casino,16,0.0,0.95,24.5,sous 30
+blanc_de_poulet,temoin,casino,15,0.0,0.8,25.0,sous 30
 blanc_de_poulet,temoin,leader-price,63,1.0,1.3,23.3,franchie
 blanc_de_poulet,temoin,fleury-michon,28,2.0,1.7,24.0,sous 30
 cordon_bleu,temoin,le-gaulois,76,3.0,0.84,15.0,franchie
@@ -30,48 +30,80 @@ escalope_panee,temoin,volandry,19,-3.0,0.78,22.7,sous 30
 escalope_panee,temoin,pere-dodu,54,-1.0,1.1,20.0,franchie
 escalope_panee,temoin,u,21,2.0,1.2,19.0,sous 30
 escalope_panee,temoin,maitre-coq,17,4.0,1.1,15.0,sous 30
-jambon_cuit,temoin,le-gaulois,22,1.0,1.5,21.0,sous 30
-jambon_cuit,halal,fleury-michon,51,2.0,1.8,21.0,franchie
-jambon_cuit,temoin,broceliande,27,3.0,1.8,21.0,sous 30
-jambon_cuit,temoin,fleury-michon,550,5.0,1.8,22.0,franchie
-jambon_cuit,temoin,monoprix,41,6.0,1.7,21.0,franchie
-jambon_cuit,temoin,auchan,119,7.0,1.9,20.0,franchie
-jambon_cuit,temoin,casino,104,7.0,1.8,21.0,franchie
-jambon_cuit,temoin,herta,267,7.0,1.8,21.0,franchie
-jambon_cuit,temoin,tradilege,27,7.0,1.8,21.0,sous 30
-jambon_cuit,temoin,carrefour,136,8.0,1.8,20.0,franchie
-jambon_cuit,temoin,franprix,15,8.0,1.8,21.0,sous 30
-jambon_cuit,temoin,le-marsigny,22,8.0,1.9,20.0,sous 30
-jambon_cuit,temoin,leader-price,65,8.0,1.8,21.0,franchie
-jambon_cuit,temoin,madrange,117,8.0,1.9,21.0,franchie
-jambon_cuit,temoin,marque-repere,86,8.0,1.87,21.0,franchie
-jambon_cuit,temoin,monique-ranou,79,8.0,1.9,21.0,franchie
-jambon_cuit,temoin,nestle,47,8.0,1.83,21.0,franchie
-jambon_cuit,temoin,netto,34,9.5,2.0,21.0,franchie
+jambon_cuit,halal,fleury-michon,54,2.0,1.8,21.0,franchie
+jambon_cuit,temoin,fleury-michon,572,5.0,1.8,22.0,franchie
+jambon_cuit,temoin,delhaize,15,6.0,1.85,20.0,sous 30
+jambon_cuit,temoin,bio-village,20,7.0,1.6,21.2,sous 30
+jambon_cuit,temoin,casino,143,8.0,1.8,20.0,franchie
+jambon_cuit,temoin,herta,331,8.0,1.8,20.0,franchie
+jambon_cuit,temoin,le-marsigny,29,8.0,1.9,20.0,sous 30
+jambon_cuit,temoin,monoprix,56,8.0,1.8,20.0,franchie
+jambon_cuit,temoin,rostain,15,8.0,1.6,21.0,sous 30
 jambon_cuit,temoin,rovagnati,18,9.5,1.8,19.0,sous 30
-jambon_cuit,temoin,aldi,15,11.0,1.9,20.0,sous 30
-jambon_cuit,temoin,belle-france,41,11.0,2.0,21.0,franchie
-jambon_cuit,temoin,biocoop,17,11.0,1.9,21.0,sous 30
-jambon_cuit,temoin,bioporc,18,11.0,2.05,21.0,sous 30
-jambon_cuit,temoin,cora,69,11.0,1.9,20.6,franchie
-jambon_cuit,temoin,domaine-picard,144,11.0,2.0,23.0,franchie
-jambon_cuit,temoin,dulano,39,11.0,1.9,20.0,franchie
-jambon_cuit,temoin,intermarche,32,11.0,1.8,21.15,franchie
-jambon_cuit,temoin,lausse,23,11.0,2.0,20.0,sous 30
-jambon_cuit,temoin,le-porc-francais,31,11.0,1.9,21.0,franchie
-jambon_cuit,temoin,lidl,66,11.0,1.9,20.0,franchie
-jambon_cuit,temoin,saint-alby,352,11.0,1.9,20.0,franchie
-jambon_cuit,halal,isla-mondial,16,12.0,2.4,19.1,sous 30
-jambon_cuit,temoin,aoste,45,12.0,2.17,21.0,franchie
+jambon_cuit,temoin,aldi,21,11.0,1.9,20.0,sous 30
+jambon_cuit,temoin,cora,91,11.0,1.9,20.0,franchie
+jambon_cuit,temoin,domaine-picard,156,11.0,2.0,23.0,franchie
+jambon_cuit,temoin,lausse,25,11.0,2.0,20.0,sous 30
+jambon_cuit,temoin,leader-price,100,11.0,1.88,19.7,franchie
+jambon_cuit,temoin,lidl,79,11.0,1.9,20.0,franchie
+jambon_cuit,temoin,madrange,154,11.0,1.9,20.0,franchie
+jambon_cuit,temoin,marque-repere,128,11.0,1.89,21.0,franchie
+jambon_cuit,temoin,monique-ranou,127,11.0,1.8,20.0,franchie
+jambon_cuit,temoin,nestle,59,11.0,1.9,20.0,franchie
+jambon_cuit,temoin,saint-alby,378,11.0,1.9,20.0,franchie
+jambon_cuit,temoin,tradilege,33,11.0,1.8,21.0,franchie
+jambon_cuit,temoin,belle-france,60,11.5,2.0,20.4,franchie
+jambon_cuit,temoin,broceliande,44,11.5,1.8,20.5,franchie
+jambon_cuit,temoin,franprix,26,11.5,1.82,20.5,sous 30
+jambon_cuit,temoin,aoste,47,12.0,2.17,21.0,franchie
+jambon_cuit,temoin,biocoop,29,12.0,1.9,19.0,sous 30
+jambon_cuit,temoin,bonjour-campagne,21,12.0,2.03,20.0,sous 30
+jambon_cuit,temoin,bonneterre,16,12.0,1.85,20.0,sous 30
+jambon_cuit,temoin,brient,21,12.0,1.51,21.0,sous 30
+jambon_cuit,temoin,carrefour,246,12.0,1.8,19.0,franchie
 jambon_cuit,temoin,citterio,20,12.0,1.8,19.0,sous 30
-jambon_cuit,temoin,despi,43,12.0,2.2,22.0,franchie
-jambon_cuit,temoin,le-porc-de-nos-villages,18,12.0,1.9,22.0,sous 30
-jambon_cuit,temoin,u,230,12.0,1.9,21.0,franchie
-jambon_cuit,halal,reghalal,27,13.0,2.4,18.0,sous 30
+jambon_cuit,temoin,despi,54,12.0,2.1,22.0,franchie
+jambon_cuit,temoin,dulano,42,12.0,1.9,20.0,franchie
+jambon_cuit,temoin,intermarche,44,12.0,1.74,20.6,franchie
+jambon_cuit,temoin,le-porc-de-nos-villages,20,12.0,1.9,22.0,sous 30
+jambon_cuit,temoin,le-porc-francais,40,12.0,1.9,20.2,franchie
+jambon_cuit,temoin,netto,56,12.0,1.8,19.0,franchie
+jambon_cuit,temoin,grand-jury,22,12.5,1.9,20.0,sous 30
+jambon_cuit,halal,isla-mondial,28,13.0,2.4,18.9,sous 30
+jambon_cuit,halal,reghalal,33,13.0,2.5,18.0,franchie
+jambon_cuit,temoin,auchan,231,13.0,1.9,20.0,franchie
+jambon_cuit,temoin,la-vie-claire,15,13.0,1.85,21.0,sous 30
 jambon_cuit,temoin,porc-de-l-aveyron,16,13.0,1.9,20.0,sous 30
-jambon_cuit,temoin,tallec,187,13.0,1.9,22.0,franchie
-jambon_cuit,halal,isla-delice,37,18.0,3.4,16.6,franchie
-jambon_cuit,temoin,petitgas,39,18.0,2.7,20.5,franchie
+jambon_cuit,temoin,tallec,191,13.0,1.9,22.0,franchie
+jambon_cuit,temoin,u,304,13.0,1.9,20.0,franchie
+jambon_cuit,temoin,u-saveurs,17,13.0,1.8,19.8,sous 30
+jambon_cuit,temoin,bahier,16,14.0,2.25,23.0,sous 30
+jambon_cuit,temoin,bioporc,30,14.0,2.0,20.0,franchie
+jambon_cuit,temoin,dia,18,14.0,2.27,19.25,sous 30
+jambon_cuit,temoin,eco,26,14.0,1.9,16.5,sous 30
+jambon_cuit,temoin,le-choix-du-charcutier,17,14.0,1.51,19.5,sous 30
+jambon_cuit,temoin,le-gaulois,58,14.0,1.4,18.0,franchie
+jambon_cuit,temoin,leclerc,21,14.0,1.72,18.8,sous 30
+jambon_cuit,temoin,conserverie-st-christophe,15,15.0,1.5,17.0,sous 30
+jambon_cuit,temoin,deluxe,18,16.5,1.6,11.0,sous 30
+jambon_cuit,temoin,maison-monterrat,17,17.0,1.7,11.0,sous 30
+jambon_cuit,temoin,michel-bolard,18,17.0,1.65,11.5,sous 30
+jambon_cuit,temoin,sans-marque,25,17.0,2.5,17.2,sous 30
+jambon_cuit,temoin,saveurs-des-mauges,17,17.0,1.7,18.7,sous 30
+jambon_cuit,halal,isla-delice,54,18.0,3.4,15.55,franchie
+jambon_cuit,temoin,henaff,55,18.0,1.5,16.0,franchie
+jambon_cuit,temoin,lucien-georgelin,23,18.0,1.55,12.5,sous 30
+jambon_cuit,temoin,mere-lalie,19,18.0,1.5,15.0,sous 30
+jambon_cuit,temoin,petitgas,43,18.0,2.7,20.47,franchie
+jambon_cuit,temoin,charcuterie-cosme,21,19.0,2.0,15.0,sous 30
+jambon_cuit,temoin,jean-floc-h,27,19.0,1.8,14.5,sous 30
+jambon_cuit,temoin,roland-monterrat,15,19.0,1.8,11.0,sous 30
+jambon_cuit,temoin,jean-brunet,19,20.0,1.5,12.7,sous 30
+jambon_cuit,temoin,maison-torres,40,21.0,1.52,13.25,franchie
+jambon_cuit,temoin,stephan,29,21.0,1.7,13.0,sous 30
+jambon_cuit,temoin,top-budget,18,21.0,2.3,14.6,sous 30
+jambon_cuit,temoin,biraben,16,22.0,1.75,16.0,sous 30
+jambon_cuit,temoin,orocbat,15,22.0,2.3,15.9,sous 30
 jambon_sec,temoin,oberti,17,23.0,5.2,31.2,sous 30
 jambon_sec,temoin,despi,24,25.0,4.45,28.2,sous 30
 jambon_sec,temoin,espuna,19,25.0,5.2,30.0,sous 30

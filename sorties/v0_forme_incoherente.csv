@@ -1,0 +1,1335 @@
+code,nom,marque,produit,espece,bras,ns,grade,sel,proteines,regle
+00815949,Oven Roasted Turkey Breast,Trader Joe's,blanc_de_poulet,dinde,temoin,3.0,c,1.875,21.4285714285714,decoupe_crue
+0081669013006,Hähnchen-Filetinis,Bofrost,blanc_de_poulet,poulet,temoin,0.0,a,1.3,20.5,decoupe_crue
+0211629025842,Filets de poulet rôti,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
+0211791015412,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791016600,Filet de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791019359,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791020997,Filets de poulet rôti,Volaé,blanc_de_poulet,poulet,temoin,3.0,c,1.7,23.0,decoupe_crue
+0211791021529,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
+0211791021840,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
+0211791022304,Filets de poulet rotis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.2599999904633,22.299999237061,decoupe_crue
+0211791022700,Filet de poulet roti,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791022830,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791023554,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791024667,Filets de Poulet Rôtis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791024735,Filets poulet,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791024995,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.2599999904633,22.299999237061,decoupe_crue
+0211791025060,Filets de poulet rôtis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791025329,Filets de poulet rotis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791025527,Filet de poulet roti,Sélection Intermarché,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791025657,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791025985,Filets de poulet rôti,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791026302,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791026500,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.2599999904633,22.299999237061,decoupe_crue
+0211791026630,Filet de poulet rôti cuits,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791026760,Filet de poulet roti,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791026838,Filets  de poulet  rotis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791026968,filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791027095,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791027163,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3700000047684,24.10000038147,decoupe_crue
+0211791027293,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791027552,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,22.299999237061,decoupe_crue
+0211791027620,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791027750,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791027811,Filets de poulet rotis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.26,24.1,decoupe_crue
+0211791028016,Filet de poulet roti,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
+0211791028078,Filet De Poulet Roti,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
+0211791028276,Filets de poulet Rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791028405,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791028603,Filets de poulet rotis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791028733,Filets de poulet rotis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791028863,Filets de Poulet Rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791028993,Filets de Poulet Rôtis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791029327,Filet de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
+0211791029396,Filet de poulet rotis traités en salaison,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791029587,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791029853,Filet de poulet roti,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791030040,Poulet,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791030118,Filets de poulet rôtis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791030248,Filets de poulet,Volea,blanc_de_poulet,poulet,temoin,1.0,b,1.35,24.1,decoupe_crue
+0211791030507,Filets de Poulet Rôtis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.1,decoupe_crue
+0211791030576,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791030705,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791030835,Filets de poulet Rôtis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791030965,2 filets de poulets rôtis traités en salaison,Netto,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791031030,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791031160,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791031290,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.7,decoupe_crue
+0211791031351,Filet de Poulet Rôti,"Intermarché, Volaé",blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791031627,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791031818,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791031887,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791031955,Filet de Poulet Rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791032013,Filets de poulet rôti,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791032143,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791032273,Filet de poulet rotis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.2599999904633,22.299999237061,decoupe_crue
+0211791032341,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791032471,Filet de poulet roti,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.3,22.3,decoupe_crue
+0211791032600,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.1,decoupe_crue
+0211791032808,Filet de poulet rotis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791032860,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
+0211791032990,Filets de Poulet Rôtis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
+0211791033065,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791033133,Filets de poulet rôti,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791033263,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791033393,Filets de poulet rotis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.2599999904633,22.299999237061,decoupe_crue
+0211791033720,Filets de poulet rotis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
+0211791033782,Filets de poulet rôtis,"Volaé, Volaé ( intermarché )",blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791033911,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791034376,Filets de Poulet Rôtis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791034444,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791034574,Filets de poulet rôti,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
+0211791034635,Filet de poulet,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791035229,Filets de poulet roti,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.35,24.1,decoupe_crue
+0211791035366,Filets de poulet rôtis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791035625,Filets de poulet,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
+0211791035953,Filets de Poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
+0211791036011,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+0211791036349,Filets de Poulet Rôtis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791036479,Filets de poulet rôti,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.2599999904633,22.299999237061,decoupe_crue
+0211791036738,Filets poulet rotis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
+0211791037391,Filets de poulets rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
+0211791038770,Filets de poulet,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.37,24.1,decoupe_crue
+0211791038909,Filet de poulet rotis,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.35,24.1,decoupe_crue
+0211791040285,Filets de poulets,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
+0217637028271,Filets Rôtis de Poulet,Père Dodu,blanc_de_poulet,poulet,temoin,1.0,b,1.3,25.0,decoupe_crue
+0217638025521,La Belle Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,21.0,e,15.0,24.0,decoupe_crue
+00002974,Filet de poulet rôti,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+00003001,Filet de poulet extra tendre thym citron,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.3,22.0,decoupe_crue
+0037600132602,Oven Roasted Deli Turkey,Hormel Natural Choice,blanc_de_poulet,dinde,temoin,11.0,d,2.05357142857143,19.6428571428571,decoupe_crue
+0203213018439,Filet de poulet basquaise,,blanc_de_poulet,poulet,temoin,1.0,b,1.2,14.0,decoupe_crue
+0217827045460,Escalope de Dinde et Chapelure Croustillante,Le Gaulois,blanc_de_poulet,dinde,temoin,1.0,b,1.5,21.0,decoupe_crue
+0217966016468,Aiguillettes de poulet grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966017656,Aiguillettes de Poulet Grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966017977,Aiguillettes de poulet grillé,,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966018639,Aiguillettes de poulet Grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966018967,Aiguillettes de poulet Grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966019094,Aiguillettes de poulet grille,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966019612,Aiguillettes de poulet grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966019940,Aiguillettes de poulet grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966020144,Aiguillettes de poulet grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966020861,Aiguillettes de poulet grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966021127,Aiguillettes de poulet grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966021196,Aiguillettes de poulet grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966021585,Aiguillettes de poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966021653,Aiguillettes de poulet grillé,,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966022247,Aiguillettes de poulet grillé,,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966022377,Aiguillettes de poulet grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966023022,Aiguillettes de poulet grillée,,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966023817,Aiguillettes de poulet grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966023886,Aiguillettes de poulet grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966024074,Aiguillettes de poulet grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966024661,Aiguillettes de poulet grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.4,23.0,decoupe_crue
+0217966024739,Aiguillettes de poulet grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966029062,Aiguillettes de poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0217966031225,Aiguillettes de poulet Grillé,,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+0227081022961,Les milanaises du chef,Père Dodu,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,20.0,decoupe_crue
+0266494033652,Filet de poulet roti,Grand Frais,blanc_de_poulet,poulet,temoin,0.0,a,1.1,26.0,decoupe_crue
+0266494037520,2 filets de poulet,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,26.0,decoupe_crue
+0011110640505,Oven roasted turkey breast,Simple Truth Organic,blanc_de_poulet,dinde,temoin,1.0,b,1.3,16.0,decoupe_crue
+20346553,Escalope de dinde ail poivre,,blanc_de_poulet,dinde,temoin,3.0,c,1.96,20.1,decoupe_crue
+2111851003305,Blanc de dinde grillé,Coop,blanc_de_poulet,dinde,temoin,2.0,b,1.8,21.0,decoupe_crue
+2111851003350,Blanc de dinde,Coop,blanc_de_poulet,dinde,temoin,2.0,b,1.8,21.0,decoupe_crue
+2112361003106,Blanc de dinde pauvre en graisses,Coop,blanc_de_poulet,dinde,temoin,2.0,b,1.7999999523163,21.0,decoupe_crue
+2112362004102,Blanc de dinde,,blanc_de_poulet,dinde,temoin,11.0,d,2.2,19.0,decoupe_crue
+2112362004201,Blanc dinde aux epices,Coop,blanc_de_poulet,dinde,temoin,11.0,d,2.2,19.0,decoupe_crue
+2112362004355,Blanc de dinde,Qualité & Prix,blanc_de_poulet,dinde,temoin,11.0,d,2.2,19.0,decoupe_crue
+2200606027946,Filets Rôtis de poulet,Monoprix,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
+2200606030830,Filets rotis de poulet,Monoprix,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
+2200606037655,Filets rôtis de poulet,Monoprix,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
+2200606038645,Filets de poulet rôtis,Monoprix,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
+2200606039031,Filets rotis de poulet chaud froid,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
+2200606039369,Filets de poulet rotis,Monoprix,blanc_de_poulet,poulet,temoin,0.0,a,1.1000000238419,25.0,decoupe_crue
+2200606044011,Filets roti de poulet,Monoprix,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
+2200606054713,Filets rôti de poulet,Monoprix,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
+0226280019420,Filets de poulet avec peau saumurés et rôtis,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+0226280024738,Filets de poulets avec peau saumurés et rotis,Carrefour,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+0226280025193,Filets de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+0226280027883,Filets de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+0226280028675,Filets de poulet avec peau,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+0226280029986,Filets de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+0226280031033,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+0226280035420,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+0226280041261,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+0226280042374,Filets de poulet rôtis,Carrefour Original,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+0256600035823,Filets de poulet rôti,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
+0256600045525,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
+0276601047496,Filets de poulet roti,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+20067854,Hähnchenbrustfilet Teilstück,Metzgerfrisch,blanc_de_poulet,poulet,temoin,30.0,e,2.16,,decoupe_crue
+20642631,Blanc de dinde,,blanc_de_poulet,dinde,temoin,4.0,c,1.86,14.6,decoupe_crue
+20670382,Filet de poulet en lanieres,,blanc_de_poulet,poulet,temoin,11.0,d,2.1,21.0,decoupe_crue
+20821159,Chicken fillets,El Tequiti Lidl,blanc_de_poulet,poulet,temoin,2.0,b,1.6725,20.7,decoupe_crue
+20830427,Delikatessen Hähnchenbrust,Dulano,blanc_de_poulet,poulet,temoin,2.0,b,1.7,21.0,decoupe_crue
+2225025027162,Filet et cuisse de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2225025031886,Filet de cuisse de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2225025043568,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2278954024665,Aiguillette de poulet tandoori,GIFFAUD,blanc_de_poulet,poulet,temoin,3.0,c,1.5,25.0,decoupe_crue
+2205618003230,Filet de poulet,Delhaize,blanc_de_poulet,poulet,temoin,1.0,b,1.2000000476837,22.0,decoupe_crue
+2205620002894,Filet de poulet aux herbes,,blanc_de_poulet,poulet,temoin,8.0,c,1.6000000238419,1.2000000476837,decoupe_crue
+2205621003258,Filet de poulet Curry,Delhaize,blanc_de_poulet,poulet,temoin,1.0,b,1.3999999761581,18.0,decoupe_crue
+2216361033856,Escalope de dinde,,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2216361037786,Escalopes de dinde,,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2216361041653,Escalope de dinde,,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2216361043954,Escalope dinde  -  l'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2216361050976,Escalope de dinde l'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2232752028072,Poêlée de filet de poulet Tikka curry,Les prêts à cuisiner du volailler,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,22.0,decoupe_crue
+2334855010333,Aiguillettes de poulet crue thym/citron sous ATM,,blanc_de_poulet,poulet,temoin,2.0,b,1.7,19.0,decoupe_crue
+2381822018724,Aiguillettes de poulet roties,,blanc_de_poulet,poulet,temoin,0.0,a,1.4,25.0,decoupe_crue
+2434855045721,Aiguillette de poulet au Thym et saveur citron,,blanc_de_poulet,poulet,temoin,-1.0,a,1.18,21.4,decoupe_crue
+2434855060748,Aiguillettes de Poulet Crues Marinées Thym-Citron,,blanc_de_poulet,poulet,temoin,-1.0,a,1.19,21.0,decoupe_crue
+2434873072617,Filets de poulet marinés tomate origan,Saveur d'été,blanc_de_poulet,poulet,temoin,1.0,b,1.6,21.3,decoupe_crue
+2480857042572,Le filet de poulet a la comtoise,,blanc_de_poulet,poulet,temoin,11.0,d,1.9,23.0,decoupe_crue
+2485953065531,"Aiguillettes de poulet, crue, mariné, saveurs, tomates, origan",Saveurs d'été,blanc_de_poulet,poulet,temoin,3.0,c,2.0,20.0,decoupe_crue
+2485953066453,Aiguillettes de poulet marinees saveur tomates origan,,blanc_de_poulet,poulet,temoin,3.0,c,2.0,20.0,decoupe_crue
+2486765026048,Blanc de dinde,,blanc_de_poulet,dinde,temoin,12.0,d,2.2699999809265,19.5,decoupe_crue
+26011981,Filets de poulet rotis,CLÉMENT LE VOLAILLER,blanc_de_poulet,poulet,temoin,1.0,b,1.2999999523163,24.0,decoupe_crue
+27067048,Filet De Poulet Pane,,blanc_de_poulet,poulet,temoin,5.0,c,1.2,13.0,decoupe_crue
+27068403,Filet de poulet nature,,blanc_de_poulet,poulet,temoin,1.0,b,1.6,22.0,decoupe_crue
+27081648,Gebratene Hähnchenbrustfiletstücke,DELIFIN,blanc_de_poulet,poulet,temoin,3.0,c,2.0,23.0,decoupe_crue
+2463498031228,Filet de poulet rôti,,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
+2463498032218,Filet de poulet rôti,,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
+2463498034045,filet de poulet rôti halal,,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
+2463498034243,Filets de poulet Rôti,Réghalal,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
+2463498034441,Filets de poulet rôti,,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
+2463498035035,Filet de poulet rôti,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,22.0,decoupe_crue
+2463498036865,Filet de poulet rôti,,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
+2463498041784,Filets de poulet rôti,Réghalal,blanc_de_poulet,poulet,halal,2.0,b,1.7,22.0,decoupe_crue
+2463498044150,Filet de poulet rôti avec peau,Réghalal,blanc_de_poulet,poulet,temoin,0.0,a,1.2,22.0,decoupe_crue
+2463498049599,Filet de poulet roti,,blanc_de_poulet,poulet,halal,0.0,a,1.2,22.0,decoupe_crue
+2860119026500,Filet de poulet,"Marque Repère, Volandrie",blanc_de_poulet,poulet,temoin,-1.0,a,1.1,21.0,decoupe_crue
+2860129036933,Escalopes de dinde,"Marque Repère, Volandry",blanc_de_poulet,dinde,temoin,-1.0,a,1.2,23.0,decoupe_crue
+2860181019486,Escalope de dinde,Volandrie,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2900541001109,Blanc de dinde au 3 poivre,,blanc_de_poulet,dinde,halal,18.0,d,3.39,15.6,decoupe_crue
+2953533905305,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+3222477765061,Aiguillettes de poulet,Casino,blanc_de_poulet,poulet,temoin,1.0,b,1.6,29.0,decoupe_crue
+3230890007798,2 filets de poulet rôti,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+29130627,Filet de poulet doré au four,,blanc_de_poulet,poulet,temoin,3.0,c,1.84,22.5,decoupe_crue
+3180050136533,Filet de poulet nature,,blanc_de_poulet,poulet,temoin,3.0,c,1.9,22.3,decoupe_crue
+3180050136540,Filet de poulet mariné aux épices provençales,,blanc_de_poulet,poulet,temoin,3.0,c,2.0,23.0,decoupe_crue
+3222476444264,Aiguillettes de poulet rôties,Casino,blanc_de_poulet,poulet,temoin,1.0,b,1.6,29.0,decoupe_crue
+3235660890334,Émincés de filets de poulet,,blanc_de_poulet,poulet,temoin,1.0,b,1.5,24.0,decoupe_crue
+3230890038945,Aiguillette de poulet thym citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+3230890040757,Aiguilles de poulet panées,Maître CoQ,blanc_de_poulet,poulet,temoin,2.0,b,1.2,17.0,decoupe_crue
+3230890050022,Filet de poulet,Maître CoQ,blanc_de_poulet,poulet,temoin,2.0,b,1.1,16.0,decoupe_crue
+3230890051739,Chicken ribs party,Maître CoQ,blanc_de_poulet,poulet,temoin,2.0,b,1.1,21.0,decoupe_crue
+3230890138591,Émincés de filet de poulet roti,Maître CoQ,blanc_de_poulet,poulet,temoin,12.0,d,2.3,24.0,decoupe_crue
+3230890737169,Petits emincés de filet de poulet rôti,Maître CoQ,blanc_de_poulet,poulet,temoin,12.0,d,2.325,24.0,decoupe_crue
+3230890875137,Petits filets de poulet croustillant surgelés,Maître CoQ,blanc_de_poulet,poulet,temoin,4.0,c,1.1,16.0,decoupe_crue
+3234510433080,Filet de poulet en croute,,blanc_de_poulet,poulet,temoin,17.0,d,1.8,15.0,decoupe_crue
+3254560190580,Brochettes de filet poulet au thyn saveur citron,Auchan,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,18.0,decoupe_crue
+3254560346734,Aiguillettes de poulet roties,Auchan,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,26.0,decoupe_crue
+3254560346826,Filets de Poulet Rôtis,Auchan,blanc_de_poulet,poulet,temoin,0.0,a,1.1000000238419,26.0,decoupe_crue
+3254560414433,Filets de poulet au paprika,Auchan,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,22.0,decoupe_crue
+3250391424474,ROTI DE FILET DE POULET CUIT 450g,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.3,17.0,decoupe_crue
+3250391471379,Rôti de filet de poulet cuit 450g GRM,"Nett, Netto",blanc_de_poulet,poulet,temoin,3.0,c,1.9,18.0,decoupe_crue
+3250391532346,Escalopes extra-fines de Dinde Marinade Tomate & Basilic,Volaé,blanc_de_poulet,dinde,temoin,-1.0,a,1.04,24.0,decoupe_crue
+3250391532384,Aiguillettes de Poulet Marinade Provençale,Volaé,blanc_de_poulet,poulet,temoin,-1.0,a,1.12,21.1,decoupe_crue
+3250393003660,Filet de poulet rotie,Volaé,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+3256220266192,Émincés de poulet,U,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,21.0,decoupe_crue
+3256225722563,Emincés de filet de poulet a la provençale,U,blanc_de_poulet,poulet,temoin,0.0,a,1.4,25.0,decoupe_crue
+3256225722570,"Filet de Poulet rôti au four - x2 tranches, 150g",U,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,25.0,decoupe_crue
+3256225722631,Aiguillettes de poulet rôties au four - 160g,U,blanc_de_poulet,poulet,temoin,1.0,b,1.5,27.0,decoupe_crue
+3256225734238,"Aiguillette de poulet rôtie, barquette, 240g",U,blanc_de_poulet,poulet,temoin,0.0,a,1.4,27.0,decoupe_crue
+3256225735075,"Filet de poulet rôti, barquette, 190g",U,blanc_de_poulet,poulet,temoin,0.0,a,1.2,26.0,decoupe_crue
+3258225775075,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,26.0,decoupe_crue
+3263851498618,Filets de poulet facln rotissoire,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,25.0,decoupe_crue
+3266980001858,Emincés de filet de poulet rôti,Le gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+3266980003883,Aiguillettes de poulet rôties,,blanc_de_poulet,poulet,temoin,1.0,b,1.6,29.0,decoupe_crue
+3266980011475,Blanc de dinde,Réghalal,blanc_de_poulet,dinde,halal,15.0,d,2.9,16.0,decoupe_crue
+3266980015602,filets de poulet thym citron x6 s/at,Le gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.4,20.0,decoupe_crue
+3266980015633,filets de poulet basquaise x6 s/at,Le gaulois,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,20.0,decoupe_crue
+3266980033477,Filet de poulet façon haché,Le gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.3,22.0,decoupe_crue
+3266980040451,Filets de poulet avec peau saumurés et rôtis x2,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+3266980134532,Emincés de filet de poulet rôti,Le gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+3266980134549,Emincés de filet de poulet rôti à la Mexicaine,Le gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.3,25.0,decoupe_crue
+3266980151225,Filets de poulet saveur Kentucky X6 S/AT LG,Le gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,22.0,decoupe_crue
+3266980151591,Escalopes de dinde saveur Kentucky X6 S/AT LG,Le gaulois,blanc_de_poulet,dinde,temoin,1.0,b,1.6,22.0,decoupe_crue
+3266980294717,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.0825,24.0,decoupe_crue
+3266980304973,Escalope de dinde - L'Extra Tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+3266980342777,escalopes de dinde extra -tendres x6,Le gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+3266980408770,filets de poulet thym citron x2 s/at,Le gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.4,20.0,decoupe_crue
+3266980441029,filets de poulet basquaise x2 s/at,Le gaulois,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,20.0,decoupe_crue
+3266980462321,rôti de poulet aux herbes de provence àartager,Le gaulois,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,25.0,decoupe_crue
+3266980467104,escalopes de dinde extra-tendres x2 pf s/at,Le gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+3266980510800,escalopes de dinde extra -tendres x6,Le gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+3266980519100,filets de poulet rôti tranchés x3 s/skin,Le gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.34,23.63,decoupe_crue
+3266980576776,Aiguillettes de poulet grillées,Le gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.42,23.7,decoupe_crue
+3266980635008,Blanc De Dinde Fumé,Reghalal,blanc_de_poulet,dinde,temoin,15.0,d,2.93,16.0,decoupe_crue
+3266980765194,Blanc de dinde REGHALAL 6 tranches,Reghalal,blanc_de_poulet,dinde,temoin,15.0,d,2.93,16.0,decoupe_crue
+3266980783440,escalopes de dinde extra-tendres pf s/at,Le gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+3266980783792,escalopes de dinde extra-tendres s/at,Le gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+3266980826055,Blanc de dinde cuit,Le Gaulois,blanc_de_poulet,dinde,temoin,2.0,b,1.8,21.0,decoupe_crue
+3276280089173,Filets de poulet marinés cumin paprika,Royal Bernard,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,21.0,decoupe_crue
+3276288261090,Cubes de filets de poulet marinés à la taïlandaise,,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,20.0,decoupe_crue
+3283440000091,Aiguillettes de poulet thym citron s/atm,Le gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.4,22.0,decoupe_crue
+3287680016638,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,25.0,decoupe_crue
+3439496310206,Émincés de filet de poulet,Aro,blanc_de_poulet,poulet,temoin,0.0,a,1.4,21.0,decoupe_crue
+3439496310329,Émincés de filets de poulet,Aro,blanc_de_poulet,poulet,temoin,2.0,b,1.7,19.0,decoupe_crue
+3439496424187,AIGUILLETTES DE POULET PANÉES CORN FLAKES,METRO Chef,blanc_de_poulet,poulet,temoin,1.0,b,1.0825,16.0,decoupe_crue
+3499150317125,TRANCHETTE DE FILET DE POULET CUIT ROTI SURGELE,Rest'or chef,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,21.0,decoupe_crue
+3499150339301,Plaisir de volaile,Restor Chef,blanc_de_poulet,poulet,temoin,1.0,b,1.4299999475479,20.0,decoupe_crue
+3508100200070,Aiguillette de poulet rotie à la méditerranéenne,,blanc_de_poulet,poulet,temoin,2.0,b,1.1,8.5,decoupe_crue
+3296560000872,Filet de poulet facon hache,,blanc_de_poulet,poulet,temoin,-1.0,a,1.179,21.7,decoupe_crue
+3459860005767,Blanc de dinde goût fumé,Isla Mondial,blanc_de_poulet,dinde,halal,12.0,d,2.4,20.7,decoupe_crue
+3564700713310,Escalopes de dinde extra tendres certifiées x 2,"Marque Repère, Volandry",blanc_de_poulet,dinde,temoin,-1.0,a,1.2,23.0,decoupe_crue
+3596710464852,Filets de poulet rôtis,Auchan,blanc_de_poulet,poulet,temoin,0.0,a,1.4,26.0,decoupe_crue
+3663513047831,Blanc de dinde supérieur,,blanc_de_poulet,dinde,temoin,2.0,b,1.7,21.0,decoupe_crue
+3760177213739,Lomo de dinde escalopes au piment doux,Nobles,blanc_de_poulet,dinde,temoin,0.0,a,1.4,20.4,decoupe_crue
+3760177215689,Escalopes de dinde,,blanc_de_poulet,dinde,temoin,1.0,b,1.5,19.5,decoupe_crue
+3760177215764,Aiguillettes de poulet,Aide lis,blanc_de_poulet,poulet,temoin,3.0,c,1.32,15.2,decoupe_crue
+3760258220694,Lamelle filet de poulet roti,,blanc_de_poulet,poulet,temoin,3.0,c,2.0,19.0,decoupe_crue
+3760383400190,Aiguilette de poulet,,blanc_de_poulet,poulet,halal,11.0,d,1.6,17.6,decoupe_crue
+3560070447282,Filet de Poulet Rôti,Carrefour,blanc_de_poulet,poulet,temoin,0.0,a,1.3,26.0,decoupe_crue
+3560070484027,Filets de poulet Rôtis Traités en salaison,Carrefour,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+3560070499243,Filets De Poulets,Carrefour,blanc_de_poulet,poulet,temoin,3.0,c,1.94,23.0,decoupe_crue
+3564706535794,Aiguillettes de poulet marinées curry coco,"Marque Repère, Volandry",blanc_de_poulet,poulet,temoin,-1.0,a,1.1,21.0,decoupe_crue
+3564706560215,Aiguillettes poulet asiatique,"Marque Repère, Volandry",blanc_de_poulet,poulet,temoin,-1.0,a,1.1,19.0,decoupe_crue
+3564706569072,Filet poulet roti sans antibio,"Marque Repère,Volandry",blanc_de_poulet,poulet,temoin,1.0,b,1.3,25.0,decoupe_crue
+3564706609181,Filets de poulet Extra tendres,"Marque Repère, Volandrie",blanc_de_poulet,poulet,temoin,-1.0,a,1.1,21.0,decoupe_crue
+3564706609228,Filets de poulet Extra-tendres,"Marque Repère, Volandrie",blanc_de_poulet,poulet,temoin,-1.0,a,1.1,21.0,decoupe_crue
+3564706631120,Escalopes de dinde,Volandrie,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+3564706766839,émincé de filet de poulet roti,Volandrie,blanc_de_poulet,poulet,temoin,0.0,a,1.3,26.0,decoupe_crue
+3596690759474,Aiguillettes de poulet chapelure multigrains,Père Dodu,blanc_de_poulet,poulet,temoin,3.0,c,1.24,17.0,decoupe_crue
+3596710450725,Aiguillettes de Poulet,Auchan,blanc_de_poulet,poulet,temoin,1.0,b,1.6,26.0,decoupe_crue
+3700118301859,,,blanc_de_poulet,dinde,temoin,3.0,c,2.0,21.0,decoupe_crue
+3700158734129,Filet de poulet,,blanc_de_poulet,poulet,temoin,20.0,e,2.7,8.1,decoupe_crue
+3700593406087,Insudiet Aiguillettes De Poulet,Insudiet,blanc_de_poulet,poulet,temoin,2.0,b,1.2,13.1,decoupe_crue
+3701004821093,Filets de poulet saumurés à 20%,Ronsard,blanc_de_poulet,poulet,temoin,3.0,c,1.94,23.0,decoupe_crue
+4011364719169,Escalopes de dinde marinées au Paprika,Aldi,blanc_de_poulet,dinde,temoin,0.0,a,1.3,21.0,decoupe_crue
+4056489202899,Médaillons de poulet à l'espagnole,L'étal du volailler,blanc_de_poulet,poulet,temoin,0.0,a,1.2775,21.0,decoupe_crue
+4335619019850,Emincés de filet de poulet à la Mexicaine,L'etal Du Volailler,blanc_de_poulet,poulet,temoin,2.0,b,1.3,20.0,decoupe_crue
+5014759002692,Gilbert's Roast Turkey Breast,Gilbert's Kosher Foods,blanc_de_poulet,dinde,temoin,11.0,d,2.1625,20.1,decoupe_crue
+5400112268919,Émincés de filet de poulet saveur indienne,Delhaize,blanc_de_poulet,poulet,temoin,0.0,a,1.3,22.0,decoupe_crue
+5400112268933,Filet de poulet bbq,Delhaize,blanc_de_poulet,poulet,temoin,0.0,a,1.4,19.0,decoupe_crue
+5400112268957,Filet de poulet thym et citron,Delhaize,blanc_de_poulet,poulet,temoin,0.0,a,1.3,28.0,decoupe_crue
+5400112268964,Filet de poulet César,Delhaize,blanc_de_poulet,poulet,temoin,0.0,a,1.3,26.0,decoupe_crue
+5400112492758,Filet de poulet,Delhaize,blanc_de_poulet,poulet,temoin,11.0,d,1.8999999761581,17.0,decoupe_crue
+5411761283031,Morceaux de poulets,,blanc_de_poulet,poulet,temoin,11.0,d,2.0999999046326,21.0,decoupe_crue
+5901664003695,Emince de filet de poulet halal cuit tikka surgele,,blanc_de_poulet,poulet,halal,11.0,d,2.1,21.0,decoupe_crue
+5901687982885,Emincé de filet de poulet rotis,,blanc_de_poulet,poulet,temoin,3.0,c,1.6599999666214,16.0,decoupe_crue
+5901687982922,Émincé de filet de poulet nature surgelé,,blanc_de_poulet,poulet,temoin,3.0,c,1.66,16.0,decoupe_crue
+61110120,Filet de poulet rôti congelé,Sans marque,blanc_de_poulet,poulet,temoin,1.0,b,1.3,25.0,decoupe_crue
+8436021417152,Aiguillettes de poulet panées barbecue,,blanc_de_poulet,poulet,temoin,1.0,b,1.1,19.3,decoupe_crue
+3760116240314,Filet de poulet Classe A,,blanc_de_poulet,poulet,temoin,-1.0,a,1.03,17.5,decoupe_crue
+3760116241373,Filet de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.8,24.2,decoupe_crue
+3760116247900,Émincés de Poulet,Délices & Snacks,blanc_de_poulet,poulet,temoin,3.0,c,1.7,16.0,decoupe_crue
+4056489039631,Filet de poulet mariné au thym citron,L'etal Du Volailler,blanc_de_poulet,poulet,temoin,11.0,d,2.2,20.3,decoupe_crue
+4056489039815,Filets de poulet marinés au citron thym,L'etal Du Volailler,blanc_de_poulet,poulet,temoin,0.0,a,1.3,22.0,decoupe_crue
+4056489040194,Filets de poulet marinés au thym citron,"L'Étal du Volailler, Lidl",blanc_de_poulet,poulet,temoin,-1.0,a,1.2,22.0,decoupe_crue
+5400101028340,Carrefour Classic' Filet de Poulet,Carrefour Classic,blanc_de_poulet,poulet,temoin,1.0,b,1.5,21.0,decoupe_crue
+8410320266895,Pechuga de pollo al ajillo,Campofrio,blanc_de_poulet,poulet,temoin,11.0,d,2.2,19.0,decoupe_crue
+6312130764399,Burger de filet de poulet,,blanc_de_poulet,poulet,halal,2.0,b,1.14,13.0,decoupe_crue
+7290003289509,Blanc de dinde braisée,,blanc_de_poulet,dinde,temoin,4.0,c,2.0,16.0,decoupe_crue
+7290003289561,Deli style - Blanc de dinde fumée,YARDEN,blanc_de_poulet,dinde,temoin,4.0,c,2.0,16.0,decoupe_crue
+7290003289585,Blanc de dinde,Yarden,blanc_de_poulet,dinde,temoin,4.0,c,2.0,16.0,decoupe_crue
+7290012612541,Blanc de dindonneau grillé,Yehiam,blanc_de_poulet,dinde,temoin,2.0,b,1.7999999523163,18.0,decoupe_crue
+7290012612572,Chiffonnade Blanc De Dinde Fumee Yehiam 142GR,,blanc_de_poulet,dinde,temoin,4.0,c,2.0,17.0,decoupe_crue
+7290014746374,Chiffonade de Blanc de Dinde,Of Tov,blanc_de_poulet,dinde,temoin,3.0,c,1.75,16.0,decoupe_crue
+7290014747296,Blanc de dinde preparé en salaison et fumé,Of Tov,blanc_de_poulet,dinde,temoin,4.0,c,1.75,16.0,decoupe_crue
+7290014748224,Escalope de dinde Barbecue,Of Tov,blanc_de_poulet,dinde,temoin,-1.0,a,1.1299999952316,22.0,decoupe_crue
+8006473900443,Chicken Fillet,Amadori,blanc_de_poulet,poulet,temoin,4.0,c,1.2,12.0,decoupe_crue
+8410764013734,Pechuga de pavo,Argal,blanc_de_poulet,dinde,temoin,2.0,b,1.77,21.0,decoupe_crue
+8436000460742,Chicken breast in brine,Nobles,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,26.0,decoupe_crue
+8436000464771,L'Original Filet de Poulet en Saumure,Nobles,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,26.0,decoupe_crue
+8436000465716,Pechuga de pollo al natural,Aldelis,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,26.0,decoupe_crue
+84802934,2 filets poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0202800026635,Filets de poulet rôti,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
+0202800029063,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
+0202800030441,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
+0202800032476,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
+0202800035095,Filets de poulet rôtis,Casino,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
+0202800039031,Filets de poulet rôtis,Casino,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
+0202800041195,Filets de poulet rôtis,Casino,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,25.0,decoupe_crue
+0202800043694,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,25.0,decoupe_crue
+0202800060097,Filets de poulet,Casino,blanc_de_poulet,poulet,temoin,0.0,a,1.2,25.0,decoupe_crue
+0213122036271,Les escalopes dinde,Père Dodu,blanc_de_poulet,dinde,temoin,21.0,e,10.13,25.0,decoupe_crue
+0217247041332,Filets de poulet fermier loue,,blanc_de_poulet,poulet,temoin,21.0,e,11.0,25.0,decoupe_crue
+0217347040211,Filet de poulet mzrinrs au paprica,,blanc_de_poulet,poulet,temoin,0.0,a,1.3999999761581,21.0,decoupe_crue
+0217347053334,Filets de poulet marines au paprika,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.4,21.0,decoupe_crue
+0217437018892,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437021328,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437021458,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437022561,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437022639,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437022769,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437022837,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437023223,Filets de poulet rotis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437023889,Filet de poulet roti,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437023940,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437024077,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437024473,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437024664,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437024930,Filet de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437024992,Filets de poulet rotis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437025128,Filet de poulet rôti,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437025326,Filets de poulet rotis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437025524,Filets de Poulet rotis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437025654,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437025982,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437026040,Filets de poulets rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437026309,Les rotis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437026378,Filet de poulet roti,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437026576,Filets de poulet rotis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437026767,Filets de poulets rotis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437026897,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437027030,Filets de poulet rôti,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437027429,Filets de poulet Rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437027481,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437027627,Filets de poulets rotis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437027948,Filet de poulet rotis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437028013,Filets poulet,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437028143,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437028273,Filets de poulets rotis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437028471,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437028600,Filets poulets rotis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437028730,filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437028860,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437029195,Filet de poulet rotis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437029324,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.299999237061,decoupe_crue
+0217437029522,Filets de poulet,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437029713,Filets de Poulet Rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437029911,Filets de poulet rôtis Leader Price,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437029980,Filet de poulet roti,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437030313,Filet de poulet rotis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437030375,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437030443,Filets de poulet roti,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437030504,Filet de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437030573,Filets de poulet rotis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.2999999523163,23.299999237061,decoupe_crue
+0217437030900,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437031495,Fillet de poulet,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437031686,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437031754,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437032010,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437032218,Filet de poulet rotis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.2999999523163,23.299999237061,decoupe_crue
+0217437032348,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437032546,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437032997,Filet de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437033062,Filets de poulet Rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437033727,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437034960,Filets de poulet rôtis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437039880,Filets de poulet rotis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217437041852,Filets de poulet rotis,Leader Price,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.3,decoupe_crue
+0217594018100,Tranches de filet de poulet,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,25.0,decoupe_crue
+0217594022503,Tranches de filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.4,25.0,decoupe_crue
+0217594024736,Tranches de filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.4,25.0,decoupe_crue
+0217594026174,Tranches de filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.4,25.0,decoupe_crue
+0217637018043,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0233333078983,filet de poulet,,blanc_de_poulet,poulet,temoin,22.0,e,10.0,20.0,decoupe_crue
+0712569113380,Filets de poulet à l'orientale,Bofrost,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,19.6,decoupe_crue
+00997874,Sliced BBQ Chicken,Marks & Spencer,blanc_de_poulet,poulet,temoin,2.0,b,1.73,28.6,decoupe_crue
+13356569,Blanc de dinde,Fleury Michon,blanc_de_poulet,dinde,temoin,2.0,b,1.7,22.0,decoupe_crue
+16338841,Blanc de dinde au four bio,,blanc_de_poulet,dinde,temoin,0.0,a,1.4,21.0,decoupe_crue
+20013387,Blanc de dinde,Dufaur&Fils,blanc_de_poulet,dinde,temoin,3.0,c,1.9,22.0,decoupe_crue
+20517045,Hähnchenbrust-Filetstücke Klassik,Lidl,blanc_de_poulet,poulet,temoin,2.0,b,1.7,22.9,decoupe_crue
+20517052,Hähnchenbrust Filetstücke Sweet Chili,chef select,blanc_de_poulet,poulet,temoin,3.0,c,1.6725,22.3,decoupe_crue
+2095579014235,Filet de poulet spicy,,blanc_de_poulet,poulet,temoin,11.0,d,1.7,16.0,decoupe_crue
+2107604006105,Herbs chicken strips,,blanc_de_poulet,poulet,temoin,3.0,c,2.0,23.0,decoupe_crue
+2107659002800,Blanc de dinde,coop qualité & prix,blanc_de_poulet,dinde,temoin,12.0,d,2.4,20.0,decoupe_crue
+2107659003104,Blanc de Dinde,Coop,blanc_de_poulet,dinde,temoin,12.0,d,2.4,20.0,decoupe_crue
+2107659003203,Blanc de dinde,Coop,blanc_de_poulet,dinde,temoin,13.0,d,2.4000000953674,20.0,decoupe_crue
+2107659003654,Blanc de dinde,Coop,blanc_de_poulet,dinde,temoin,12.0,d,2.4,20.0,decoupe_crue
+2107659003852,Blanc de dinde,,blanc_de_poulet,dinde,temoin,12.0,d,2.4,20.0,decoupe_crue
+2108807006404,Mini brochette de filet de poulet mariné au curry,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,22.0,decoupe_crue
+2149949010645,Filet de poulet sans peau cuit,,blanc_de_poulet,poulet,temoin,2.0,b,1.7,22.0,decoupe_crue
+2208805040605,Mini-brochettes de filet de poulet assaisonné cumin paprika,,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,20.0,decoupe_crue
+2208928000005,Milanaise de dinde,Royal Bernard,blanc_de_poulet,dinde,temoin,-1.0,a,1.14278650035511,15.7471506569602,decoupe_crue
+2227548009649,Filet de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548020149,Filets de poulet,Carrefour,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548020934,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548021191,Filet de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548022433,Filets de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548023164,Filet de poulet rôti,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548023225,Filets de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548023683,Filets de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548024277,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548024345,Filets de poulet avec peau saumures et rotis,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548025120,Filets de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548025526,Filet de poulet avec peau rôti,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548025847,Filets de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.3999999761581,25.0,decoupe_crue
+2227548025915,Filets de poule,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548026240,"Filet de poulet avec peau, saumurés et rotis",,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548026639,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548027483,Filets de poulet rôti,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548027681,Filet de Poulets,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548027759,Filets de poulet,Carrefour,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548028015,Filets de poulet avec peau saumurés et rôtis,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548028145,Filets de poulet avec peau saumurés et rôtis,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548028275,Filet de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548028404,Filet de poulet,Carrefour,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548028473,Filet de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548028534,Filets de poulet avec peau saumurés et rotis,,blanc_de_poulet,poulet,temoin,2.0,b,1.3999999761581,25.0,decoupe_crue
+2227548029067,Filets de poulet rôti,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548029197,filet de poulet rotis,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548029586,Filet de Poulet rôtis,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548029654,Filets de poulet rôti,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548029852,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548029913,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548030117,Filets de poulet rôti,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548030179,Filets de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548030315,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548030636,Filets de poulet Carrefour,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548030704,Filets de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548031039,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548031497,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548032548,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548032999,"Filets de poulet avec peau, saumurés et rôtis",,blanc_de_poulet,poulet,temoin,2.0,b,1.3999999761581,25.0,decoupe_crue
+2227548033132,Filets de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548033194,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548033989,Filet de poulet avec peau,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548034245,Filet de poulet,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548034504,Filets de poulet rôtis,Carrefour Original,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548034900,Filets de poulet rôti,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548035099,Filet poulet roti,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548035167,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548035365,Filets de poulet,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548036010,Filet de poulet rotis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548037598,Filets de poulet,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548037789,"Filets de poulet avec peau, traités en salaison et rôtis",Carrefour Original,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548037918,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548038311,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548039424,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548039622,Filets de poulet rôti,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548040543,,Carrefour Original,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2227548040673,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,25.0,decoupe_crue
+2227548041465,Filets de Poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,24.0,decoupe_crue
+2252642002739,Filet de poulet,Delhaize,blanc_de_poulet,poulet,temoin,3.0,c,1.7,18.0,decoupe_crue
+2252644002515,Filet de poulet fines herbes,Delhaize,blanc_de_poulet,poulet,temoin,3.0,c,1.7,18.0,decoupe_crue
+2252644002638,Filet de Poulet,Delhaize,blanc_de_poulet,poulet,temoin,3.0,c,1.7,18.0,decoupe_crue
+2255956016799,Aiguillettes de poulet grillé,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.5,25.0,decoupe_crue
+2431628014632,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628015417,Filet de poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628015615,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628016018,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628016339,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628016926,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628017053,Filets de poulet rotis,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628017190,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.3999999761581,24.0,decoupe_crue
+2431628018043,Filets de poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628018241,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,2.0,b,1.4,24.0,decoupe_crue
+2431628018302,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628018432,Filet poulet rôti le gaulois,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628018562,Filets de poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628018760,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628018838,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628018968,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628019095,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628019156,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628019293,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628019613,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.3999999761581,24.0,decoupe_crue
+2431628019682,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628019743,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628019811,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628019880,Filet de pouler roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628020077,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628020145,Filets De Poulets Roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628020206,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628020336,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628020404,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628020534,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.3999999761581,24.0,decoupe_crue
+2431628020602,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628020664,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628020732,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628020794,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628020862,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628020930,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628020992,Filets de Poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628021128,Filets de poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628021197,filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628021258,Filet de poulet RÔTI Le gaulois,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628021388,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.4,24.0,decoupe_crue
+2431628021654,Filets de Poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628021784,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628021845,Poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628021913,Filets poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628021975,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628022040,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628022118,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628022170,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628022248,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628022309,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628022439,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628022507,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628022705,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628022767,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628022835,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628022965,Filets de poulet rôtis,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.3999999761581,24.0,decoupe_crue
+2431628023023,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628023092,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628023160,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628023221,Filets de poulet rôti,Le gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628023290,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628023351,Filets de poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628023429,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628023559,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628023610,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628023689,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628023757,Filets de Poulet Roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628023818,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628023887,Filet de poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628023948,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628024013,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.375,24.0,decoupe_crue
+2431628024075,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.3999999761581,24.0,decoupe_crue
+2431628024143,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628024204,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628024273,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628024341,Filets De Poulets Rotis,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628024402,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628024471,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628024532,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,3.0,c,1.1,20.0,decoupe_crue
+2431628024600,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,2.0,b,1.42,24.0,decoupe_crue
+2431628024662,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628024730,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628024808,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628024860,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628024938,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628024990,Filets De Poulet Rôtis,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628025065,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628025126,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628025195,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628025256,Filets de poulets rôtie,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628025324,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,2.0,b,1.4,24.0,decoupe_crue
+2431628025393,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628025454,Poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628025522,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628025584,Filets poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628025652,Filets de poulet Rôti,Le gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628025713,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628025782,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628025843,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.4,24.0,decoupe_crue
+2431628025911,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628025980,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,2.0,b,1.4,24.0,decoupe_crue
+2431628026048,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628026116,Filets Poulets Rôtis,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628026178,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.08,decoupe_crue
+2431628026246,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628026307,Filets de poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628026376,Filets de poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628026444,Filet De Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628026505,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628026635,Filets de poulet rôti,Le gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628026703,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628026765,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628026833,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628026895,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628026963,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628027038,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628027168,Blanc de Poulet Grillé Rôti ou Cuit au Four (Peau Pas Mangée),Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628027229,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628027298,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628027359,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628027427,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628027489,Filets de poulet ROTI,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628027557,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628027625,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628027687,Filet de poulet RÔTI,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.4,24.0,decoupe_crue
+2431628027755,Filet poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628027816,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628027946,Filets de poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628028011,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628028073,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628028141,filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628028219,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628028271,Filets de Poulet Rôtis,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628028349,Filet De Poulet Roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628028400,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628028479,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628028530,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628028608,Filets de poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628028677,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628028738,Filets de Poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.0825,24.0,decoupe_crue
+2431628028806,Filets de poulet rôtis,Le gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628028868,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628028936,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628028998,Filet de Poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628029063,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628029124,Filets de poulet rôti,Le gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628029261,Filet de poulets roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628029322,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628029391,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.3999999761581,24.0,decoupe_crue
+2431628029452,Filet de poulet rôti,le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628029520,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,2.0,b,1.4,24.0,decoupe_crue
+2431628029582,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628029650,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,2.0,b,1.42,24.0,decoupe_crue
+2431628029711,Filets de poulet Roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628029780,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628029858,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,2.0,b,1.44,24.0,decoupe_crue
+2431628029919,Filet de Poulet Rôtis Chaud ou Froid,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.3999999761581,24.0,decoupe_crue
+2431628029988,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628030045,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628030113,Filets de Poulet Rôtis,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.3999999761581,24.0,decoupe_crue
+2431628030175,Filets de Poulet Roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628030243,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628030311,Filets de poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628030373,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628030441,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628030502,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628030571,Filet de poulet roti,Le gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628030632,Filets de poulet rôti chaud ou froid,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628030700,Filets de poulet rôti,Le gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628030762,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628030830,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628030908,Filets de poulet rôti,Legaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628030960,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628031035,Filet poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,2.0,b,1.4,24.0,decoupe_crue
+2431628031097,Rôti de Filet de Poulet Cuit,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628031165,Filets de poulet roti,Le gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628031226,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628031295,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628031424,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628031493,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628031554,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628031622,Filet de poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628031684,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628031752,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628031813,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628031882,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628031950,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628032018,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628032087,filet poulet le gaulois,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628032148,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628032216,Filets de poulet rôti,Le GAULOIS,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628032346,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628032407,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628032476,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628032544,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628032605,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628032674,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628032803,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628032865,Filets de poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628032933,Filet de poulets rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628032995,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628033060,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628033138,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628033190,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.3,24.0,decoupe_crue
+2431628033268,Filets de poulet ROTI,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628033329,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628033398,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628033459,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628033527,Filet de poulet Roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628033589,Filets de poulets,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628033657,Filets de poulet Roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628033725,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628033787,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628033855,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628033916,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628033985,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628034043,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,2.0,b,1.44,24.0,decoupe_crue
+2431628034111,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628034180,Filets de Poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628034319,Blanc de Poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628034371,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628034449,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628034500,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628034579,Filets poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628034630,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628034708,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628034777,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628034838,Filets de Poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628034906,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628034968,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628035033,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628035095,Filets de Poulet Rotis,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628035163,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628035224,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628035293,Filet de poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628035361,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628035422,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628035491,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628035620,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628035682,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628035750,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628035828,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628035880,Filet de pouket roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628035958,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628036016,Filets de roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628036085,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628036214,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628036276,Filets poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628036344,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628036412,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628036474,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628036542,Rôti de Filet de Poulet Cuit,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628036603,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628036672,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628036733,Filets de Poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628036801,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628036863,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628036931,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628037068,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628037136,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,2.0,b,1.44,24.0,decoupe_crue
+2431628037198,Filet de Poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628037266,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628037327,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+2431628037396,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628037594,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628037655,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628037723,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628037785,Filet fe poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628037853,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628037914,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628037983,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628038058,Filets De Poulet Rôtis,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628038119,Filets de Poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628038188,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628038249,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628038317,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628038379,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628038447,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628038508,Filet de poulet le Gaulois,Le Gaulois,blanc_de_poulet,poulet,temoin,2.0,b,1.4,27.0,decoupe_crue
+2431628038577,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628038645,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628038706,Filet de poulet,Le gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628038775,Filets de poulet rôtis,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628038836,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628038904,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628038966,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628039031,Filet de poulet rôti,le gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628039109,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628039161,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628039239,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,2.0,b,1.4,24.0,decoupe_crue
+2431628039291,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628039369,FILETS de Poulet ROTI,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628039420,Filets de poulet rôtis,Le gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.28,23.0,decoupe_crue
+2431628039499,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628039550,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628039628,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628039758,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628039826,Filets de poulet rôti,Le gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628039888,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628039956,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628040013,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628040082,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628040143,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628040211,Poulet rôtis chaud ou froid,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628040280,Filet de poulet roti,le gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628040419,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628040471,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,2.0,b,1.42,24.0,decoupe_crue
+2431628040549,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628040679,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628040808,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628040877,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628040938,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628041003,LE GAULOIS,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628041133,Filets de poulet rotis,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+2431628041195,Filets de Poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628041263,Filet de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628041331,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628041393,Filets de poulet rôti,Le gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628041461,Filets de Poulet Rôti,le gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628041522,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628041591,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628041652,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628041720,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.3999999761581,24.0,decoupe_crue
+2431628041850,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628041928,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628041980,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,2.0,b,1.44,24.0,decoupe_crue
+2431628042055,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628042116,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+2431628042185,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628042246,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628042314,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628042376,Filets de poûet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628042444,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628042512,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628042574,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628042642,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628042703,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.3999999761581,24.0,decoupe_crue
+2431628042772,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628042833,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628042901,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628042970,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628043038,Filets de poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628043106,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628043168,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628043236,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628043298,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628043366,Filet de poulets roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628043427,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628043564,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.4,24.0,decoupe_crue
+2431628043625,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628043694,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628043755,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628043823,Filets de Poulet Roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628043885,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628043953,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628044011,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628044080,Filets de pouler roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.375,24.0,decoupe_crue
+2431628044158,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628044219,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628044288,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628044417,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+2431628044479,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628044547,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628044615,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628044677,Filet de poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.4,24.0,decoupe_crue
+2431628044806,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628044936,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628045063,Filets poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,2.0,b,1.42,24.0,decoupe_crue
+2431628045209,Filets poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628045261,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628045391,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628045469,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628045520,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628045599,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628045650,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628045728,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628045797,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628045858,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628045926,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628045988,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628046114,Filets de Poulet Roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628046244,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628046381,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628046442,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628046510,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628046572,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628046701,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628046770,,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628046978,Filets de poulet rotis,LE GAULOIS,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628047036,Filets de poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628047104,Le Gaulois,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628047234,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628047364,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628047494,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628047562,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628047623,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+2431628047951,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628048347,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628048484,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628048613,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628048675,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628048873,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628049337,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628049399,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628049528,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628049726,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628049856,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+2431628049986,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628050050,Filets de Poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628050128,Filets de Poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628051101,Filets de poulet ROTi,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628052085,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,23.0,decoupe_crue
+2431628052542,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628052610,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628054447,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+2431628056083,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2431628057530,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628059893,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431628071895,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2431638001257,Escalope l'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.11,23.0,decoupe_crue
+2431638014042,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638014509,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638014639,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638015353,Escalope de dinde extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638016336,Escalope de dinde extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638016404,Escalopes,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638016732,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638016923,Escalope de dinde l'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638017050,l'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638017197,Escalope de dinde,Le gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638017586,Escalope de dinde : l'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638017913,L'extra tendre escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638018101,Escalopes de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638018248,Escalope de dinde l'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638018835,Escalope de dinde extra-tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638018965,Escaloppes de dinde extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1000000238419,23.0,decoupe_crue
+2431638019290,2 escalopes dinde marinées extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638019481,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638019559,2 escalopes extra tendre marinées,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638019610,Escalope de dinde l'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638019740,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638019948,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638020012,Dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1000000238419,23.0,decoupe_crue
+2431638020074,L’extra tendre - Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638020142,2 escalopes de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1000000238419,23.0,decoupe_crue
+2431638020203,Escalope extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638020739,Escalope de dinde extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1000000238419,23.0,decoupe_crue
+2431638020869,L'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638021064,L'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638021521,Escalope extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638021842,2 escalopes de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638021910,Extra tendre dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638022115,Escalopes de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638022177,L’extra tendre Dinde,Le gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638022375,ESCALOPE DE DINDE,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638022566,Escalopes de dinde l'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638022702,Escalope de dinde extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638022894,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638022962,L'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1000000238419,23.0,decoupe_crue
+2431638023228,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638023297,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638023358,Escalope de dinde,Le gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638023426,Escalope de Dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.11,23.0,decoupe_crue
+2431638023488,L'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638023617,2 escalopes extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638023686,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1000000238419,23.0,decoupe_crue
+2431638023754,L extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638023884,Escalopes de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638023945,Escalope de dinde extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638024140,2 Escalopes de dinde marinées,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638024348,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638024478,Escalope de dinde Gaulois Extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638024539,L'extra tendre Escalope de dince,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638024607,Escalope Extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638024867,L'extra tendre escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,0.0,a,1.3,23.0,decoupe_crue
+2431638024935,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638024997,Escalope de Dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638025253,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638025390,Escalope de dinde extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638025451,Escalope de Dinde l'extra Tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638025529,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638025581,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638025710,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638025789,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638025987,Escalope de dinde  extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638026045,escalopes de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638026113,L extra tendre  escalopes de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,0.0,a,1.3,23.0,decoupe_crue
+2431638026175,2 escalopes de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638026441,Escalope de Dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638026502,Escalopes extra tendres marinées,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638026632,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638026762,L'extra tendre Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638026892,L'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638027165,Escalopes de dinde l'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638027226,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638027295,Escalopes extra tendre marinees,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638027882,Escalopes de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638028148,Escalope de dinde - Extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638028216,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638028278,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638028407,L'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638028674,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638028865,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638028933,Escalopes de dinde marinées,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638028995,Escalope l'Extra Tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638029398,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638029657,Escalaope de Dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638029916,L'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638030318,Extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638030448,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638030509,L'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638030967,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638031629,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638031681,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638031957,L'extra tendre escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638032671,Escalope de dînde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638032732,"Escalope de dinde, l'Extra Tendre",Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638033265,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638033852,Extra tendre - Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638034118,Escalope de dinde l'extra tendre,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638034507,Extra tendre escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638036471,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638036860,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,0.0,a,1.1,23.0,decoupe_crue
+2431638037133,L'extra tendre escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638037720,Escalopes,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638038116,Escalopes de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638038642,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638039823,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2431638043103,Escalope de dinde,Le Gaulois,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+2761247037300,Blanc de dinde,,blanc_de_poulet,dinde,temoin,3.0,c,1.7000000476837,22.0,decoupe_crue
+2846079026170,Aiguillettes de Poulet,Volaé,blanc_de_poulet,poulet,temoin,2.0,b,1.61,21.3,decoupe_crue
+2846079032997,Escalopes de dinde tomate & basilic,Volaé,blanc_de_poulet,dinde,temoin,-1.0,a,1.2,23.0,decoupe_crue
+2846079034908,Aiguillettes de poulet au curry,Volaé,blanc_de_poulet,poulet,temoin,2.0,b,1.6100000143051,21.299999237061,decoupe_crue
+2846123015686,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+2846123016201,Filets de poulet roti,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+2846123019356,2 filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+2846123019813,2 filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+2846123020536,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+2846123020666,Filet de poulet rôti,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+2846123020734,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.2599999904633,22.299999237061,decoupe_crue
+2846123021380,2 Filet de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.23,22.3,decoupe_crue
+2846123022240,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+2846123022301,Filet de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+2846123023353,2 filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+2846123023759,2 filets de poulets rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+2846123024800,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
+2846123025982,Filet de poulet rôti,,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+2850227073602,Filet de poulet Paprika,Réghalal,blanc_de_poulet,poulet,halal,3.0,c,1.9,21.0,decoupe_crue
+2896021008730,Blanc de Dinde Fumé,Fleury Michon,blanc_de_poulet,dinde,temoin,2.0,b,1.7,22.0,decoupe_crue
+2917253002300,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,12.0,d,1.4,24.0,decoupe_crue
+2917253002409,Filet de poulet Rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2917253002553,Filet de poulet Roti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.4,24.0,decoupe_crue
+2917253002683,Filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2917253002713,Filets de poulet roti,,blanc_de_poulet,poulet,temoin,2.0,b,1.4,24.0,decoupe_crue
+2917253002720,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2917253002782,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2917253002867,Filets de Poulet Rôti,,blanc_de_poulet,poulet,temoin,1.0,b,1.3999999761581,24.0,decoupe_crue
+2917253002881,Filet de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2917253002898,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2917253002959,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.3999999761581,24.0,decoupe_crue
+2917253003000,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2917253003086,Filets de poulet rôti,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2917253003109,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.1,24.0,decoupe_crue
+2917253003604,Filets de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2917436012102,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2917436012560,Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2917436013888,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,3.0,c,1.4,24.0,decoupe_crue
+2917436013925,Filet avec peau de poulet roti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2917436014861,Filets de poulets,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2917436015141,Filets avec peau de poulet,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2988790014187,Filets de poulets cuits grilles,,blanc_de_poulet,poulet,temoin,2.0,b,1.6000000238419,20.0,decoupe_crue
+29888061,"Emincé de Poulet, Façon Gyros","Lidl, L’étal du volailler",blanc_de_poulet,poulet,temoin,1.0,b,1.55,18.0,decoupe_crue
+3263856754412,Aiguillettes de Poulet Mariné Nature,Leader Price,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,19.9,decoupe_crue
+3263856877210,Aiguillettes de poulet marinées au basilic,L'Offre du Volailler,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,21.0,decoupe_crue
+3263856894118,Escalopes de Dinde à la Provençale,Leader Price,blanc_de_poulet,dinde,temoin,-1.0,a,1.2,19.7,decoupe_crue
+3263858608416,Blanc de dinde,Leader Price,blanc_de_poulet,dinde,temoin,3.0,c,1.8,21.0,decoupe_crue
+3266089784614,Crousty Chicken,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,18.0,decoupe_crue
+3266110501562,Blanc de dinde,,blanc_de_poulet,dinde,temoin,3.0,c,1.9,21.0,decoupe_crue
+3302740021244,Aiguillettes de Poulet Rôti,Fleury Michon,blanc_de_poulet,poulet,temoin,1.0,b,1.5,24.0,decoupe_crue
+3302740026676,Aiguillettes de poulet roti,Fleury Michon,blanc_de_poulet,poulet,temoin,0.0,a,1.3,24.0,decoupe_crue
+3302740029424,Aiguillettes de poulet rôti,Fleury Michon,blanc_de_poulet,poulet,temoin,0.0,a,1.3,24.0,decoupe_crue
+3302740046940,Poulet Rôti,Fleury Michon,blanc_de_poulet,poulet,temoin,2.0,b,1.8,25.0,decoupe_crue
+3302740067648,Aiguillettes de poulet rote,Fleury Michon,blanc_de_poulet,poulet,temoin,0.0,a,1.3,24.0,decoupe_crue
+3302740075230,Roti de poulet,Fleury Michon,blanc_de_poulet,poulet,temoin,1.0,b,1.5,22.0,decoupe_crue
+3302740075872,Aiguillettes de poulet rôti,Fleury Michon,blanc_de_poulet,poulet,temoin,1.0,b,1.5,24.0,decoupe_crue
+3304030000021,Filet se poulet  roti,,blanc_de_poulet,poulet,temoin,11.0,d,2.2,18.2,decoupe_crue
+3338310300570,Aiguillettes de poulet à la crème d'Isigny AOP,,blanc_de_poulet,poulet,temoin,6.0,c,1.1,9.4,decoupe_crue
+3345100007519,Blanc de dinde 5 tranches,,blanc_de_poulet,dinde,temoin,14.0,d,2.7,18.5,decoupe_crue
+3350033096240,Cubes de Filet de Poulet Roti au Curry,Monoprix,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,23.0,decoupe_crue
+3350033096257,Cubes de filet de poulet rôti nature,Monoprix,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,23.0,decoupe_crue
+3350033099814,Emincés de filet de poulet à la provençale,Monoprix,blanc_de_poulet,poulet,temoin,0.0,a,1.4,24.0,decoupe_crue
+3350033099821,Émincés de filet de poulet au curry,Monoprix,blanc_de_poulet,poulet,temoin,0.0,a,1.3,24.0,decoupe_crue
+3350033776425,Émincés de poulet rôti saveur barbecue,Monoprix,blanc_de_poulet,poulet,temoin,1.0,b,1.4,19.0,decoupe_crue
+3512690002846,,Isla delice,blanc_de_poulet,poulet,temoin,3.0,c,1.93,17.3,decoupe_crue
+3512690002860,Filet de poulet halal Isla Délice,Isla delice,blanc_de_poulet,poulet,halal,17.0,d,3.3,16.5,decoupe_crue
+3512690004864,Tenders filet de poulet,Isla delice,blanc_de_poulet,poulet,halal,0.0,a,1.5,13.0,decoupe_crue
+3554983006445,Blanc de dinde qualité choix,Transgourmet,blanc_de_poulet,dinde,temoin,3.0,c,1.9,20.0,decoupe_crue
+3560070742332,Émincés d'aiguillettes de poulet,Carrefour,blanc_de_poulet,poulet,temoin,0.0,a,1.3,25.0,decoupe_crue
+3584730005742,Filet de poulet roti,,blanc_de_poulet,poulet,temoin,0.0,a,1.3,21.3,decoupe_crue
+3596710384129,1/2 filet de poulet rôti curry,Auchan,blanc_de_poulet,poulet,temoin,11.0,d,2.1,23.0,decoupe_crue
+3596710527397,Aiguillettes gourmandes de poulet rôti,Auchan,blanc_de_poulet,porc,temoin,0.0,a,1.3,25.0,decoupe_crue
+3596710528653,Aiguillettes gourmandes de poulet aux herbes de Provence,Auchan,blanc_de_poulet,porc,temoin,1.0,b,1.6,25.0,decoupe_crue
+3596710530250,Filets de poulet rôtis aux herbes,Auchan,blanc_de_poulet,porc,temoin,2.0,b,1.8,24.0,decoupe_crue
+3661112096526,Aiguillettes de Poulet Rôti,Tradilège,blanc_de_poulet,poulet,temoin,2.0,b,1.8,22.0,decoupe_crue
+3760261148329,Steak de filet de poulet,,blanc_de_poulet,poulet,temoin,11.0,d,1.1,16.3,decoupe_crue
+3770001868172,&quot;Façon de filet de poulet&quot;,,blanc_de_poulet,poulet,temoin,3.0,c,1.25,16.9,decoupe_crue
+53995018,Fine aiguettes de poulet grillé,Fleury Michon,blanc_de_poulet,poulet,temoin,2.0,b,1.8,22.0,decoupe_crue
+5400101023352,Carrefour Classic' Filet de Poulet Chiffonnade,Carrefour Classic,blanc_de_poulet,poulet,temoin,1.0,b,1.5,21.0,decoupe_crue
+5411319080617,Filet de poulet prestige,,blanc_de_poulet,poulet,temoin,13.0,d,2.1,15.0,decoupe_crue
+5411431199051,Filet de dinde,,blanc_de_poulet,dinde,halal,13.0,d,2.4,19.0,decoupe_crue
+5411431199242,Filet de Dinde Rôtie,agrosnack,blanc_de_poulet,dinde,halal,13.0,d,2.4,19.0,decoupe_crue
+5411431199952,Volys Sliced Turkey Breast,,blanc_de_poulet,dinde,temoin,13.0,d,2.4,19.0,decoupe_crue
+5904170003876,Filets de Poulet Surgelés,,blanc_de_poulet,poulet,halal,0.0,a,1.3,18.0,decoupe_crue
+6010624595633,Émincé de filet de poulet rôti,,blanc_de_poulet,poulet,temoin,3.0,c,2.0,20.2,decoupe_crue
+7290000155890,Filet De Poulet,HOD LAVAN,blanc_de_poulet,poulet,temoin,1.0,b,1.5,18.0,decoupe_crue
+7290000531922,Chiffonnade Poitrine Dinde Grillée,Soglowek,blanc_de_poulet,dinde,temoin,4.0,c,1.975,17.0,decoupe_crue
+7290000651248,Escalope Dinde BBQ,Of Tov,blanc_de_poulet,dinde,temoin,-1.0,a,1.13,22.0,decoupe_crue
+7290001567173,Filet de poulet fumé au bois de hêtre,Ricky's,blanc_de_poulet,poulet,temoin,3.0,c,1.8,17.0,decoupe_crue
+7290001567449,Chiffonnade de filet de poulet,Ricky's,blanc_de_poulet,poulet,temoin,3.0,c,1.8,17.0,decoupe_crue
+8719661001739,Aiguilette de poulet panée,,blanc_de_poulet,poulet,temoin,4.0,c,1.5,16.5,decoupe_crue
+00888325,Chicken Tikka Mini Fillets,"M&S, Marks & Spencer",blanc_de_poulet,poulet,temoin,0.0,a,1.33,27.2,decoupe_crue
+0202156008996,Filet de poulet rôti,,blanc_de_poulet,poulet,temoin,2.0,b,1.7,24.0,decoupe_crue
+0207960013259,Filet de poulet roti au four,U,blanc_de_poulet,poulet,temoin,3.0,c,2.0,25.0,decoupe_crue
+0215680015156,Aiguillettes de poulet recette thym citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680015415,Aiguilettes de poulet marinees thym citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680016276,Aiguillettes de poulet,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680017051,Aiguillettes de poulet  thym citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680019482,Aiguillette de poulet,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680019741,Aiguillettes de poulet recette thym citron,,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680019888,Aiguillettes de poulet recette thym citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680020273,Aiguillettes de poulet thym citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680020334,Aiguillettes de poulet au thyn et citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680020730,Aiguillettes poulet thym citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680021522,Aiguillettes de poulet thym citron,,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680021973,Aiguillettes de poulet thym citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680022833,Aiguillettes de poulet thym citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680023298,Aiguillettes de poulet thym citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680023557,Aiguillettes de Poulet Thym Citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680023687,Aiguillettes de poulet recette thym citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680024479,Aiguillettes de poulet thym citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680024608,Aiguillettes de poulet recette thym et citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680026374,Aiguillettes de poulet,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680026442,Aiguillettes de poulet thym citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680028996,Aiguillette de poulet,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215680042053,Aiguillettes de poulet marinees thym citron,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.3,23.0,decoupe_crue
+0215703029580,Poulet nourri aux graines de Lin,Maître CoQ,blanc_de_poulet,poulet,temoin,15.0,d,3.0,24.0,decoupe_crue
+0215779022119,Filets de poulet rôtis avec peau,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779024472,Filets rôtis de poulet,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779024861,Filets de Poulet Rôtis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779024991,2 filets de poulet rôtis,Maître CoQ,blanc_de_poulet,poulet,temoin,2.0,b,1.41,24.0,decoupe_crue
+0215779026445,FILETS DE POULET ROTIES,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779026506,Filets de poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779026834,2 filets de poulet Rôtis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779027091,2 Filets de poulets rôties,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779027626,Filet de poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779027817,2 Filets de poulet rôtis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779028272,2 filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779028739,2 Filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779028937,Filets de poulets,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.3999999761581,24.0,decoupe_crue
+0215779029194,Filets de poulet rôtis,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779029392,Filets de poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779029453,Filets de poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779029859,Filets poulet roties,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779030114,2 filets de poulet ritis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779030176,2 filets de poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779030442,Filets de poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779030701,Filet de poulet rôti,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779030763,2 FILETS DE POULET ROTI,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779030831,Filet de poulet,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779031036,Filet de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779031166,2 filets de poulets rôtis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779031227,2 filets de poulet rôtis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779031296,Filets de poulet rôties,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779031685,Filet de poulet rôtis Maître Coq,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779031883,2 filets de poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779032019,2 filets de poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779032408,Filets de poulet rôtis,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779032675,2 filets de poulet roties,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779033061,Filets de poulet rôtis,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779033191,2 filets de poulet rôtis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779033269,Filet de poulet Rôtis,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779033320,Filets de poulet avec peau rotis cuits,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.3999999761581,24.0,decoupe_crue
+0215779033528,2 filets de poulet rôtis,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779033788,2 filets de poulet rôtis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779034112,Filet de poulet roti,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779034440,2 Filets de poulet rôties,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779035034,2 filets de poulet rôties,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779035225,2 filets de poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779035362,Filets poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779035492,2 filet de poulets,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779035683,2 filets de poulet Roties,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779036147,Filets de poulet rôti,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779036413,2 filets de poulet rôties,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779037328,Filet de poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779037465,2 filets de poulets roti,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779037526,2 filets de poulet roties,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779037656,2 filets de poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779038110,2 filets de poulet rôtis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779038240,Filets de poulet rôtis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.3,23.0,decoupe_crue
+0215779038318,2 Filets de poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779038509,2 filets de poulet rôtis,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779038776,Filet de poulet rôti,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779039032,2 filets de poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779039100,Filets de poulet rôti,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779039957,Filets de poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.3999999761581,24.0,decoupe_crue
+0215779040083,Filets de poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779041851,2 filets de poulet rôtis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779042643,Filets de poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779042773,Filets de poulet rôtis,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779043107,Filets de poulet,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779043954,2 Filets de poulet rotis,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779045927,2 filets de poulet rôti,Maître CoQ,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+0215779045989,2 filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215779047563,2 filets de poulet rôties,Maître CoQ,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+0215789055633,6 escalopes de dinde marinées,Maître CoQ,blanc_de_poulet,dinde,temoin,-1.0,a,1.1,23.0,decoupe_crue
+0238419028142,Filet de poulet a la savoyarde,,blanc_de_poulet,poulet,temoin,2.0,b,1.57,19.5,decoupe_crue
+2006050061938,Aiguillettes de poulet marinées crème et champignons,Corril,blanc_de_poulet,poulet,temoin,3.0,c,1.9,21.0,decoupe_crue
+20295141,Aiguillettes de poulet roties,L'etal Du Volailler,blanc_de_poulet,poulet,temoin,0.0,a,1.4,26.0,decoupe_crue
+20295165,Aiguillettes de poulet rôties à la mexicaine,,blanc_de_poulet,poulet,temoin,2.0,b,1.8,24.0,decoupe_crue
+20581640,Chicken breast strips,Mcennedy,blanc_de_poulet,poulet,temoin,3.0,c,1.9,21.2,decoupe_crue
+20758882,Hähnchenbrust salatstreifen,chef select,blanc_de_poulet,poulet,temoin,2.0,b,1.6725,23.6,decoupe_crue
+2078842025008,Emince de filet poulet halal cuit tikka surgele iqf,,blanc_de_poulet,poulet,halal,2.0,b,1.8,22.0,decoupe_crue
+2316655012144,Filet de poulet roti cuit avec la peau,,blanc_de_poulet,poulet,temoin,11.0,d,2.0,23.0,decoupe_crue
+2316655013745,Filet de poulet roti,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,23.0,decoupe_crue
+2684557061998,Cubes de filet de poulet marinés tomate origan crus,,blanc_de_poulet,poulet,temoin,1.0,b,1.6,21.3,decoupe_crue
+2691361031031,Filet de poulet rôti,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,25.0,decoupe_crue
+2691361037651,Filet de poulet roti,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,25.0,decoupe_crue
+2691361038702,Filets de poulet roti,,blanc_de_poulet,poulet,temoin,0.0,a,1.2,25.0,decoupe_crue
+2691361041009,Filets de poulet,,blanc_de_poulet,poulet,temoin,3.0,c,1.4,21.0,decoupe_crue
+2691361042310,Filet de poulet rôti,,blanc_de_poulet,poulet,temoin,1.0,b,1.2,25.0,decoupe_crue
+2715125005240,2 Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2726383005804,Filets de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,1.0,b,1.4,24.0,decoupe_crue
+2964820001990,Pechuga de pavo,Noel,blanc_de_poulet,dinde,temoin,8.0,c,2.0,2.8,decoupe_crue
+3095751926010,Aiguillettes de Poulet - Rôties au Four,Fleury Michon,blanc_de_poulet,poulet,temoin,0.0,a,1.86666666666667,24.0,decoupe_crue
+3095752694017,Filet de poulet fumé,Fleury Michon,blanc_de_poulet,poulet,temoin,2.0,b,1.8,23.0,decoupe_crue
+3095753025018,Aiguillettes de Poulet - Rôties au four,Fleury Michon,blanc_de_poulet,poulet,temoin,1.0,b,1.5,22.0,decoupe_crue
+3095753303017,Aiguillettes de poulet grillé (+20% gratuit),Fleury Michon,blanc_de_poulet,poulet,temoin,2.0,b,1.8,24.0,decoupe_crue
+3095756617012,Aiguillettes de Poulet - Rôties au Four,Fleury Michon,blanc_de_poulet,poulet,temoin,2.0,b,1.8,24.0,decoupe_crue
+3095756622016,Aiguillettes de poulet - 25% de Sel*,Fleury michon,blanc_de_poulet,poulet,temoin,0.0,a,1.2775,24.0,decoupe_crue
+3095756644018,Aiguillettes de poulet grillé - 150 g,Fleury Michon,blanc_de_poulet,poulet,temoin,2.0,b,1.8,24.0,decoupe_crue
+3095756798018,Blanc de Dinde (30g,Fleury Michon,blanc_de_poulet,dinde,temoin,2.0,b,1.7,22.0,decoupe_crue
+3095756913015,Filet de poulet,Fleury Michon,blanc_de_poulet,poulet,temoin,0.0,a,1.4,24.0,decoupe_crue
+3095757198015,Blanc de dinde Halal - 10tr.,Fleury Michon,blanc_de_poulet,dinde,halal,2.0,b,1.7,22.0,decoupe_crue
+3095757770013,Aiguillettes Poulet grillé,Fleury Michon,blanc_de_poulet,poulet,temoin,2.0,b,1.775,24.0,decoupe_crue
+3095758012013,Aiguillette de poulet rôti,Fleury Michon,blanc_de_poulet,poulet,temoin,2.0,b,1.8,24.0,decoupe_crue
+3095758110016,FILET TRANCHE DE POULET BARBECUE - 4tr.,Fleury Michon,blanc_de_poulet,poulet,temoin,3.0,c,1.8,26.0,decoupe_crue
+3095758111013,FILET TRANCHE DE POULET CURRY - 4 tr.,Fleury Michon,blanc_de_poulet,poulet,temoin,2.0,b,1.8,27.0,decoupe_crue
+3095758154010,Aiguillettes de poulet rôti tomate & basilic - 150g,Fleury Michon,blanc_de_poulet,poulet,temoin,2.0,b,1.8,24.0,decoupe_crue
+3095758155017,Aiguillettes de poulet rôti barbecue - 150 g,Fleury Michon,blanc_de_poulet,poulet,temoin,3.0,c,1.8,24.0,decoupe_crue
+3095759284013,Filet de poulet rôti les 2 barquettes de 4 tranches 360 g,Fleury Michon,blanc_de_poulet,poulet,temoin,2.0,b,1.7,24.0,decoupe_crue
+3095759346018,Filet de poulet rôti,Fleury Michon,blanc_de_poulet,poulet,temoin,2.0,b,1.7,24.0,decoupe_crue
+3095759681010,Lamelles de poulet Halal -25% de sel,Fleury Michon,blanc_de_poulet,poulet,halal,3.0,c,1.4,20.0,decoupe_crue
+3222473884803,Filet de Poulet tranché cuit au four,Casino,blanc_de_poulet,poulet,temoin,0.0,a,1.2446,27.0,decoupe_crue
+3250392064044,Aiguillettes de poulet Rôties,Monique Ranou,blanc_de_poulet,poulet,temoin,2.0,b,1.8,21.0,decoupe_crue
+3263859526016,Escalopes de dinde mariner à la provençale,Leader Price,blanc_de_poulet,dinde,temoin,0.0,a,1.25,23.0,decoupe_crue
+3272350001298,Filets de poulet marinés du sud,,blanc_de_poulet,poulet,temoin,3.0,c,2.0,22.0,decoupe_crue
+3272350003247,Aiguillettes poulet marinées Fines herbes,,blanc_de_poulet,poulet,temoin,0.0,a,1.3,21.0,decoupe_crue
+3276720405082,Escalopes de dinde,Ronsard,blanc_de_poulet,dinde,temoin,-1.0,a,1.04,26.2,decoupe_crue
+3276723847087,Filets de poulet rotis,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,26.0,decoupe_crue
+3276724120714,Filets de poulet traités en salaison façon tex mex rotis,,blanc_de_poulet,poulet,temoin,3.0,c,1.3,26.0,decoupe_crue
+3276724122619,2 filets de poulet rôtis - façon rôtisserie,Ronsard,blanc_de_poulet,poulet,temoin,0.0,a,1.1,26.0,decoupe_crue
+3276724122626,Aiguillettes de poulet roti,Ronsard,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,26.0,decoupe_crue
+3276724534160,Filets de poulet marinés saveur tomate basilic,Ronsard,blanc_de_poulet,poulet,temoin,0.0,a,1.4,23.0,decoupe_crue
+3277670124863,Filet de poulet cuit roti,,blanc_de_poulet,poulet,temoin,0.0,a,1.4,21.0,decoupe_crue
+3277670738633,Emincés de filet de poulet rotis,,blanc_de_poulet,poulet,halal,-1.0,a,1.2,23.5,decoupe_crue
+3292590852511,AIGUILLETTES POULET Rôties coupées,Thiriet,blanc_de_poulet,poulet,temoin,1.0,b,1.5,26.0,decoupe_crue
+3292590852658,Aiguillettes de poulet marinées à la mexicaine,Thiriet,blanc_de_poulet,poulet,temoin,3.0,c,1.9,27.0,decoupe_crue
+3356067679114,Aiguillettes de poulet au chorizo,,blanc_de_poulet,poulet,temoin,2.0,b,1.2,13.0,decoupe_crue
+3356067763608,Aiguillettes de poulet au Chorizo et Tagliatelles,,blanc_de_poulet,poulet,temoin,3.0,c,1.1,10.0,decoupe_crue
+3378740479989,Emincés de filet de poulet rôti,Le Gaulois,blanc_de_poulet,poulet,temoin,0.0,a,1.4,22.5,decoupe_crue
+3378740898810,Escalope de dinde à la Viennoise,,blanc_de_poulet,dinde,temoin,2.0,b,1.09,15.0,decoupe_crue
+3379670013694,Filet de Poulet,Hereford,blanc_de_poulet,poulet,temoin,2.0,b,1.74,21.6,decoupe_crue
+3416510002255,Creolay,Blanc poulet,blanc_de_poulet,dinde,temoin,12.0,d,2.25,19.3,decoupe_crue
+3435660615498,EMINCES DE FILET DE POULET BRAISES,,blanc_de_poulet,poulet,temoin,1.0,b,1.5,23.0,decoupe_crue
+3435660690334,Emincés de filets de poulet rôtis,"Douce France, Pere Dodu",blanc_de_poulet,poulet,temoin,0.0,a,1.4,23.0,decoupe_crue
+3435660690341,Émincés de Filets de Poulet au curry,"Douce France, Père Dodu",blanc_de_poulet,poulet,temoin,0.0,a,1.4,23.0,decoupe_crue
+3435660715440,Émincés de filets de poulets rôtis,Père Dodu,blanc_de_poulet,poulet,temoin,0.0,a,1.4,23.0,decoupe_crue
+3435660716720,Emincée de filet de poulet rotis 5mm IQF HALAL,,blanc_de_poulet,poulet,halal,-1.0,a,1.2,21.0,decoupe_crue
+3435660722080,Aiguillettes poulet roties,Père Dodu,blanc_de_poulet,poulet,temoin,0.0,a,1.3,26.0,decoupe_crue
+3435660722097,Mes P'tites aiguillettes de poulet provençale,Pere Dodu,blanc_de_poulet,poulet,temoin,0.0,a,1.4,23.0,decoupe_crue
+3435660728235,Eminces de filet de poulet roti curry,,blanc_de_poulet,poulet,temoin,1.0,b,1.6,21.0,decoupe_crue
+3435660731372,Aiguillettes de Poulet,Père Dodu,blanc_de_poulet,poulet,temoin,0.0,a,1.3,26.0,decoupe_crue
+3435660731389,P'tites Aiguillettes de Poulet rôties à la Provençale,Père Dodu,blanc_de_poulet,poulet,temoin,0.0,a,1.4,23.0,decoupe_crue
+3435660732027,Emincés de filet de poulet rôti,,blanc_de_poulet,poulet,temoin,12.0,d,2.3,20.2,decoupe_crue
+3435660737794,Émincés de filet poulet paprika,Père Dodu,blanc_de_poulet,poulet,temoin,0.0,a,1.4,24.0,decoupe_crue
+3435660738678,Les émincés de filets de poulet rôtis au paprika,Père Dodu,blanc_de_poulet,poulet,temoin,0.0,a,1.4,24.0,decoupe_crue
+3435660740350,Emincés de filet de poulet Halal Roti surgelés IQF,,blanc_de_poulet,poulet,halal,2.0,b,1.8,19.0,decoupe_crue
+3435660782985,Emincés de filet de poulet rôtis,Grand Frais,blanc_de_poulet,poulet,temoin,0.0,a,1.3775,24.0,decoupe_crue
+3435660784101,Filet de poulet mariné à la basquaise,Père Dodu,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,20.0,decoupe_crue
+3435660786426,Emince filet de poulet marine a la grecque,,blanc_de_poulet,poulet,temoin,1.0,b,1.5,20.0,decoupe_crue
+3449865280115,Filet de poulet,Cochonou,blanc_de_poulet,poulet,temoin,13.0,d,2.6,19.0,decoupe_crue
+3477000004111,Emincés De Filets De Poulet Cuit Fumé,,blanc_de_poulet,poulet,temoin,0.0,a,1.1,20.0,decoupe_crue
+3477000004159,Eminces De Filet De Poulet Cuit Rôti Isans Peau,,blanc_de_poulet,poulet,temoin,3.0,c,1.9,23.0,decoupe_crue
+3477000014813,Émincés de filet de poulet cuits Rôtis,,blanc_de_poulet,poulet,temoin,2.0,b,1.7,19.0,decoupe_crue
+3477000016916,Émincés d'aiguillettes de poulet,,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,20.0,decoupe_crue
+3477000017081,Émincé de filet de poulet cuit fumé,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,24.0,decoupe_crue
+3477000017104,Émincé de filet de poulet à l'indienne,,blanc_de_poulet,poulet,temoin,0.0,a,1.3,22.0,decoupe_crue
+3477000017623,Eminces de filet de poulet rôti aux cinq baies,,blanc_de_poulet,poulet,temoin,1.0,b,1.6,22.0,decoupe_crue
+3560070968497,Aiguillettes de Poulet Rôti,Carrefour,blanc_de_poulet,poulet,temoin,1.0,b,1.5,27.0,decoupe_crue
+3560071547783,Grignottes de poulet rôti,Carrefour,blanc_de_poulet,poulet,temoin,12.0,d,1.7,20.0,decoupe_crue
+3564700890400,Filet de poulet,"Marque Repère, Volandry",blanc_de_poulet,poulet,temoin,2.0,b,1.1,23.0,decoupe_crue
+3571320028540,Filet de poulet rôti,Le gaulois,blanc_de_poulet,poulet,temoin,3.0,c,1.9,17.6,decoupe_crue
+3571320448928,Emincés de filet de poulet cuits nature,Carrefour,blanc_de_poulet,poulet,temoin,-1.0,a,1.2,25.0,decoupe_crue
+3571320448973,Émincés filet de poulet cuits (indiens),,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,24.0,decoupe_crue
+3571320448980,Émincés de filet de poulet cuits saveur indienne,,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,24.0,decoupe_crue
+3571320750694,Emincés de filet de poulet cuits nature,Réghalal,blanc_de_poulet,poulet,halal,-1.0,a,1.2,25.3,decoupe_crue
+3571326672266,Filet de poulet fumé,Le gaulois,blanc_de_poulet,poulet,temoin,11.0,d,1.5,24.0,decoupe_crue
+3596710508761,Emincés d'aiguillettes de poulet rôties -25 % de sel *,Auchan,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,25.0,decoupe_crue
+3596710508778,Emincés d'aiguillettes de poulet rôties,Auchan,blanc_de_poulet,poulet,temoin,0.0,a,1.3,25.0,decoupe_crue
+3700524789005,Filets de poulet Roti,Netto,blanc_de_poulet,poulet,temoin,1.0,b,1.26,22.3,decoupe_crue
+4004155015601,Hähnchenfiletsteaks,Vossko,blanc_de_poulet,poulet,temoin,2.0,b,1.75,20.3,decoupe_crue
+4061458089685,Hahnchen filetspiesse,Aldi,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,21.0,decoupe_crue
+4589652125812,Escalopes de dinde tomate basilic,L'Étal du Volailler,blanc_de_poulet,dinde,temoin,-1.0,a,1.2,21.0,decoupe_crue
+4056489242550,Escalopes de dinde paprika,L'etal Du Volailler,blanc_de_poulet,dinde,temoin,0.0,a,1.3999999761581,20.0,decoupe_crue
+4056489676225,Escalopes de dinde marinées à la provençale,L'Etal du Volailler,blanc_de_poulet,dinde,temoin,16.0,d,3.1,22.0,decoupe_crue
+4056489676232,Escalopes de dinde marinées à la provençale,L'Etal du Volailler,blanc_de_poulet,dinde,temoin,16.0,d,3.1,22.0,decoupe_crue
+4056489822035,Filets de poulet mariné au thym-citron,L'etal Du Volailler,blanc_de_poulet,poulet,temoin,1.0,b,1.5,20.1,decoupe_crue
+5010069504833,Émincés de filet de poulet roti,,blanc_de_poulet,poulet,halal,2.0,b,1.7,22.0,decoupe_crue
+5010069595565,Eminces de filet de poulet roti,,blanc_de_poulet,poulet,temoin,2.0,b,1.7,21.0,decoupe_crue
+5010069595633,Émincés de filet de poulet rôti,MOY PARK,blanc_de_poulet,poulet,temoin,3.0,c,2.0,20.2,decoupe_crue
+5051898591489,Roast Chicken Breasts,Tesco,blanc_de_poulet,poulet,temoin,1.0,b,1.0325,21.4,decoupe_crue
+5400501722848,"Filet De Poulet, Fumé",Cactus,blanc_de_poulet,poulet,temoin,0.0,a,1.1,23.5,decoupe_crue
+5400501808047,Filet de poulet au curry,Cactus,blanc_de_poulet,poulet,temoin,3.0,c,2.0,19.0,decoupe_crue
+5414403036606,Aiguillettes de poulet pané,,blanc_de_poulet,poulet,temoin,1.0,b,1.3,19.0,decoupe_crue
+5902461000078,Émincé de filet de poulet,,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,21.0,decoupe_crue
+5902487124093,Émincé de filet de poulet rôti surgelé,,blanc_de_poulet,poulet,temoin,3.0,c,1.66,16.0,decoupe_crue
+5902487124222,Émincé de filet de poulet nature,,blanc_de_poulet,poulet,temoin,3.0,c,1.66,16.0,decoupe_crue
+5941645104263,Tranchée de filet de poulet rôti,,blanc_de_poulet,poulet,halal,0.0,a,1.4,19.8,decoupe_crue
+5941645702858,Filet de poulet cuit roti,,blanc_de_poulet,poulet,temoin,3.0,c,1.9,18.5,decoupe_crue
+6005731946010,Aiguillettes de poulet rôti,,blanc_de_poulet,poulet,temoin,2.0,b,1.8,24.0,decoupe_crue
+69063985,Aiguillettes de poulet marinées,,blanc_de_poulet,poulet,temoin,0.0,a,1.4,20.0,decoupe_crue
+7640123011496,Bongusto Pouletbrust filet Stücke,,blanc_de_poulet,poulet,temoin,14.0,d,2.75,20.9,decoupe_crue
+7925436012522,Filet de poulet,,blanc_de_poulet,poulet,temoin,-5.0,a,1.1,24.0,decoupe_crue
+8712566393787,Melange Plus Poulet aux épices,Knorr,blanc_de_poulet,poulet,temoin,-1.0,a,1.1,24.0,decoupe_crue
+8588001962470,Filet poulet,,blanc_de_poulet,poulet,temoin,6.0,c,1.4,12.0,decoupe_crue

@@ -1,9 +1,10 @@
 produit,marque,n,nutriscore,sel,proteines
-jambon_cuit,fleury-michon,51,2.0,1.8,21.0
-jambon_cuit,carrefour,10,12.0,2.3,20.0
-jambon_cuit,isla-mondial,16,12.0,2.4,19.1
-jambon_cuit,reghalal,27,13.0,2.4,18.0
-jambon_cuit,isla-delice,37,18.0,3.4,16.6
+jambon_cuit,fleury-michon,54,2.0,1.8,21.0
+jambon_cuit,carrefour,12,12.0,2.3,20.0
+jambon_cuit,isla-mondial,28,13.0,2.4,18.9
+jambon_cuit,reghalal,33,13.0,2.5,18.0
+jambon_cuit,arabi,12,14.5,2.5,11.1
+jambon_cuit,isla-delice,54,18.0,3.4,15.55
 nugget,isla-delice,10,0.0,1.25,10.8
 saucisse_volaille,royal-halal,13,13.0,1.7,17.0
 saucisson_sec,isla-mondial,13,32.0,3.6,22.1
