@@ -1,0 +1,9 @@
+{
+  "date_collecte": "2026-09-05T11:43:09Z",
+  "total_annonce_par_api": 307340,
+  "releves_collectes": 293934,
+  "releves_du_perimetre": 11085,
+  "collecte_complete": false,
+  "taille_page": 1000,
+  "plafond_pages_du_service": 500
+}
