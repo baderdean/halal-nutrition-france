@@ -59,5 +59,7 @@ jobs:
         if: always()
         with:
           name: couche14-registre
-          path: sorties/s4_sonde_registre.csv
+          path: |
+            sorties/s4_sonde_registre.csv
+            sorties/s5_index_dgal.csv
           if-no-files-found: warn

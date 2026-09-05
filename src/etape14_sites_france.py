@@ -90,10 +90,19 @@ MOTIF_VIANDE = re.compile(
 # porte. Aucun nom devine ne figure ici.
 DGAL = "https://fichiers-publics.agriculture.gouv.fr/dgal/ListesOfficielles/"
 SONDES_DGAL = [
-    DGAL,
     DGAL + "SSA_PROD_RAFF.txt",
     DGAL + "SPA2_AGRRG183_VAL.txt",
 ]
+# Le passage 4 (run 33990069023) a etabli deux faits qui ouvrent la voie.
+#   1. La racine repond 200 avec un index Apache : « Index of
+#      /dgal/ListesOfficielles ». Tous les noms de fichiers sont donc
+#      LISIBLES, et plus aucun n'a besoin d'etre devine.
+#   2. Les .txt sont des CSV a en-tete cite portant exactement la cle
+#      manquante : « Numero de departement », « Numero agrement/Approval
+#      number », « SIRET », « Raison SOCIALE - Enseigne commerciale »,
+#      « Commune ». C'est ce qui transforme fr-56-222-002 en une entreprise.
+MOTIF_LIEN = re.compile(r'href="(?:/dgal/ListesOfficielles/)?([A-Za-z0-9_.-]+\.(?:txt|csv))"')
+MOTIF_SSA = re.compile(r"^SSA", re.IGNORECASE)
 
 RECHERCHES = [
     "https://www.data.gouv.fr/api/1/datasets/?q=%C3%A9tablissements+agr%C3%A9%C3%A9s+viande&page_size=10",
@@ -172,13 +181,39 @@ def sonder_registre() -> int:
     # chez la DGAL, sur son propre hote. On lui demande donc s'il expose un
     # index — sans deviner un nom de fichier, ce que le motif visible
     # (SPA2_AGRRG183_VAL.txt, SSA_PROD_RAFF.txt) rendrait tentant.
-    print("\n  --- Troisieme temps : l'hote de la DGAL expose-t-il un index ?")
+    print("\n  --- Troisieme temps : l'index de la DGAL, et ce qu'il contient")
+    fichiers = []
+    try:
+        with _http(DGAL, timeout=60) as r:
+            page = r.read().decode("utf-8", "replace")
+        noms = sorted(set(MOTIF_LIEN.findall(page)))
+        print(f"      200  {DGAL}\n      {len(noms)} fichiers dans l'index.")
+        for nom in noms:
+            vise = bool(MOTIF_VIANDE.search(nom) or MOTIF_SSA.match(nom))
+            fichiers.append({"fichier": nom, "url": DGAL + nom,
+                             "candidat_viande": vise})
+        vises = [x for x in fichiers if x["candidat_viande"]]
+        print(f"      dont {len(vises)} candidats pour la viande :")
+        for x in vises:
+            print(f"          {x['fichier']}")
+        pd.DataFrame(fichiers).to_csv(SORTIES / "s5_index_dgal.csv",
+                                      index=False)
+        print("\n      Ecrit : sorties/s5_index_dgal.csv. TOUS les noms y")
+        print("      figurent, pas seulement les candidats : le tri se")
+        print("      verifie sur la liste complete, pas sur ce que le motif")
+        print("      a bien voulu retenir.")
+    except urllib.error.HTTPError as e:
+        print(f"      {e.code}  {DGAL}  ({e.reason})")
+    except Exception as e:                              # noqa: BLE001
+        print(f"      ---  {DGAL}  ({type(e).__name__}: {e})")
+
+    print("\n  --- En-tetes des deux fichiers dont l'existence est prouvee :")
     for url in SONDES_DGAL:
         try:
             with _http(url, timeout=45) as r:
-                tete = r.read(400)
-                print(f"      {r.status}  {url}")
-                print(f"            {tete[:200]!r}")
+                tete = r.read(300)
+                print(f"      {r.status}  {url.rsplit('/', 1)[-1]}")
+                print(f"            {tete.decode('utf-8', 'replace')[:220]}")
         except urllib.error.HTTPError as e:
             print(f"      {e.code}  {url}  ({e.reason})")
         except Exception as e:                          # noqa: BLE001
