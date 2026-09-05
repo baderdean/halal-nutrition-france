@@ -70,10 +70,19 @@ MOTIF_FR = re.compile(r"^fr-(\d{2})-(\d{3})-(\d{3})$")
 # devinette d'URL. La couche 8 a coute deux heures pour avoir saute cette
 # etape.
 UA = "halal-nutrition-france/1.0 (etude nutritionnelle, contact via le depot)"
+# Le premier passage (run 33989454409) a etabli deux faits.
+#   1. La DGAL publie ses listes officielles en .txt brut sous
+#      fichiers-publics.agriculture.gouv.fr/dgal/ListesOfficielles/.
+#   2. Les requetes generiques ramenaient l'alimentation animale, les
+#      escargots et l'entreposage, jamais la viande. La requete contenant
+#      « 853/2004 » ne ramenait rien : la barre oblique cassait la recherche.
+# Les requetes ci-dessous visent les listes de produits d'origine animale.
 RECHERCHES = [
-    "https://www.data.gouv.fr/api/1/datasets/?q=%C3%A9tablissements+agr%C3%A9%C3%A9s&page_size=8",
-    "https://www.data.gouv.fr/api/1/datasets/?q=agr%C3%A9ment+sanitaire&page_size=8",
-    "https://www.data.gouv.fr/api/1/datasets/?q=853%2F2004&page_size=8",
+    "https://www.data.gouv.fr/api/1/datasets/?q=%C3%A9tablissements+agr%C3%A9%C3%A9s+viande&page_size=10",
+    "https://www.data.gouv.fr/api/1/datasets/?q=%C3%A9tablissements+agr%C3%A9%C3%A9s+produits+origine+animale&page_size=10",
+    "https://www.data.gouv.fr/api/1/datasets/?q=liste+%C3%A9tablissements+agr%C3%A9%C3%A9s+CE+abattoir&page_size=10",
+    "https://www.data.gouv.fr/api/1/datasets/?q=agr%C3%A9%C3%A9s+CE+charcuterie+preparations+de+viandes&page_size=10",
+    "https://www.data.gouv.fr/api/1/datasets/?q=%C3%A9tablissements+agr%C3%A9%C3%A9s&page_size=20",
 ]
 
 
