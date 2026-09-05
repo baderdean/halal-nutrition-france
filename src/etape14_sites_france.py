@@ -86,6 +86,15 @@ MOTIF_VIANDE = re.compile(
     r"viande|abattoir|charcuterie|volaille|gibier|boyaux|preparations de",
     re.IGNORECASE)
 
+# Deux fichiers dont la sonde a PROUVE l'existence, et la racine qui les
+# porte. Aucun nom devine ne figure ici.
+DGAL = "https://fichiers-publics.agriculture.gouv.fr/dgal/ListesOfficielles/"
+SONDES_DGAL = [
+    DGAL,
+    DGAL + "SSA_PROD_RAFF.txt",
+    DGAL + "SPA2_AGRRG183_VAL.txt",
+]
+
 RECHERCHES = [
     "https://www.data.gouv.fr/api/1/datasets/?q=%C3%A9tablissements+agr%C3%A9%C3%A9s+viande&page_size=10",
     "https://www.data.gouv.fr/api/1/datasets/?q=%C3%A9tablissements+agr%C3%A9%C3%A9s+produits+origine+animale&page_size=10",
@@ -155,6 +164,25 @@ def sonder_registre() -> int:
                                "format": res.get("format"),
                                "titre": res.get("title"),
                                "url": res.get("url")})
+
+    # TROISIEME TEMPS. Le passage 3 (run 33989976019) a etabli un fait net :
+    # les cinq jeux « viande » de data.gouv.fr ne portent AUCUNE ressource,
+    # meme interroges un par un. Leurs identifiants datent de 2014 : ce sont
+    # des fiches de catalogue vides. Les listes qui repondent vraiment sont
+    # chez la DGAL, sur son propre hote. On lui demande donc s'il expose un
+    # index — sans deviner un nom de fichier, ce que le motif visible
+    # (SPA2_AGRRG183_VAL.txt, SSA_PROD_RAFF.txt) rendrait tentant.
+    print("\n  --- Troisieme temps : l'hote de la DGAL expose-t-il un index ?")
+    for url in SONDES_DGAL:
+        try:
+            with _http(url, timeout=45) as r:
+                tete = r.read(400)
+                print(f"      {r.status}  {url}")
+                print(f"            {tete[:200]!r}")
+        except urllib.error.HTTPError as e:
+            print(f"      {e.code}  {url}  ({e.reason})")
+        except Exception as e:                          # noqa: BLE001
+            print(f"      ---  {url}  ({type(e).__name__}: {e})")
 
     if trouve:
         pd.DataFrame(trouve).drop_duplicates(subset=["url"]).sort_values(
