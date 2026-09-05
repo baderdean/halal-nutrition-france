@@ -11,7 +11,8 @@ SRC      := src
 .PHONY: install couche1 source france perimetre assertions analyse rapport \
         couche3 couche4 couche5 couche6 couche7 couche8 marques \
         certificateurs classement halal emblematiques reperes additifs prix paires \
-        etablissements resultats couche9 couche10 amorce figer propre
+        etablissements homogeneite resultats couche9 couche10 couche11 \
+        amorce figer propre
 
 install:
 	pip install -r requirements.txt
@@ -93,6 +94,11 @@ couche10: etablissements
 
 etablissements:
 	$(PY) $(SRC)/etape10_etablissements.py
+
+couche11: homogeneite
+
+homogeneite:
+	$(PY) $(SRC)/etape11_homogeneite.py
 
 # RESULTATS.md est GENERE : ne relit que sorties/, jamais le dump.
 resultats:

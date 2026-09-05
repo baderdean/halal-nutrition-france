@@ -170,6 +170,27 @@ Deux des erreurs deja recensees allaient dans le sens du resultat attendu :
 c'est la raison pour laquelle la couverture des donnees est mesuree et publiee
 AVANT chaque comparaison.
 
+## Ce que l'etude ne peut pas dire : l'intention
+
+Aucune donnee nutritionnelle n'atteint une intention. Une intention est un
+etat mental de decideurs ; Open Food Facts contient des etiquettes declarees.
+
+Aucune sortie de ce depot ne doit etre redigee de facon a suggerer un choix
+delibere, une volonte, une strategie ou une coordination. Le vocabulaire
+autorise decrit des produits et des pratiques de formulation observees :
+« ces produits contiennent plus de phosphates », jamais « ce segment a choisi
+de degrader ».
+
+La seule chose testable est la TRACE OBSERVABLE d'une prescription commune :
+une norme partagee RESSERRE la dispersion. La couche 11 mesure ce
+resserrement. Elle ne le trouve pas — le bras halal est plus disperse a tous
+les niveaux mesures. Une lecture en terme d'intention coordonnee n'a donc,
+dans ces donnees, aucun appui, et l'affirmer serait une faute.
+
+Une explication sans intention est toujours a considerer avant une
+explication par l'intention : contrainte technique, taille de marche,
+anciennete des recettes. Aucune n'est testee ici, et aucune n'est ecartee.
+
 ## Ecarts aux specs deja actes
 
 - **Source.** Les specs prevoyaient `food.parquet` sur HuggingFace. L'hote

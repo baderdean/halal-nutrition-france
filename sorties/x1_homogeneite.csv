@@ -1,0 +1,25 @@
+niveau,cle,mesure,halal,temoin,rapport,ic95_bas,ic95_haut,n_halal,n_temoin
+perimetre,,ecart_type,8.42,6.98,1.21,1.16,1.25,1918,67651
+perimetre,,iqr,11.0,6.0,1.83,1.83,1.83,1918,67651
+perimetre,,mad,5.0,3.0,1.67,1.67,2.0,1918,67651
+strate,autres_carnes / dinde,mad,,,0.88,0.6,1.38,78,520
+strate,autres_carnes / indetermine,mad,,,1.0,0.67,1.67,67,4084
+strate,autres_carnes / poulet,mad,,,1.75,1.5,2.67,164,1806
+strate,charcuterie_cuite / dinde,mad,,,3.0,2.0,6.0,113,195
+strate,charcuterie_cuite / indetermine,mad,,,0.6,0.33,0.8,35,9003
+strate,charcuterie_cuite / poulet,mad,,,6.0,5.0,7.0,151,720
+strate,charcuterie_cuite / volaille_autre,mad,,,0.62,0.4,1.67,40,121
+strate,charcuterie_seche / indetermine,mad,,,3.0,2.25,3.5,142,4481
+strate,decoupes / poulet,mad,,,1.0,0.25,1.38,70,4840
+strate,panes / dinde,mad,,,5.0,0.5,5.0,69,629
+strate,panes / indetermine,mad,,,0.2,0.17,1.25,31,303
+strate,panes / poulet,mad,,,1.5,1.0,3.0,167,941
+strate,plats_cuisines / boeuf,mad,,,1.0,0.5,2.5,39,2297
+strate,plats_cuisines / poulet,mad,,,1.5,1.0,2.5,66,2988
+strate,preparations_marinees / poulet,mad,,,1.4,0.6,2.0,94,1374
+strate,saucisses / indetermine,mad,,,1.33,0.67,1.67,77,4445
+strate,saucisses / poulet,mad,,,1.0,0.4,1.5,51,141
+strate,saucisses / volaille_autre,mad,,,0.43,0.25,0.6,72,329
+strate,viande_hachee / boeuf,mad,,,2.0,0.75,2.0,100,932
+intra_marque,halal,std,,,,,,835,21
+intra_marque,temoin,std,,,,,,38812,544

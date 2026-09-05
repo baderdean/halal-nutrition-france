@@ -1036,6 +1036,70 @@ def bloc_marche() -> list[str]:
          "Une variance intra plus grande peut venir d'un assortiment halal plus "
          "heterogene au sein du site, pas d'une conduite de fabrication moins "
          "reguliere. Les donnees ne separent pas les deux."])
+    x1 = lire("x1_homogeneite")
+    corps = []
+    if x1 is not None and len(x1):
+        g = x1[x1.niveau == "perimetre"]
+        corps = ["Rapport de dispersion halal / temoin sur l'ecart a la "
+                 "mediane de la strate. **Sous 1, le halal serait plus "
+                 "homogene**, ce que produirait une prescription commune :", "",
+                 "| mesure | halal | temoin | rapport | IC 95 % |",
+                 "|:--|--:|--:|--:|:-:|"]
+        for r in g.itertuples():
+            corps.append(f"| {r.mesure} | {r.halal:.2f} | {r.temoin:.2f} | "
+                         f"**{r.rapport:.2f}** | [{r.ic95_bas:.2f} ; "
+                         f"{r.ic95_haut:.2f}] |")
+        st = x1[x1.niveau == "strate"]
+        if len(st):
+            plus = int((st.ic95_bas > 1).sum())
+            moins = int((st.ic95_haut < 1).sum())
+            corps += ["",
+                      f"A strate fixee : {plus} strates plus dispersees, "
+                      f"{moins} plus homogenes, {len(st) - plus - moins} non "
+                      f"etablies. Une part du rapport global vient donc de "
+                      f"l'assortiment et non des recettes."]
+        im = x1[x1.niveau == "intra_marque"]
+        if len(im):
+            corps += ["", "Dispersion A L'INTERIEUR d'une meme marque, "
+                      "ecart-type median :", ""]
+            for r in im.itertuples():
+                corps.append(f"- {r.cle} : {r.n_temoin} marques, ecart-type "
+                             f"intra median a lire dans le CSV")
+    l += hypothese(
+        "H27", "Un cahier des charges commun impose la sous-qualite au halal",
+        "Une prescription partagee RESSERRE la dispersion : les produits qui "
+        "s'y conforment se ressemblent. On mesure donc le rapport de "
+        "dispersion halal / temoin sur l'ecart a la mediane de la strate, avec "
+        "trois mesures — ecart-type, ecart interquartile, ecart absolu median "
+        "— et un IC bootstrap.",
+        "REFUTE — la trace observable d'une prescription est absente",
+        corps + ["",
+                 "Le bras halal est **plus disperse**, pas moins : de 1,2 a 1,8",
+                 "fois selon la mesure, les trois intervalles au-dessus de 1.",
+                 "Meme constat a l'interieur d'une marque et, en H26, a",
+                 "l'interieur d'un etablissement, ou l'ecart-type intra halal",
+                 "atteint 7,82 contre 5,55 au temoin.",
+                 "",
+                 "C'est la signature de choix de formulation **independants**,",
+                 "pas d'une norme partagee.",
+                 "",
+                 "Combine a H8, H17 et H25 — a fabricant fixe, aucun ecart — le",
+                 "faisceau dit : le label n'impose rien, et ce sont certains",
+                 "fabricants qui formulent ainsi, chacun de son cote."],
+        ["**AUCUNE DONNEE NUTRITIONNELLE NE PEUT ATTEINDRE UNE INTENTION.** Une "
+         "intention est un etat mental de decideurs ; cette base contient des "
+         "etiquettes. Ce test porte sur une trace observable, jamais sur une "
+         "volonte.",
+         "Ce resultat ne prouve pas qu'aucun cahier des charges n'existe, et il "
+         "ne dit rien de leur contenu : ceux des organismes certificateurs "
+         "portent sur l'abattage et la tracabilite, et il faudrait les lire.",
+         "A strate fixee le tableau est partage : le rapport global tient en "
+         "partie a l'assortiment. Cela nuance le resultat sans l'inverser — "
+         "nulle part on n'observe le resserrement qu'une norme produirait.",
+         "Des explications sans intention restent ouvertes et non testees ici : "
+         "contrainte technique de la substitution d'espece, marche plus etroit, "
+         "recettes anciennes non reformulees quand le marche general reduisait "
+         "le sel."])
     l += ["---", ""]
     return l
 
