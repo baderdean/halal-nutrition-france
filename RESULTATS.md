@@ -1445,6 +1445,90 @@ qui portent un autre nom.
 - L'estampille n'est saisie que sur une fraction des produits d'Open Food Facts. Le classement porte sur cette fraction.
 - Le registre est une photographie a sa date de rapatriement. Un site peut avoir change d'exploitant depuis le dump nutritionnel, qui est lui-meme fige.
 
+### H34 — Un seuil nutritionnel minimal par gamme serait tenable
+
+**Verdict : ETABLI pour la FAISABILITE — sur les gammes ou l'ecart est le plus large, le reste du marche franchit deja le seuil ; NON TESTABLE pour tout ce qui touche a la consommation reelle**
+
+*Methode.* Simulation de seuils de sel et de Nutri-Score, gamme par gamme, sur les 19 gammes ou les deux bras depassent 30 produits. Mesure de la part de chaque bras qui franchit deja chaque seuil. Aucun seuil n'est fixe ici.
+
+**Ce qui rend un seuil defendable n'est pas la mesure, c'est la
+faisabilite.** Un seuil que personne n'atteint est une petition. Un
+seuil que le reste du marche atteint deja sur la MEME gamme est un
+rattrapage : il ne demande aucune technologie nouvelle, il demande
+la meme recette.
+
+Le tableau ci-dessous ne fixe aucun seuil. Il montre ce que
+differents seuils excluraient de part et d'autre.
+
+| gamme | n halal | n temoin | critere | atteint, halal | atteint, temoin |
+|:--|--:|--:|:--|--:|--:|
+| charcuterie_cuite / dinde | 113 | 195 | Nutri-Score A ou mieux | 2 % | **11 %** |
+| charcuterie_cuite / dinde | 113 | 195 | Nutri-Score B ou mieux | 7 % | **50 %** |
+| charcuterie_cuite / dinde | 113 | 195 | Nutri-Score C ou mieux | 18 % | **82 %** |
+| charcuterie_cuite / dinde | 113 | 195 | sel <= 1.5 g | 3 % | **18 %** |
+| charcuterie_cuite / dinde | 113 | 195 | sel <= 2.0 g | 20 % | **83 %** |
+| charcuterie_cuite / dinde | 113 | 195 | sel <= 2.5 g | 42 % | **92 %** |
+| charcuterie_cuite / dinde | 113 | 195 | sel <= 3.0 g | 74 % | **96 %** |
+| charcuterie_cuite / poulet | 151 | 720 | Nutri-Score A ou mieux | 4 % | **16 %** |
+| charcuterie_cuite / poulet | 151 | 720 | Nutri-Score B ou mieux | 27 % | **60 %** |
+| charcuterie_cuite / poulet | 151 | 720 | Nutri-Score C ou mieux | 34 % | **82 %** |
+| charcuterie_cuite / poulet | 151 | 720 | sel <= 1.5 g | 5 % | **27 %** |
+| charcuterie_cuite / poulet | 151 | 720 | sel <= 2.0 g | 40 % | **86 %** |
+| charcuterie_cuite / poulet | 151 | 720 | sel <= 2.5 g | 74 % | **97 %** |
+| charcuterie_cuite / poulet | 151 | 720 | sel <= 3.0 g | 79 % | **98 %** |
+| panes / poulet | 167 | 941 | Nutri-Score A ou mieux | 9 % | **13 %** |
+| panes / poulet | 167 | 941 | Nutri-Score B ou mieux | 29 % | **36 %** |
+| panes / poulet | 167 | 941 | Nutri-Score C ou mieux | 62 % | **76 %** |
+| panes / poulet | 167 | 941 | sel <= 1.5 g | 75 % | **90 %** |
+| panes / poulet | 167 | 941 | sel <= 2.0 g | 94 % | **97 %** |
+| panes / poulet | 167 | 941 | sel <= 2.5 g | 99 % | **98 %** |
+| panes / poulet | 167 | 941 | sel <= 3.0 g | 99 % | **98 %** |
+| saucisses / poulet | 51 | 141 | Nutri-Score A ou mieux | 0 % | **1 %** |
+| saucisses / poulet | 51 | 141 | Nutri-Score B ou mieux | 2 % | **7 %** |
+| saucisses / poulet | 51 | 141 | Nutri-Score C ou mieux | 6 % | **16 %** |
+| saucisses / poulet | 51 | 141 | sel <= 1.5 g | 6 % | **20 %** |
+| saucisses / poulet | 51 | 141 | sel <= 2.0 g | 24 % | **76 %** |
+| saucisses / poulet | 51 | 141 | sel <= 2.5 g | 67 % | **94 %** |
+| saucisses / poulet | 51 | 141 | sel <= 3.0 g | 92 % | **98 %** |
+
+**Le jambon de dinde en est l'exemple le plus net.** Un seuil a
+2 g de sel aux 100 g laisserait passer **19 % du halal et 83 %
+du temoin**. Un seuil au Nutri-Score C laisserait passer 18 %
+contre 82 %. Ce ne sont pas des seuils theoriques : quatre
+cinquiemes du marche non halal les franchissent deja sur la
+meme gamme, avec la meme espece et la meme technologie.
+
+**La structure de l'offre**, part de chaque gamme dans son propre bras :
+
+| gamme | % du rayon halal | % du temoin | ecart |
+|:--|--:|--:|--:|
+| autres_carnes | 18.3 % | 23.0 % | -4.7 |
+| charcuterie_cuite | 17.5 % | 19.3 % | -1.8 |
+| panes | 14.8 % | 3.2 % | +11.6 |
+| saucisses | 12.3 % | 8.5 % | +3.8 |
+| charcuterie_seche | 12.0 % | 8.8 % | +3.2 |
+| plats_cuisines | 7.3 % | 15.7 % | -8.4 |
+| preparations_marinees | 5.8 % | 2.6 % | +3.2 |
+| viande_hachee | 5.3 % | 1.6 % | +3.7 |
+
+La part totale de produits transformes est proche dans les deux
+bras : 71,8 % contre 66,4 %. Ce qui change, ce sont les GAMMES.
+Les panes pesent **quatre fois plus** dans le rayon halal
+(14,8 % contre 3,2 %) ; les plats cuisines et les decoupes y
+pesent **deux fois moins**. Un consommateur qui s'en tient a ce
+rayon rencontre plus de produits panes et moins de viande a
+cuisiner.
+
+**C'est un fait d'OFFRE, et il ne dit pas ce qui finit dans les
+assiettes.** Ce depot ne contient aucune donnee de consommation.
+
+*Reserves.*
+- **Un Nutri-Score n'est pas un verdict sanitaire sur un produit.** C'est un indicateur comparatif de composition aux 100 g. Le risque documente porte sur des quantites consommees dans la duree, jamais sur un code-barres. Dire « ce produit est mauvais pour la sante » depasse ce que l'indicateur autorise.
+- **La frequence de consommation est hors de portee de ce depot.** Aucune donnee de consommation n'y figure. « Ces produits sont manges souvent » est une hypothese sur des gens, et rien ici ne la teste. La composition de l'offre n'est pas la frequence des achats.
+- Le seuil lui-meme est une DECISION DE NORME. Ce depot montre ce qu'un seuil excluerait ; il ne dit pas ou le mettre, et il ne dit rien de ce qui serait tayyib.
+- Le sel est un meilleur support de seuil que le Nutri-Score : il se lit directement sur l'emballage, il ne s'agrege pas avec d'autres nutriments, et une recette ne peut pas le compenser par ailleurs.
+- Les gammes ou les deux bras depassent 30 produits sont 19 sur 11 x 10 combinaisons possibles. Un seuil general couvrirait des gammes que cette etude n'a pas pu tester.
+
 ---
 
 ## 8. Erreurs commises et corrigees en cours d'etude
@@ -1814,6 +1898,7 @@ make couche15    # MDD, industriels, specialistes du halal
 make couche16    # surcout halal en rayon, et la borne
 make couche17    # sites nommes (registre via l'Action couche14-registre)
 make couche18    # podiums produits, marques, certificateurs
+make couche19    # faisabilite d'un seuil nutritionnel par gamme
 python3 src/rapport_hypotheses.py   # regenere ce document
 ```
 

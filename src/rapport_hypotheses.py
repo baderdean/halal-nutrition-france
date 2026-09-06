@@ -1380,6 +1380,7 @@ def bloc_marche() -> list[str]:
     l += bloc_h30()
     l += bloc_h31()
     l += bloc_h33()
+    l += bloc_h34()
     l += ["---", ""]
     return l
 
@@ -1910,6 +1911,88 @@ def bloc_erreurs() -> list[str]:
     ]
 
 
+def bloc_h34() -> list[str]:
+    """H34 — un seuil nutritionnel serait-il tenable ?"""
+    st = lire("j1_structure_offre")
+    fa = lire("j2_faisabilite_seuils")
+    if fa is None or not len(fa):
+        return ["### H34 — Sortie absente : j2_faisabilite_seuils", ""]
+
+    c = ["**Ce qui rend un seuil defendable n'est pas la mesure, c'est la",
+         "faisabilite.** Un seuil que personne n'atteint est une petition. Un",
+         "seuil que le reste du marche atteint deja sur la MEME gamme est un",
+         "rattrapage : il ne demande aucune technologie nouvelle, il demande",
+         "la meme recette.",
+         "",
+         "Le tableau ci-dessous ne fixe aucun seuil. Il montre ce que",
+         "differents seuils excluraient de part et d'autre.", ""]
+    vedettes = ["charcuterie_cuite / dinde", "charcuterie_cuite / poulet",
+                "saucisses / poulet", "panes / poulet"]
+    sous = fa[fa.gamme.isin(vedettes)]
+    if len(sous):
+        c += ["| gamme | n halal | n temoin | critere | atteint, halal | "
+              "atteint, temoin |", "|:--|--:|--:|:--|--:|--:|"]
+        for r in sous.itertuples():
+            c.append(f"| {r.gamme} | {r.n_halal} | {r.n_temoin} | {r.critere} "
+                     f"| {r.pct_halal:.0f} % | **{r.pct_temoin:.0f} %** |")
+        c += ["",
+              "**Le jambon de dinde en est l'exemple le plus net.** Un seuil a",
+              "2 g de sel aux 100 g laisserait passer **19 % du halal et 83 %",
+              "du temoin**. Un seuil au Nutri-Score C laisserait passer 18 %",
+              "contre 82 %. Ce ne sont pas des seuils theoriques : quatre",
+              "cinquiemes du marche non halal les franchissent deja sur la",
+              "meme gamme, avec la meme espece et la meme technologie."]
+    if st is not None and len(st):
+        c += ["",
+              "**La structure de l'offre**, part de chaque gamme dans son "
+              "propre bras :", "",
+              "| gamme | % du rayon halal | % du temoin | ecart |",
+              "|:--|--:|--:|--:|"]
+        for r in st.sort_values("pct_halal", ascending=False).head(8).itertuples():
+            nom = getattr(r, "sous_categorie", getattr(r, "Index", ""))
+            c.append(f"| {nom} | {r.pct_halal:.1f} % | {r.pct_temoin:.1f} % | "
+                     f"{r.ecart_points:+.1f} |")
+        c += ["",
+              "La part totale de produits transformes est proche dans les deux",
+              "bras : 71,8 % contre 66,4 %. Ce qui change, ce sont les GAMMES.",
+              "Les panes pesent **quatre fois plus** dans le rayon halal",
+              "(14,8 % contre 3,2 %) ; les plats cuisines et les decoupes y",
+              "pesent **deux fois moins**. Un consommateur qui s'en tient a ce",
+              "rayon rencontre plus de produits panes et moins de viande a",
+              "cuisiner.",
+              "",
+              "**C'est un fait d'OFFRE, et il ne dit pas ce qui finit dans les",
+              "assiettes.** Ce depot ne contient aucune donnee de consommation."]
+    return hypothese(
+        "H34", "Un seuil nutritionnel minimal par gamme serait tenable",
+        "Simulation de seuils de sel et de Nutri-Score, gamme par gamme, sur "
+        "les 19 gammes ou les deux bras depassent 30 produits. Mesure de la "
+        "part de chaque bras qui franchit deja chaque seuil. Aucun seuil n'est "
+        "fixe ici.",
+        "ETABLI pour la FAISABILITE — sur les gammes ou l'ecart est le plus "
+        "large, le reste du marche franchit deja le seuil ; NON TESTABLE pour "
+        "tout ce qui touche a la consommation reelle",
+        c,
+        ["**Un Nutri-Score n'est pas un verdict sanitaire sur un produit.** "
+         "C'est un indicateur comparatif de composition aux 100 g. Le risque "
+         "documente porte sur des quantites consommees dans la duree, jamais "
+         "sur un code-barres. Dire « ce produit est mauvais pour la sante » "
+         "depasse ce que l'indicateur autorise.",
+         "**La frequence de consommation est hors de portee de ce depot.** "
+         "Aucune donnee de consommation n'y figure. « Ces produits sont manges "
+         "souvent » est une hypothese sur des gens, et rien ici ne la teste. "
+         "La composition de l'offre n'est pas la frequence des achats.",
+         "Le seuil lui-meme est une DECISION DE NORME. Ce depot montre ce "
+         "qu'un seuil excluerait ; il ne dit pas ou le mettre, et il ne dit "
+         "rien de ce qui serait tayyib.",
+         "Le sel est un meilleur support de seuil que le Nutri-Score : il se "
+         "lit directement sur l'emballage, il ne s'agrege pas avec d'autres "
+         "nutriments, et une recette ne peut pas le compenser par ailleurs.",
+         "Les gammes ou les deux bras depassent 30 produits sont 19 sur 11 x "
+         "10 combinaisons possibles. Un seuil general couvrirait des gammes "
+         "que cette etude n'a pas pu tester."])
+
+
 def bloc_podiums() -> list[str]:
     """Section 10 — les podiums destines a la publication."""
     prod = lire("i1_podium_produits")
@@ -2167,6 +2250,7 @@ def bloc_ouvert() -> list[str]:
         "make couche17    # sites nommes (registre via l'Action "
         "couche14-registre)",
         "make couche18    # podiums produits, marques, certificateurs",
+        "make couche19    # faisabilite d'un seuil nutritionnel par gamme",
         "python3 src/rapport_hypotheses.py   # regenere ce document",
         "```",
         "",
