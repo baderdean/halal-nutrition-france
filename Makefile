@@ -13,7 +13,8 @@ SRC      := src
         certificateurs classement halal emblematiques reperes additifs prix paires \
         etablissements homogeneite allegations resultats couche9 couche10 \
         couche11 couche12 couche13 site couche14 sites couche15 familles \
-        couche16 surcout couche17 nommer amorce figer propre
+        couche16 surcout couche17 nommer couche18 podiums \
+        amorce figer propre
 
 install:
 	pip install -r requirements.txt
@@ -131,6 +132,11 @@ couche17: nommer
 
 nommer:
 	$(PY) $(SRC)/etape17_sites_nommes.py
+
+couche18: podiums
+
+podiums:
+	$(PY) $(SRC)/etape18_podiums_publics.py
 
 # RESULTATS.md est GENERE : ne relit que sorties/, jamais le dump.
 resultats:

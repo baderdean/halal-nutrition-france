@@ -1,0 +1,61 @@
+code,product_name,marque,strate,nutriscore_grade,ns,mediane_strate,ecart,sel,ags,prot,fiabilite,gamme,rang
+6008123005074,Pave filet d'autruche,klein-karoo,autres_carnes / indetermine,a,-3.0,17.0,-20.0,0.8,0.8,23.1,a verifier en rayon,autres_carnes,meilleur
+6008123006187,Pavé filet d'autruche pré-grillé,klein-karoo,autres_carnes / indetermine,a,-3.0,17.0,-20.0,0.8,0.8,23.1,a verifier en rayon,autres_carnes,meilleur
+6008123005081,Pavé steak d'autruche pré-grillé,klein-karoo,autres_carnes / indetermine,a,-2.0,17.0,-19.0,1.0,0.6,26.1,a verifier en rayon,autres_carnes,meilleur
+3512690004185,Le sec poulet,isla-delice,autres_carnes / poulet,e,31.0,1.0,30.0,5.2,7.2,32.0,solide,autres_carnes,moins bon
+8711659429914,Tranchés dinde,si-bel,autres_carnes / dinde,e,30.0,0.0,30.0,3.25,15.0,14.0,solide,autres_carnes,moins bon
+8424863210147,Salchichon de dinde et boeuf halal,,autres_carnes / dinde,e,31.0,0.0,31.0,3.59,12.7,20.9,solide,autres_carnes,moins bon
+3512690003478,Bacon de Dinde à poêler,isla-delice,charcuterie_cuite / porc,a,0.0,19.0,-19.0,3.5,3.4,22.0,a verifier en rayon,charcuterie_cuite,meilleur
+3512690002082,Delice de dinde fumee,isla-delice,charcuterie_cuite / volaille_autre,a,0.0,17.0,-17.0,3.5,0.5,18.8,a verifier en rayon,charcuterie_cuite,meilleur
+3095752622010,Blanc de poulet halal,fleury-michon,charcuterie_cuite / volaille_autre,b,2.0,17.0,-15.0,1.8,0.4,21.0,a verifier en rayon,charcuterie_cuite,meilleur
+3760246260152,Jambon sec,,charcuterie_cuite / indetermine,e,35.0,13.0,22.0,4.9,14.9,19.4,solide,charcuterie_cuite,moins bon
+3222475503979,Lardons de dinde fumés halal,wassila,charcuterie_cuite / dinde,e,26.0,3.0,23.0,3.5,6.6,18.0,solide,charcuterie_cuite,moins bon
+3760238430785,Delice de poulet,arabi,charcuterie_cuite / poulet,e,27.0,2.0,25.0,6.0,4.08,27.0,solide,charcuterie_cuite,moins bon
+6118000370017,Mortadelle,,charcuterie_seche / indetermine,c,4.0,33.0,-29.0,1.6,0.74,10.5,a verifier en rayon,charcuterie_seche,meilleur
+3459860004364,Saucisson à l'ail fumé,isla-mondial,charcuterie_seche / indetermine,d,12.0,33.0,-21.0,2.2,1.7,11.0,a verifier en rayon,charcuterie_seche,meilleur
+6111262902842,Mortadelle luncheon,,charcuterie_seche / indetermine,d,12.0,33.0,-21.0,1.5,1.0,10.4,a verifier en rayon,charcuterie_seche,meilleur
+3512690006219,Beef salami,isla-delice,charcuterie_seche / boeuf,e,34.0,23.0,11.0,5.5,13.1,28.4,solide,charcuterie_seche,moins bon
+3512690000101,Le Sec Pur Boeuf Nature,isla-delice,charcuterie_seche / boeuf,e,35.0,23.0,12.0,4.8,15.6,29.1,solide,charcuterie_seche,moins bon
+3512690002976,Les P'tits Secs à Croquer!,isla-delice,charcuterie_seche / boeuf,e,35.0,23.0,12.0,5.4,15.3,30.1,solide,charcuterie_seche,moins bon
+20929954,Filet de poulet halal,lidl,decoupes / poulet,a,-6.0,-2.0,-4.0,0.12,0.5,23.0,a verifier en rayon,decoupes,meilleur
+20929961,Filets de poulet halal,,decoupes / poulet,a,-6.0,-2.0,-4.0,0.12,0.5,23.0,a verifier en rayon,decoupes,meilleur
+20929978,Filet de poulet halal,halal,decoupes / poulet,a,-6.0,-2.0,-4.0,0.090000003576279,0.30000001192093,23.10000038147,a verifier en rayon,decoupes,meilleur
+5411431199242,Filet de Dinde Rôtie,agrosnack,decoupes / dinde,d,13.0,-6.0,19.0,2.4,1.2,19.0,solide,decoupes,moins bon
+3266980011475,Blanc de dinde,reghalal,decoupes / dinde,d,15.0,-6.0,21.0,2.9,0.4,16.0,solide,decoupes,moins bon
+2900541001109,Blanc de dinde au 3 poivre,,decoupes / dinde,d,18.0,-6.0,24.0,3.39,1.11,15.6,solide,decoupes,moins bon
+3276280089364,4 Cordons bleus de dinde,royal-halal,panes / indetermine,a,-2.0,11.0,-13.0,1.2,0.7,20.0,a verifier en rayon,panes,meilleur
+3276288125033,2 Cordons bleus de dinde,royal-halal,panes / indetermine,a,-2.0,11.0,-13.0,1.2,0.7,20.0,a verifier en rayon,panes,meilleur
+3512690003225,Isla nuggets,isla-delice,panes / volaille_autre,a,0.0,13.0,-13.0,1.5,1.9,10.9,a verifier en rayon,panes,meilleur
+3512690000217,4 Cordons Bleus de Dinde,isla-delice,panes / dinde,d,16.0,-1.0,17.0,1.875,4.5,11.0,solide,panes,moins bon
+3760059780106,Burgers de dinde épicés,mahdia,panes / dinde,d,18.0,-1.0,19.0,2.4,4.9,13.2,solide,panes,moins bon
+3770022585546,Cordon bleu de poulet halal,,panes / poulet,e,24.0,4.0,20.0,12.0,2.3,13.0,solide,panes,moins bon
+3021690027570,Chili con carne,dounia-halal,plats_cuisines / boeuf,a,0.0,4.0,-4.0,0.9,1.0,5.8,a verifier en rayon,plats_cuisines,meilleur
+3512690002266,"Hachis Parmentier, pur bœuf halal 350gr",isla-delice,plats_cuisines / boeuf,a,0.0,4.0,-4.0,0.7,2.71,3.7,a verifier en rayon,plats_cuisines,meilleur
+3512690002280,Boulettes de Bœuf à l'orientale Riz basmati,isla-delice,plats_cuisines / boeuf,a,0.0,4.0,-4.0,1.0,1.35,5.9,a verifier en rayon,plats_cuisines,meilleur
+8424863056783,Maigre de boeuf seche au poivre,kenza-halal,plats_cuisines / boeuf,e,24.0,4.0,20.0,4.24,2.2,34.5,solide,plats_cuisines,moins bon
+3276440699839,Magret de canard seché,,plats_cuisines / canard,e,33.0,7.0,26.0,3.95,10.9,21.0,solide,plats_cuisines,moins bon
+7036480012700,REAL - Chili con carne,,plats_cuisines / indetermine,e,31.0,3.0,28.0,4.0,4.6,28.0,solide,plats_cuisines,moins bon
+3512690000668,Boulettes au boeuf prêtes à cuire,isla-delice,preparations_marinees / boeuf,a,0.0,10.5,-10.5,1.15,10.0,14.0,a verifier en rayon,preparations_marinees,meilleur
+2906142006659,Escalopes fines de poulet Halal,,preparations_marinees / poulet,a,-6.0,2.0,-8.0,0.11,0.6,23.0,a verifier en rayon,preparations_marinees,meilleur
+5902082413844,Kebab lamelle de poulet,,preparations_marinees / poulet,a,-6.0,2.0,-8.0,0.15,0.5,20.0,a verifier en rayon,preparations_marinees,meilleur
+3512690006189,Poulet & creme de piment,isla-delice,preparations_marinees / poulet,e,22.0,2.0,20.0,2.2,13.0,8.3,solide,preparations_marinees,moins bon
+3512690006196,poulet et crème de curry à tartiner,isla-delice,preparations_marinees / poulet,e,23.0,2.0,21.0,2.3,13.0,8.3,solide,preparations_marinees,moins bon
+3700141402899,Chick'n croc,,preparations_marinees / poulet,e,35.0,2.0,33.0,5.2,12.0,32.0,solide,preparations_marinees,moins bon
+3512690002983,Boursin,isla-delice,rillettes_pates_mousses / poulet,a,0.0,17.0,-17.0,1.94,16.0,19.2,a verifier en rayon,rillettes_pates_mousses,meilleur
+3760309680132,Terrine de Volaille aux Cèpes,,rillettes_pates_mousses / volaille_autre,c,3.0,20.0,-17.0,1.4,2.2,23.0,a verifier en rayon,rillettes_pates_mousses,meilleur
+3277670738350,Rillettes de poulet rôti en cocotte,reghalal,rillettes_pates_mousses / poulet,c,3.0,17.0,-14.0,1.0,4.9,18.0,a verifier en rayon,rillettes_pates_mousses,meilleur
+3459860002612,Délice de Campagne,isla-mondial,rillettes_pates_mousses / indetermine,e,22.0,20.0,2.0,2.0,15.0,9.9,solide,rillettes_pates_mousses,moins bon
+5413546154819,Mousse de canard,zahra,rillettes_pates_mousses / canard,e,22.0,20.0,2.0,1.9,11.0,11.4,solide,rillettes_pates_mousses,moins bon
+5413546154857,Mousse de canard halal,,rillettes_pates_mousses / canard,e,22.0,20.0,2.0,1.9,11.0,11.4,solide,rillettes_pates_mousses,moins bon
+3700141402998,Merguez Bœuf/Volaille,oriental-viandes,saucisses / agneau,d,11.0,20.0,-9.0,1.9,1.9,14.0,a verifier en rayon,saucisses,meilleur
+4031759402124,Tavuk sosis,hunkar,saucisses / poulet,c,6.0,15.0,-9.0,0.9,4.9,10.0,a verifier en rayon,saucisses,meilleur
+4047187002232,Tavuk sosis,,saucisses / poulet,c,6.0,15.0,-9.0,0.9,4.9,10.8,a verifier en rayon,saucisses,meilleur
+3512690005762,Sec au poulet,,saucisses / poulet,e,28.0,15.0,13.0,5.29,5.1,33.1,solide,saucisses,moins bon
+4040328044887,Poultry Sausages W. Peber,baktat,saucisses / indetermine,e,34.0,20.0,14.0,4.0,17.0,18.0,solide,saucisses,moins bon
+8711659090190,Parmak Sucuk,sofram,saucisses / volaille_autre,e,27.0,12.0,15.0,2.75,9.2,16.8,solide,saucisses,moins bon
+3512690000194,10 Burgers,isla-delice,viande_hachee / boeuf,a,0.0,6.0,-6.0,1.15,10.0,14.0,a verifier en rayon,viande_hachee,meilleur
+3512690000699,Haché 100 % Boeuf,isla-delice,viande_hachee / boeuf,a,0.0,6.0,-6.0,0.18,9.0,18.0,a verifier en rayon,viande_hachee,meilleur
+3512690001849,Isla délice steack hâché halal x32,isla-delice,viande_hachee / boeuf,a,0.0,6.0,-6.0,0.4,8.19,16.8,a verifier en rayon,viande_hachee,meilleur
+3039050162175,10 burgers surgelés,socopa,viande_hachee / boeuf,d,18.0,6.0,12.0,1.2,12.0,11.0,solide,viande_hachee,moins bon
+3039050163998,10 Burgers Halal Surgelés,sans-marque,viande_hachee / boeuf,d,18.0,6.0,12.0,1.2,12.0,11.0,solide,viande_hachee,moins bon
+3253880000036,35 Boulettes Orientales Halal Surgelées,al-jayid,viande_hachee / indetermine,e,29.0,16.0,13.0,11.0,7.6999998092651,14.0,solide,viande_hachee,moins bon

@@ -1,0 +1,7 @@
+marque_affichee,type,n,pct_tague,ecart_median,ic95_bas,ic95_haut,strates_couvertes,rang
+Royal HALAL,marque halal,29,100.0,0.0,-1.0,1.0,8,meilleure
+Isla Mondial,marque halal,74,97.5,2.5,1.0,8.5,22,meilleure
+ID-Halal,marque halal,35,100.0,3.0,0.0,10.0,14,meilleure
+suntat,marque halal,21,100.0,6.0,2.0,8.0,10,moins bonne
+Arabi,marque halal,43,98.0,11.0,7.875,12.0,13,moins bonne
+Volibon,marque halal,15,100.0,15.0,12.0,16.0,4,moins bonne

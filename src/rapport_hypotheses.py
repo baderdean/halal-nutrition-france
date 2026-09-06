@@ -1910,6 +1910,114 @@ def bloc_erreurs() -> list[str]:
     ]
 
 
+def bloc_podiums() -> list[str]:
+    """Section 10 — les podiums destines a la publication."""
+    prod = lire("i1_podium_produits")
+    ecar = lire("i0_ecartes_du_podium")
+    mq = lire("i2_podium_marques")
+    ce = lire("i3_classement_certificateurs")
+    l = ["## 10. Les podiums", "",
+         "Une etude qui ne nomme personne ne change rien. Ces tableaux sont la",
+         "pour qu'un rang se reprenne : il est verifiable, et il bouge des que",
+         "la recette bouge.",
+         "",
+         "**Trois niveaux, trois solidites, et ils ne se lisent pas pareil.**",
+         "Un produit est UNE observation et n'aura jamais d'intervalle de",
+         "confiance. Une marque est un echantillon et en a un. Quatre",
+         "organismes certificateurs seulement sont identifies : en podiumiser",
+         "trois sur quatre serait une mise en scene, le classement complet est",
+         "publie a la place.",
+         "",
+         "**Ce qu'aucune de ces lignes ne dit** : rien sur la halalite d'un",
+         "produit, rien sur la conformite d'un organisme a une norme",
+         "religieuse, rien sur la securite sanitaire, rien sur une intention.",
+         "Un mauvais rang nutritionnel n'est pas un defaut de securite, et le",
+         "Nutri-Score n'est pas un verdict de sante.",
+         ""]
+    if prod is not None and len(prod):
+        l += ["### 10.1 Les produits, gamme par gamme", "",
+              "**Pas de podium tous produits confondus.** Un « meilleur produit",
+              "du rayon » opposerait un blanc de poulet a un saucisson. L'ecart",
+              "a la strate corrige la gamme, mais un ecart de -30 reste plus",
+              "souvent une erreur de rangement qu'une prouesse. Le podium est",
+              "donc rendu gamme par gamme, ou la comparaison tient devant",
+              "n'importe quel lecteur.",
+              "",
+              "**Les deux moities n'ont pas la meme solidite.** Une base",
+              "contributive se trompe dans un seul sens : une case oubliee, un",
+              "zero saisi a la place d'un vide, une valeur par portion prise",
+              "pour une valeur aux 100 g font paraitre un produit MEILLEUR",
+              "qu'il n'est. Presque jamais l'inverse — personne ne declare par",
+              "erreur 15 g d'acides gras satures. Les **moins bons** sont donc",
+              "solides ; les **meilleurs** sont a verifier en rayon,",
+              "code-barres en main, avant d'etre cites. La colonne `fiabilite`",
+              "le porte sur chaque ligne.",
+              ""]
+        for gamme, g in prod.groupby("gamme"):
+            l += [f"**{gamme}**", "",
+                  "| | code | produit | marque | strate | Nutri-Score | mediane "
+                  "strate | ecart | sel | AGS |",
+                  "|:--|:--|:--|:--|:--|--:|--:|--:|--:|--:|"]
+            for r in g.itertuples():
+                m = r.marque if isinstance(r.marque, str) else "—"
+                tag = "meilleur" if r.rang == "meilleur" else "**moins bon**"
+                l.append(f"| {tag} | `{r.code}` | {r.product_name} | {m} | "
+                         f"{r.strate} | {r.ns:.0f} | {r.mediane_strate:.0f} | "
+                         f"{r.ecart:+.0f} | {r.sel:.2f} | {r.ags:.2f} |")
+            l += [""]
+    if ecar is not None and len(ecar):
+        l += [f"**{len(ecar)} produits ecartes du podium** : declaration",
+              "invraisemblable pour leur gamme — sel ou acides gras satures sous",
+              "le 1er centile d'une gamme salee et cuite, ou sechee. Sans ce",
+              "filtre, un saucisson declare a 0,00 g de sel et 0,00 g d'acides",
+              "gras satures occupe la premiere place. Ils sont publies dans",
+              "`sorties/i0_ecartes_du_podium.csv` : un produit ecarte n'est pas",
+              "un produit efface, et un lecteur qui verifie l'emballage peut",
+              "remettre la ligne au classement.",
+              "",
+              "Ce filtre a un cout assume : un produit reellement reformule,",
+              "seul de sa gamme, en est ecarte. Aucune deuxieme source ne permet",
+              "de trancher.",
+              ""]
+    if mq is not None and len(mq):
+        l += ["### 10.2 Les marques, sur leurs seuls produits halal", "",
+              "Seules les marques d'au moins 15 produits halal a nutrition",
+              "complete entrent au podium : en dessous, l'intervalle de",
+              "confiance couvre la moitie du classement.", "",
+              "| | marque | n halal | % du catalogue | ecart | IC 95 % | "
+              "strates |", "|:--|:--|--:|--:|--:|:--:|--:|"]
+        for r in mq.itertuples():
+            tag = "meilleure" if r.rang == "meilleure" else "**moins bonne**"
+            l.append(f"| {tag} | {r.marque_affichee} | {r.n} | "
+                     f"{r.pct_tague:.0f} % | {r.ecart_median:+.1f} | "
+                     f"[{r.ic95_bas:+.1f} ; {r.ic95_haut:+.1f}] | "
+                     f"{r.strates_couvertes} |")
+        l += ["",
+              "Les intervalles du premier et du dernier sont disjoints :",
+              "l'ecart entre les deux extremes du podium est **etabli**. Entre",
+              "deux voisins de classement, il ne l'est pas."]
+    if ce is not None and len(ce):
+        l += ["", "### 10.3 Les certificateurs : le classement complet, "
+              "sans podium", "",
+              "| organisme | n | ecart median | IC 95 % | strates | se distingue "
+              "du marche |", "|:--|--:|--:|:--:|--:|:--|"]
+        for r in ce.itertuples():
+            l.append(f"| {r.groupe} | {r.n} | {r.ecart_median:+.1f} | "
+                     f"[{r.ic95_bas:+.1f} ; {r.ic95_haut:+.1f}] | {r.strates} "
+                     f"| {r.distingue_du_marche} |")
+        l += ["",
+              "**Ce tableau porte sur la composition des produits qui portent",
+              "le nom d'un organisme, jamais sur son travail de",
+              "certification.** Un organisme ne fabrique pas : il certifie. La",
+              "couche 4 a montre qu'un certificateur se confond largement avec",
+              "les marques qui font appel a lui — l'ARGML tire 78 % de ses",
+              "produits d'une seule marque. Lire ce tableau comme un classement",
+              "d'organismes serait lire un classement de marques sous un autre",
+              "nom."]
+    l += ["", "---", ""]
+    return l
+
+
 def bloc_ouvert() -> list[str]:
     return [
         "## 9. Ce qui reste ouvert",
@@ -1984,6 +2092,7 @@ def bloc_ouvert() -> list[str]:
         "make couche16    # surcout halal en rayon, et la borne",
         "make couche17    # sites nommes (registre via l'Action "
         "couche14-registre)",
+        "make couche18    # podiums produits, marques, certificateurs",
         "python3 src/rapport_hypotheses.py   # regenere ce document",
         "```",
         "",
@@ -1998,7 +2107,8 @@ def main() -> int:
     lignes = (entete(k) + bloc_perimetre(k) + bloc_effet_label()
               + bloc_kasher() + bloc_marques() + bloc_certificateurs()
               + bloc_mecanismes() + bloc_prix() + bloc_produits()
-              + bloc_marche() + bloc_erreurs() + bloc_ouvert())
+              + bloc_marche() + bloc_erreurs() + bloc_podiums()
+              + bloc_ouvert())
     CIBLE.write_text("\n".join(lignes) + "\n", encoding="utf-8")
     titre("RESULTATS.md")
     print(f"  {len(lignes)} lignes ecrites dans {CIBLE}")

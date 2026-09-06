@@ -1,0 +1,54 @@
+code,product_name,marque,strate,nutriscore_grade,ns,mediane_strate,ecart,sel,ags,prot
+2784459023084,Merguez hallal,,saucisses / agneau,e,33.0,20.0,13.0,,14.0,2.1
+15825889,Blanc de poulet,isla-mondial,charcuterie_cuite / poulet,e,21.0,2.0,19.0,,0.5,19.1
+3499150350719,Pane de poulet,carf,preparations_marinees / poulet,e,22.0,2.0,20.0,,1.0,17.0
+3770019028070,Yakitori boulette poulet,les-yakis-givres,plats_cuisines / volaille_autre,e,33.0,4.0,29.0,4.35,0.0,2.2
+3770019028247,Brochettes yakitoris halal,,preparations_marinees / poulet,e,33.0,2.0,31.0,4.35,0.0,2.2
+4018342154004,Salami de boeuf avec viande de poulet,aladdin,charcuterie_seche / boeuf,d,13.0,23.0,-10.0,0.0,10.3,18.0
+4018342155711,Sosis,aladdin,saucisses / indetermine,c,8.0,20.0,-12.0,0.0,6.5,0.0
+6111250472333,Filet de Dinde Fumé (5 tranches),,charcuterie_cuite / dinde,c,5.0,3.0,2.0,1.9,0.0,13.3
+8711659071489,Parmak sucuk,sofram,saucisses / indetermine,e,32.0,20.0,12.0,,9.2,16.8
+3266980045777,Filet de Dinde,reghalal,charcuterie_cuite / dinde,d,13.0,3.0,10.0,2.5,0.2,21.0
+3266980373443,Bacon de dinde fumé au bois de hêtre,reghalal,charcuterie_cuite / dinde,d,18.0,3.0,15.0,3.44,0.1,26.0
+3291980533795,Merguez de volaille,reghalal,saucisses / agneau,c,3.0,20.0,-17.0,1.375,0.4,16.6
+3459860004661,La saucisse sèche aus noix,isla-mondial,charcuterie_seche / indetermine,e,22.0,33.0,-11.0,3.8,0.0,28.5
+3459860005354,Blanc de poulet,isla-mondial,charcuterie_cuite / poulet,d,13.0,2.0,11.0,2.5,0.0,19.1
+3560070503735,Blanc de Dinde Fumé Halal,carrefour,charcuterie_cuite / dinde,d,12.0,3.0,9.0,2.3,0.2,23.0
+3560070503766,Blanc de Dinde Halal,carrefour,charcuterie_cuite / dinde,d,12.0,3.0,9.0,2.3,0.2,23.0
+3760114530035,Safasaucis,essafa,saucisses / indetermine,a,-1.0,20.0,-21.0,1.0,0.22,22.0
+3760114530066,Cachir gout poulet,essafa,saucisses / poulet,e,22.0,15.0,7.0,8.0,0.22,23.0
+3760114530073,Mortadelle fumé,essafa-halal,charcuterie_seche / indetermine,b,1.0,33.0,-32.0,1.28,0.22,23.0
+3760195541753,Crousti-nems au poulet,foo-seng,plats_cuisines / poulet,a,0.0,3.0,-3.0,0.00275,1.5,8.9
+4047187001709,Tavuk Salam,selam,charcuterie_seche / porc,e,27.0,34.0,-7.0,,5.3,9.8
+4251097403106,Beef Jerky Sweet & Hot,jack-link-s,charcuterie_seche / boeuf,e,26.0,23.0,3.0,3.4,0.4,38.8
+5010436500017,Corned Beef,exeter,plats_cuisines / boeuf,c,4.0,4.0,0.0,0.00625,5.0,25.5
+20928896,Blanc de poulet halal,halal,charcuterie_cuite / poulet,a,-6.0,2.0,-8.0,0.0,0.30000001192093,21.0
+2431500018048,Saucisses de volaille,,saucisses / volaille_autre,b,2.0,12.0,-10.0,1.5,0.3,17.4
+3512690000439,Délice de Poulet,isla-delice,charcuterie_cuite / poulet,d,18.0,2.0,16.0,3.45,0.1,16.8
+3512690000606,Blanc de Poulet (40g),isla-delice,charcuterie_cuite / poulet,d,18.0,2.0,16.0,3.45,0.1,16.8
+3512690001351,Délice de Poulet à l'Orientale,isla-delice,charcuterie_cuite / poulet,d,18.0,2.0,16.0,3.5,0.1,16.8
+3512690001603,Allumettes de Poulet Nature,isla-delice,charcuterie_cuite / poulet,d,18.0,2.0,16.0,3.5052,0.1,16.8
+3512690002006,Délice de poulet doré au four 5 tranches,isla-delice,charcuterie_cuite / poulet,d,18.0,2.0,16.0,3.5,0.1,16.8
+3512690002051,Délice de Poulet,isla-delice,charcuterie_cuite / poulet,d,18.0,2.0,16.0,3.5,0.1,16.8
+3512690002716,Delice De Poulet,isla-delice,charcuterie_cuite / poulet,d,18.0,2.0,16.0,3.45,0.1,16.2
+3512690002723,Délice de Poulet,isla-delice,charcuterie_cuite / poulet,d,18.0,2.0,16.0,3.45,0.1,16.8
+3512690002945,Tranché de poulet halal,crystal,charcuterie_cuite / poulet,d,18.0,2.0,16.0,3.5,0.1,16.8
+3512690003393,Allumettes de poulet fumées,isla-delice,charcuterie_cuite / poulet,d,18.0,2.0,16.0,3.45,0.1,16.8
+3512690004130,Délice de Poulet,isla-delice,charcuterie_cuite / poulet,d,17.0,2.0,15.0,3.4,0.1,16.8
+3512690004154,Délice de Poulet HALAL,isla-delice,charcuterie_cuite / poulet,d,18.0,2.0,16.0,3.5,0.1,16.8
+3512690004215,Délice de poulet BBQ,isla-delice,charcuterie_cuite / poulet,d,18.0,2.0,16.0,3.5,0.1,16.8
+3512690004277,Délice de poulet,isla-delice,charcuterie_cuite / poulet,d,18.0,2.0,16.0,3.5,0.1,16.8
+3512690004628,Delice de poulet,isla-delice,charcuterie_cuite / volaille_autre,d,18.0,17.0,1.0,3.45,0.1,16.8
+5283001701939,Chicken Filet Spicy Crispy,hawa-chicken,panes / poulet,a,-4.0,4.0,-8.0,0.0,1.0,17.0
+5425036630383,Chicken Nuggets,islafood,panes / poulet,a,-1.0,4.0,-5.0,0.001875,1.2,11.7
+6111242110014,mortadelle dinde dindy380g,,charcuterie_seche / indetermine,e,21.0,33.0,-12.0,5.0,0.0,11.0
+3095751394017,Blanc de poulet - Halal,fleury-michon,charcuterie_cuite / poulet,a,-6.0,2.0,-8.0,0.0045,0.333333333333333,21.0
+3276650100811,Ravioli volaille Halal ,haudecoeur,plats_cuisines / volaille_autre,c,3.0,4.0,-1.0,1.0,0.1,2.5
+3276650100828,Ravioli Boeuf Halal,samia,plats_cuisines / boeuf,c,3.0,4.0,-1.0,1.0,0.1,2.6
+3378740516196,Bacon de dinde,id-halal,charcuterie_cuite / dinde,d,17.0,3.0,14.0,3.4,0.1,26.0
+3560071524661,Blanc de dinde halal,carrefour,charcuterie_cuite / dinde,d,12.0,3.0,9.0,2.3,0.2,23.0
+4056489513407,Blanc de dinde fumé,halal,charcuterie_cuite / dinde,d,13.0,3.0,10.0,2.6,0.2,21.0
+4056489513414,Blanc de Dinde fumé 4 tranches Halal,celvia,charcuterie_cuite / dinde,d,13.0,3.0,10.0,2.6,0.2,21.0
+4260467592043,Birbeli Salam,destan,charcuterie_seche / indetermine,d,13.0,33.0,-20.0,2.4,0.0,9.1
+5707196158670,Saucisse hot dog poulet,tulip,saucisses / poulet,b,1.0,15.0,-14.0,0.0,3.1,9.0
+8410530505425,Blanc de Poulet,isla-delice,charcuterie_cuite / poulet,d,12.0,2.0,10.0,2.3,0.1,14.1

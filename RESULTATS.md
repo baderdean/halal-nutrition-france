@@ -1480,6 +1480,206 @@ desormais mesuree et publiee AVANT chaque comparaison.
 
 ---
 
+## 10. Les podiums
+
+Une etude qui ne nomme personne ne change rien. Ces tableaux sont la
+pour qu'un rang se reprenne : il est verifiable, et il bouge des que
+la recette bouge.
+
+**Trois niveaux, trois solidites, et ils ne se lisent pas pareil.**
+Un produit est UNE observation et n'aura jamais d'intervalle de
+confiance. Une marque est un echantillon et en a un. Quatre
+organismes certificateurs seulement sont identifies : en podiumiser
+trois sur quatre serait une mise en scene, le classement complet est
+publie a la place.
+
+**Ce qu'aucune de ces lignes ne dit** : rien sur la halalite d'un
+produit, rien sur la conformite d'un organisme a une norme
+religieuse, rien sur la securite sanitaire, rien sur une intention.
+Un mauvais rang nutritionnel n'est pas un defaut de securite, et le
+Nutri-Score n'est pas un verdict de sante.
+
+### 10.1 Les produits, gamme par gamme
+
+**Pas de podium tous produits confondus.** Un « meilleur produit
+du rayon » opposerait un blanc de poulet a un saucisson. L'ecart
+a la strate corrige la gamme, mais un ecart de -30 reste plus
+souvent une erreur de rangement qu'une prouesse. Le podium est
+donc rendu gamme par gamme, ou la comparaison tient devant
+n'importe quel lecteur.
+
+**Les deux moities n'ont pas la meme solidite.** Une base
+contributive se trompe dans un seul sens : une case oubliee, un
+zero saisi a la place d'un vide, une valeur par portion prise
+pour une valeur aux 100 g font paraitre un produit MEILLEUR
+qu'il n'est. Presque jamais l'inverse — personne ne declare par
+erreur 15 g d'acides gras satures. Les **moins bons** sont donc
+solides ; les **meilleurs** sont a verifier en rayon,
+code-barres en main, avant d'etre cites. La colonne `fiabilite`
+le porte sur chaque ligne.
+
+**autres_carnes**
+
+| | code | produit | marque | strate | Nutri-Score | mediane strate | ecart | sel | AGS |
+|:--|:--|:--|:--|:--|--:|--:|--:|--:|--:|
+| meilleur | `6008123005074` | Pave filet d'autruche | klein-karoo | autres_carnes / indetermine | -3 | 17 | -20 | 0.80 | 0.80 |
+| meilleur | `6008123006187` | Pavé filet d'autruche pré-grillé | klein-karoo | autres_carnes / indetermine | -3 | 17 | -20 | 0.80 | 0.80 |
+| meilleur | `6008123005081` | Pavé steak d'autruche pré-grillé | klein-karoo | autres_carnes / indetermine | -2 | 17 | -19 | 1.00 | 0.60 |
+| **moins bon** | `3512690004185` | Le sec poulet | isla-delice | autres_carnes / poulet | 31 | 1 | +30 | 5.20 | 7.20 |
+| **moins bon** | `8711659429914` | Tranchés dinde | si-bel | autres_carnes / dinde | 30 | 0 | +30 | 3.25 | 15.00 |
+| **moins bon** | `8424863210147` | Salchichon de dinde et boeuf halal | — | autres_carnes / dinde | 31 | 0 | +31 | 3.59 | 12.70 |
+
+**charcuterie_cuite**
+
+| | code | produit | marque | strate | Nutri-Score | mediane strate | ecart | sel | AGS |
+|:--|:--|:--|:--|:--|--:|--:|--:|--:|--:|
+| meilleur | `3512690003478` | Bacon de Dinde à poêler | isla-delice | charcuterie_cuite / porc | 0 | 19 | -19 | 3.50 | 3.40 |
+| meilleur | `3512690002082` | Delice de dinde fumee | isla-delice | charcuterie_cuite / volaille_autre | 0 | 17 | -17 | 3.50 | 0.50 |
+| meilleur | `3095752622010` | Blanc de poulet halal | fleury-michon | charcuterie_cuite / volaille_autre | 2 | 17 | -15 | 1.80 | 0.40 |
+| **moins bon** | `3760246260152` | Jambon sec | — | charcuterie_cuite / indetermine | 35 | 13 | +22 | 4.90 | 14.90 |
+| **moins bon** | `3222475503979` | Lardons de dinde fumés halal | wassila | charcuterie_cuite / dinde | 26 | 3 | +23 | 3.50 | 6.60 |
+| **moins bon** | `3760238430785` | Delice de poulet | arabi | charcuterie_cuite / poulet | 27 | 2 | +25 | 6.00 | 4.08 |
+
+**charcuterie_seche**
+
+| | code | produit | marque | strate | Nutri-Score | mediane strate | ecart | sel | AGS |
+|:--|:--|:--|:--|:--|--:|--:|--:|--:|--:|
+| meilleur | `6118000370017` | Mortadelle | — | charcuterie_seche / indetermine | 4 | 33 | -29 | 1.60 | 0.74 |
+| meilleur | `3459860004364` | Saucisson à l'ail fumé | isla-mondial | charcuterie_seche / indetermine | 12 | 33 | -21 | 2.20 | 1.70 |
+| meilleur | `6111262902842` | Mortadelle luncheon | — | charcuterie_seche / indetermine | 12 | 33 | -21 | 1.50 | 1.00 |
+| **moins bon** | `3512690006219` | Beef salami | isla-delice | charcuterie_seche / boeuf | 34 | 23 | +11 | 5.50 | 13.10 |
+| **moins bon** | `3512690000101` | Le Sec Pur Boeuf Nature | isla-delice | charcuterie_seche / boeuf | 35 | 23 | +12 | 4.80 | 15.60 |
+| **moins bon** | `3512690002976` | Les P'tits Secs à Croquer! | isla-delice | charcuterie_seche / boeuf | 35 | 23 | +12 | 5.40 | 15.30 |
+
+**decoupes**
+
+| | code | produit | marque | strate | Nutri-Score | mediane strate | ecart | sel | AGS |
+|:--|:--|:--|:--|:--|--:|--:|--:|--:|--:|
+| meilleur | `20929954` | Filet de poulet halal | lidl | decoupes / poulet | -6 | -2 | -4 | 0.12 | 0.50 |
+| meilleur | `20929961` | Filets de poulet halal | — | decoupes / poulet | -6 | -2 | -4 | 0.12 | 0.50 |
+| meilleur | `20929978` | Filet de poulet halal | halal | decoupes / poulet | -6 | -2 | -4 | 0.09 | 0.30 |
+| **moins bon** | `5411431199242` | Filet de Dinde Rôtie | agrosnack | decoupes / dinde | 13 | -6 | +19 | 2.40 | 1.20 |
+| **moins bon** | `3266980011475` | Blanc de dinde | reghalal | decoupes / dinde | 15 | -6 | +21 | 2.90 | 0.40 |
+| **moins bon** | `2900541001109` | Blanc de dinde au 3 poivre | — | decoupes / dinde | 18 | -6 | +24 | 3.39 | 1.11 |
+
+**panes**
+
+| | code | produit | marque | strate | Nutri-Score | mediane strate | ecart | sel | AGS |
+|:--|:--|:--|:--|:--|--:|--:|--:|--:|--:|
+| meilleur | `3276280089364` | 4 Cordons bleus de dinde | royal-halal | panes / indetermine | -2 | 11 | -13 | 1.20 | 0.70 |
+| meilleur | `3276288125033` | 2 Cordons bleus de dinde | royal-halal | panes / indetermine | -2 | 11 | -13 | 1.20 | 0.70 |
+| meilleur | `3512690003225` | Isla nuggets | isla-delice | panes / volaille_autre | 0 | 13 | -13 | 1.50 | 1.90 |
+| **moins bon** | `3512690000217` | 4 Cordons Bleus de Dinde | isla-delice | panes / dinde | 16 | -1 | +17 | 1.88 | 4.50 |
+| **moins bon** | `3760059780106` | Burgers de dinde épicés | mahdia | panes / dinde | 18 | -1 | +19 | 2.40 | 4.90 |
+| **moins bon** | `3770022585546` | Cordon bleu de poulet halal | — | panes / poulet | 24 | 4 | +20 | 12.00 | 2.30 |
+
+**plats_cuisines**
+
+| | code | produit | marque | strate | Nutri-Score | mediane strate | ecart | sel | AGS |
+|:--|:--|:--|:--|:--|--:|--:|--:|--:|--:|
+| meilleur | `3021690027570` | Chili con carne | dounia-halal | plats_cuisines / boeuf | 0 | 4 | -4 | 0.90 | 1.00 |
+| meilleur | `3512690002266` | Hachis Parmentier, pur bœuf halal 350gr | isla-delice | plats_cuisines / boeuf | 0 | 4 | -4 | 0.70 | 2.71 |
+| meilleur | `3512690002280` | Boulettes de Bœuf à l'orientale Riz basmati | isla-delice | plats_cuisines / boeuf | 0 | 4 | -4 | 1.00 | 1.35 |
+| **moins bon** | `8424863056783` | Maigre de boeuf seche au poivre | kenza-halal | plats_cuisines / boeuf | 24 | 4 | +20 | 4.24 | 2.20 |
+| **moins bon** | `3276440699839` | Magret de canard seché | — | plats_cuisines / canard | 33 | 7 | +26 | 3.95 | 10.90 |
+| **moins bon** | `7036480012700` | REAL - Chili con carne | — | plats_cuisines / indetermine | 31 | 3 | +28 | 4.00 | 4.60 |
+
+**preparations_marinees**
+
+| | code | produit | marque | strate | Nutri-Score | mediane strate | ecart | sel | AGS |
+|:--|:--|:--|:--|:--|--:|--:|--:|--:|--:|
+| meilleur | `3512690000668` | Boulettes au boeuf prêtes à cuire | isla-delice | preparations_marinees / boeuf | 0 | 10 | -10 | 1.15 | 10.00 |
+| meilleur | `2906142006659` | Escalopes fines de poulet Halal | — | preparations_marinees / poulet | -6 | 2 | -8 | 0.11 | 0.60 |
+| meilleur | `5902082413844` | Kebab lamelle de poulet | — | preparations_marinees / poulet | -6 | 2 | -8 | 0.15 | 0.50 |
+| **moins bon** | `3512690006189` | Poulet & creme de piment | isla-delice | preparations_marinees / poulet | 22 | 2 | +20 | 2.20 | 13.00 |
+| **moins bon** | `3512690006196` | poulet et crème de curry à tartiner | isla-delice | preparations_marinees / poulet | 23 | 2 | +21 | 2.30 | 13.00 |
+| **moins bon** | `3700141402899` | Chick'n croc | — | preparations_marinees / poulet | 35 | 2 | +33 | 5.20 | 12.00 |
+
+**rillettes_pates_mousses**
+
+| | code | produit | marque | strate | Nutri-Score | mediane strate | ecart | sel | AGS |
+|:--|:--|:--|:--|:--|--:|--:|--:|--:|--:|
+| meilleur | `3512690002983` | Boursin | isla-delice | rillettes_pates_mousses / poulet | 0 | 17 | -17 | 1.94 | 16.00 |
+| meilleur | `3760309680132` | Terrine de Volaille aux Cèpes | — | rillettes_pates_mousses / volaille_autre | 3 | 20 | -17 | 1.40 | 2.20 |
+| meilleur | `3277670738350` | Rillettes de poulet rôti en cocotte | reghalal | rillettes_pates_mousses / poulet | 3 | 17 | -14 | 1.00 | 4.90 |
+| **moins bon** | `3459860002612` | Délice de Campagne | isla-mondial | rillettes_pates_mousses / indetermine | 22 | 20 | +2 | 2.00 | 15.00 |
+| **moins bon** | `5413546154819` | Mousse de canard | zahra | rillettes_pates_mousses / canard | 22 | 20 | +2 | 1.90 | 11.00 |
+| **moins bon** | `5413546154857` | Mousse de canard halal | — | rillettes_pates_mousses / canard | 22 | 20 | +2 | 1.90 | 11.00 |
+
+**saucisses**
+
+| | code | produit | marque | strate | Nutri-Score | mediane strate | ecart | sel | AGS |
+|:--|:--|:--|:--|:--|--:|--:|--:|--:|--:|
+| meilleur | `3700141402998` | Merguez Bœuf/Volaille | oriental-viandes | saucisses / agneau | 11 | 20 | -9 | 1.90 | 1.90 |
+| meilleur | `4031759402124` | Tavuk sosis | hunkar | saucisses / poulet | 6 | 15 | -9 | 0.90 | 4.90 |
+| meilleur | `4047187002232` | Tavuk sosis | — | saucisses / poulet | 6 | 15 | -9 | 0.90 | 4.90 |
+| **moins bon** | `3512690005762` | Sec au poulet | — | saucisses / poulet | 28 | 15 | +13 | 5.29 | 5.10 |
+| **moins bon** | `4040328044887` | Poultry Sausages W. Peber | baktat | saucisses / indetermine | 34 | 20 | +14 | 4.00 | 17.00 |
+| **moins bon** | `8711659090190` | Parmak Sucuk | sofram | saucisses / volaille_autre | 27 | 12 | +15 | 2.75 | 9.20 |
+
+**viande_hachee**
+
+| | code | produit | marque | strate | Nutri-Score | mediane strate | ecart | sel | AGS |
+|:--|:--|:--|:--|:--|--:|--:|--:|--:|--:|
+| meilleur | `3512690000194` | 10 Burgers | isla-delice | viande_hachee / boeuf | 0 | 6 | -6 | 1.15 | 10.00 |
+| meilleur | `3512690000699` | Haché 100 % Boeuf | isla-delice | viande_hachee / boeuf | 0 | 6 | -6 | 0.18 | 9.00 |
+| meilleur | `3512690001849` | Isla délice steack hâché halal x32 | isla-delice | viande_hachee / boeuf | 0 | 6 | -6 | 0.40 | 8.19 |
+| **moins bon** | `3039050162175` | 10 burgers surgelés | socopa | viande_hachee / boeuf | 18 | 6 | +12 | 1.20 | 12.00 |
+| **moins bon** | `3039050163998` | 10 Burgers Halal Surgelés | sans-marque | viande_hachee / boeuf | 18 | 6 | +12 | 1.20 | 12.00 |
+| **moins bon** | `3253880000036` | 35 Boulettes Orientales Halal Surgelées | al-jayid | viande_hachee / indetermine | 29 | 16 | +13 | 11.00 | 7.70 |
+
+**53 produits ecartes du podium** : declaration
+invraisemblable pour leur gamme — sel ou acides gras satures sous
+le 1er centile d'une gamme salee et cuite, ou sechee. Sans ce
+filtre, un saucisson declare a 0,00 g de sel et 0,00 g d'acides
+gras satures occupe la premiere place. Ils sont publies dans
+`sorties/i0_ecartes_du_podium.csv` : un produit ecarte n'est pas
+un produit efface, et un lecteur qui verifie l'emballage peut
+remettre la ligne au classement.
+
+Ce filtre a un cout assume : un produit reellement reformule,
+seul de sa gamme, en est ecarte. Aucune deuxieme source ne permet
+de trancher.
+
+### 10.2 Les marques, sur leurs seuls produits halal
+
+Seules les marques d'au moins 15 produits halal a nutrition
+complete entrent au podium : en dessous, l'intervalle de
+confiance couvre la moitie du classement.
+
+| | marque | n halal | % du catalogue | ecart | IC 95 % | strates |
+|:--|:--|--:|--:|--:|:--:|--:|
+| meilleure | Royal HALAL | 29 | 100 % | +0.0 | [-1.0 ; +1.0] | 8 |
+| meilleure | Isla Mondial | 74 | 98 % | +2.5 | [+1.0 ; +8.5] | 22 |
+| meilleure | ID-Halal | 35 | 100 % | +3.0 | [+0.0 ; +10.0] | 14 |
+| **moins bonne** | suntat | 21 | 100 % | +6.0 | [+2.0 ; +8.0] | 10 |
+| **moins bonne** | Arabi | 43 | 98 % | +11.0 | [+7.9 ; +12.0] | 13 |
+| **moins bonne** | Volibon | 15 | 100 % | +15.0 | [+12.0 ; +16.0] | 4 |
+
+Les intervalles du premier et du dernier sont disjoints :
+l'ecart entre les deux extremes du podium est **etabli**. Entre
+deux voisins de classement, il ne l'est pas.
+
+### 10.3 Les certificateurs : le classement complet, sans podium
+
+| organisme | n | ecart median | IC 95 % | strates | se distingue du marche |
+|:--|--:|--:|:--:|--:|:--|
+| SFCVH — Grande Mosquee de Paris | 102 | +0.0 | [+0.0 ; +0.0] | 25 | non |
+| AVS — A Votre Service | 142 | +2.0 | [+1.0 ; +7.0] | 25 | oui |
+| ARGML — Grande Mosquee de Lyon | 157 | +4.0 | [+1.0 ; +8.0] | 30 | oui |
+| Mosquee d'Evry-Courcouronnes | 221 | +5.0 | [+3.0 ; +7.0] | 38 | oui |
+
+**Ce tableau porte sur la composition des produits qui portent
+le nom d'un organisme, jamais sur son travail de
+certification.** Un organisme ne fabrique pas : il certifie. La
+couche 4 a montre qu'un certificateur se confond largement avec
+les marques qui font appel a lui — l'ARGML tire 78 % de ses
+produits d'une seule marque. Lire ce tableau comme un classement
+d'organismes serait lire un classement de marques sous un autre
+nom.
+
+---
+
 ## 9. Ce qui reste ouvert
 
 | sujet | etat | ce qu'il faudrait |
@@ -1523,6 +1723,7 @@ make couche14    # sites francais decodes depuis l'estampille
 make couche15    # MDD, industriels, specialistes du halal
 make couche16    # surcout halal en rayon, et la borne
 make couche17    # sites nommes (registre via l'Action couche14-registre)
+make couche18    # podiums produits, marques, certificateurs
 python3 src/rapport_hypotheses.py   # regenere ce document
 ```
 
