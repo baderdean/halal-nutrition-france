@@ -172,10 +172,14 @@ def main() -> int:
     e = (d.explode("emb_codes_tags")
            .rename(columns={"emb_codes_tags": "etablissement"}))
     e = e[e.etablissement.notna()]
-    # brands_tags peut etre vide : on garde la ligne, avec une marque
-    # nommee explicitement inconnue plutot qu'un vide silencieux.
+    # Un produit sans marque saisie n'a PAS de marque. Le nommer « inconnue »
+    # en fabriquerait une, qui compterait pour une marque de plus dans w1 et
+    # formerait une grappe geante dans l'ICC de w4 : le pouvoir explicatif de
+    # la marque tombait de 0,463 a 0,391 par ce seul artefact. Ces lignes sont
+    # donc laissees vides et exclues des statistiques PAR MARQUE, jamais des
+    # statistiques par etablissement.
     e["marque"] = [str(x) if x is not None and x == x and str(x) != ""
-                   else "inconnue" for x in e.marque]
+                   else None for x in e.marque]
     avant = e.etablissement.nunique()
     e = e[e.etablissement.apply(utilisable)]
     e["etablissement"] = e.etablissement.apply(normaliser_etablissement)
@@ -248,17 +252,22 @@ def main() -> int:
         med = float(g.ecart.median())
         if np.isnan(med):
             continue
-        dom = g.marque.value_counts()
-        part = 100.0 * dom.iloc[0] / len(g) if len(dom) else 100.0
+        # Tri secondaire par nom : sans lui, deux marques a egalite sortent
+        # dans un ordre qui change d'une execution a l'autre.
+        dom = (g.marque.value_counts()
+                .rename_axis("m").reset_index(name="k")
+                .sort_values(["k", "m"], ascending=[False, True]))
+        part = 100.0 * dom.k.iloc[0] / len(g) if len(dom) else 100.0
         # Retrait de la marque dominante : un site dont 80 % de la production
         # est une seule marque est juge sur cette marque.
-        sans = g[g.marque != dom.index[0]] if len(dom) > 1 else g.iloc[0:0]
+        premiere = dom.m.iloc[0] if len(dom) else None
+        sans = g[g.marque != premiere] if len(dom) > 1 else g.iloc[0:0]
         lignes3.append({
             "etablissement": et, "n": len(g),
             "n_marques": int(g.marque.nunique()),
             "n_halal": int((g.bras == "halal").sum()),
             "ecart_median": round(med, 1),
-            "marque_dominante": dom.index[0] if len(dom) else None,
+            "marque_dominante": premiere,
             "part_dominante_pct": round(part, 1),
             "ecart_sans_dominante": (round(float(sans.ecart.median()), 1)
                                      if len(sans) >= SEUIL_DESC else None),
