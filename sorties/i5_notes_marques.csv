@@ -1,0 +1,13 @@
+marque_affichee,type,n,ecart_median,ic95_bas,ic95_haut,note,note_compatible,note_determinee
+Royal HALAL,marque halal,29,0.0,-1.0,1.0,A,A,True
+Isla Mondial,marque halal,74,2.5,1.0,8.5,B,A-C,False
+ID-Halal,marque halal,35,3.0,0.0,10.0,B,A-C,False
+Isla Délice,marque halal,181,4.0,2.0,9.0,B,B-C,False
+Oriental Viandes,marque halal,80,4.0,2.0,8.0,B,B-C,False
+Wassila,marque halal,21,4.0,0.0,12.0,B,A-D,False
+Al Jadid,marque halal,19,6.0,-3.0,12.0,C,S-D,False
+Halal,marque halal,19,6.0,0.0,10.0,C,A-C,False
+Réghalal,marque halal,97,6.0,3.0,10.0,C,B-C,False
+suntat,marque halal,21,6.0,2.0,8.0,C,B-C,False
+Arabi,marque halal,43,11.0,7.875,12.0,D,C-D,False
+Volibon,marque halal,15,15.0,12.0,16.0,D,D,True

@@ -1916,6 +1916,7 @@ def bloc_podiums() -> list[str]:
     glob = lire("i4_podium_global")
     ecar = lire("i0_ecartes_du_podium")
     mq = lire("i2_podium_marques")
+    no = lire("i5_notes_marques")
     ce = lire("i3_classement_certificateurs")
     l = ["## 10. Les podiums", "",
          "Une etude qui ne nomme personne ne change rien. Ces tableaux sont la",
@@ -2015,9 +2016,62 @@ def bloc_podiums() -> list[str]:
         l += ["",
               "Les intervalles du premier et du dernier sont disjoints :",
               "l'ecart entre les deux extremes du podium est **etabli**. Entre",
-              "deux voisins de classement, il ne l'est pas."]
+              "deux voisins de classement, il ne l'est pas — d'ou les notes",
+              "ci-dessous."]
+    if no is not None and len(no):
+        det = no[no.note_determinee]
+        l += ["", "### 10.4 Les notes des marques, et pourquoi pas des rangs",
+              "",
+              "**Aucun palier separable n'existe.** Le script cherche a chaque",
+              "execution un rang ou les intervalles de tout ce qui est au-dessus",
+              "seraient disjoints de tout ce qui est en dessous. Il n'en trouve",
+              "aucun : les intervalles forment une chaine continue du premier au",
+              "dernier. Entre deux marques voisines, **aucun classement n'est",
+              "etabli**, et un rang de 1 a 12 serait une precision inventee.",
+              "",
+              "D'ou des paliers de **convention**, sur une echelle absolue :",
+              "l'ecart a la mediane de marche de la meme gamme. Ils sont ronds",
+              "et symetriques autour de zero, zero valant « au niveau du marche",
+              "sur sa propre gamme ». Les deplacer change des lettres, jamais",
+              "l'ordre.",
+              "",
+              "| palier | ecart a la mediane de marche |",
+              "|:--|:--|",
+              "| **S** | au plus -2 : nettement mieux que le marche |",
+              "| **A** | de -2 a +1 : au niveau du marche |",
+              "| **B** | de +1 a +5 |",
+              "| **C** | de +5 a +10 |",
+              "| **D** | au-dela de +10 |",
+              "",
+              "La **note** est le palier de l'ecart median. La **note",
+              "compatible** est l'etendue des paliers que l'intervalle de",
+              "confiance autorise : une marque dont l'intervalle couvre trois",
+              "paliers n'a pas de note, et le tableau le dit plutot que de",
+              "trancher.",
+              "",
+              "| marque | n halal | ecart | IC 95 % | note | compatible | "
+              "determinee |", "|:--|--:|--:|:--:|:--:|:--:|:--|"]
+        for r in no.itertuples():
+            gras = f"**{r.note}**" if r.note_determinee else r.note
+            l.append(f"| {r.marque_affichee} | {r.n} | {r.ecart_median:+.1f} | "
+                     f"[{r.ic95_bas:+.1f} ; {r.ic95_haut:+.1f}] | {gras} | "
+                     f"{r.note_compatible} | "
+                     f"{'oui' if r.note_determinee else 'non'} |")
+        noms = ", ".join(f"{r.marque_affichee} = {r.note}"
+                         for r in det.itertuples())
+        l += ["",
+              f"**{len(det)} marques sur {len(no)} ont une note determinee** : "
+              f"{noms}.",
+              "Pour toutes les autres, l'effectif ne permet pas de trancher",
+              "entre deux ou trois paliers. Ce n'est pas un defaut de la note :",
+              "c'est le nombre de produits halal que ces marques mettent sur le",
+              "marche."]
+        if not (no.note == "S").any():
+            l += ["",
+                  "**Aucune marque halal n'atteint le palier S.** Aucune ne fait",
+                  "nettement mieux que le marche sur sa propre gamme."]
     if ce is not None and len(ce):
-        l += ["", "### 10.4 Les certificateurs : le classement complet, "
+        l += ["", "### 10.5 Les certificateurs : le classement complet, "
               "sans podium", "",
               "| organisme | n | ecart median | IC 95 % | strates | se distingue "
               "du marche |", "|:--|--:|--:|:--:|--:|:--|"]

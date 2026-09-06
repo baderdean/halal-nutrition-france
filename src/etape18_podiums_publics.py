@@ -61,6 +61,46 @@ SEUIL = 30            # regle des 30, pour les strates
 SEUIL_GAMME = 30      # produits halal dans une gamme, pour la podiumiser
 SEUIL_ESTIME = 15     # produits halal a nutrition complete, pour une marque
 PODIUM = 3
+
+# PALIERS. Les intervalles de confiance des marques halal forment une CHAINE
+# CONTINUE : il n'existe aucun point de coupure ou les IC de tout ce qui est
+# au-dessus sont disjoints de tout ce qui est en dessous. Des paliers
+# strictement separables sont donc impossibles a construire, et le script le
+# verifie a chaque execution.
+#
+# Les paliers ci-dessous sont donc une CONVENTION D'AFFICHAGE sur une echelle
+# absolue, pas un resultat statistique. Ils sont ronds et symetriques autour
+# de zero, zero valant « au niveau du marche sur la meme gamme ». Les
+# deplacer change des lettres, jamais l'ordre.
+#
+# Ce qui, lui, est un resultat : la lettre COMPATIBLE AVEC L'INTERVALLE. Une
+# marque dont l'IC couvre trois paliers n'a pas de note, et le tableau
+# l'affiche comme telle plutot que de trancher.
+PALIERS = [("S", -99.0, -2.0), ("A", -2.0, 1.0), ("B", 1.0, 5.0),
+           ("C", 5.0, 10.0), ("D", 10.0, 99.0)]
+
+
+def palier(x: float) -> str:
+    for nom, bas, haut in PALIERS:
+        if bas < x <= haut:
+            return nom
+    return PALIERS[0][0] if x <= PALIERS[0][2] else PALIERS[-1][0]
+
+
+def intervalle_de_palier(bas: float, haut: float) -> str:
+    a, b = palier(bas), palier(haut)
+    return a if a == b else f"{a}-{b}"
+
+
+def point_de_coupure(t) -> list:
+    """Cherche un vrai palier separable. Renvoie les positions de coupure."""
+    coupures = []
+    for k in range(len(t) - 1):
+        haut_dessus = t.ic95_haut.iloc[:k + 1].max()
+        bas_dessous = t.ic95_bas.iloc[k + 1:].min()
+        if haut_dessus < bas_dessous:
+            coupures.append(k)
+    return coupures
 MIN_CERTIF = 6        # en dessous, on publie le classement entier, pas un podium
 
 
@@ -286,8 +326,56 @@ def main() -> int:
     print("  et la couche 4 a montre qu'un certificateur se confond largement")
     print("  avec les marques qui font appel a lui.")
 
+    titre("Notes des marques — pourquoi des paliers, et pas des rangs")
+    t = m[m.n >= SEUIL_ESTIME].sort_values(
+        ["ecart_median", "marque_affichee"]).reset_index(drop=True)
+    coup = point_de_coupure(t)
+    print(f"{len(t)} marques notables. Recherche d'un palier STRICTEMENT")
+    print("separable — un rang ou les intervalles de tout ce qui est au-dessus")
+    print("sont disjoints de tout ce qui est en dessous :")
+    if coup:
+        print(f"  {len(coup)} point(s) de coupure trouve(s), aux rangs "
+              f"{[k + 1 for k in coup]}.")
+        print("  Des paliers fondes sur les donnees sont possibles et ce bloc")
+        print("  doit etre reecrit pour les utiliser.")
+    else:
+        print("  AUCUN. Les intervalles forment une chaine continue du premier")
+        print("  au dernier. Entre deux marques voisines, aucun classement")
+        print("  n'est etabli, et un palier separable ne peut pas etre "
+              "construit.")
+    print("\nD'ou des paliers de CONVENTION, sur une echelle absolue : ecart a")
+    print("la mediane de marche de la meme gamme.")
+    for nom, bas, haut in PALIERS:
+        b = "" if bas <= -99 else f"{bas:+.0f} < "
+        h = "" if haut >= 99 else f" <= {haut:+.0f}"
+        print(f"  {nom} : {b}ecart{h}")
+    print("\nLa NOTE est le palier de l'ecart median. La NOTE COMPATIBLE est")
+    print("l'etendue des paliers que l'intervalle de confiance autorise : une")
+    print("marque dont l'IC couvre trois paliers n'a pas de note, et le")
+    print("tableau le dit plutot que de trancher.\n")
+    t["note"] = [palier(x) for x in t.ecart_median]
+    t["note_compatible"] = [intervalle_de_palier(a, b)
+                            for a, b in zip(t.ic95_bas, t.ic95_haut)]
+    t["note_determinee"] = t.note_compatible == t.note
+    cn = ["marque_affichee", "type", "n", "ecart_median", "ic95_bas",
+          "ic95_haut", "note", "note_compatible", "note_determinee"]
+    print(t[cn].to_string(index=False))
+    t[cn].to_csv(SORTIES / "i5_notes_marques.csv", index=False)
+    det = t[t.note_determinee]
+    print(f"\n  {len(det)} marques sur {len(t)} ont une note DETERMINEE : "
+          + ", ".join(f"{r.marque_affichee} = {r.note}"
+                      for r in det.itertuples()) + ".")
+    print("  Pour toutes les autres, l'effectif ne permet pas de trancher")
+    print("  entre deux ou trois paliers. Ce n'est pas un defaut de la note :")
+    print("  c'est le nombre de produits halal que ces marques mettent sur le")
+    print("  marche.")
+    if not (t.note == "S").any():
+        print("\n  AUCUNE marque halal n'atteint le palier S. Aucune ne fait")
+        print("  nettement mieux que le marche sur sa propre gamme.")
+
     print("\nEcrit : sorties/i1_podium_produits.csv, i2_podium_marques.csv,")
-    print("        i3_classement_certificateurs.csv")
+    print("        i3_classement_certificateurs.csv, i4_podium_global.csv,")
+    print("        i5_notes_marques.csv")
     return 0
 
 
