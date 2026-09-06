@@ -1499,14 +1499,50 @@ religieuse, rien sur la securite sanitaire, rien sur une intention.
 Un mauvais rang nutritionnel n'est pas un defaut de securite, et le
 Nutri-Score n'est pas un verdict de sante.
 
-### 10.1 Les produits, gamme par gamme
+### 10.1 Les produits, tous produits confondus
 
-**Pas de podium tous produits confondus.** Un « meilleur produit
-du rayon » opposerait un blanc de poulet a un saucisson. L'ecart
-a la strate corrige la gamme, mais un ecart de -30 reste plus
-souvent une erreur de rangement qu'une prouesse. Le podium est
-donc rendu gamme par gamme, ou la comparaison tient devant
-n'importe quel lecteur.
+« Tous produits confondus » se lit de deux facons qui ne donnent
+pas le meme classement. Publier une seule des deux ferait passer
+un choix d'analyse pour un fait, donc les deux sont la.
+
+**Classement ABSOLU — Nutri-Score brut.**
+
+| | code | produit | marque | strate | Nutri-Score | mediane strate | ecart | sel | AGS |
+|:--|:--|:--|:--|:--|--:|--:|--:|--:|--:|
+| meilleur | `3560070569274` | Brochettes de Dinde Halal | carrefour | autres_carnes / dinde | -7 | 0 | -7 | 0.20 | 1.60 |
+| meilleur | `20929954` | Filet de poulet halal | lidl | decoupes / poulet | -6 | -2 | -4 | 0.12 | 0.50 |
+| meilleur | `20929961` | Filets de poulet halal | — | decoupes / poulet | -6 | -2 | -4 | 0.12 | 0.50 |
+| **moins bon** | `3264056111821` | Salami Boeuf Volaille | berni | charcuterie_seche / indetermine | 36 | 33 | +3 | 4.20 | 18.00 |
+| **moins bon** | `3512690001139` | Le Sec Nature 280G, | isla-delice | charcuterie_seche / porc | 36 | 34 | +2 | 4.40 | 19.20 |
+| **moins bon** | `3683080570372` | Salami de boeuf | h-market-selection | charcuterie_seche / indetermine | 37 | 33 | +4 | 10.00 | 13.00 |
+
+Le bas de ce classement est de la charcuterie sechee, et le haut
+de la volaille crue. **C'est un fait de rayon, pas un jugement
+sur un industriel** : un saucisson sec est note comme un
+saucisson sec, et le classer dernier dit qu'il est du saucisson
+sec. Un lecteur qui veut savoir qui fait mal son metier lit le
+classement suivant.
+
+**Classement A GAMME EGALE — ecart a la mediane de marche de la strate.**
+
+| | code | produit | marque | strate | Nutri-Score | mediane strate | ecart | sel | AGS |
+|:--|:--|:--|:--|:--|--:|--:|--:|--:|--:|
+| meilleur | `6118000370017` | Mortadelle | — | charcuterie_seche / indetermine | 4 | 33 | -29 | 1.60 | 0.74 |
+| meilleur | `3459860004364` | Saucisson à l'ail fumé | isla-mondial | charcuterie_seche / indetermine | 12 | 33 | -21 | 2.20 | 1.70 |
+| meilleur | `6111262902842` | Mortadelle luncheon | — | charcuterie_seche / indetermine | 12 | 33 | -21 | 1.50 | 1.00 |
+| **moins bon** | `8711659429914` | Tranchés dinde | si-bel | autres_carnes / dinde | 30 | 0 | +30 | 3.25 | 15.00 |
+| **moins bon** | `8424863210147` | Salchichon de dinde et boeuf halal | — | autres_carnes / dinde | 31 | 0 | +31 | 3.59 | 12.70 |
+| **moins bon** | `3700141402899` | Chick'n croc | — | preparations_marinees / poulet | 35 | 2 | +33 | 5.20 | 12.00 |
+
+Seul des deux ou une entreprise peut reprendre son rang en
+changeant sa recette, et donc le seul qui serve la competition
+que ces tableaux cherchent a declencher.
+
+### 10.2 Les produits, gamme par gamme
+
+Le meme exercice a l'interieur de chaque gamme, ou la
+comparaison tient devant n'importe quel lecteur : une merguez
+contre une merguez, un nugget contre un nugget.
 
 **Les deux moities n'ont pas la meme solidite.** Une base
 contributive se trompe dans un seul sens : une case oubliee, un
@@ -1641,7 +1677,7 @@ Ce filtre a un cout assume : un produit reellement reformule,
 seul de sa gamme, en est ecarte. Aucune deuxieme source ne permet
 de trancher.
 
-### 10.2 Les marques, sur leurs seuls produits halal
+### 10.3 Les marques, sur leurs seuls produits halal
 
 Seules les marques d'au moins 15 produits halal a nutrition
 complete entrent au podium : en dessous, l'intervalle de
@@ -1660,7 +1696,7 @@ Les intervalles du premier et du dernier sont disjoints :
 l'ecart entre les deux extremes du podium est **etabli**. Entre
 deux voisins de classement, il ne l'est pas.
 
-### 10.3 Les certificateurs : le classement complet, sans podium
+### 10.4 Les certificateurs : le classement complet, sans podium
 
 | organisme | n | ecart median | IC 95 % | strates | se distingue du marche |
 |:--|--:|--:|:--:|--:|:--|

@@ -1,0 +1,13 @@
+code,product_name,marque,strate,nutriscore_grade,ns,mediane_strate,ecart,sel,ags,prot,classement,rang,fiabilite
+3560070569274,Brochettes de Dinde Halal,carrefour,autres_carnes / dinde,a,-7.0,0.0,-7.0,0.2,1.6,18.0,absolu,meilleur,a verifier en rayon
+20929954,Filet de poulet halal,lidl,decoupes / poulet,a,-6.0,-2.0,-4.0,0.12,0.5,23.0,absolu,meilleur,a verifier en rayon
+20929961,Filets de poulet halal,,decoupes / poulet,a,-6.0,-2.0,-4.0,0.12,0.5,23.0,absolu,meilleur,a verifier en rayon
+3264056111821,Salami Boeuf Volaille,berni,charcuterie_seche / indetermine,e,36.0,33.0,3.0,4.2,18.0,15.6,absolu,moins bon,solide
+3512690001139,"Le Sec Nature 280G,",isla-delice,charcuterie_seche / porc,e,36.0,34.0,2.0,4.4,19.2,27.0,absolu,moins bon,solide
+3683080570372,Salami de boeuf,h-market-selection,charcuterie_seche / indetermine,e,37.0,33.0,4.0,10.0,13.0,13.0,absolu,moins bon,solide
+6118000370017,Mortadelle,,charcuterie_seche / indetermine,c,4.0,33.0,-29.0,1.6,0.74,10.5,a gamme egale,meilleur,a verifier en rayon
+3459860004364,Saucisson à l'ail fumé,isla-mondial,charcuterie_seche / indetermine,d,12.0,33.0,-21.0,2.2,1.7,11.0,a gamme egale,meilleur,a verifier en rayon
+6111262902842,Mortadelle luncheon,,charcuterie_seche / indetermine,d,12.0,33.0,-21.0,1.5,1.0,10.4,a gamme egale,meilleur,a verifier en rayon
+8711659429914,Tranchés dinde,si-bel,autres_carnes / dinde,e,30.0,0.0,30.0,3.25,15.0,14.0,a gamme egale,moins bon,solide
+8424863210147,Salchichon de dinde et boeuf halal,,autres_carnes / dinde,e,31.0,0.0,31.0,3.59,12.7,20.9,a gamme egale,moins bon,solide
+3700141402899,Chick'n croc,,preparations_marinees / poulet,e,35.0,2.0,33.0,5.2,12.0,32.0,a gamme egale,moins bon,solide

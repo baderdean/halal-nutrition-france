@@ -1913,6 +1913,7 @@ def bloc_erreurs() -> list[str]:
 def bloc_podiums() -> list[str]:
     """Section 10 — les podiums destines a la publication."""
     prod = lire("i1_podium_produits")
+    glob = lire("i4_podium_global")
     ecar = lire("i0_ecartes_du_podium")
     mq = lire("i2_podium_marques")
     ce = lire("i3_classement_certificateurs")
@@ -1934,14 +1935,43 @@ def bloc_podiums() -> list[str]:
          "Un mauvais rang nutritionnel n'est pas un defaut de securite, et le",
          "Nutri-Score n'est pas un verdict de sante.",
          ""]
+    def table_produits(g, entete):
+        out = [entete, "",
+               "| | code | produit | marque | strate | Nutri-Score | mediane "
+               "strate | ecart | sel | AGS |",
+               "|:--|:--|:--|:--|:--|--:|--:|--:|--:|--:|"]
+        for r in g.itertuples():
+            m = r.marque if isinstance(r.marque, str) else "—"
+            tag = "meilleur" if r.rang == "meilleur" else "**moins bon**"
+            out.append(f"| {tag} | `{r.code}` | {r.product_name} | {m} | "
+                       f"{r.strate} | {r.ns:.0f} | {r.mediane_strate:.0f} | "
+                       f"{r.ecart:+.0f} | {r.sel:.2f} | {r.ags:.2f} |")
+        return out + [""]
+
+    if glob is not None and len(glob):
+        l += ["### 10.1 Les produits, tous produits confondus", "",
+              "« Tous produits confondus » se lit de deux facons qui ne donnent",
+              "pas le meme classement. Publier une seule des deux ferait passer",
+              "un choix d'analyse pour un fait, donc les deux sont la.", ""]
+        l += table_produits(glob[glob.classement == "absolu"],
+                            "**Classement ABSOLU — Nutri-Score brut.**")
+        l += ["Le bas de ce classement est de la charcuterie sechee, et le haut",
+              "de la volaille crue. **C'est un fait de rayon, pas un jugement",
+              "sur un industriel** : un saucisson sec est note comme un",
+              "saucisson sec, et le classer dernier dit qu'il est du saucisson",
+              "sec. Un lecteur qui veut savoir qui fait mal son metier lit le",
+              "classement suivant.", ""]
+        l += table_produits(glob[glob.classement == "a gamme egale"],
+                            "**Classement A GAMME EGALE — ecart a la mediane de "
+                            "marche de la strate.**")
+        l += ["Seul des deux ou une entreprise peut reprendre son rang en",
+              "changeant sa recette, et donc le seul qui serve la competition",
+              "que ces tableaux cherchent a declencher.", ""]
     if prod is not None and len(prod):
-        l += ["### 10.1 Les produits, gamme par gamme", "",
-              "**Pas de podium tous produits confondus.** Un « meilleur produit",
-              "du rayon » opposerait un blanc de poulet a un saucisson. L'ecart",
-              "a la strate corrige la gamme, mais un ecart de -30 reste plus",
-              "souvent une erreur de rangement qu'une prouesse. Le podium est",
-              "donc rendu gamme par gamme, ou la comparaison tient devant",
-              "n'importe quel lecteur.",
+        l += ["### 10.2 Les produits, gamme par gamme", "",
+              "Le meme exercice a l'interieur de chaque gamme, ou la",
+              "comparaison tient devant n'importe quel lecteur : une merguez",
+              "contre une merguez, un nugget contre un nugget.",
               "",
               "**Les deux moities n'ont pas la meme solidite.** Une base",
               "contributive se trompe dans un seul sens : une case oubliee, un",
@@ -1954,17 +1984,7 @@ def bloc_podiums() -> list[str]:
               "le porte sur chaque ligne.",
               ""]
         for gamme, g in prod.groupby("gamme"):
-            l += [f"**{gamme}**", "",
-                  "| | code | produit | marque | strate | Nutri-Score | mediane "
-                  "strate | ecart | sel | AGS |",
-                  "|:--|:--|:--|:--|:--|--:|--:|--:|--:|--:|"]
-            for r in g.itertuples():
-                m = r.marque if isinstance(r.marque, str) else "—"
-                tag = "meilleur" if r.rang == "meilleur" else "**moins bon**"
-                l.append(f"| {tag} | `{r.code}` | {r.product_name} | {m} | "
-                         f"{r.strate} | {r.ns:.0f} | {r.mediane_strate:.0f} | "
-                         f"{r.ecart:+.0f} | {r.sel:.2f} | {r.ags:.2f} |")
-            l += [""]
+            l += table_produits(g, f"**{gamme}**")
     if ecar is not None and len(ecar):
         l += [f"**{len(ecar)} produits ecartes du podium** : declaration",
               "invraisemblable pour leur gamme — sel ou acides gras satures sous",
@@ -1980,7 +2000,7 @@ def bloc_podiums() -> list[str]:
               "de trancher.",
               ""]
     if mq is not None and len(mq):
-        l += ["### 10.2 Les marques, sur leurs seuls produits halal", "",
+        l += ["### 10.3 Les marques, sur leurs seuls produits halal", "",
               "Seules les marques d'au moins 15 produits halal a nutrition",
               "complete entrent au podium : en dessous, l'intervalle de",
               "confiance couvre la moitie du classement.", "",
@@ -1997,7 +2017,7 @@ def bloc_podiums() -> list[str]:
               "l'ecart entre les deux extremes du podium est **etabli**. Entre",
               "deux voisins de classement, il ne l'est pas."]
     if ce is not None and len(ce):
-        l += ["", "### 10.3 Les certificateurs : le classement complet, "
+        l += ["", "### 10.4 Les certificateurs : le classement complet, "
               "sans podium", "",
               "| organisme | n | ecart median | IC 95 % | strates | se distingue "
               "du marche |", "|:--|--:|--:|:--:|--:|:--|"]

@@ -144,12 +144,56 @@ def main() -> int:
     print("  produit efface. Un lecteur qui verifie l'emballage et trouve la")
     print("  declaration correcte peut remettre la ligne au classement.")
 
-    print("\n  PAS DE PODIUM TOUS PRODUITS CONFONDUS. Un « meilleur produit "
-          "du\n  rayon » opposerait un blanc de poulet a un saucisson : "
-          "l'ecart a la\n  strate corrige la gamme, mais un ecart de -30 "
-          "reste plus souvent une\n  erreur de rangement qu'une prouesse. "
-          "Le podium est donc rendu GAMME\n  PAR GAMME, ou la comparaison "
-          "tient devant n'importe quel lecteur.")
+    # PODIUM GLOBAL, TOUS PRODUITS CONFONDUS.
+    #
+    # « Tous produits confondus » se lit de deux facons qui ne donnent pas le
+    # meme classement, et publier une seule des deux ferait passer un choix
+    # d'analyse pour un fait. Les deux sont donc publiees cote a cote.
+    #
+    #   ABSOLU        le Nutri-Score brut. Repond a « quel est le produit le
+    #                 plus / le moins bien note du rayon halal ». Un rayon
+    #                 est fait de gammes inegales : le bas de ce classement
+    #                 sera de la charcuterie sechee quoi que fasse son
+    #                 fabricant, et le haut de la volaille crue. C'est un fait
+    #                 de rayon, pas un jugement sur un industriel.
+    #
+    #   A GAMME EGALE l'ecart a la mediane de marche de la strate. Repond a
+    #                 « qui fait le moins bien de ce qu'il fait ». C'est le
+    #                 seul des deux ou une entreprise peut reprendre son rang
+    #                 en changeant sa recette, et donc le seul qui serve la
+    #                 competition que ce classement cherche a declencher.
+    titre("Podium global — tous produits confondus")
+    print("Deux lectures, deux classements. Publier une seule des deux ferait")
+    print("passer un choix d'analyse pour un fait.\n")
+    glob = []
+    for cle, lib, expl in (
+            ("ns", "absolu",
+             "Nutri-Score brut. Le bas est de la charcuterie sechee quoi que "
+             "fasse\n  son fabricant, le haut de la volaille crue : c'est un "
+             "fait de rayon,\n  pas un jugement sur un industriel."),
+            ("ecart", "a gamme egale",
+             "Ecart a la mediane de marche de la strate. Seul des deux ou une\n"
+             "  entreprise peut reprendre son rang en changeant sa recette.")):
+        g = h.sort_values([cle, "code"])
+        print(f"\n  === Classement {lib.upper()}")
+        print(f"  {expl}")
+        bloc(g.head(PODIUM), cols, f"--- Les {PODIUM} meilleurs")
+        bloc(g.tail(PODIUM).iloc[::-1], cols, f"--- Les {PODIUM} moins bons")
+        glob.append(g.head(PODIUM).assign(classement=lib, rang="meilleur",
+                                          fiabilite="a verifier en rayon"))
+        glob.append(g.tail(PODIUM).assign(classement=lib, rang="moins bon",
+                                          fiabilite="solide"))
+    pd.concat(glob)[cols + ["classement", "rang", "fiabilite"]].to_csv(
+        SORTIES / "i4_podium_global.csv", index=False)
+
+    print("\n  CE QUE LE PODIUM ABSOLU NE DIT PAS. Un saucisson sec est note")
+    print("  comme un saucisson sec. Le classer dernier ne dit rien de son")
+    print("  fabricant : cela dit qu'il est du saucisson sec. Un lecteur qui")
+    print("  veut savoir qui fait mal son metier lit le classement A GAMME")
+    print("  EGALE, ou le second podium, gamme par gamme.")
+
+    print("\n  ET LE PODIUM PAR GAMME, ou la comparaison tient devant "
+          "n'importe\n  quel lecteur :")
 
     lignes = []
     for gamme, g in h.groupby("sous_categorie"):
