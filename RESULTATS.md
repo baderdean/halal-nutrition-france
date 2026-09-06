@@ -1600,6 +1600,87 @@ sel de la journee.
 - Le seuil de 2,5 g est choisi pour la demonstration. Le tableau donne quatre seuils precisement pour qu'aucun ne passe pour LE seuil.
 - Rien ici ne dit a quelle frequence ces produits sont consommes : aucune donnee de consommation ne figure dans ce depot.
 
+### H36 — Un produit certifie est mieux compose qu'un produit halal sans certificateur identifie
+
+**Verdict : NON ETABLI, et le point estime va dans l'autre sens**
+
+*Methode.* Comparaison des deux groupes du bras halal sur l'ecart a la mediane de marche de la strate. IC 95 % par bootstrap de grappes sur les marques (4 000 tirages, graine 20260904).
+
+| groupe | produits | marques | ecart Nutri-Score | sel |
+|:--|--:|--:|--:|--:|
+| 0 | 1247 | 235 | +2.0 | 1.79 |
+| 1 | 671 | 79 | +3.0 | 2.00 |
+
+Difference, IC 95 % par bootstrap de grappes sur les marques :
+
+- Nutri-Score : +1.00 pts [-1.00 ; +3.00], **NON ETABLI**
+- sel : +0.08 g [-0.14 ; +0.27], **NON ETABLI**
+
+**Le point estime va meme dans l'autre sens** : les produits a
+certificateur identifie sont a +3,0 contre +2,0. L'intervalle
+contient zero, donc rien n'est etabli — mais rien ne soutient non
+plus l'idee qu'un certificateur ameliore la composition.
+
+### Le piege qui commande cette lecture
+
+**« Sans certificateur » ne veut pas dire « non certifie ».** Open
+Food Facts enregistre ce qu'un contributeur a saisi : un produit
+sans tag d'organisme peut porter un certificateur parfaitement
+lisible sur son emballage. La couche 2, qui a lu des emballages en
+image, a trouve **26 organismes distincts** la ou les tags de la
+base n'en identifient que **13**.
+
+Le groupe « sans certificateur » melange donc des produits non
+certifies et des produits dont l'organisme n'a pas ete saisi, dans
+une proportion inconnue. Cela ne casse pas la mesure, cela casse son
+interpretation causale : un ecart nul est compatible avec « la
+certification ne change rien » **comme** avec « les deux groupes
+contiennent les memes produits ».
+
+*Reserves.*
+- **Le groupe temoin de cette comparaison est mal defini** : l'absence de tag n'est pas l'absence de certificateur. C'est la limite principale, et aucun calcul ne la contourne — il faudrait lire les emballages.
+- La certification n'est pas attribuee au hasard : les marques qui y recourent different de celles qui n'y recourent pas, par la taille, le reseau et le creneau.
+- Un organisme certifie une chaine d'approvisionnement, pas une recette. Rien dans son referentiel, pour autant que ce depot sache, ne porte sur la composition.
+
+### H37 — Les faconniers exclusivement halal font moins bien, sur leur halal, que les faconniers generalistes
+
+**Verdict : NON ETABLI — le sens est celui de la question, la precision ne suit pas, et le profil mixte contredit l'explication**
+
+*Methode.* Classement des sites par la part halal de leur production totale, puis comparaison de leurs seuls produits halal sur l'ecart a la mediane de marche de la strate. IC 95 % par bootstrap de grappes sur les sites (4 000 tirages, graine 20260904).
+
+Un site est dit **exclusif** au-dela de 90 % de production
+halal, **generaliste** en dessous de 50 %. Entre les deux, il
+est publie mais pas teste. Seuls les sites d'au moins 5
+produits halal entrent.
+
+| profil du site | produits | sites | marques | ecart | sel |
+|:--|--:|--:|--:|--:|--:|
+| exclusif halal | 196 | 15 | 28 | +7.0 | 2.40 |
+| generaliste | 88 | 10 | 15 | +1.0 | 1.80 |
+| mixte | 161 | 7 | 28 | +9.0 | 2.40 |
+
+Difference, IC 95 % par bootstrap de grappes sur les SITES :
+
+- Nutri-Score : +6.00 pts [+0.00 ; +9.00], **NON ETABLI**
+- sel : +0.50 g [-0.02 ; +0.80], **NON ETABLI**
+
+**Les points estimes vont dans le sens de la question, les
+intervalles ne l'etablissent pas.** Sur le Nutri-Score la borne
+basse touche exactement zero ; sur le sel elle est a -0,02. Quinze
+sites contre dix, c'est la precision reellement disponible.
+
+**Et les sites MIXTES sont au-dessus des deux autres** (+9,0),
+ce qu'une explication par l'exclusivite ne predit pas. Si
+l'exclusivite au halal degradait la composition, le profil mixte
+devrait se placer entre les deux.
+
+*Reserves.*
+- **Confondant assume et non resolu.** Un site exclusivement halal appartient presque toujours a un specialiste, un site generaliste a un industriel. Comparer les deux revient en partie a comparer des entreprises differentes, ce que H31 mesure separement — et H31 ne l'etablit pas davantage.
+- Quinze sites contre dix. Un bootstrap de grappes sur dix groupes ne peut pas etablir grand-chose, et c'est la precision reelle, pas un defaut de methode.
+- Le seuil de 90 % et celui de 50 % sont des conventions. Les deplacer changerait la composition des groupes ; le profil mixte est publie pour que le lecteur voie ce que les seuils ont mis de cote.
+- L'estampille n'est saisie que sur une fraction des produits. Ce test porte sur cette fraction.
+- Un site n'ecrit pas les recettes qu'il fabrique : il execute le cahier des charges de ses donneurs d'ordre (H30, H33).
+
 ---
 
 ## 8. Erreurs commises et corrigees en cours d'etude
@@ -2074,6 +2155,7 @@ make couche16    # surcout halal en rayon, et la borne
 make couche17    # sites nommes (registre via l'Action couche14-registre)
 make couche18    # podiums produits, marques, certificateurs
 make couche19    # faisabilite d'un seuil nutritionnel par gamme
+make couche20    # certification et faconniers exclusifs
 python3 src/rapport_hypotheses.py   # regenere ce document
 ```
 

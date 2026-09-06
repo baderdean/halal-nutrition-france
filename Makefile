@@ -13,7 +13,7 @@ SRC      := src
         certificateurs classement halal emblematiques reperes additifs prix paires \
         etablissements homogeneite allegations resultats couche9 couche10 \
         couche11 couche12 couche13 site couche14 sites couche15 familles \
-        couche16 surcout couche17 nommer couche18 podiums couche19 seuils \
+        couche16 surcout couche17 nommer couche18 podiums couche19 seuils couche20 certif \
         amorce figer propre
 
 install:
@@ -142,6 +142,11 @@ couche19: seuils
 
 seuils:
 	$(PY) $(SRC)/etape19_seuils_sante.py
+
+couche20: certif
+
+certif:
+	$(PY) $(SRC)/etape20_certif_et_faconniers.py
 
 # RESULTATS.md est GENERE : ne relit que sorties/, jamais le dump.
 resultats:

@@ -1382,6 +1382,7 @@ def bloc_marche() -> list[str]:
     l += bloc_h33()
     l += bloc_h34()
     l += bloc_h35()
+    l += bloc_h36_h37()
     l += ["---", ""]
     return l
 
@@ -2077,6 +2078,129 @@ def bloc_h35() -> list[str]:
          "aucune donnee de consommation ne figure dans ce depot."])
 
 
+def bloc_h36_h37() -> list[str]:
+    """H36 et H37 — certification, et faconniers exclusifs."""
+    k1 = lire("k1_certifie_vs_non")
+    k2 = lire("k2_faconniers_profil")
+    k3 = lire("k3_differences")
+    if k3 is None or not len(k3):
+        return ["### H36 — Sortie absente : k3_differences", ""]
+    par = {(r.comparaison, r.mesure): r for r in k3.itertuples()}
+
+    def ligne(cle, unite):
+        r = par[cle]
+        return (f"{r.difference:+.2f} {unite} "
+                f"[{r.ic95_bas:+.2f} ; {r.ic95_haut:+.2f}], "
+                f"**{'ETABLI' if r.etabli else 'NON ETABLI'}**")
+
+    c = []
+    if k1 is not None and len(k1):
+        c += ["| groupe | produits | marques | ecart Nutri-Score | sel |",
+              "|:--|--:|--:|--:|--:|"]
+        for r in k1.itertuples():
+            nom = getattr(r, "certifie", getattr(r, "Index", ""))
+            c.append(f"| {nom} | {int(r.produits)} | {int(r.marques)} | "
+                     f"{r.ecart_median:+.1f} | {r.sel_median:.2f} |")
+    c += ["",
+          "Difference, IC 95 % par bootstrap de grappes sur les marques :", "",
+          f"- Nutri-Score : {ligne(('certifie - non certifie', 'ecart'), 'pts')}",
+          f"- sel : {ligne(('certifie - non certifie', 'ecart_sel'), 'g')}",
+          "",
+          "**Le point estime va meme dans l'autre sens** : les produits a",
+          "certificateur identifie sont a +3,0 contre +2,0. L'intervalle",
+          "contient zero, donc rien n'est etabli — mais rien ne soutient non",
+          "plus l'idee qu'un certificateur ameliore la composition.",
+          "",
+          "### Le piege qui commande cette lecture", "",
+          "**« Sans certificateur » ne veut pas dire « non certifie ».** Open",
+          "Food Facts enregistre ce qu'un contributeur a saisi : un produit",
+          "sans tag d'organisme peut porter un certificateur parfaitement",
+          "lisible sur son emballage. La couche 2, qui a lu des emballages en",
+          "image, a trouve **26 organismes distincts** la ou les tags de la",
+          "base n'en identifient que **13**.",
+          "",
+          "Le groupe « sans certificateur » melange donc des produits non",
+          "certifies et des produits dont l'organisme n'a pas ete saisi, dans",
+          "une proportion inconnue. Cela ne casse pas la mesure, cela casse son",
+          "interpretation causale : un ecart nul est compatible avec « la",
+          "certification ne change rien » **comme** avec « les deux groupes",
+          "contiennent les memes produits »."]
+    l = hypothese(
+        "H36", "Un produit certifie est mieux compose qu'un produit halal sans "
+        "certificateur identifie",
+        "Comparaison des deux groupes du bras halal sur l'ecart a la mediane "
+        "de marche de la strate. IC 95 % par bootstrap de grappes sur les "
+        "marques (4 000 tirages, graine 20260904).",
+        "NON ETABLI, et le point estime va dans l'autre sens",
+        c,
+        ["**Le groupe temoin de cette comparaison est mal defini** : l'absence "
+         "de tag n'est pas l'absence de certificateur. C'est la limite "
+         "principale, et aucun calcul ne la contourne — il faudrait lire les "
+         "emballages.",
+         "La certification n'est pas attribuee au hasard : les marques qui y "
+         "recourent different de celles qui n'y recourent pas, par la taille, "
+         "le reseau et le creneau.",
+         "Un organisme certifie une chaine d'approvisionnement, pas une "
+         "recette. Rien dans son referentiel, pour autant que ce depot "
+         "sache, ne porte sur la composition."])
+
+    c2 = []
+    if k2 is not None and len(k2):
+        c2 += ["Un site est dit **exclusif** au-dela de 90 % de production",
+               "halal, **generaliste** en dessous de 50 %. Entre les deux, il",
+               "est publie mais pas teste. Seuls les sites d'au moins 5",
+               "produits halal entrent.", "",
+               "| profil du site | produits | sites | marques | ecart | sel |",
+               "|:--|--:|--:|--:|--:|--:|"]
+        for r in k2.itertuples():
+            nom = getattr(r, "profil", getattr(r, "Index", ""))
+            c2.append(f"| {nom} | {int(r.produits)} | {int(r.sites)} | "
+                      f"{int(r.marques)} | {r.ecart_median:+.1f} | "
+                      f"{r.sel_median:.2f} |")
+    c2 += ["",
+           "Difference, IC 95 % par bootstrap de grappes sur les SITES :", "",
+           f"- Nutri-Score : "
+           f"{ligne(('exclusif halal - generaliste', 'ecart'), 'pts')}",
+           f"- sel : "
+           f"{ligne(('exclusif halal - generaliste', 'ecart_sel'), 'g')}",
+           "",
+           "**Les points estimes vont dans le sens de la question, les",
+           "intervalles ne l'etablissent pas.** Sur le Nutri-Score la borne",
+           "basse touche exactement zero ; sur le sel elle est a -0,02. Quinze",
+           "sites contre dix, c'est la precision reellement disponible.",
+           "",
+           "**Et les sites MIXTES sont au-dessus des deux autres** (+9,0),",
+           "ce qu'une explication par l'exclusivite ne predit pas. Si",
+           "l'exclusivite au halal degradait la composition, le profil mixte",
+           "devrait se placer entre les deux."]
+    l += hypothese(
+        "H37", "Les faconniers exclusivement halal font moins bien, sur leur "
+        "halal, que les faconniers generalistes",
+        "Classement des sites par la part halal de leur production totale, "
+        "puis comparaison de leurs seuls produits halal sur l'ecart a la "
+        "mediane de marche de la strate. IC 95 % par bootstrap de grappes sur "
+        "les sites (4 000 tirages, graine 20260904).",
+        "NON ETABLI — le sens est celui de la question, la precision ne suit "
+        "pas, et le profil mixte contredit l'explication",
+        c2,
+        ["**Confondant assume et non resolu.** Un site exclusivement halal "
+         "appartient presque toujours a un specialiste, un site generaliste a "
+         "un industriel. Comparer les deux revient en partie a comparer des "
+         "entreprises differentes, ce que H31 mesure separement — et H31 ne "
+         "l'etablit pas davantage.",
+         "Quinze sites contre dix. Un bootstrap de grappes sur dix groupes ne "
+         "peut pas etablir grand-chose, et c'est la precision reelle, pas un "
+         "defaut de methode.",
+         "Le seuil de 90 % et celui de 50 % sont des conventions. Les "
+         "deplacer changerait la composition des groupes ; le profil mixte est "
+         "publie pour que le lecteur voie ce que les seuils ont mis de cote.",
+         "L'estampille n'est saisie que sur une fraction des produits. Ce test "
+         "porte sur cette fraction.",
+         "Un site n'ecrit pas les recettes qu'il fabrique : il execute le "
+         "cahier des charges de ses donneurs d'ordre (H30, H33)."])
+    return l
+
+
 def bloc_podiums() -> list[str]:
     """Section 10 — les podiums destines a la publication."""
     prod = lire("i1_podium_produits")
@@ -2455,6 +2579,7 @@ def bloc_ouvert() -> list[str]:
         "couche14-registre)",
         "make couche18    # podiums produits, marques, certificateurs",
         "make couche19    # faisabilite d'un seuil nutritionnel par gamme",
+        "make couche20    # certification et faconniers exclusifs",
         "python3 src/rapport_hypotheses.py   # regenere ce document",
         "```",
         "",
