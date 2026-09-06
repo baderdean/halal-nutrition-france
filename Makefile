@@ -13,7 +13,7 @@ SRC      := src
         certificateurs classement halal emblematiques reperes additifs prix paires \
         etablissements homogeneite allegations resultats couche9 couche10 \
         couche11 couche12 couche13 site couche14 sites couche15 familles \
-        couche16 surcout amorce figer propre
+        couche16 surcout couche17 nommer amorce figer propre
 
 install:
 	pip install -r requirements.txt
@@ -125,6 +125,12 @@ couche16: surcout
 
 surcout:
 	$(PY) $(SRC)/etape16_surcout_halal.py
+
+# Demande donnees_registre/, rapatrie par le workflow couche14-registre.
+couche17: nommer
+
+nommer:
+	$(PY) $(SRC)/etape17_sites_nommes.py
 
 # RESULTATS.md est GENERE : ne relit que sorties/, jamais le dump.
 resultats:

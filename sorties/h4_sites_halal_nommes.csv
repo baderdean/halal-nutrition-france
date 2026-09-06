@@ -1,0 +1,11 @@
+etablissement,departement,insee,n,n_marques,n_halal,ecart_median,sel_median,marque_dominante,part_dominante_pct,part_mer_pct,ecart_sans_dominante,regle_30,alerte_mer,agrement,nom,n_noms,commune,cp,n_siret,listes,nom_ambigu
+fr-56-222-002,56,56222,85,17,71,8.0,2.4,reghalal,31.8,0.0,6.0,franchie,False,56.222.002,CENTRE ELABORATION DES VIANDES,1.0,SAINT-JEAN-BREVELAY,56660,1.0,5.0,False
+fr-42-156-006,42,42156,53,5,52,12.0,3.4,isla-delice,92.5,0.0,,franchie,False,42.156.006,CRYSTAL,1.0,NEULISE,42590,1.0,1.0,False
+fr-56-166-001,56,56166,39,4,38,9.0,2.3,isla-mondial,92.3,0.0,,franchie,False,56.166.001,ISLA MONDIAL,1.0,PLOUAY,56240,1.0,1.0,False
+fr-85-051-003,85,85051,116,3,32,0.0,1.8,fleury-michon,94.8,0.0,,franchie,False,85.051.003,FLEURY MICHON LS,1.0,CHANTONNAY,85110,1.0,1.0,False
+fr-69-135-001,69,69135,27,12,21,3.5,3.01,medina-halal,33.3,0.0,4.5,sous 30,False,69.135.001,CORICO,1.0,DEUX-GROSNES,69860,1.0,4.0,False
+fr-89-013-001,89,89013,20,2,20,11.5,2.48,arabi,95.0,0.0,,sous 30,False,89.013.001,LAGUILLAUMIE,1.0,APPOIGNY,89380,1.0,3.0,False
+fr-61-096-018,61,61096,35,9,13,4.0,1.3,inconnue,28.6,0.0,5.5,franchie,False,61.096.018,S N V,1.0,RIVES D'ANDAINE,61140,1.0,3.0,False
+fr-22-277-004,22,22277,13,3,12,7.0,1.5,inconnue,53.8,0.0,,sous 30,False,22.277.004,SOCIETE NOUVELLE BELDIS,1.0,SAINT-BRANDAN,22800,1.0,1.0,False
+fr-88-218-001,88,88218,12,4,12,0.0,1.84,oriental-viandes,66.7,0.0,,sous 30,False,88.218.001,SOCIETE NOUVELLE SALAISONS VOSGIENNES,1.0,GRANGES-AUMONTZEY,88640,1.0,2.0,False
+fr-41-053-002,41,41053,12,5,10,8.0,2.15,aljadid,41.7,0.0,,sous 30,False,41.053.002,NOUVELLE ATLAS / NOUVELLE ATLAS - AL KAWTAR,2.0,CHOUE,41170,1.0,5.0,True

@@ -1378,6 +1378,7 @@ def bloc_marche() -> list[str]:
          "Un site partage n'est pas une ligne de production partagee : un meme "
          "agrement peut couvrir des ateliers distincts."])
     l += bloc_h30()
+    l += bloc_h33()
     l += bloc_h31()
     l += ["---", ""]
     return l
@@ -1508,6 +1509,142 @@ def bloc_h30() -> list[str]:
          "d'un produit, ni de la conformite d'un site a une norme sanitaire ou "
          "religieuse.** Elles decrivent la composition nutritionnelle declaree "
          "de ce qui en sort."])
+
+
+def bloc_h33() -> list[str]:
+    """H33 — les sites nommes, par rapprochement avec le registre DGAL."""
+    reg = lire("h0_registre_agrements")
+    pub = lire("h1_sites_nommes")
+    bas = lire("h3_bascule_sans_dominante")
+    hal = lire("h4_sites_halal_nommes")
+    if pub is None or not len(pub):
+        return ["### H33 — Sortie absente : h1_sites_nommes", ""]
+
+    nommes = int((pub.nom != "non apparie au registre").sum())
+    c = ["H30 decodait la geographie d'une estampille sans source externe mais",
+         "butait sur le nom. Le registre des etablissements agrees de la DGAL",
+         "fait ce lien par le numero d'agrement : `fr-56-222-002` devient",
+         "`56.222.002`, et le registre nomme l'entreprise.",
+         "",
+         "Huit listes officielles rapatriees depuis",
+         "`fichiers-publics.agriculture.gouv.fr/dgal/ListesOfficielles/`, dont",
+         "aucun nom de fichier n'a ete devine : la sonde a lu l'index du",
+         "serveur. Empreintes sha256 dans `donnees_registre/collecte.csv`.",
+         ""]
+    if reg is not None and len(reg):
+        c += [f"**{len(reg)} numeros d'agrement** distincts au registre, dont",
+              f"**{int((reg.n_noms > 1).sum())}** portent plus d'une raison "
+              "sociale — exploitants successifs,",
+              "ou graphies differentes selon les listes. Aucun n'est tranche :",
+              "leurs noms sont TOUS affiches et la ligne est marquee",
+              "`nom_ambigu`. En choisir un serait inventer une attribution.",
+              "",
+              "4,0 % des lignes du registre sont illisibles : les fichiers de la",
+              "DGAL ont des lignes de longueur variable, la colonne des",
+              "activites debordant en champs supplementaires. Le lecteur repere",
+              "le numero d'agrement par sa FORME et lit les champs suivants par",
+              "rapport a lui, ce qui resiste aux deux mises en page rencontrees.",
+              "Les lignes perdues sont comptees par fichier, jamais absorbees."]
+    c += ["",
+          f"**{len(pub)} sites publiables** (au moins 30 produits, aucun produit",
+          f"de la mer), dont **{nommes} nommes** et "
+          f"{len(pub) - nommes} non apparies. Un site sans nom",
+          "reste au classement : le retirer ferait disparaitre precisement les",
+          "etablissements que le registre documente le moins bien.",
+          "",
+          "**Les 10 sites les mieux classes** — ecart a la mediane de marche de",
+          "la strate ; negatif = mieux que le marche sur le meme type de",
+          "produit :", "",
+          "| code | entreprise | commune | n | ecart | sel | 1er client | part |"
+          " sans lui |", "|:--|:--|:--|--:|--:|--:|:--|--:|--:|"]
+
+    def ligne(r):
+        sans = ("—" if pd.isna(r.ecart_sans_dominante)
+                else f"{r.ecart_sans_dominante:+.1f}")
+        return (f"| `{r.etablissement}` | {r.nom} | {r.commune} | {r.n} | "
+                f"{r.ecart_median:+.1f} | {r.sel_median:.2f} | "
+                f"{r.marque_dominante} | {r.part_dominante_pct:.0f} % | "
+                f"{sans} |")
+    for r in pub.head(10).itertuples():
+        c.append(ligne(r))
+    c += ["", "**Les 10 sites les moins bien classes** :", "",
+          "| code | entreprise | commune | n | ecart | sel | 1er client | part |"
+          " sans lui |", "|:--|:--|:--|--:|--:|--:|:--|--:|--:|"]
+    for r in pub.tail(10).itertuples():
+        c.append(ligne(r))
+
+    if bas is not None and len(bas):
+        c += ["",
+              "**Ce que le classement doit a un seul client.** "
+              f"`ecart_sans_dominante`",
+              "recalcule l'ecart apres retrait du premier client du site. "
+              f"{len(bas)} sites",
+              "basculent d'au moins 5 points :", "",
+              "| code | entreprise | 1er client | part | ecart | sans lui |",
+              "|:--|:--|:--|--:|--:|--:|"]
+        for r in bas.itertuples():
+            c.append(f"| `{r.etablissement}` | {r.nom} | {r.marque_dominante} "
+                     f"| {r.part_dominante_pct:.0f} % | {r.ecart_median:+.1f} "
+                     f"| {r.ecart_sans_dominante:+.1f} |")
+        c += ["",
+              "Le mieux classe du tableau, SOCOPA VIANDES a Evron, passe de",
+              "**-12,0 a +3,5** des qu'on retire son premier client. Son rang",
+              "etait celui d'une marque, pas d'une usine. Lire le haut de ce",
+              "classement sans cette colonne serait une erreur de lecture."]
+    if hal is not None and len(hal):
+        c += ["",
+              "### Qui fabrique le halal", "",
+              "**Descriptif, pas un classement.** La couche 10 a mesure sur le",
+              "halal une dispersion INTRA site superieure a celle du temoin",
+              "(7,82 contre 5,55) et un pouvoir explicatif du site plus faible",
+              "(0,168 contre 0,304) : un site n'a pas de « niveau » halal",
+              "stable, et l'ordre de ce tableau ne doit pas etre lu comme un",
+              "palmares.", "",
+              "| code | entreprise | commune | n | dont halal | marques | ecart "
+              "| sel | 1er client |",
+              "|:--|:--|:--|--:|--:|--:|--:|--:|:--|"]
+        for r in hal.itertuples():
+            c.append(f"| `{r.etablissement}` | {r.nom} | {r.commune} | {r.n} | "
+                     f"{int(r.n_halal)} | {int(r.n_marques)} | "
+                     f"{r.ecart_median:+.1f} | {r.sel_median:.2f} | "
+                     f"{r.marque_dominante} |")
+        c += ["",
+              "Ce tableau repond a une question que le rayon ne montre pas :",
+              "**qui fabrique**. Une marque n'est pas une usine, et plusieurs",
+              "des marques les plus visibles du rayon halal sortent de sites",
+              "qui portent un autre nom."]
+    return hypothese(
+        "H33", "Le registre des agrements permet de nommer les sites, et le "
+        "classement par site tient une fois les entreprises nommees",
+        "Rapprochement du numero d'agrement decode dans l'estampille (couche "
+        "14) avec les listes officielles des etablissements agrees de la DGAL. "
+        "Le numero est repere par sa forme dans chaque ligne du registre, et "
+        "les champs suivants lus par rapport a lui. Classement inchange : "
+        "ecart a la mediane de marche de la strate.",
+        "ETABLI pour le rapprochement (93,8 % des sites classes recoivent un "
+        "nom) ; le classement lui-meme garde toutes les reserves de H30",
+        c,
+        ["**Un site est juge sur les recettes de ses donneurs d'ordre.** Un "
+         "faconnier execute un cahier des charges qu'il n'ecrit pas. Nommer "
+         "l'usine ne transforme pas le classement en jugement sur son "
+         "savoir-faire, et la colonne `ecart_sans_dominante` est la pour le "
+         "rappeler ligne par ligne.",
+         "**Le registre atteste un agrement sanitaire europeen, rien d'autre.** "
+         "Aucune ligne ne dit si un produit est halal, ni si une entreprise "
+         "respecte une norme religieuse, sanitaire ou sociale.",
+         "419 numeros d'agrement portent plusieurs raisons sociales. Les sites "
+         "concernes affichent tous leurs noms et sont marques `nom_ambigu` ; un "
+         "changement d'exploitant n'est pas distingue d'une variante de "
+         "graphie.",
+         "4,0 % des lignes du registre restent illisibles. Elles sont comptees "
+         "par fichier, et rien ne garantit qu'elles soient reparties au hasard.",
+         "Un numero d'agrement couvre un ETABLISSEMENT, pas une ligne de "
+         "production. Deux ateliers du meme site partagent le meme code.",
+         "L'estampille n'est saisie que sur une fraction des produits d'Open "
+         "Food Facts. Le classement porte sur cette fraction.",
+         "Le registre est une photographie a sa date de rapatriement. Un site "
+         "peut avoir change d'exploitant depuis le dump nutritionnel, qui est "
+         "lui-meme fige."])
 
 
 def bloc_h31() -> list[str]:
@@ -1746,11 +1883,9 @@ def bloc_ouvert() -> list[str]:
         "charges des organismes eux-memes |",
         "| Faconnage multi-marques | 3 etablissements mixtes seulement | Une "
         "meilleure saisie des estampilles, ou le registre public des agrements |",
-        "| Nom des sites de production | 1 683 codes francais decodes en "
-        "departement et commune, aucune entreprise nommee | Le registre des "
-        "etablissements agrees du ministere de l'Agriculture, refuse par la "
-        "politique de sortie reseau ; a rapatrier par un runner GitHub comme "
-        "les prix |",
+        "| Nom des sites de production | RESOLU (H33) : 93,8 % des sites "
+        "classes nommes par le registre DGAL | Les 4 % de lignes du registre "
+        "illisibles, et les 419 agrements a raison sociale multiple |",
         "| Cout de l'abattage et de la certification | Hors de portee de "
         "cette source, definitivement | Les comptabilites d'abattoirs et les "
         "grilles tarifaires des certificateurs. Aucune n'est publique |",
@@ -1790,6 +1925,8 @@ def bloc_ouvert() -> list[str]:
         "make couche14    # sites francais decodes depuis l'estampille",
         "make couche15    # MDD, industriels, specialistes du halal",
         "make couche16    # surcout halal en rayon, et la borne",
+        "make couche17    # sites nommes (registre via l'Action "
+        "couche14-registre)",
         "python3 src/rapport_hypotheses.py   # regenere ce document",
         "```",
         "",
