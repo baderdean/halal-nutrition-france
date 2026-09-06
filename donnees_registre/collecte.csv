@@ -1,0 +1,9 @@
+fichier,contenu,url,octets,lignes,sha256
+SSA1_ACTIV_GEN.csv,"liste generale, etablissement x activite",https://fichiers-publics.agriculture.gouv.fr/dgal/ListesOfficielles/SSA1_ACTIV_GEN.csv,328674,2808,4d57d2d1ee57f39c5c195b2ab5ea55aa0056069ffc89ea6edf8b5d23cb0da58e
+SSA4_AGSANPROBASEVDE_PRV.txt,produits a base de viande,https://fichiers-publics.agriculture.gouv.fr/dgal/ListesOfficielles/SSA4_AGSANPROBASEVDE_PRV.txt,309836,2370,53bab6483ab373a284b84d91bdc798e173788255ed4b97f4556cc42d9d5252c6
+SSA4_AGSANPREVDE_PRV.txt,preparations de viandes,https://fichiers-publics.agriculture.gouv.fr/dgal/ListesOfficielles/SSA4_AGSANPREVDE_PRV.txt,107753,819,9af757739d3ee8a2f3d076091ed8b5cd7d71b808023c4b21b3273ece9133fda6
+SSA4_AGSANVDEHACH_PRV.txt,viandes hachees,https://fichiers-publics.agriculture.gouv.fr/dgal/ListesOfficielles/SSA4_AGSANVDEHACH_PRV.txt,21978,162,3b0f8fe33f0d540a83e51168467474162ab6c2599ef647af6f6f03432b6c0ad1
+SSA6B_AGSANABONGD_PRV.txt,abattage d'ongules domestiques,https://fichiers-publics.agriculture.gouv.fr/dgal/ListesOfficielles/SSA6B_AGSANABONGD_PRV.txt,37442,267,6dc2c3c3c692d3ec196c5c9334d533ceaefb769bb818fdbe4ec9305075124d50
+SSA6B_AGSANABVOL_PRV.txt,abattage de volailles,https://fichiers-publics.agriculture.gouv.fr/dgal/ListesOfficielles/SSA6B_AGSANABVOL_PRV.txt,94017,698,1ca02aa571cb20fe3f7e974d3ba47edcf343bc7adeeda08501d2cdf0568a0fb7
+SSA6B_AGSANDCPBOU_PRV.txt,decoupe de boucherie,https://fichiers-publics.agriculture.gouv.fr/dgal/ListesOfficielles/SSA6B_AGSANDCPBOU_PRV.txt,186052,1390,41da0e14ad42b0d60dfd5005416cacf4a1be3bd71b934a2264d36f78a98e2e77
+SSA6B_AGSANDCPVOL_PRV.txt,decoupe de volailles,https://fichiers-publics.agriculture.gouv.fr/dgal/ListesOfficielles/SSA6B_AGSANDCPVOL_PRV.txt,108742,764,3d813798599dd63b81e4230cb253e0aa3ee81d3cc4e8c1c63b519de20bc86da9
