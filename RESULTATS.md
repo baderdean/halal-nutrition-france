@@ -1925,6 +1925,110 @@ nom.
 
 ---
 
+## 11. Une question posee aux organismes certificateurs
+
+Cette section ne conclut pas. Elle formule une question, expose les
+faits qui la rendent posable, et dit exactement ce qu'elle ne peut
+pas trancher.
+
+### 11.1 Ce que la certification porte aujourd'hui, sur le plan nutritionnel
+
+Ecart a la mediane de marche de la strate, sur les produits qui
+portent le nom de chaque organisme. Negatif = mieux que le
+marche sur le meme type de produit.
+
+| groupe | n | ecart Nutri-Score | IC 95 % | se distingue du marche |
+|:--|--:|--:|:--:|:--|
+| SFCVH — Grande Mosquee de Paris | 102 | +0.0 | [+0.0 ; +0.0] | non |
+| AVS — A Votre Service | 142 | +2.0 | [+1.0 ; +7.0] | oui |
+| halal SANS certificateur | 1247 | +2.0 | [+2.0 ; +2.0] | oui |
+| ARGML — Grande Mosquee de Lyon | 157 | +4.0 | [+1.0 ; +8.0] | oui |
+| Mosquee d'Evry-Courcouronnes | 221 | +5.0 | [+3.0 ; +7.0] | oui |
+
+**Aucun organisme n'est associe a une nutrition meilleure que le
+marche.** Le mieux place, la SFCVH, est A ZERO : au niveau du
+marche, sans s'en distinguer. Les trois autres sont au-dessus,
+c'est-a-dire moins bien. Et le groupe « halal SANS certificateur »
+est a +2,0, soit **entre** deux organismes certifies.
+
+**C'est le fait central de cette section, et il n'accuse personne :**
+sur ce que mesure cette etude, **la certification ne porte aucun**
+**signal nutritionnel**, ni dans un sens ni dans l'autre. Un produit
+certifie n'est pas mieux compose qu'un produit halal non certifie.
+
+### 11.2 Pourquoi le tableau ci-dessus n'est pas un classement d'organismes
+
+Un certificateur ne fabrique pas : il certifie. Le classer sur
+la composition de ses clients revient largement a classer ses
+clients.
+
+| organisme | produits | marques | part de la 1re marque |
+|:--|--:|--:|--:|
+| ARGML — Grande Mosquee de Lyon | 165 | 18 | 78.2 % |
+| SFCVH — Grande Mosquee de Paris | 92 | 16 | 59.8 % |
+| AVS — A Votre Service | 139 | 15 | 40.3 % |
+| Mosquee d'Evry-Courcouronnes | 225 | 29 | 28.0 % |
+
+L'ARGML tire **78 %** de ses produits d'une seule marque. Dire
+« l'ARGML fait moins bien que la SFCVH » revient a dire « la
+marque qui represente 78 % de l'ARGML fait moins bien ». Le
+classement des organismes est un classement de marques sous un
+autre nom, et il ne doit pas etre publie autrement.
+
+### 11.3 La question, telle que l'etude peut la poser
+
+Trois faits la rendent posable, et aucun des trois n'est une opinion :
+
+1. **La certification est silencieuse sur la nutrition.** Mesure ci-dessus.
+2. **L'ecart est rattrapable.** Sur la charcuterie cuite de dinde,
+   83 % du marche non halal passe sous 2 g de sel aux 100 g, contre
+   19 % du halal (H34). Meme gamme, meme espece, meme technologie :
+   le seuil n'attend aucune innovation.
+3. **Le critere serait verifiable.** Le sel se lit sur l'emballage,
+   ne s'agrege pas avec d'autres nutriments, et une recette ne peut
+   pas le compenser ailleurs. Un cahier des charges peut l'ecrire et
+   un auditeur peut le controler, exactement comme il controle deja
+   une chaine d'approvisionnement.
+
+**La question est donc : un organisme qui appose son nom sur un
+produit entend-il que ce nom porte, ou non, une exigence de
+composition ?** Elle s'adresse aux organismes, et la reponse leur
+appartient.
+
+### 11.4 Ce que l'etude ne peut pas dire, et ne dira pas
+
+**Elle ne qualifie rien religieusement.** Ce depot est une base de
+composition. Il ne dit pas ce qui est halal, tayyib ou makrouh, et
+l'inference qui va d'un fait scientifique a une qualification
+juridique est un raisonnement de science religieuse, pas de
+statistique. Ce raisonnement appartient a ceux qui en ont la
+competence. Une etude nutritionnelle qui s'en emparerait sortirait
+de son objet et perdrait le droit d'etre crue sur le reste.
+
+**Elle ne declare aucun produit mauvais pour la sante.** Le Nutri-Score
+est un indicateur comparatif de composition aux 100 g, pas un
+verdict sanitaire sur une reference (H35). Ce qui est etabli porte
+sur des CATEGORIES et des QUANTITES : la charcuterie est classee
+cancerogene pour l'homme par le CIRC, et le risque documente se lit
+en grammes par jour sur des annees. Aucun code-barres n'est
+condamnable a lui seul.
+
+**Elle ne met en cause la responsabilite morale de personne.** Une
+question posee n'est pas une accusation, et cette etude n'a pas les
+moyens d'une accusation : elle ne connait ni les cahiers des charges
+des organismes, ni ce qu'ils ont deja tente, ni ce que leurs clients
+leur imposent. Nommer des organismes pour leur adresser un reproche
+moral, sur des donnees qui ne mesurent pas leur travail, serait
+precisement l'usage abusif que ce depot est construit pour rendre
+impossible.
+
+**Elle ne couvre qu'une fraction du rayon.** Un tiers seulement du
+bras halal porte un organisme identifiable. La question s'adresse a
+ceux-la ; les deux tiers restants n'ont personne a qui elle puisse
+etre posee.
+
+---
+
 ## 9. Ce qui reste ouvert
 
 | sujet | etat | ce qu'il faudrait |
