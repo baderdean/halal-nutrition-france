@@ -1378,8 +1378,8 @@ def bloc_marche() -> list[str]:
          "Un site partage n'est pas une ligne de production partagee : un meme "
          "agrement peut couvrir des ateliers distincts."])
     l += bloc_h30()
-    l += bloc_h33()
     l += bloc_h31()
+    l += bloc_h33()
     l += ["---", ""]
     return l
 
@@ -1616,6 +1616,20 @@ def bloc_h33() -> list[str]:
               "la gamme, jamais le morceau. Un roti de filet et une poitrine",
               "demi-sel y sont voisins. Tout ecart intra-site lu sur des viandes",
               "crues doit etre suspecte de n'etre qu'une difference de decoupe."]
+    if len(pub):
+        bas10 = pub.tail(10)
+        c += ["",
+              "**Le bas de ce classement n'est pas halal.** Les deux derniers "
+              "sites,",
+              "FINE LAME et HARAGUY-JAMBON DE BAYONNE, sont a +15,0 et ne "
+              "sortent",
+              "**aucun produit halal** : ce sont des faconniers de charcuterie "
+              "seche",
+              "du Sud-Ouest, dont le premier client est une enseigne. "
+              f"{int((bas10.n_halal == 0).sum())} des 10",
+              "derniers sites n'ont aucun produit halal. Un lecteur qui "
+              "chercherait",
+              "le halal en bas de tableau ne l'y trouverait pas."]
     if hal is not None and len(hal):
         c += ["",
               "### Qui fabrique le halal", "",
@@ -1922,8 +1936,12 @@ def bloc_ouvert() -> list[str]:
         "classes nommes par le registre DGAL | Les 4 % de lignes du registre "
         "illisibles, et les 419 agrements a raison sociale multiple |",
         "| Cout de l'abattage et de la certification | Hors de portee de "
-        "cette source, definitivement | Les comptabilites d'abattoirs et les "
-        "grilles tarifaires des certificateurs. Aucune n'est publique |",
+        "cette source, definitivement. Une recherche renvoie une fourchette de "
+        "2 a 20 centimes par kilo de redevance de certification, attribuee a la "
+        "presse professionnelle et NON VERIFIEE : l'article n'a pas pu etre "
+        "ouvert, et ce chiffre n'entre nulle part dans les calculs | Les "
+        "comptabilites d'abattoirs et les grilles tarifaires des "
+        "certificateurs. Aucune n'est publique |",
         "| Surcout halal en rayon | Non etabli, borne haute a +1,39 EUR/kg | "
         "Un releve de prix systematique : 138 produits halal ne permettent pas "
         "de voir moins |",

@@ -1195,139 +1195,6 @@ coherence sur des effectifs plus larges.
 - L'estampille n'est saisie que sur une fraction des produits, et rien ne dit que cette fraction soit representative.
 - **Aucune de ces lignes ne dit quoi que ce soit du caractere halal d'un produit, ni de la conformite d'un site a une norme sanitaire ou religieuse.** Elles decrivent la composition nutritionnelle declaree de ce qui en sort.
 
-### H33 — Le registre des agrements permet de nommer les sites, et le classement par site tient une fois les entreprises nommees
-
-**Verdict : ETABLI pour le rapprochement (93,8 % des sites classes recoivent un nom) ; le classement lui-meme garde toutes les reserves de H30**
-
-*Methode.* Rapprochement du numero d'agrement decode dans l'estampille (couche 14) avec les listes officielles des etablissements agrees de la DGAL. Le numero est repere par sa forme dans chaque ligne du registre, et les champs suivants lus par rapport a lui. Classement inchange : ecart a la mediane de marche de la strate.
-
-H30 decodait la geographie d'une estampille sans source externe mais
-butait sur le nom. Le registre des etablissements agrees de la DGAL
-fait ce lien par le numero d'agrement : `fr-56-222-002` devient
-`56.222.002`, et le registre nomme l'entreprise.
-
-Huit listes officielles rapatriees depuis
-`fichiers-publics.agriculture.gouv.fr/dgal/ListesOfficielles/`, dont
-aucun nom de fichier n'a ete devine : la sonde a lu l'index du
-serveur. Empreintes sha256 dans `donnees_registre/collecte.csv`.
-
-**5990 numeros d'agrement** distincts au registre, dont
-**419** portent plus d'une raison sociale — exploitants successifs,
-ou graphies differentes selon les listes. Aucun n'est tranche :
-leurs noms sont TOUS affiches et la ligne est marquee
-`nom_ambigu`. En choisir un serait inventer une attribution.
-
-4,0 % des lignes du registre sont illisibles : les fichiers de la
-DGAL ont des lignes de longueur variable, la colonne des
-activites debordant en champs supplementaires. Le lecteur repere
-le numero d'agrement par sa FORME et lit les champs suivants par
-rapport a lui, ce qui resiste aux deux mises en page rencontrees.
-Les lignes perdues sont comptees par fichier, jamais absorbees.
-
-**162 sites publiables** (au moins 30 produits, aucun produit
-de la mer), dont **158 nommes** et 4 non apparies. Un site sans nom
-reste au classement : le retirer ferait disparaitre precisement les
-etablissements que le registre documente le moins bien.
-
-**Les 10 sites les mieux classes** — ecart a la mediane de marche de
-la strate ; negatif = mieux que le marche sur le meme type de
-produit :
-
-| code | entreprise | commune | n | ecart | sel | 1er client | part | sans lui |
-|:--|:--|:--|--:|--:|--:|:--|--:|--:|
-| `fr-53-097-001` | SOCOPA VIANDES | EVRON | 42 | -12.0 | 0.15 | l-etal-du-boucher | 67 % | +3.5 |
-| `fr-43-211-010` | SOUCHON D'AUVERGNE | SAINT-MAURICE-DE-LIGNON | 36 | -7.0 | 4.60 | saint-agaune | 42 % | -7.0 |
-| `fr-59-597-001` | SOCIETE D'INNOVATION CULINAIRE | TILLOY-LEZ-CAMBRAI | 50 | -7.0 | 1.40 | fleury-michon | 84 % | — |
-| `fr-19-031-008` | SO'HAM SUD-OUEST | BRIVE-LA-GAILLARDE | 45 | -6.0 | 1.80 | carrefour | 64 % | -13.0 |
-| `fr-80-799-001` | LES SALAISONS DU TERROIR | VILLERS-BRETONNEUX | 53 | -6.0 | 1.50 | inconnue | 77 % | -4.5 |
-| `fr-35-238-019` | MAITRE JACQUES | RENNES | 58 | -5.0 | 1.47 | maitre-jacques | 60 % | -13.0 |
-| `fr-85-182-003` | FLEURY MICHON CHARCUTERIE / FLEURY MICHON LS | POUZAUGES | 255 | -5.0 | 1.80 | fleury-michon | 98 % | — |
-| `fr-67-218-001` | HERTA | ILLKIRCH-GRAFFENSTADEN | 101 | -4.0 | 1.80 | herta | 78 % | -7.0 |
-| `fr-87-065-001` | COMPAGNIE MADRANGE | FEYTIAT | 202 | -4.0 | 1.90 | madrange | 45 % | -4.0 |
-| `fr-33-036-007` | ETS CLEMENS SARL | BAZAS | 34 | -3.0 | 1.20 | inconnue | 85 % | — |
-
-**Les 10 sites les moins bien classes** :
-
-| code | entreprise | commune | n | ecart | sel | 1er client | part | sans lui |
-|:--|:--|:--|--:|--:|--:|:--|--:|--:|
-| `fr-38-012-001` | AOSTE SNC OU A SNC - JAMBON D'AOSTE | AOSTE | 223 | +5.5 | 4.50 | aoste | 35 % | +1.0 |
-| `fr-01-159-002` | ROLAND MONTERRAT - LYONVAL TRAITEUR | FEILLENS | 53 | +6.0 | 1.70 | roland-monterrat | 19 % | +6.0 |
-| `fr-56-222-002` | CENTRE ELABORATION DES VIANDES | SAINT-JEAN-BREVELAY | 85 | +8.0 | 2.40 | reghalal | 32 % | +6.0 |
-| `fr-85-006-001` | CHARCUTERIE VENDEENNE | APREMONT | 71 | +8.0 | 3.30 | petitgas | 41 % | +10.0 |
-| `fr-56-166-001` | ISLA MONDIAL | PLOUAY | 39 | +9.0 | 2.30 | isla-mondial | 92 % | — |
-| `fr-42-156-006` | CRYSTAL | NEULISE | 53 | +12.0 | 3.40 | isla-delice | 92 % | — |
-| `fr-11-262-047` | COMPAGNIE MONTAGNE NOIRE | NARBONNE | 97 | +13.0 | 4.70 | montagne-noire | 20 % | +12.5 |
-| `fr-40-261-001` | LABEYRIE / LABEYRIE FINE FOODS FRANCE | SAINT-GEOURS-DE-MAREMNE | 34 | +13.0 | 2.70 | labeyrie | 35 % | +13.0 |
-| `fr-64-010-003` | HARAGUY-JAMBON DE BAYONNE | AICIRITS-CAMOU-SUHAST | 31 | +15.0 | 4.90 | carrefour | 19 % | +15.0 |
-| `fr-65-100-003` | FINE LAME | BORDERES-SUR-L'ECHEZ | 58 | +15.0 | 5.00 | carrefour | 38 % | +14.5 |
-
-**Ce que le classement doit a un seul client.** `ecart_sans_dominante`
-recalcule l'ecart apres retrait du premier client du site. 3 sites
-basculent d'au moins 5 points :
-
-| code | entreprise | 1er client | part | n | ecart | n sans lui | ecart sans lui |
-|:--|:--|:--|--:|--:|--:|--:|--:|
-| `fr-53-097-001` | SOCOPA VIANDES | l-etal-du-boucher | 67 % | 42 | -12.0 | 14 | +3.5 |
-| `fr-19-031-008` | SO'HAM SUD-OUEST | carrefour | 64 % | 45 | -6.0 | 16 | -13.0 |
-| `fr-35-238-019` | MAITRE JACQUES | maitre-jacques | 60 % | 58 | -5.0 | 23 | -13.0 |
-
-**Cette colonne est un signal d'alerte sur le classement, pas une
-mesure de ce qu'un site ferait pour ses autres clients.** Aucun de
-ces recalculs n'atteint la regle des 30, et deux des trois vont dans
-le sens inverse du troisieme : retirer le premier client AMELIORE
-SO'HAM SUD-OUEST et MAITRE JACQUES.
-
-Le cas de SOCOPA VIANDES a Evron le montre en detail. Ses 42
-produits sont tous dans la strate `autres_carnes / porc`. Les 28 du
-client dominant sont des rotis de filet, des cotes, du saute — des
-morceaux maigres a **0,11 g de sel**. Les 14 autres melangent ces
-memes rotis avec de la poitrine, de la palette et du jarret
-demi-sel, a **3,30 g de sel**. L'ecart entre les deux groupes est
-l'ecart entre deux MORCEAUX DE PORC, pas entre deux niveaux de
-qualite.
-
-**C'est une limite de la stratification, et elle est generale sur les
-sites de decoupe** : `sous-categorie x espece` controle l'espece et
-la gamme, jamais le morceau. Un roti de filet et une poitrine
-demi-sel y sont voisins. Tout ecart intra-site lu sur des viandes
-crues doit etre suspecte de n'etre qu'une difference de decoupe.
-
-### Qui fabrique le halal
-
-**Descriptif, pas un classement.** La couche 10 a mesure sur le
-halal une dispersion INTRA site superieure a celle du temoin
-(7,82 contre 5,55) et un pouvoir explicatif du site plus faible
-(0,168 contre 0,304) : un site n'a pas de « niveau » halal
-stable, et l'ordre de ce tableau ne doit pas etre lu comme un
-palmares.
-
-| code | entreprise | commune | n | dont halal | marques | ecart | sel | 1er client |
-|:--|:--|:--|--:|--:|--:|--:|--:|:--|
-| `fr-56-222-002` | CENTRE ELABORATION DES VIANDES | SAINT-JEAN-BREVELAY | 85 | 71 | 17 | +8.0 | 2.40 | reghalal |
-| `fr-42-156-006` | CRYSTAL | NEULISE | 53 | 52 | 5 | +12.0 | 3.40 | isla-delice |
-| `fr-56-166-001` | ISLA MONDIAL | PLOUAY | 39 | 38 | 4 | +9.0 | 2.30 | isla-mondial |
-| `fr-85-051-003` | FLEURY MICHON LS | CHANTONNAY | 116 | 32 | 3 | +0.0 | 1.80 | fleury-michon |
-| `fr-69-135-001` | CORICO | DEUX-GROSNES | 27 | 21 | 12 | +3.5 | 3.01 | medina-halal |
-| `fr-89-013-001` | LAGUILLAUMIE | APPOIGNY | 20 | 20 | 2 | +11.5 | 2.48 | arabi |
-| `fr-61-096-018` | S N V | RIVES D'ANDAINE | 35 | 13 | 9 | +4.0 | 1.30 | inconnue |
-| `fr-22-277-004` | SOCIETE NOUVELLE BELDIS | SAINT-BRANDAN | 13 | 12 | 3 | +7.0 | 1.50 | inconnue |
-| `fr-88-218-001` | SOCIETE NOUVELLE SALAISONS VOSGIENNES | GRANGES-AUMONTZEY | 12 | 12 | 4 | +0.0 | 1.84 | oriental-viandes |
-| `fr-41-053-002` | NOUVELLE ATLAS / NOUVELLE ATLAS - AL KAWTAR | CHOUE | 12 | 10 | 5 | +8.0 | 2.15 | aljadid |
-
-Ce tableau repond a une question que le rayon ne montre pas :
-**qui fabrique**. Une marque n'est pas une usine, et plusieurs
-des marques les plus visibles du rayon halal sortent de sites
-qui portent un autre nom.
-
-*Reserves.*
-- **Un site est juge sur les recettes de ses donneurs d'ordre.** Un faconnier execute un cahier des charges qu'il n'ecrit pas. Nommer l'usine ne transforme pas le classement en jugement sur son savoir-faire, et la colonne `ecart_sans_dominante` est la pour le rappeler ligne par ligne.
-- **Le registre atteste un agrement sanitaire europeen, rien d'autre.** Aucune ligne ne dit si un produit est halal, ni si une entreprise respecte une norme religieuse, sanitaire ou sociale.
-- 419 numeros d'agrement portent plusieurs raisons sociales. Les sites concernes affichent tous leurs noms et sont marques `nom_ambigu` ; un changement d'exploitant n'est pas distingue d'une variante de graphie.
-- 4,0 % des lignes du registre restent illisibles. Elles sont comptees par fichier, et rien ne garantit qu'elles soient reparties au hasard.
-- Un numero d'agrement couvre un ETABLISSEMENT, pas une ligne de production. Deux ateliers du meme site partagent le meme code.
-- L'estampille n'est saisie que sur une fraction des produits d'Open Food Facts. Le classement porte sur cette fraction.
-- Le registre est une photographie a sa date de rapatriement. Un site peut avoir change d'exploitant depuis le dump nutritionnel, qui est lui-meme fige.
-
 ### H31 — Dans le halal, MDD, industriels et specialistes ne font pas la meme qualite
 
 **Verdict : NON ETABLI — l'ordre est constant (specialistes derriere, industriels devant) mais aucune difference ne survit au bootstrap de grappes**
@@ -1438,6 +1305,146 @@ effectif et ne doivent pas etre lues comme un classement.
 - Une seule strate sur 28 compte deux familles au-dessus de 30 produits : la comparaison gamme par gamme n'est presque jamais testable, et le tableau f4 est descriptif.
 - Ces familles decrivent une POSITION SUR LE MARCHE, lisible en rayon. Elles ne disent rien de la halalite d'un produit, de la conformite d'une entreprise, ni de qui la dirige.
 
+### H33 — Le registre des agrements permet de nommer les sites, et le classement par site tient une fois les entreprises nommees
+
+**Verdict : ETABLI pour le rapprochement (93,8 % des sites classes recoivent un nom) ; le classement lui-meme garde toutes les reserves de H30**
+
+*Methode.* Rapprochement du numero d'agrement decode dans l'estampille (couche 14) avec les listes officielles des etablissements agrees de la DGAL. Le numero est repere par sa forme dans chaque ligne du registre, et les champs suivants lus par rapport a lui. Classement inchange : ecart a la mediane de marche de la strate.
+
+H30 decodait la geographie d'une estampille sans source externe mais
+butait sur le nom. Le registre des etablissements agrees de la DGAL
+fait ce lien par le numero d'agrement : `fr-56-222-002` devient
+`56.222.002`, et le registre nomme l'entreprise.
+
+Huit listes officielles rapatriees depuis
+`fichiers-publics.agriculture.gouv.fr/dgal/ListesOfficielles/`, dont
+aucun nom de fichier n'a ete devine : la sonde a lu l'index du
+serveur. Empreintes sha256 dans `donnees_registre/collecte.csv`.
+
+**5990 numeros d'agrement** distincts au registre, dont
+**419** portent plus d'une raison sociale — exploitants successifs,
+ou graphies differentes selon les listes. Aucun n'est tranche :
+leurs noms sont TOUS affiches et la ligne est marquee
+`nom_ambigu`. En choisir un serait inventer une attribution.
+
+4,0 % des lignes du registre sont illisibles : les fichiers de la
+DGAL ont des lignes de longueur variable, la colonne des
+activites debordant en champs supplementaires. Le lecteur repere
+le numero d'agrement par sa FORME et lit les champs suivants par
+rapport a lui, ce qui resiste aux deux mises en page rencontrees.
+Les lignes perdues sont comptees par fichier, jamais absorbees.
+
+**162 sites publiables** (au moins 30 produits, aucun produit
+de la mer), dont **158 nommes** et 4 non apparies. Un site sans nom
+reste au classement : le retirer ferait disparaitre precisement les
+etablissements que le registre documente le moins bien.
+
+**Les 10 sites les mieux classes** — ecart a la mediane de marche de
+la strate ; negatif = mieux que le marche sur le meme type de
+produit :
+
+| code | entreprise | commune | n | ecart | sel | 1er client | part | sans lui |
+|:--|:--|:--|--:|--:|--:|:--|--:|--:|
+| `fr-53-097-001` | SOCOPA VIANDES | EVRON | 42 | -12.0 | 0.15 | l-etal-du-boucher | 67 % | +3.5 |
+| `fr-43-211-010` | SOUCHON D'AUVERGNE | SAINT-MAURICE-DE-LIGNON | 36 | -7.0 | 4.60 | saint-agaune | 42 % | -7.0 |
+| `fr-59-597-001` | SOCIETE D'INNOVATION CULINAIRE | TILLOY-LEZ-CAMBRAI | 50 | -7.0 | 1.40 | fleury-michon | 84 % | — |
+| `fr-19-031-008` | SO'HAM SUD-OUEST | BRIVE-LA-GAILLARDE | 45 | -6.0 | 1.80 | carrefour | 64 % | -13.0 |
+| `fr-80-799-001` | LES SALAISONS DU TERROIR | VILLERS-BRETONNEUX | 53 | -6.0 | 1.50 | inconnue | 77 % | -4.5 |
+| `fr-35-238-019` | MAITRE JACQUES | RENNES | 58 | -5.0 | 1.47 | maitre-jacques | 60 % | -13.0 |
+| `fr-85-182-003` | FLEURY MICHON CHARCUTERIE / FLEURY MICHON LS | POUZAUGES | 255 | -5.0 | 1.80 | fleury-michon | 98 % | — |
+| `fr-67-218-001` | HERTA | ILLKIRCH-GRAFFENSTADEN | 101 | -4.0 | 1.80 | herta | 78 % | -7.0 |
+| `fr-87-065-001` | COMPAGNIE MADRANGE | FEYTIAT | 202 | -4.0 | 1.90 | madrange | 45 % | -4.0 |
+| `fr-33-036-007` | ETS CLEMENS SARL | BAZAS | 34 | -3.0 | 1.20 | inconnue | 85 % | — |
+
+**Les 10 sites les moins bien classes** :
+
+| code | entreprise | commune | n | ecart | sel | 1er client | part | sans lui |
+|:--|:--|:--|--:|--:|--:|:--|--:|--:|
+| `fr-38-012-001` | AOSTE SNC OU A SNC - JAMBON D'AOSTE | AOSTE | 223 | +5.5 | 4.50 | aoste | 35 % | +1.0 |
+| `fr-01-159-002` | ROLAND MONTERRAT - LYONVAL TRAITEUR | FEILLENS | 53 | +6.0 | 1.70 | roland-monterrat | 19 % | +6.0 |
+| `fr-56-222-002` | CENTRE ELABORATION DES VIANDES | SAINT-JEAN-BREVELAY | 85 | +8.0 | 2.40 | reghalal | 32 % | +6.0 |
+| `fr-85-006-001` | CHARCUTERIE VENDEENNE | APREMONT | 71 | +8.0 | 3.30 | petitgas | 41 % | +10.0 |
+| `fr-56-166-001` | ISLA MONDIAL | PLOUAY | 39 | +9.0 | 2.30 | isla-mondial | 92 % | — |
+| `fr-42-156-006` | CRYSTAL | NEULISE | 53 | +12.0 | 3.40 | isla-delice | 92 % | — |
+| `fr-11-262-047` | COMPAGNIE MONTAGNE NOIRE | NARBONNE | 97 | +13.0 | 4.70 | montagne-noire | 20 % | +12.5 |
+| `fr-40-261-001` | LABEYRIE / LABEYRIE FINE FOODS FRANCE | SAINT-GEOURS-DE-MAREMNE | 34 | +13.0 | 2.70 | labeyrie | 35 % | +13.0 |
+| `fr-64-010-003` | HARAGUY-JAMBON DE BAYONNE | AICIRITS-CAMOU-SUHAST | 31 | +15.0 | 4.90 | carrefour | 19 % | +15.0 |
+| `fr-65-100-003` | FINE LAME | BORDERES-SUR-L'ECHEZ | 58 | +15.0 | 5.00 | carrefour | 38 % | +14.5 |
+
+**Ce que le classement doit a un seul client.** `ecart_sans_dominante`
+recalcule l'ecart apres retrait du premier client du site. 3 sites
+basculent d'au moins 5 points :
+
+| code | entreprise | 1er client | part | n | ecart | n sans lui | ecart sans lui |
+|:--|:--|:--|--:|--:|--:|--:|--:|
+| `fr-53-097-001` | SOCOPA VIANDES | l-etal-du-boucher | 67 % | 42 | -12.0 | 14 | +3.5 |
+| `fr-19-031-008` | SO'HAM SUD-OUEST | carrefour | 64 % | 45 | -6.0 | 16 | -13.0 |
+| `fr-35-238-019` | MAITRE JACQUES | maitre-jacques | 60 % | 58 | -5.0 | 23 | -13.0 |
+
+**Cette colonne est un signal d'alerte sur le classement, pas une
+mesure de ce qu'un site ferait pour ses autres clients.** Aucun de
+ces recalculs n'atteint la regle des 30, et deux des trois vont dans
+le sens inverse du troisieme : retirer le premier client AMELIORE
+SO'HAM SUD-OUEST et MAITRE JACQUES.
+
+Le cas de SOCOPA VIANDES a Evron le montre en detail. Ses 42
+produits sont tous dans la strate `autres_carnes / porc`. Les 28 du
+client dominant sont des rotis de filet, des cotes, du saute — des
+morceaux maigres a **0,11 g de sel**. Les 14 autres melangent ces
+memes rotis avec de la poitrine, de la palette et du jarret
+demi-sel, a **3,30 g de sel**. L'ecart entre les deux groupes est
+l'ecart entre deux MORCEAUX DE PORC, pas entre deux niveaux de
+qualite.
+
+**C'est une limite de la stratification, et elle est generale sur les
+sites de decoupe** : `sous-categorie x espece` controle l'espece et
+la gamme, jamais le morceau. Un roti de filet et une poitrine
+demi-sel y sont voisins. Tout ecart intra-site lu sur des viandes
+crues doit etre suspecte de n'etre qu'une difference de decoupe.
+
+**Le bas de ce classement n'est pas halal.** Les deux derniers sites,
+FINE LAME et HARAGUY-JAMBON DE BAYONNE, sont a +15,0 et ne sortent
+**aucun produit halal** : ce sont des faconniers de charcuterie seche
+du Sud-Ouest, dont le premier client est une enseigne. 7 des 10
+derniers sites n'ont aucun produit halal. Un lecteur qui chercherait
+le halal en bas de tableau ne l'y trouverait pas.
+
+### Qui fabrique le halal
+
+**Descriptif, pas un classement.** La couche 10 a mesure sur le
+halal une dispersion INTRA site superieure a celle du temoin
+(7,82 contre 5,55) et un pouvoir explicatif du site plus faible
+(0,168 contre 0,304) : un site n'a pas de « niveau » halal
+stable, et l'ordre de ce tableau ne doit pas etre lu comme un
+palmares.
+
+| code | entreprise | commune | n | dont halal | marques | ecart | sel | 1er client |
+|:--|:--|:--|--:|--:|--:|--:|--:|:--|
+| `fr-56-222-002` | CENTRE ELABORATION DES VIANDES | SAINT-JEAN-BREVELAY | 85 | 71 | 17 | +8.0 | 2.40 | reghalal |
+| `fr-42-156-006` | CRYSTAL | NEULISE | 53 | 52 | 5 | +12.0 | 3.40 | isla-delice |
+| `fr-56-166-001` | ISLA MONDIAL | PLOUAY | 39 | 38 | 4 | +9.0 | 2.30 | isla-mondial |
+| `fr-85-051-003` | FLEURY MICHON LS | CHANTONNAY | 116 | 32 | 3 | +0.0 | 1.80 | fleury-michon |
+| `fr-69-135-001` | CORICO | DEUX-GROSNES | 27 | 21 | 12 | +3.5 | 3.01 | medina-halal |
+| `fr-89-013-001` | LAGUILLAUMIE | APPOIGNY | 20 | 20 | 2 | +11.5 | 2.48 | arabi |
+| `fr-61-096-018` | S N V | RIVES D'ANDAINE | 35 | 13 | 9 | +4.0 | 1.30 | inconnue |
+| `fr-22-277-004` | SOCIETE NOUVELLE BELDIS | SAINT-BRANDAN | 13 | 12 | 3 | +7.0 | 1.50 | inconnue |
+| `fr-88-218-001` | SOCIETE NOUVELLE SALAISONS VOSGIENNES | GRANGES-AUMONTZEY | 12 | 12 | 4 | +0.0 | 1.84 | oriental-viandes |
+| `fr-41-053-002` | NOUVELLE ATLAS / NOUVELLE ATLAS - AL KAWTAR | CHOUE | 12 | 10 | 5 | +8.0 | 2.15 | aljadid |
+
+Ce tableau repond a une question que le rayon ne montre pas :
+**qui fabrique**. Une marque n'est pas une usine, et plusieurs
+des marques les plus visibles du rayon halal sortent de sites
+qui portent un autre nom.
+
+*Reserves.*
+- **Un site est juge sur les recettes de ses donneurs d'ordre.** Un faconnier execute un cahier des charges qu'il n'ecrit pas. Nommer l'usine ne transforme pas le classement en jugement sur son savoir-faire, et la colonne `ecart_sans_dominante` est la pour le rappeler ligne par ligne.
+- **Le registre atteste un agrement sanitaire europeen, rien d'autre.** Aucune ligne ne dit si un produit est halal, ni si une entreprise respecte une norme religieuse, sanitaire ou sociale.
+- 419 numeros d'agrement portent plusieurs raisons sociales. Les sites concernes affichent tous leurs noms et sont marques `nom_ambigu` ; un changement d'exploitant n'est pas distingue d'une variante de graphie.
+- 4,0 % des lignes du registre restent illisibles. Elles sont comptees par fichier, et rien ne garantit qu'elles soient reparties au hasard.
+- Un numero d'agrement couvre un ETABLISSEMENT, pas une ligne de production. Deux ateliers du meme site partagent le meme code.
+- L'estampille n'est saisie que sur une fraction des produits d'Open Food Facts. Le classement porte sur cette fraction.
+- Le registre est une photographie a sa date de rapatriement. Un site peut avoir change d'exploitant depuis le dump nutritionnel, qui est lui-meme fige.
+
 ---
 
 ## 8. Erreurs commises et corrigees en cours d'etude
@@ -1486,7 +1493,7 @@ desormais mesuree et publiee AVANT chaque comparaison.
 | Electronarcose | Classification non etablie ici | Les cahiers des charges des organismes eux-memes |
 | Faconnage multi-marques | 3 etablissements mixtes seulement | Une meilleure saisie des estampilles, ou le registre public des agrements |
 | Nom des sites de production | RESOLU (H33) : 93,8 % des sites classes nommes par le registre DGAL | Les 4 % de lignes du registre illisibles, et les 419 agrements a raison sociale multiple |
-| Cout de l'abattage et de la certification | Hors de portee de cette source, definitivement | Les comptabilites d'abattoirs et les grilles tarifaires des certificateurs. Aucune n'est publique |
+| Cout de l'abattage et de la certification | Hors de portee de cette source, definitivement. Une recherche renvoie une fourchette de 2 a 20 centimes par kilo de redevance de certification, attribuee a la presse professionnelle et NON VERIFIEE : l'article n'a pas pu etre ouvert, et ce chiffre n'entre nulle part dans les calculs | Les comptabilites d'abattoirs et les grilles tarifaires des certificateurs. Aucune n'est publique |
 | Surcout halal en rayon | Non etabli, borne haute a +1,39 EUR/kg | Un releve de prix systematique : 138 produits halal ne permettent pas de voir moins |
 | MDD contre specialistes | Ordre constant, aucune difference etablie | Plus de MDD avec une gamme halal : 3 marques ne portent pas une famille |
 | « Specialiste du halal » comme categorie | Melange epicerie turque et marques maghrebines | Un decoupage par repertoire culinaire, teste contre celui par part de catalogue |
