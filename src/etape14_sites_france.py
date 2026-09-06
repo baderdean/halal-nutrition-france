@@ -34,6 +34,7 @@ TROIS AVERTISSEMENTS AVANT DE CLASSER UN SITE.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -43,7 +44,8 @@ import urllib.request
 import numpy as np
 import pandas as pd
 
-from commun import COMPLET, PERIMETRE, SORTIES, borne, connexion, titre
+from commun import COMPLET, PERIMETRE, RACINE, SORTIES, borne, \
+    connexion, titre
 from etape10_etablissements import normaliser_etablissement, utilisable
 from etape8_prix import spearman_boot
 from etape4_classement_complet import MOTIF_MER_MARQUE
@@ -234,13 +236,68 @@ def sonder_registre() -> int:
     return 0
 
 
+# Les fichiers a rapatrier. AUCUN n'est devine : tous figurent dans
+# sorties/s5_index_dgal.csv, produit par la sonde qui a lu l'index Apache de
+# la DGAL (run 33990190799, 180 fichiers listes).
+#
+# SSA1_ACTIV_GEN est la liste generale : un etablissement, ses activites.
+# Les autres sont les listes par activite qui recouvrent le perimetre carne.
+# Elles sont rapatriees aussi, pour verifier que la liste generale ne perd
+# personne plutot que de le supposer.
+FICHIERS_REGISTRE = [
+    ("SSA1_ACTIV_GEN.csv", "liste generale, etablissement x activite"),
+    ("SSA4_AGSANPROBASEVDE_PRV.txt", "produits a base de viande"),
+    ("SSA4_AGSANPREVDE_PRV.txt", "preparations de viandes"),
+    ("SSA4_AGSANVDEHACH_PRV.txt", "viandes hachees"),
+    ("SSA6B_AGSANABONGD_PRV.txt", "abattage d'ongules domestiques"),
+    ("SSA6B_AGSANABVOL_PRV.txt", "abattage de volailles"),
+    ("SSA6B_AGSANDCPBOU_PRV.txt", "decoupe de boucherie"),
+    ("SSA6B_AGSANDCPVOL_PRV.txt", "decoupe de volailles"),
+]
+REGISTRE = RACINE / "donnees_registre"
+
+
 def recuperer_registre() -> int:
+    """Rapatrie les listes officielles de la DGAL. A lancer sur un runner."""
     titre("Telechargement du registre des etablissements agrees")
-    print("Pas encore ecrit. La sonde (--sonder-registre) doit d'abord tourner")
-    print("sur un runner GitHub et dire quelle ressource existe, sous quel")
-    print("format et a quelle URL. Ecrire ce telechargement avant est la")
-    print("meme erreur que la couche 8 a payee deux fois.")
-    return 1
+    print("Source : listes officielles de la DGAL, publiees sous")
+    print(f"{DGAL}")
+    print("Licence ouverte. Ces fichiers nomment des ENTREPRISES et des SITES")
+    print("agrees ; ils ne disent rien du caractere halal de quoi que ce soit.")
+    print()
+    REGISTRE.mkdir(exist_ok=True)
+    journal, echecs = [], 0
+    for nom, quoi in FICHIERS_REGISTRE:
+        url = DGAL + nom
+        try:
+            with _http(url, timeout=180) as r:
+                brut = r.read()
+        except urllib.error.HTTPError as e:
+            print(f"  {e.code}  {nom}  ({e.reason})")
+            echecs += 1
+            continue
+        except Exception as e:                          # noqa: BLE001
+            print(f"  ---  {nom}  ({type(e).__name__}: {e})")
+            echecs += 1
+            continue
+        (REGISTRE / nom).write_bytes(brut)
+        txt = brut.decode("utf-8", "replace")
+        lignes = txt.count("\n")
+        entete = txt.split("\n", 1)[0][:150]
+        print(f"  200  {nom:30s} {len(brut):>9} o  {lignes:>6} lignes  {quoi}")
+        print(f"       {entete}")
+        journal.append({"fichier": nom, "contenu": quoi, "url": url,
+                        "octets": len(brut), "lignes": lignes,
+                        "sha256": hashlib.sha256(brut).hexdigest()})
+    if journal:
+        pd.DataFrame(journal).to_csv(REGISTRE / "collecte.csv", index=False)
+        print(f"\n  {len(journal)} fichiers ecrits dans donnees_registre/,")
+        print("  avec leur sha256 dans collecte.csv : sans empreinte, le")
+        print("  rapprochement ne serait pas rejouable.")
+    if echecs:
+        print(f"\n  [ATTENTION] {echecs} fichiers n'ont pas repondu. Le")
+        print("  rapprochement portera sur les autres, et le dira.")
+    return 0 if journal else 1
 
 
 def decoder(code: str) -> dict | None:
