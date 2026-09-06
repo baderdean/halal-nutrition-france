@@ -1,0 +1,9 @@
+critere,bras,n,pct_retenu
+sel >= 1.5 g et note C ou pire,halal,1948,60.8
+sel >= 1.5 g et note C ou pire,temoin,68069,48.8
+sel >= 2.0 g et note C ou pire,halal,1948,44.5
+sel >= 2.0 g et note C ou pire,temoin,68069,27.5
+sel >= 2.5 g et note C ou pire,halal,1948,28.5
+sel >= 2.5 g et note C ou pire,temoin,68069,17.5
+sel >= 3.0 g et note C ou pire,halal,1948,17.8
+sel >= 3.0 g et note C ou pire,temoin,68069,14.7

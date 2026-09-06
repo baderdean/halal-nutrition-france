@@ -1381,6 +1381,7 @@ def bloc_marche() -> list[str]:
     l += bloc_h31()
     l += bloc_h33()
     l += bloc_h34()
+    l += bloc_h35()
     l += ["---", ""]
     return l
 
@@ -1991,6 +1992,89 @@ def bloc_h34() -> list[str]:
          "Les gammes ou les deux bras depassent 30 produits sont 19 sur 11 x "
          "10 combinaisons possibles. Un seuil general couvrirait des gammes "
          "que cette etude n'a pas pu tester."])
+
+
+def bloc_h35() -> list[str]:
+    """H35 — un critere sel + note permet-il de deconseiller des produits ?"""
+    cs = lire("j3_critere_selection")
+    cg = lire("j4_critere_par_gamme")
+    if cs is None or not len(cs):
+        return ["### H35 — Sortie absente : j3_critere_selection", ""]
+
+    c = ["Un critere n'aide un lecteur que s'il DISTINGUE a l'interieur d'une",
+         "gamme. S'il retient 80 % d'une gamme et 1 % d'une autre, il ne",
+         "deconseille pas des produits : il deconseille une gamme, ce que les",
+         "reperes publics font deja.", "",
+         "| critere | retenu, halal | retenu, temoin |",
+         "|:--|--:|--:|"]
+    for crit, g in cs.groupby("critere"):
+        h = g[g.bras == "halal"].pct_retenu.iloc[0]
+        t = g[g.bras == "temoin"].pct_retenu.iloc[0]
+        c.append(f"| {crit} | {h:.1f} % | {t:.1f} % |")
+    if cg is not None and len(cg):
+        c += ["",
+              "**Au seuil de 2,5 g, ce que le critere retient dans le bras "
+              "halal, gamme par gamme :**", "",
+              "| gamme | n | part retenue |", "|:--|--:|--:|"]
+        for r in cg.itertuples():
+            nom = getattr(r, "sous_categorie", getattr(r, "Index", ""))
+            c.append(f"| {nom} | {r.n} | {r.pct:.1f} % |")
+        c += ["",
+              "**De 80,8 % en charcuterie sechee a 0,7 % en panes.** Le critere",
+              "est un detecteur de GAMME avant d'etre un detecteur de PRODUIT.",
+              "Applique tel quel, il revient a redire ce que le PNNS dit deja :",
+              "limiter la charcuterie. Pour aider a choisir DANS une gamme, il",
+              "faut un seuil interne a la gamme."]
+    c += ["",
+          "### Ce que l'etude peut apporter a la place : l'arithmetique de la "
+          "portion", "",
+          "Deux reperes publics, cites et non produits par cette etude : moins",
+          "de **5 g de sel par jour** pour un adulte (OMS, repris par le PNNS),",
+          "et au plus **150 g de charcuterie par semaine**, soit environ 25 g",
+          "par jour (PNNS, Sante publique France). Ils se combinent en un",
+          "calcul verifiable sur l'emballage.", "",
+          "| gamme du bras halal | sel | portion PNNS de 25 g | part du maximum "
+          "quotidien |", "|:--|--:|--:|--:|",
+          "| charcuterie cuite, mediane | 2,40 g/100 g | 0,60 g | 12 % |",
+          "| charcuterie cuite, 9e decile | 3,45 g/100 g | 0,86 g | 17 % |",
+          "| charcuterie sechee, mediane | 3,60 g/100 g | 0,90 g | 18 % |",
+          "| charcuterie sechee, 9e decile | 5,10 g/100 g | 1,27 g | **25 %** |",
+          "",
+          "**« Sel eleve » est un jugement ; « cette portion couvre un quart du",
+          "maximum quotidien » est un fait.** Le lecteur le verifie sur",
+          "l'emballage et le rapporte au reste de sa journee. Ce depot publie",
+          "le fait, pas le jugement.",
+          "",
+          "Et il porte sur la portion que le repere public autorise deja : 25 g",
+          "par jour de charcuterie, soit deux tranches. Au 9e decile de la",
+          "charcuterie sechee halal, ces deux tranches consomment un quart du",
+          "sel de la journee."]
+    return hypothese(
+        "H35", "Un critere « sel eleve et Nutri-Score C ou pire » permet de "
+        "deconseiller des produits",
+        "Application du critere aux deux bras, a quatre seuils de sel, puis "
+        "decomposition par gamme du bras halal. Mise en rapport des teneurs "
+        "avec deux reperes publics : 5 g de sel par jour et 150 g de "
+        "charcuterie par semaine.",
+        "REFUTE comme critere de PRODUIT — il selectionne une gamme, pas un "
+        "produit ; ce que l'etude peut publier a la place est l'arithmetique "
+        "de la portion, qui est un fait et non un conseil",
+        c,
+        ["**Ce depot ne deconseille aucun produit et n'est pas fonde a le "
+         "faire.** Une recommandation alimentaire individuelle releve d'un "
+         "professionnel de sante et des autorites sanitaires, qui ont deja "
+         "publie la leur. L'etude mesure des compositions ; elle ne prescrit "
+         "pas de regime.",
+         "**Un Nutri-Score reste un indicateur comparatif de composition**, pas "
+         "un verdict sanitaire sur une reference. Le combiner au sel ne le "
+         "transforme pas en diagnostic.",
+         "L'arithmetique de la portion suppose une portion de reference. Elle "
+         "vaut ce que vaut cette convention, et une portion reelle peut etre "
+         "tout autre.",
+         "Le seuil de 2,5 g est choisi pour la demonstration. Le tableau donne "
+         "quatre seuils precisement pour qu'aucun ne passe pour LE seuil.",
+         "Rien ici ne dit a quelle frequence ces produits sont consommes : "
+         "aucune donnee de consommation ne figure dans ce depot."])
 
 
 def bloc_podiums() -> list[str]:

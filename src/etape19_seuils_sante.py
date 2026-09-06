@@ -121,7 +121,64 @@ def main() -> int:
     print("  depot ne dit ou le mettre. C'est une decision de norme, et elle")
     print("  appartient a qui ecrit la norme.")
 
-    print("\nEcrit : sorties/j1_structure_offre.csv, j2_faisabilite_seuils.csv")
+    # --- Un critere « sel eleve ET note C ou pire » deconseille-t-il des
+    # PRODUITS, ou redit-il simplement la GAMME ?
+    titre("Le critere « sel eleve + note C ou pire » : que selectionne-t-il ?")
+    print("Un critere n'aide un lecteur que s'il DISTINGUE a l'interieur d'une")
+    print("gamme. S'il retient 80 % d'une gamme et 1 % d'une autre, il ne")
+    print("deconseille pas des produits : il deconseille une gamme, ce que les")
+    print("reperes publics font deja.\n")
+    d = d[d.note.notna() & d.sel.notna()].copy()
+    lignes = []
+    for s_ in SEUILS_SEL:
+        for b in ("halal", "temoin"):
+            g = d[d.bras == b]
+            f_ = (g.sel >= s_) & (g.note.isin(["c", "d", "e"]))
+            lignes.append({"critere": f"sel >= {s_} g et note C ou pire",
+                           "bras": b, "n": len(g),
+                           "pct_retenu": round(100 * f_.mean(), 1)})
+    ct = pd.DataFrame(lignes)
+    print(ct.pivot(index="critere", columns="bras",
+                   values="pct_retenu").to_string())
+    ct.to_csv(SORTIES / "j3_critere_selection.csv", index=False)
+
+    h = d[d.bras == "halal"].copy()
+    h["retenu"] = (h.sel >= 2.5) & (h.note.isin(["c", "d", "e"]))
+    par = (h.groupby("sous_categorie")
+             .agg(n=("retenu", "size"), pct=("retenu", "mean")))
+    par["pct"] = (100 * par.pct).round(1)
+    par = par[par.n >= 30].sort_values("pct", ascending=False)
+    print("\n  Au seuil de 2,5 g, part du bras halal retenue par gamme :")
+    print(par.to_string())
+    par.to_csv(SORTIES / "j4_critere_par_gamme.csv")
+    print("\n  De 80,8 % en charcuterie sechee a 0,7 % en panes. Le critere")
+    print("  est un DETECTEUR DE GAMME avant d'etre un detecteur de produit.")
+    print("  Pour aider a choisir DANS une gamme, il faut un seuil interne a")
+    print("  la gamme, pas un seuil general.")
+
+    # --- L'arithmetique de la portion, seule facon honnete de dire « eleve ».
+    titre("Ce que « sel eleve » veut dire, en portion")
+    print("Reperes publics, cites et non produits par cette etude :")
+    print("  - moins de 5 g de sel par jour pour un adulte (OMS, repris par le")
+    print("    PNNS) ;")
+    print("  - au plus 150 g de charcuterie par semaine, soit environ 25 g par")
+    print("    jour (PNNS, Sante publique France).")
+    print("\nCes deux reperes se combinent en une arithmetique verifiable, qui")
+    print("ne conseille rien et ne diagnostique personne :\n")
+    ch = h[h.sous_categorie.isin(["charcuterie_cuite", "charcuterie_seche"])]
+    for gamme, g in ch.groupby("sous_categorie"):
+        for q, lib in ((0.5, "median"), (0.9, "9e decile")):
+            sel = float(g.sel.quantile(q))
+            print(f"  {gamme:20s} {lib:10s} {sel:.2f} g/100 g  ->  une portion "
+                  f"PNNS de 25 g\n  {'':32s} apporte {sel * 0.25:.2f} g de sel, "
+                  f"soit {100 * sel * 0.25 / 5:.0f} % du maximum quotidien.")
+    print("\n  A quoi cela sert. « Sel eleve » est un jugement ; « cette")
+    print("  portion couvre un quart du maximum quotidien » est un fait que")
+    print("  le lecteur peut verifier sur l'emballage et rapporter au reste de")
+    print("  sa journee. Ce depot publie le fait, pas le jugement.")
+
+    print("\nEcrit : sorties/j1_structure_offre.csv, j2_faisabilite_seuils.csv,")
+    print("        j3_critere_selection.csv, j4_critere_par_gamme.csv")
     return 0
 
 
