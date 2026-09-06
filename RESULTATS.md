@@ -1265,16 +1265,32 @@ produit :
 recalcule l'ecart apres retrait du premier client du site. 3 sites
 basculent d'au moins 5 points :
 
-| code | entreprise | 1er client | part | ecart | sans lui |
-|:--|:--|:--|--:|--:|--:|
-| `fr-53-097-001` | SOCOPA VIANDES | l-etal-du-boucher | 67 % | -12.0 | +3.5 |
-| `fr-19-031-008` | SO'HAM SUD-OUEST | carrefour | 64 % | -6.0 | -13.0 |
-| `fr-35-238-019` | MAITRE JACQUES | maitre-jacques | 60 % | -5.0 | -13.0 |
+| code | entreprise | 1er client | part | n | ecart | n sans lui | ecart sans lui |
+|:--|:--|:--|--:|--:|--:|--:|--:|
+| `fr-53-097-001` | SOCOPA VIANDES | l-etal-du-boucher | 67 % | 42 | -12.0 | 14 | +3.5 |
+| `fr-19-031-008` | SO'HAM SUD-OUEST | carrefour | 64 % | 45 | -6.0 | 16 | -13.0 |
+| `fr-35-238-019` | MAITRE JACQUES | maitre-jacques | 60 % | 58 | -5.0 | 23 | -13.0 |
 
-Le mieux classe du tableau, SOCOPA VIANDES a Evron, passe de
-**-12,0 a +3,5** des qu'on retire son premier client. Son rang
-etait celui d'une marque, pas d'une usine. Lire le haut de ce
-classement sans cette colonne serait une erreur de lecture.
+**Cette colonne est un signal d'alerte sur le classement, pas une
+mesure de ce qu'un site ferait pour ses autres clients.** Aucun de
+ces recalculs n'atteint la regle des 30, et deux des trois vont dans
+le sens inverse du troisieme : retirer le premier client AMELIORE
+SO'HAM SUD-OUEST et MAITRE JACQUES.
+
+Le cas de SOCOPA VIANDES a Evron le montre en detail. Ses 42
+produits sont tous dans la strate `autres_carnes / porc`. Les 28 du
+client dominant sont des rotis de filet, des cotes, du saute — des
+morceaux maigres a **0,11 g de sel**. Les 14 autres melangent ces
+memes rotis avec de la poitrine, de la palette et du jarret
+demi-sel, a **3,30 g de sel**. L'ecart entre les deux groupes est
+l'ecart entre deux MORCEAUX DE PORC, pas entre deux niveaux de
+qualite.
+
+**C'est une limite de la stratification, et elle est generale sur les
+sites de decoupe** : `sous-categorie x espece` controle l'espece et
+la gamme, jamais le morceau. Un roti de filet et une poitrine
+demi-sel y sont voisins. Tout ecart intra-site lu sur des viandes
+crues doit etre suspecte de n'etre qu'une difference de decoupe.
 
 ### Qui fabrique le halal
 
@@ -1444,6 +1460,12 @@ affirmation publique fausse.
 | 10 | Verdict prix lu sur le point et non l'intervalle | Un ecart de +0.0 range du cote « meilleur » | Verdict fonde sur les IC |
 | 11 | Dump fige declare irrecuperable | Etude declaree non rejouable | `versionId` S3 ajoute a `config/source.yaml` |
 | 12 | Sortie A7 sans `ORDER BY` | Fichier versionne changeant d'ordre a chaque execution | Tri explicite |
+| 13 | `ecart_sans_dominante` publie sans son effectif | « Socopa fait mieux pour son client principal » : lecture fausse, tiree de 14 produits melangeant roti de filet et jarret demi-sel | Colonne `n_sans_dominante` ajoutee, et la limite de la strate ecrite dans H33 |
+
+La 13 a ete trouvee par une question du commanditaire sur une ligne
+publiee, pas par un test. Une colonne juste, presentee sans son
+effectif, produit une affirmation fausse aussi surement qu'un calcul
+faux.
 
 Deux d'entre elles, la 6 et la 9, allaient dans le sens du resultat
 attendu. C'est la raison pour laquelle la couverture des donnees est
@@ -1468,6 +1490,7 @@ desormais mesuree et publiee AVANT chaque comparaison.
 | Surcout halal en rayon | Non etabli, borne haute a +1,39 EUR/kg | Un releve de prix systematique : 138 produits halal ne permettent pas de voir moins |
 | MDD contre specialistes | Ordre constant, aucune difference etablie | Plus de MDD avec une gamme halal : 3 marques ne portent pas une famille |
 | « Specialiste du halal » comme categorie | Melange epicerie turque et marques maghrebines | Un decoupage par repertoire culinaire, teste contre celui par part de catalogue |
+| Strate trop grossiere sur les viandes crues | `autres_carnes / porc` melange roti de filet (0,11 g de sel) et poitrine demi-sel (3,30 g) | Une strate par MORCEAU, ou l'exclusion des sites de decoupe du classement intra-site |
 | Classement des sites sur leur seul halal | Non fonde | Une dispersion intra-site qui ne depasse plus celle du temoin, ou beaucoup plus de produits par site |
 | Couscous et tajine halal | 1 sur 135, 2 sur 131 | Comprendre pourquoi : absence de certification, ou d'affichage |
 

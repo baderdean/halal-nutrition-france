@@ -384,6 +384,7 @@ def main() -> int:
             "marque_dominante": premiere,
             "part_dominante_pct": round(100.0 * dom.k.iloc[0] / len(g), 1),
             "part_mer_pct": round(100.0 * float(g.mer.mean()), 1),
+            "n_sans_dominante": len(sans),
             "ecart_sans_dominante": (round(float(sans.ecart.median()), 1)
                                      if len(sans) >= SEUIL_DESC else None),
             "regle_30": "franchie" if len(g) >= SEUIL else "sous 30",
@@ -402,8 +403,8 @@ def main() -> int:
                                             na=False))
     cols = ["etablissement", "departement", "n", "n_marques", "n_halal",
             "ecart_median", "sel_median", "marque_dominante",
-            "part_dominante_pct", "ecart_sans_dominante", "regle_30",
-            "part_mer_pct", "alerte_mer"]
+            "part_dominante_pct", "n_sans_dominante",
+            "ecart_sans_dominante", "regle_30", "part_mer_pct", "alerte_mer"]
     print("  --- 15 meilleurs, classement brut")
     print(t14.head(15)[cols].to_string(index=False))
     print("\n  --- 15 derniers, classement brut")
@@ -412,8 +413,15 @@ def main() -> int:
     print(f"\n  {len(t14)} sites classes, dont "
           f"{int((t14.regle_30 == 'franchie').sum())} au-dessus de 30 produits.")
     print("  `ecart_sans_dominante` mesure ce qui reste quand on retire le")
-    print("  premier client du site : un ecart qui s'y effondre etait celui")
-    print("  d'une marque, pas d'une usine.")
+    print("  premier client du site. Il se lit TOUJOURS avec "
+          "`n_sans_dominante` :")
+    print("  la plupart de ces recalculs portent sur une poignee de produits "
+          "et ne")
+    print("  sont pas testables. Sur les sites de decoupe en particulier, la")
+    print("  strate (sous-categorie x espece) ne controle pas le MORCEAU : un")
+    print("  roti de filet et une poitrine demi-sel y sont voisins, et l'ecart")
+    print("  entre deux clients d'un meme site peut n'etre que l'ecart entre")
+    print("  deux morceaux de porc.")
     n_mer = int(t14.alerte_mer.sum())
     if n_mer:
         print(f"\n  [ALERTE] {n_mer} sites sortent au moins un produit de la "

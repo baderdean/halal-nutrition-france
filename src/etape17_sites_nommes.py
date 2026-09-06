@@ -131,7 +131,8 @@ def main() -> int:
     pub = pub.sort_values(["ecart_median", "etablissement"])
     cols = ["etablissement", "nom", "commune", "departement", "n", "n_marques",
             "n_halal", "ecart_median", "sel_median", "marque_dominante",
-            "part_dominante_pct", "ecart_sans_dominante", "nom_ambigu"]
+            "part_dominante_pct", "n_sans_dominante", "ecart_sans_dominante",
+            "nom_ambigu"]
     pub[cols].to_csv(SORTIES / "h1_sites_nommes.csv", index=False)
     j[cols].to_csv(SORTIES / "h2_sites_nommes_complet.csv", index=False)
 
@@ -150,16 +151,27 @@ def main() -> int:
     print("\n  --- 12 sites les moins bien classes")
     print(pub.tail(12)[aff].to_string(index=False))
 
-    print("\n  A LIRE AVEC CHAQUE LIGNE. `ecart_sans_dominante` recalcule")
-    print("  l'ecart apres retrait du premier client du site. Quand il")
-    print("  s'effondre, l'ecart etait celui d'une MARQUE et non d'une usine.")
+    print("\n  A LIRE AVEC CHAQUE LIGNE, ET AVEC SON EFFECTIF.")
+    print("  `ecart_sans_dominante` recalcule l'ecart apres retrait du premier")
+    print("  client du site. C'est un SIGNAL D'ALERTE sur le classement, pas")
+    print("  une mesure de ce que le site ferait pour ses autres clients :")
+    print("  `n_sans_dominante` dit sur combien de produits il porte, et aucun")
+    print("  des sites qui basculent n'atteint la regle des 30.")
+    print("\n  Sur les sites de DECOUPE, la strate (sous-categorie x espece) ne")
+    print("  controle pas le MORCEAU. Un roti de filet a 0,11 g de sel et une")
+    print("  poitrine demi-sel a 3,30 g partagent la strate `autres_carnes /")
+    print("  porc`. Un ecart entre deux clients d'un tel site peut n'etre que")
+    print("  l'ecart entre deux morceaux de porc, et non deux niveaux de")
+    print("  qualite.")
     bascule = pub[(pub.ecart_sans_dominante.notna())
                   & ((pub.ecart_sans_dominante - pub.ecart_median).abs() >= 5)]
     if len(bascule):
-        print(f"\n  {len(bascule)} sites basculent d'au moins 5 points :")
+        print(f"\n  {len(bascule)} sites basculent d'au moins 5 points, "
+              "tous sous la regle des 30 :")
         print(bascule[["etablissement", "nom", "marque_dominante",
-                       "part_dominante_pct", "ecart_median",
-                       "ecart_sans_dominante"]].to_string(index=False))
+                       "part_dominante_pct", "n", "ecart_median",
+                       "n_sans_dominante", "ecart_sans_dominante"]]
+              .to_string(index=False))
         bascule.to_csv(SORTIES / "h3_bascule_sans_dominante.csv", index=False)
 
     # --- Les sites qui sortent du halal, description seule.
